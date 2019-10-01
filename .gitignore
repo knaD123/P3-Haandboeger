@@ -1,6 +1,5 @@
 *.aux
 *.log
-*.pdf
 *.nlo
 *.toc
 *.out
@@ -8,3 +7,4 @@
 *.blg
 *.backup
 *.kate-swp
+master.pdf
