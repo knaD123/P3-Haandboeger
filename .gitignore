@@ -7,5 +7,7 @@
 *.blg
 *.bak
 *.backup
+*.gz
+*.synctex.gz
 *.kate-swp
 master.pdf
