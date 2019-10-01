@@ -5,6 +5,7 @@
 *.out
 *.bbl
 *.blg
+*.bak
 *.backup
 *.kate-swp
 master.pdf
