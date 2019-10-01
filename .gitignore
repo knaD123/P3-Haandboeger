@@ -1,0 +1,10 @@
+*.aux
+*.log
+*.pdf
+*.nlo
+*.toc
+*.out
+*.bbl
+*.blg
+*.backup
+*.kate-swp

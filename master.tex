@@ -1,0 +1,63 @@
+\input{setup/preamble} %Preamble indlaeses
+
+\raggedbottom %Sørger for at LaTeX ikke "strækker" teksten
+
+\begin{document}
+
+\frontmatter
+
+\include{Formalia/forside}
+\cleardoublepage
+
+\include{Formalia/titelblad}
+\cleardoublepage
+
+% FORORD MED LÆSEVEJLEDNING %
+\include{Formalia/forord}
+\cleardoublepage
+
+%%%% Indholdsfortegnelse (TOC) %%%%
+
+%\phantomsection
+
+\pdfbookmark[0]{Indholdsfortegnelse}{indhold}
+
+\tableofcontents*
+
+%\listoftodos
+
+\mainmatter
+
+
+\include{Chapters/main}
+
+%%%% Kilder %%%%
+\begingroup
+	\raggedright
+	\bibliographystyle{unsrtnat}
+	\bibliography{bibtex/litteraturliste/bibliography}
+	%Litteraturlisten inkluderes
+
+\endgroup
+\label{LastPage}
+
+%%%% Fixme-listen %%%%
+
+%\newpage
+%Ny side til Fixme-listen
+%\listoffixmes
+%Fixme-listen - fjernes til sidst i projektet med "%"
+
+%%%% Appendiks %%%%
+
+\appendix
+
+\clearforchapter
+\phantomsection
+\pdfbookmark[0]{Bilag}{bilag}
+%Tildeler en klikbar bookmark til den endelige PDF
+
+%\include{Kapitler/Bilag/bilag}
+
+
+\end{document} % Slutter dokumentet - obligatorisk

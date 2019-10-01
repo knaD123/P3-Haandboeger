@@ -1,0 +1,394 @@
+\documentclass[a4paper,11pt,fleqn,dvipsnames,twoside,openright,sort&compress]{memoir} 	% Openright aabner kapitler paa hoejresider (openany begge)
+
+%%%% PACKAGES %%%%
+
+% ¤¤ Oversaettelse og tegnsaetning ¤¤ %
+\usepackage[utf8]{inputenc}					% Input-indkodning af tegnsaet (UTF8)
+\usepackage[british, danish]{babel}					% Dokumentets sprog
+\usepackage[T1]{fontenc}					% Output-indkodning af tegnsaet (T1)
+\usepackage{ragged2e,anyfontsize}			% Justering af elementer
+\usepackage{nomencl}
+\makenomenclature
+\usepackage{indentfirst}
+
+% ¤¤ Figurer og tabeller (floats) ¤¤ %
+% Tilføjet:
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+%Linjeskift i tabeller:
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+  %anvend: \specialcell[]{Første del\\ anden del} [t]= align top, [b]= align bottom
+
+
+% Tyk horisontallinje til tabeller :
+\makeatletter
+\newcommand{\thickhline}{%
+    \noalign {\ifnum 0=`}\fi \hrule height 1.5pt
+    \futurelet \reserved@a \@xhline
+}
+\newcolumntype{"}{@{\hskip\tabcolsep\vrule width 2pt\hskip\tabcolsep}}
+\makeatother
+
+% Anvend : \thickhline
+
+\usepackage{tabulary}
+\usepackage{graphicx} 						% Haandtering af eksterne billeder (JPG, PNG, EPS, PDF)
+\usepackage{wrapfig}
+%\usepackage{eso-pic}						% Tilfoej billedekommandoer paa hver side
+%\usepackage{wrapfig}						% Indsaettelse af figurer omsvoebt af tekst. \begin{wrapfigure}{Placering}{Stoerrelse}
+\usepackage{multirow}                		% Fletning af raekker og kolonner (\multicolumn og \multirow)
+\usepackage{multicol}         	        	% Muliggoer output i spalter
+\usepackage{rotating}						% Rotation af tekst med \begin{sideways}...\end{sideways}
+\usepackage{colortbl} 						% Farver i tabeller (fx \columncolor og \rowcolor)
+\usepackage{xcolor}							% Definer farver med \definecolor. Se mere: http://en.wikibooks.org/wiki/LaTeX/Colors
+\usepackage{flafter}						% Soerger for at floats ikke optraeder i teksten foer deres reference
+\let\newfloat\relax 						% Justering mellem float-pakken og memoir
+\usepackage{float}							% Muliggoer eksakt placering af floats, f.eks. \begin{figure}[H]
+
+\graphicspath{{billeder/}}						% Sti til figure
+
+% ¤¤ Matematik mm. ¤¤
+\usepackage{amsmath,amssymb,stmaryrd} 		% Avancerede matematik-udvidelser
+\usepackage{mathtools}						% Andre matematik- og tegnudvidelser
+\usepackage{textcomp}                 		% Symbol-udvidelser (f.eks. promille-tegn med \textperthousand )
+\usepackage{amsthm}
+\usepackage{rsphrase}						% Kemi-pakke til RS-saetninger, f.eks. \rsphrase{R1}
+\usepackage[version=3]{mhchem} 				% Kemi-pakke til flot og let notation af formler, f.eks. \ce{Fe2O3}
+\usepackage[binary-units=true, per-mode=fraction]{siunitx}						% Flot og konsistent
+\DeclareSIUnit\vote{stemme}
+\DeclareSIUnit\votes{stemmer}
+%\SI{tal}{enhed}
+\sisetup{output-decimal-marker = {,}}		% Opsaetning af \SI (DE for komma som decimalseparator)
+\usepackage{icomma}							% Komma som decimal operator
+
+% ¤¤ Referencer og kilder ¤¤ %
+\usepackage[danish, english]{varioref}				% Muliggoer bl.a. krydshenvisninger med sidetal (\vref)
+\usepackage[numbers]{natbib}							% Udvidelse med naturvidenskabelige citationsmodeller
+%\usepackage{xr}							% Referencer til eksternt dokument med \externaldocument{<NAVN>}
+%\usepackage{glossaries}					% Terminologi- eller symbolliste (se mere i Daleifs Latex-bog)
+% ¤¤ Misc. ¤¤ %
+\usepackage{listings}						% Placer kildekode i dokumentet med \begin{lstlisting}...\end{lstlisting}
+\usepackage{lipsum}							% Dummy text \lipsum[..]
+\usepackage[shortlabels]{enumitem}			% Muliggoer enkelt konfiguration af lister
+\usepackage{pdfpages}
+\usepackage{pdflscape}					% Goer det muligt at inkludere pdf-dokumenter med kommandoen \includepdf[pages={x-y}]{fil.pdf}
+\pdfoptionpdfminorversion=6					% Muliggoer inkludering af pdf dokumenter, af version 1.6 og hoejere
+\pretolerance=2500 							% Justering af afstand mellem ord (hoejt tal, mindre orddeling og mere luft mellem ord)
+
+% Kommentarer og rettelser med \fxnote. Med 'final' i stedet for 'draft' udloeser hver note en error i den faerdige rapport.
+\usepackage[footnote,draft,danish,silent,nomargin]{fixme}
+
+\usepackage[ntheorem]{mdframed} %Bruges for at kunne lave definitionsboksene
+
+\usepackage{filecontents}
+
+%%%% CUSTOM SETTINGS %%%%
+%%%%To-do markater%%%%
+\usepackage{todonotes}
+
+%%Tikz%%
+\usepackage{tikz}
+\usepackage{tikz-uml}
+\usetikzlibrary{shapes.geometric, arrows, chains, matrix, mindmap, patterns, shapes.misc, trees, positioning}
+
+%rettet fra Emilie%
+\tikzstyle{startstop} = [rectangle, ultra thick, rounded corners, minimum width=3cm, minimum height=1cm,text centered, text width=3cm, draw=black, fill=white]
+\tikzstyle{io} = [trapezium, trapezium left angle=80, trapezium right angle=80, ultra thick, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=white]
+\tikzstyle{process} = [rectangle, ultra thick, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=white]
+\tikzstyle{specialprocess} = [rectangle, ultra thick, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=white]
+\tikzstyle{decision} = [diamond, ultra thick, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=white]
+\tikzstyle{seconddecision} = [circle, ultra thick, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=white]
+\tikzstyle{predefined} = [rectangle, rounded corners, ultra thick, minimum width=3cm, minimum height=1cm,text centered, text width=3cm, draw=black, fill=white]
+\tikzstyle{data} = [trapezium, trapezium left angle=60, trapezium right angle=120, ultra thick, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=white]
+\tikzstyle{terminator} = [ellipse, ultra thick, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=white]
+\tikzstyle{arrow} = [ultra thick,->,>=stealth]
+
+\tikzstyle{decision} = [diamond, draw, fill=blue!20,
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20,
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+
+%PGF%
+\usepackage{pgfplots}
+\usepgfplotslibrary{patchplots}
+
+%%Boxes%%
+\definecolor{theoline}{gray}{0.5}
+\definecolor{theocolor}{gray}{0.9}
+\definecolor{lemcolor}{gray}{0.97}
+\definecolor{defcolor}{RGB}{214,234,218}
+
+\mdfdefinestyle{box}{ % saving some space
+skipabove=1.5em plus 0.4em minus 0.6em,
+%skipbelow=0.5em plus 0.4em minus 0.2em,
+%leftmargin=-7pt, rightmargin=-7pt,
+innerleftmargin=3pt,innerrightmargin=7pt, innertopmargin=2pt, innerbottommargin=2pt,
+%linewidth=1pt,
+%splittopskip=3.2em minus 0.2em,
+%splitbottomskip=0.5em plus 0.2em minus 0.1em,
+}
+\newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=theocolor]{theorem}{Sætning}[section]
+\newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=lemcolor]{lemma}[theorem]{Lemma}
+\newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=lemcolor]{proposition}[theorem]{Proposition}
+\newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=lemcolor]{corollary}[theorem]{Korollar}
+
+
+
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{case}{Bevis}[theorem]
+%\newtheorem{defn}{Definition}[section]
+
+\renewenvironment{proof}[1][Bevis]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\newenvironment{remark}[1][Bemærkning]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+
+
+\theoremstyle{definition}
+\newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=lemcolor]{defn}[theorem]{Definition}
+
+\newtheorem{eks}[theorem]{Eksempel}
+\surroundwithmdframed[
+   topline=false,
+   rightline=false,
+   bottomline=false,
+   leftmargin=\parindent,
+   skipabove=\medskipamount,
+   skipbelow=\medskipamount
+]{eks}
+
+\newenvironment{example}[1][Eksempel]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\surroundwithmdframed[
+   topline=false,
+   rightline=false,
+   bottomline=false,
+   leftmargin=\parindent,
+   skipabove=\medskipamount,
+   skipbelow=\medskipamount
+]{example}
+
+\renewcommand{\qed}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.5em depth0.25em\fi}
+
+% ¤¤ Marginer ¤¤ %
+\setlrmarginsandblock{3.5cm}{2.5cm}{*}		% \setlrmarginsandblock{Indbinding}{Kant}{Ratio}
+\setulmarginsandblock{2.5cm}{3.0cm}{*}		% \setulmarginsandblock{Top}{Bund}{Ratio}
+\checkandfixthelayout 						% Oversaetter vaerdier til brug for andre pakker
+
+%	¤¤ Afsnitsformatering ¤¤ %
+\setlength{\parindent}{3mm}           		% Stoerrelse af indryk
+\setlength{\parskip}{3mm}          			% Afstand mellem afsnit ved brug af double Enter
+\linespread{1,1}							% Linie afstand
+
+% ¤¤ Litteraturlisten ¤¤ %
+%\bibpunct[,]{[}{]}{;}{a}{,}{,} 				% Definerer de 6 parametre ved Harvard henvisning (bl.a. parantestype og seperatortegn)
+\bibliographystyle{unsrtnat}			% Udseende af litteraturlisten.
+
+% ¤¤ Indholdsfortegnelse ¤¤ %
+\setsecnumdepth{subsubsection}		 			% Dybden af nummerede overkrifter (part/chapter/section/subsection)
+\maxsecnumdepth{subsubsection}					% Dokumentklassens graense for nummereringsdybde
+\settocdepth{subsection} 					% Dybden af indholdsfortegnelsen
+
+% ¤¤ Lister ¤¤ %
+\setlist{
+  topsep=0pt,								% Vertikal afstand mellem tekst og listen
+  itemsep=-1ex,								% Vertikal afstand mellem items
+}
+
+% ¤¤ Visuelle referencer ¤¤ %
+\usepackage[colorlinks]{hyperref}			% Danner klikbare referencer (hyperlinks) i dokumentet.
+\hypersetup{colorlinks = true,				% Opsaetning af farvede hyperlinks (interne links, citeringer og URL)
+    linkcolor = black,
+    citecolor = black,
+    urlcolor = black
+}
+
+% ¤¤ Opsaetning af - og tabeltekst ¤¤ %
+\captionnamefont{\small\bfseries\itshape}	% Opsaetning af tekstdelen ('Figur' eller 'Tabel')
+\captiontitlefont{\small}					% Opsaetning af nummerering
+\captiondelim{. }							% Seperator mellem nummerering og figurtekst
+\hangcaption								% Venstrejusterer flere-liniers figurtekst under hinanden
+\captionwidth{\linewidth}					% Bredden af figurteksten
+\setlength{\belowcaptionskip}{0pt}			% Afstand under figurteksten
+\addto\captionsdanish{\renewcommand{\figurename}{Figur}} %Aendre figurteksten til dansk
+
+% ¤¤ Opsaetning af listings ¤¤ %
+
+\definecolor{commentGreen}{RGB}{34,139,24}
+\definecolor{stringPurple}{RGB}{208,76,239}
+
+
+\lstset{language=[Sharp]C,					% Sprog
+	basicstyle=\fontsize{11}{13}\selectfont\ttfamily,		% Opsaetning af teksten
+	keywords={for,if,while,else,elseif,		% Noegleord at fremhaeve
+			  end,break,return,case,
+			  switch,function},
+	keywordstyle=\color{blue},				% Opsaetning af noegleord
+	commentstyle=\color{commentGreen},		% Opsaetning af kommentarer
+	stringstyle=\color{stringPurple},		% Opsaetning af strenge
+	showstringspaces=false,					% Mellemrum i strenge enten vist eller blanke
+	numbers=left, numberstyle=\tiny,		% Linjenumre
+	extendedchars=true, 					% Tillader specielle karakterer
+	columns=flexible,						% Kolonnejustering
+	breaklines, breakatwhitespace=true,		% Bryd lange linjer
+	frame=single,
+	morekeywords = {
+	public,
+	static,
+	string,
+	bool,
+	int,
+	void}
+}
+
+\lstMakeShortInline[columns=fixed]|
+\lstset{language=C,captionpos=b}
+
+% ¤¤ Navngivning ¤¤ %
+\addto\captionsdanish{
+	\renewcommand\appendixname{Appendiks}
+	\renewcommand\contentsname{Indholdsfortegnelse}
+	\renewcommand\bibname{Litteraturliste}
+	\renewcommand\appendixpagename{Appendiks}
+	\renewcommand\appendixtocname{Appendiks}
+	\renewcommand\cftchaptername{Kapitel~}
+%\renewcommand\cftchaptername{\chaptername~}
+% Skriver "Kapitel" foran kapitlerne i indholdsfortegnelsen
+	\renewcommand\cftappendixname{Appendiks ~}
+	%\renewcommand\cftappendixname{\appendixname~}			% Skriver "Appendiks" foran appendiks i indholdsfortegnelsen
+}
+
+% ¤¤ Kapiteludssende ¤¤ %
+\definecolor{numbercolor}{RGB}{130,0,50}
+	% Definerer en farve til brug til kapiteludseende
+\newif\ifchapternonum
+
+\makechapterstyle{jenor}{					% Definerer kapiteludseende frem til ...
+  \renewcommand\beforechapskip{0pt}
+  \renewcommand\printchaptername{}
+  \renewcommand\printchapternum{}
+  \renewcommand\printchapternonum{\chapternonumtrue}
+  \renewcommand\chaptitlefont{\fontfamily{pbk}\fontseries{db}\fontshape{n}\fontsize{25}{35}\selectfont\raggedleft}
+  \renewcommand\chapnumfont{\fontfamily{pbk}\fontseries{m}\fontshape{n}\fontsize{1in}{0in}\selectfont\color{numbercolor}}
+  \renewcommand\printchaptertitle[1]{%
+    \noindent
+    \ifchapternonum
+    \begin{tabularx}{\textwidth}{X}
+    {\let\\\newline\chaptitlefont ##1\par}
+    \end{tabularx}
+    \par\vskip-2.5mm\hrule
+    \else
+    \begin{tabularx}{\textwidth}{Xl}
+    {\parbox[b]{\linewidth}{\chaptitlefont ##1}} & \raisebox{-15pt}{\chapnumfont \thechapter}
+    \end{tabularx}
+    \par\vskip2mm\hrule
+    \fi
+  }
+}											% ... her
+
+\chapterstyle{jenor}						% Valg af kapiteludseende - Google 'memoir chapter styles' for alternativer
+
+% ¤¤ Sidehoved ¤¤ %
+
+\makepagestyle{AAU}							% Definerer sidehoved og sidefod udseende frem til ...
+\makepsmarks{AAU}{%
+	\createmark{chapter}{left}{shownumber}{}{. \ }
+	\createmark{section}{right}{shownumber}{}{. \ }
+	\createplainmark{toc}{both}{\contentsname}
+	\createplainmark{lof}{both}{\listfigurename}
+	\createplainmark{lot}{both}{\listtablename}
+	\createplainmark{bib}{both}{\bibname}
+	\createplainmark{index}{both}{\indexname}
+	\createplainmark{glossary}{both}{\glossaryname}
+}
+\nouppercaseheads											% Ingen Caps oenskes
+
+\makeevenhead{AAU}{Gruppe: DAT2 B2-2}{}{\leftmark}				% Definerer lige siders sidehoved (\makeevenhead{Navn}{Venstre}{Center}{Hoejre})
+\makeoddhead{AAU}{\rightmark}{}{Aalborg Universitet}		% Definerer ulige siders sidehoved (\makeoddhead{Navn}{Venstre}{Center}{Hoejre})
+\makeevenfoot{AAU}{\thepage}{}{}							% Definerer lige siders sidefod (\makeevenfoot{Navn}{Venstre}{Center}{Hoejre})
+\makeoddfoot{AAU}{}{}{\thepage}								% Definerer ulige siders sidefod (\makeoddfoot{Navn}{Venstre}{Center}{Hoejre})
+\makeheadrule{AAU}{\textwidth}{0.5pt}						% Tilfoejer en streg under sidehovedets indhold
+\makefootrule{AAU}{\textwidth}{0.5pt}{1mm}					% Tilfoejer en streg under sidefodens indhold
+
+\copypagestyle{AAUchap}{AAU}								% Sidehoved for kapitelsider defineres som standardsider, men med blank sidehoved
+\makeoddhead{AAUchap}{}{}{}
+\makeevenhead{AAUchap}{}{}{}
+\makeheadrule{AAUchap}{\textwidth}{0pt}
+\aliaspagestyle{chapter}{AAUchap}							% Den ny style vaelges til at gaelde for chapters
+															% ... her
+
+\pagestyle{AAU}												% Valg af sidehoved og sidefod
+
+
+%%%% CUSTOM COMMANDS %%%%
+
+% ¤¤ Billede hack ¤¤ %
+\newcommand{\figur}[4]{
+		\begin{figure}[H] \centering
+			\includegraphics[width=#1\textwidth]{billeder/#2}
+			\caption{#3}\label{#4}
+		\end{figure}
+}
+
+% ¤¤ Specielle tegn ¤¤ %
+\newcommand{\decC}{^{\circ}\text{C}}
+\newcommand{\dec}{^{\circ}}
+\newcommand{\m}{\cdot}
+
+
+%%%% ORDDELING %%%%
+
+\hyphenation{}
+
+%Mads
+\usepackage[strings]{underscore}
+%\usepackage{nccmath}
+%\usepackage{breqn}
+\usepackage{amsmath}
+\usepackage{cleveref}
+    \crefname{table}{tabel}{tabeller}
+    \Crefname{table}{Tabel}{Tabeller}
+    \crefname{figure}{figur}{figurer}
+    \Crefname{figure}{Figur}{Figurer}
+    \crefname{equation}{ligning}{ligninger}
+    \Crefname{equation}{Ligning}{Ligninger}
+    \crefname{section}{afsnit}{afsnit}
+    \Crefname{section}{Afsnit}{Afsnit}
+    \crefname{subsection}{afsnit}{afsnit}
+    \Crefname{subsection}{Afsnit}{Afsnit}
+    \crefname{subsubsection}{afsnit}{afsnit}
+    \Crefname{subsubsection}{Afsnit}{Afsnit}
+    \crefname{chapter}{kapitel}{kapitler}
+    \Crefname{chapter}{Kapitel}{Kapitler}
+    \crefname{appendix}{appendiks}{appendikser}
+    \Crefname{appendix}{Appendiks}{Appendikser}
+    \crefname{eks}{eksempel}{eksempler}
+    \Crefname{eks}{Eksempel}{Eksempler}
+    \crefname{theorem}{sætning}{sætninger}
+    \Crefname{theorem}{Sætning}{Sætninger}
+    \crefname{defn}{definition}{definitioner}
+    \Crefname{defn}{Definition}{Definitioner}
+    \crefname{lstlisting}{listing}{listings}
+    \Crefname{lstlisting}{Listing}{Listings}
+
+\newcommand{\SubItem}[1]{
+	{\setlength\itemindent{15pt} \item[-] #1}
+}
