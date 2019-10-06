@@ -10,4 +10,5 @@
 *.gz
 *.synctex.gz
 *.kate-swp
+*.swp
 master.pdf
