@@ -1,1 +1,19 @@
-\section{Rasmus skriver om web}
+\section{Web Applications}
+The requirements in the system definition state that users should be able to work together through the system, independent of geography. The OOAL\&D method designates that in these scenarios, the client-server model should be considered. % Røde aalborg, side 202
+
+The model we have decided to work with here is that of local presentation. As the integrity of the data is incredibly important, all business logic should be centrally administrated, and that way be resillient to user error.
+Choosing a local presentation model allows us to create a web application. A web application has many advantages, including but not limited to, mature UI, easy cross platform support, and avoiding having to install anything.
+
+A web application is any form of application where the client runs in a web browser. This section will take a general overview of how web applications are structured, and what can be done to ensure stability.
+
+\subsection{Hosting}
+All client-server systems need a server. While this is something that can be done on your own, it is often more hassle than it's worth, and at the same time, more expensive than simply renting server space in the cloud.
+
+No matter how you choose to host the server, it will also need to run the server application, and often a series of other supporting applications. The series of applications running on the server is commonly referred to as the \textit{stack}.
+\subsection{Monitoring}
+"A commitment to monitoring is the distinguishing characteristic of a professional system administrator." - Unix and Linux system administration handbook
+% This chapter is mostly based on this book. A damn goood book btw, can recommend
+
+Monitoring is the practice of gathering metrics, events, and trends from the application, in order to get an understanding of how the application is performing.
+In server applications, this is crucial, as it allows system administrators to notice and prevent the problem before the screaming starts.
+
