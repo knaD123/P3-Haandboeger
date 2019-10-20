@@ -1,0 +1,54 @@
+\chapter{Statechart diagrams}
+\todo{These should be moved to an actually relevant section}
+Statechart diagrams are a useful way to get an overview over the lifetime of objects in the problem domain.
+This chapter describes contains the state chart diagram of objects whose behaivour is both interesting and unique to the project.
+\subsection{Approval Request}
+\begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
+
+	\node[circle, fill=black,minimum size=3pt] (start) {};
+	\node[round] (await) [below of=start, node distance=1.5cm] {Awaiting approval};
+	\path[->] (start) edge node {Create} (await);
+	\path[->] (await) edge [loop below] node {Approve} (await);
+	\node[round] (approved) [right of=await, node distance=8cm] {Change approved};
+	\path[->] (await) edge node {Change approved} (approved);
+
+	%\draw[fill=white] circle[radius = 7pt, below of=approved, node distance=1cm];
+	%\node[circle, fill=black,minimum size=3pt] (end) [below of=approved, node distance=1cm] {};
+
+
+\end{tikzpicture}
+
+\subsection{Department}
+\begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
+
+	\node[circle, fill=black,minimum size=3pt] (start) {};
+	\node[round, minimum width=3cm] (await) [below of=start, node distance=1.5cm] {Existing};
+	\path[->] (start) edge node {create} (await);
+	\path[->] (await) edge [loop below] node[auto] {Add user} (await);
+	\path[->] (await) edge [loop below, out=350, in=330, looseness=4] node[auto] {Add Document} (await);
+	\path[->] (await) edge [loop below, out=180, in=230, looseness=4] node[auto] {Notify} (await);
+
+	\draw[fill=white] circle[radius = 7pt, right of=await, node distance=4cm];
+	\node[circle, fill=black,minimum size=3pt] (end) [right of=await, node distance=4cm] {};
+	\path[->] (await) edge node {Delete} (end);
+
+
+\end{tikzpicture}
+
+\subsection{Version}
+\begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
+
+	\node[circle, fill=black,minimum size=3pt] (start) {};
+	\node[round] (await) [below of=start, node distance=1.5cm] {Awaiting approval};
+	\path[->] (start) edge node {Created} (await);
+	\node[round] (approved) [right of=await, node distance=7cm] {Approved};
+	\path[->] (await) edge node {Change approved} (approved);
+	\node[round] (archived) [right of=approved, node distance=3.5cm] {Archived};
+	\path[->] (approved) edge node {Archive} (archived);
+
+	%\draw[fill=white] circle[radius = 7pt, below of=approved, node distance=1cm];
+	%\node[circle, fill=black,minimum size=3pt] (end) [below of=approved, node distance=1cm] {};
+
+
+\end{tikzpicture}
+
