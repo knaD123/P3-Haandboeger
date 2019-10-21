@@ -1,11 +1,12 @@
 %kan det passe at denne fil ikke er inkluderet nogen steder?
 This chapter is based upon information from \url{https://www.oracle.com/database/what-is-database.html}.
+\todo{Det er måske ikke super smart at tage alt vores info om databaser fra nogle der sælger dem, og især nogle så sleazy som Oracle. Måske en mere faglig kilde?}
 
 A database is a combination of a \textit{DataBase Management System} (DBMS), a collection of structured data, and the associated computer system(s).
 A DBMS is a piece of software that serves as an interface between the database and the users or the computer system(s) that allows them to perform \textit{create, read, update and delete} (CRUD) operations on the database as well as manage how the data is organized. It also allows them to do some more administrative operations e.g. performance monitoring, and backup and recovery.
 %virker lidt spøjst at forklare DBMS før vi har introduceret DB for sig selv
 
-Some of the most popular DBMSs today are: 
+Some of the most popular DBMSs today are:  % Citation needed
 \begin{itemize}
         \item MySQL
         \item MSSQL (Microsoft SQL Server)
@@ -15,11 +16,14 @@ Some of the most popular DBMSs today are:
         \item Oracle Database.
 \end{itemize}
 
+% We should probably just straight up say that relational databases are the most popular paradigm
 The most common databases today structure the data in one or more tables where each table consists of one or more rows and columns. Structuring the database like this makes it easy to perform CRUD operations on the database using a \textit{structured query language} (SQL). SQL is a programming language that is used by most \textit{relational databases} to perform CRUD operations.
 %evt del information relateret til hvad en database er og hvad SQL som programmeringssprog er
 
 % Henrik: skal nok lige tjekkes / omformuleres
+% I don't like this. It's probably not relevant. But if we insist on keeping it, it's probably something to do with the not certain ammount of attributes
 One might be tempted to ask \textit{"but why not just use a spreadsheet?"} (e.g. Microsofts Excel). Spreadsheets are also a great way of storing data but spreadsheets were originally designed for a single user that did not have to do a lot of complicated data manipulation.
 
 Not all databases are relational databases, which became popular in the 1980's, but there also exists e.g. \textit{object-oriented databases} and \textit{NoSQL databases}. \todo{Skriv noget smart om OO-databases og NoSQL databases}
+% NoSQL er jo literally bare alt andet end SQL-baseret DBMS. Så måske "OO databases and other NoSQL Databases"
 %ret generelt virker røkkefølgen af informationerne lidt spøjs. Personligt ville jeg umiddelbart starte med spreadsheets, så gå videre til relationelle databaser, derfra til SQL og videre til DBMS
