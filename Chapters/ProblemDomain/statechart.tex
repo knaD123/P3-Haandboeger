@@ -1,7 +1,12 @@
 \section{Statechart diagrams}
 Statechart diagrams are a useful way to get an overview over the lifetime of objects in the problem domain.
 This chapter describes contains the state chart diagram of objects whose behaivour is both interesting and unique to the project.
+Due to the nature of the application, it being very focused on basic CRUD operations, there is not a lot of interesting activity going on in the way of state.
 \subsection{Approval Request}
+The approval request is one of the most central concepts in the application.
+When someone wants to create a new version of a document, they instantiate an approval request, which has a version object attached.
+When the change is approved, it will append the version to the document object.
+
 \begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
 
 	\node[circle, fill=black,minimum size=3pt] (start) {};
@@ -18,6 +23,11 @@ This chapter describes contains the state chart diagram of objects whose behaivo
 \end{tikzpicture}
 
 \subsection{Department}
+A department is an organisational unit, used to administrate which users are attached to which documents.
+As such, you can create a department, add users to it, and add documents to it.
+You can also remove both in the same way.
+One of the most important functions of the department is the abillity for it to notify all the users which are attached to it of a new version of a document.
+
 \begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
 
 	\node[circle, fill=black,minimum size=3pt] (start) {};
@@ -35,6 +45,10 @@ This chapter describes contains the state chart diagram of objects whose behaivo
 \end{tikzpicture}
 
 \subsection{Version}
+A version is another central concept in the application.
+As mentioned before, the handbook consists of documents, and each document can have multiple versions.
+And thus, after creation, version objects are supposed to be quite immutable once created, as to preserve the history of individual documents.
+
 \begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
 
 	\node[circle, fill=black,minimum size=3pt] (start) {};
@@ -50,4 +64,3 @@ This chapter describes contains the state chart diagram of objects whose behaivo
 
 
 \end{tikzpicture}
-
