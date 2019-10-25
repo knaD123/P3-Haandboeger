@@ -134,10 +134,10 @@ innerleftmargin=3pt,innerrightmargin=7pt, innertopmargin=2pt, innerbottommargin=
 %splittopskip=3.2em minus 0.2em,
 %splitbottomskip=0.5em plus 0.2em minus 0.1em,
 }
-\newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=theocolor]{theorem}{Sætning}[section]
+\newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=theocolor]{theorem}{Theorem}[section]
 \newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=lemcolor]{lemma}[theorem]{Lemma}
 \newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=lemcolor]{proposition}[theorem]{Proposition}
-\newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=lemcolor]{corollary}[theorem]{Korollar}
+\newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=lemcolor]{corollary}[theorem]{Corollary}
 
 
 
@@ -148,13 +148,13 @@ innerleftmargin=3pt,innerrightmargin=7pt, innertopmargin=2pt, innerbottommargin=
 %\newtheorem{case}{Bevis}[theorem]
 %\newtheorem{defn}{Definition}[section]
 
-\renewenvironment{proof}[1][Bevis]{\begin{trivlist}
+\renewenvironment{proof}[1][Proof]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
 
 \newenvironment{definition}[1][Definition]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
 
-\newenvironment{remark}[1][Bemærkning]{\begin{trivlist}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
 
 
@@ -162,7 +162,7 @@ innerleftmargin=3pt,innerrightmargin=7pt, innertopmargin=2pt, innerbottommargin=
 \theoremstyle{definition}
 \newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=lemcolor]{defn}[theorem]{Definition}
 
-\newtheorem{eks}[theorem]{Eksempel}
+\newtheorem{eks}[theorem]{Example}
 \surroundwithmdframed[
    topline=false,
    rightline=false,
@@ -172,7 +172,7 @@ innerleftmargin=3pt,innerrightmargin=7pt, innertopmargin=2pt, innerbottommargin=
    skipbelow=\medskipamount
 ]{eks}
 
-\newenvironment{example}[1][Eksempel]{\begin{trivlist}
+\newenvironment{example}[1][Example]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
 \surroundwithmdframed[
    topline=false,
@@ -228,7 +228,7 @@ innerleftmargin=3pt,innerrightmargin=7pt, innertopmargin=2pt, innerbottommargin=
 \hangcaption								% Venstrejusterer flere-liniers figurtekst under hinanden
 \captionwidth{\linewidth}					% Bredden af figurteksten
 \setlength{\belowcaptionskip}{0pt}			% Afstand under figurteksten
-\addto\captionsdanish{\renewcommand{\figurename}{Figur}} %Aendre figurteksten til dansk
+\addto\captionsdanish{\renewcommand{\figurename}{Figure}} %Aendre figurteksten til dansk
 
 % ¤¤ Opsaetning af listings ¤¤ %
 
@@ -264,15 +264,15 @@ innerleftmargin=3pt,innerrightmargin=7pt, innertopmargin=2pt, innerbottommargin=
 
 % ¤¤ Navngivning ¤¤ %
 \addto\captionsdanish{
-	\renewcommand\appendixname{Appendiks}
-	\renewcommand\contentsname{Indholdsfortegnelse}
-	\renewcommand\bibname{Litteraturliste}
-	\renewcommand\appendixpagename{Appendiks}
-	\renewcommand\appendixtocname{Appendiks}
-	\renewcommand\cftchaptername{Kapitel~}
+	\renewcommand\appendixname{Appendix}
+	\renewcommand\contentsname{Contents}
+	\renewcommand\bibname{Bibliography}
+	\renewcommand\appendixpagename{Appendix}
+	\renewcommand\appendixtocname{Appendix}
+	%\renewcommand\cftchaptername{Kapitel~}
 %\renewcommand\cftchaptername{\chaptername~}
 % Skriver "Kapitel" foran kapitlerne i indholdsfortegnelsen
-	\renewcommand\cftappendixname{Appendiks ~}
+	\renewcommand\cftappendixname{Appendix ~}
 	%\renewcommand\cftappendixname{\appendixname~}			% Skriver "Appendiks" foran appendiks i indholdsfortegnelsen
 }
 
