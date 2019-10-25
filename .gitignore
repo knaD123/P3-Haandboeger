@@ -11,4 +11,5 @@
 *.synctex.gz
 *.kate-swp
 *.swp
+*.lyx
 master.pdf
