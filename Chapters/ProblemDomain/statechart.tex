@@ -5,18 +5,17 @@ Due to the nature of the application, it being very focused on basic CRUD operat
 \subsection{Approval Request}
 The approval request is one of the most central concepts in the application.
 When someone wants to create a new version of a document, they instantiate an approval request, which has a version object attached.
-When the change is approved, it will append the version to the document object.
-% kan der ikke også være "denied" iteration ?
-% i den sidste state kan den muligvis hedde new version released?
+When the change is approved, it will append the version to the document object. When the change is denied, it will simply sit as pending until it is reapproved.
 
 \begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
 
 	\node[circle, fill=black,minimum size=3pt] (start) {};
 	\node[round] (await) [below of=start, node distance=1.5cm] {Awaiting approval};
-	\path[->] (start) edge node {Create} (await);
-	\path[->] (await) edge [loop below] node {Approve} (await);
-	\node[round] (approved) [right of=await, node distance=8cm] {Change approved};
-	\path[->] (await) edge node {Change approved} (approved);
+	\path[->] (start) edge node[right] {Create} (await);
+	\path[->] (await) edge [loop below, out=350, in=330, looseness=4] node {Approve} (await);
+	\path[->] (await) edge [loop below, out=180, in=230, looseness=4] node {Deny} (await);
+	\node[round] (approved) [right of=await, node distance=8cm] {New version released};
+	\path[->] (await) edge node[above] {Change approved} (approved);
 
 	%\draw[fill=white] circle[radius = 7pt, below of=approved, node distance=1cm];
 	%\node[circle, fill=black,minimum size=3pt] (end) [below of=approved, node distance=1cm] {};
@@ -29,21 +28,19 @@ A department is an organisational unit, used to administrate which users are att
 As such, you can create a department, add users to it, and add documents to it.
 You can also remove both in the same way.
 One of the most important functions of the department is the abillity for it to notify all the users which are attached to it of a new version of a document.
-% er det ikke mere assign user og assign  document end add user og add document? 
-% tænker om unassign muligvis også skal med? 
 
 \begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
 
 	\node[circle, fill=black,minimum size=3pt] (start) {};
 	\node[round, minimum width=3cm] (await) [below of=start, node distance=1.5cm] {Existing};
-	\path[->] (start) edge node {create} (await);
-	\path[->] (await) edge [loop below] node[auto] {Add user} (await);
-	\path[->] (await) edge [loop below, out=350, in=330, looseness=4] node[auto] {Add Document} (await);
+	\path[->] (start) edge node[right] {Create} (await);
+	\path[->] (await) edge [loop below] node[auto] {Add/remove user} (await);
+	\path[->] (await) edge [loop below, out=350, in=330, looseness=4] node[auto] {Add/remove Document} (await);
 	\path[->] (await) edge [loop below, out=180, in=230, looseness=4] node[auto] {Notify} (await);
 
 	\draw[fill=white] circle[radius = 7pt, right of=await, node distance=4cm];
 	\node[circle, fill=black,minimum size=3pt] (end) [right of=await, node distance=4cm] {};
-	\path[->] (await) edge node {Delete} (end);
+	\path[->] (await) edge node[above] {Delete} (end);
 
 
 \end{tikzpicture}
@@ -58,11 +55,11 @@ And thus, after creation, version objects are supposed to be quite immutable onc
 
 	\node[circle, fill=black,minimum size=3pt] (start) {};
 	\node[round] (await) [below of=start, node distance=1.5cm] {Awaiting approval};
-	\path[->] (start) edge node {Created} (await);
-	\node[round] (approved) [right of=await, node distance=7cm] {Approved};
-	\path[->] (await) edge node {Change approved} (approved);
+	\path[->] (start) edge node[right] {Created} (await);
+	\node[round] (approved) [right of=await, node distance=7cm] {In handbook};
+	\path[->] (await) edge node[above] {Change approved} (approved);
 	\node[round] (archived) [right of=approved, node distance=3.5cm] {Archived};
-	\path[->] (approved) edge node {Archive} (archived);
+	\path[->] (approved) edge node[below, yshift=-0.5cm] {Another version is released} (archived);
 
 	%\draw[fill=white] circle[radius = 7pt, below of=approved, node distance=1cm];
 	%\node[circle, fill=black,minimum size=3pt] (end) [below of=approved, node distance=1cm] {};
