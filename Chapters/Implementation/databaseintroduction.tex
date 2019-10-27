@@ -1,0 +1,51 @@
+% https://books.google.dk/books?hl=en&lr=&id=0t2pCAAAQBAJ&oi=fnd&pg=PA1&dq=relational+database&ots=Fz83eSVoqp&sig=uNf7tLb6q39KqRXY17DzuZ8wGHE&redir_esc=y#v=onepage&q=relational%20database&f=false
+
+% Henrik: måske lidt om hvorfor vi bruger en database her
+
+Jan Paredaens et al. defines a database system as a collection of programs that run on a computer and that help the user to get information, to update information, to protect information, in general to manage information. % Henrik: indsæt kilde
+
+When representing data or information in a database system it would be convenient for the user of the system to represent it as sentences. The problem with representing data or information as senteces is that sentences can be ambiguous. Therefor, different approaches were made: % Henrik: indsæt kilde
+
+\begin{itemize}
+        \item \textit{network model} where the structure of information is represented by a directed graph.
+        \item \textit{hierarchical model} where the information is represented as a set of trees.
+        \item \textit{relational model} where the information is represented in tables.
+\end{itemize} % Henrik: indsæt kilde
+
+% Henrik: Måske lidt baggrundsviden om relational databaser her?
+
+Let us imagine a system with a lot of users. This system might be interested in keeping track of the users \textit{username, password, firstname, lastname, email}. In a relational database this information can be represented like this:
+
+\begin{table}[H]
+        \centering
+        \begin{tabular}{lllll}
+                USERNAME & PASSWORD & FIRSTNAME & LASTNAME & EMAIL \\
+                \hline
+                username1 & pw123 & Billy & Johnson & bj@mail.com \\
+                username2 & pw456 & Lucy & Johnson & lj@mail.com \\
+        \end{tabular}
+        \caption{Table of users}
+\end{table}
+
+This makes it easy to add new users to the table because the number of columns does not change, nor the names of the columns.
+
+The most common way to interact with a database is to use \textit{Structured Query Language} (SQL). SQL (pronounced either \textit{"sequel"} or \textit{"S-Q-L"}) is a database sublanguage that differs from other computer languages because it describes what the computer should do rather than how it should do it. % Henrik: indsæt kilde
+% https://library-books24x7-com.zorac.aub.aau.dk/toc.aspx?bookid=33515
+SQL makes it easy to perform \textit{create, read, update, delete} (CRUD) operations on the database. % Henrik: Indsæt kilde (Oracle - what is a database)
+ An example of how to use SQL could be someone who wants to retrieve all the users from the user table
+
+\begin{lstlisting}
+SELECT * FROM USER;
+\end{lstlisting}
+
+% Henrik: Måske uddybe code-snippet?
+Or maybe this person is just interested in retrieving a specific user
+
+\begin{lstlisting}
+SELECT * FROM USERS WHERE username = "username1";
+\end{lstlisting}
+
+One might be tempted to ask \textit{"but why not just use a spreadsheet?"} (e.g. Microsofts Excel). Spreadsheets are also a great way of storing data but spreadsheets were originally designed for a single user that did not have to do a lot of complicated data manipulation. % Henrik: Indsæt kilde (Oracle - what is a database)
+% Rasmus: Jeg syntes stadig den her skal dø
+
+% Det er blevet et super godt afsnit! Bedste i rapporten indtil videre. Måske lige en rød tråd, og så er vi ved at være i mål.
