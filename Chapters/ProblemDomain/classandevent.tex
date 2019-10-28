@@ -1,0 +1,84 @@
+This section covers the problem domain analysis based on data gathering in form of the initial interview with Ipsen, see section x. In the following subsections include the choice of the selected classes and events, the explanation of the structure between classes, and the description of the behavior patterns through state-chart diagram. 
+
+\section{Classes and events}
+
+The following subsections explore the potential class and event candidates as well as the thought process behind it. The generated class and event candidates will be systematic selected to represent the problem domain with regard to relevance and that they satisfy the system definition. The process of systematically select classes and events are based on the following criteria found in Object Oriented Design \& Analysis (OOA\&D)[] p. 62-67)
+
+\subsection{Classes}
+According to OOA\&D a class is defined as:
+
+\textit{“A description of a collection of objects sharing structure, behavioral pattern, and attributes.”}
+
+The questions below help to evaluate a class if those are affirmative. (OOA\&D[] p 62)
+
+\begin{itemize}
+	\item Can you identify objects from the class?
+	\item Does the class contain unique information?
+	\item Does the class encompass multiple objects?
+	\item Does the class have a suitable and manageable number of events?
+\end{itemize}
+%(citerer direkte fra bogen - er det ok?)
+
+\subsubsection{Class candidates}
+
+
+
+\begin{tabular}{l l}
+
+  \textbf{Handbook} & A class representing all the documents with the newest version\\
+  \textbf{Document} & A class representing the documents\\ %bruh vidste ikke hvad man ellers skal skrive? halp
+  \textbf{User }& A class representing the reader, writer and administrator role\\
+ \textbf{Version} & A class representing a document’s version and the validity period\\
+  \textbf{Log} & A class representing the descriptions of changes for each version\\
+  \textbf{Responsibility} & A class representing the difference user access levels to the handbook\\
+ \textbf{Approval} & A class representing the created approvals\\  %bruh vidste ikke hvad man ellers skal skrive? halp
+  \textbf{TOC} & A class represent the table of contents of the documents in the handbook\\
+  \textbf{Notification} & A class to represent which user is assign to which document\\
+  \textbf{Read Status} & A class that keep track of who has read which version
+
+\end{tabular}
+
+% I love them which which which
+
+\subsubsection{Qualifying classes}
+The following section will cover which of the generates classes are qualified.
+
+
+The \textbf{Handbook} class is qualified for the reason that it keeps track of the documents and is an important part of the problem domain and system definition. 
+
+The\textbf{ Document} class is qualified because it works as a template for the various versions. 
+
+The \textbf{Version} class is qualified since it would make it easy to identify and accessible where more than one version of a document most likely exists.
+
+The \textbf{User} class is qualified because there would be different types of users with different access levels in the system. 
+
+The \textbf{Log} class is not qualified because the class does not contain unique information and the class it self is too simple. It is unnecessary to create an independent class for the changelog and therefore it has been converted to an attribute for the \textbf{Version} class.
+ 
+The \textbf{Responsibility} class is not qualified because the different levels of access and permissions are present in the \textbf{User} class.
+
+The \textbf{Approval} class is qualified since it is vital to substantiate who is going to or had approval each version and what date it has been approved. 
+
+The \textbf{TOC} class is not qualifie since \textbf{TOC} is a property of the \textbf{Handbook} class and does not contains unique information. The purpose with \textbf{TOC} is to create an overview of the valid documents in the handbook.
+
+The \textbf{Notification} class is not qualified as…..  changes this class to a Department class instead.
+\todo[inline]{halp}
+% noget med at koble et dokument til en masse users på én gang
+%(Notification class er blevet til department I stedet)
+
+The \textbf{Read Status} class is qualified since the system needs to store information regarding which associated user has read which associated version and when. This is useful when the company has to report total number of employees that have read the current version of the document.
+
+Qualified classes:
+\begin{itemize}
+  \item Handbook
+  \item Document
+  \item Version
+  \item User
+  \item Approval
+  \item Department
+  \item Read Status
+\end{itemize}
+
+\subsection{Events}
+\subsubsection{Event candidates}
+\subsubsection{Qualifying events}
+
