@@ -3,9 +3,9 @@
 
 %indsæt billeder i cant be bothered atm
 
-The system consists of two subsystems with similar functionalty: 
+The system consists of two subsystems with similar functionalty:
 The handbook subsystem and the supplier-approval subsystem.
-Both subsystems archive and manage documents a company needs to get their certifications. 
+Both subsystems archive and manage documents a company needs to get their certifications.
 
 The handbook subsystem is the clients main concern and therefore the focus of the system. In this system there is a Handbook aggregated by Document, as the Handbook exists to keep track of documents. The Document class is aggregated by version, which keeps track of the multiple versions each document has and when each one was valid in the handbook. Associated to Version is Approval since every single file in the handbook needs to have been approved, and it is necessary to keep track of who approved it and when.
 
@@ -19,17 +19,18 @@ There are three different types of users in the system, which has been modeled b
 
 An important object for the user is the Table Of Contents (TOC). This table is needed to facilitate an overview of the documents, which is the point with the system. However this is not a class as its identity would be too similar to what is already included in the Handbook class. Besides that, because of the need for the TOC to be constantly updated the information this class would encapsulate would need to be recalculated each time someone accesses it anyway.
 %var det her vores argumenter for at droppe klassen?
+% Rasmus - Basically. Alt den information der var inkapsuleret i TOC klassen var allerede indkapsuleret i listen af dokumenter handbook havde, og derfor ville det være dobbeltkonfekt at have en TOC-klasse
 
-The biggest similarities between the two subsystems are the need for archiving documents and the need for approving certain things with specified intervals. 
-The difference between them is first and foremost that the approval of the suppliers isn't actually included in the handbook and has no relevance for the majority of the users of this subsystem. Besides that the approval process for these systems vary slightly: 
-In the handbook system a version of a document needs to be approved by specified people. 
-In the supplier-approval system a supplier needs to be approved and only one person is needed to do that. 
+The biggest similarities between the two subsystems are the need for archiving documents and the need for approving certain things with specified intervals.
+The difference between them is first and foremost that the approval of the suppliers isn't actually included in the handbook and has no relevance for the majority of the users of this subsystem. Besides that the approval process for these systems vary slightly:
+In the handbook system a version of a document needs to be approved by specified people.
+In the supplier-approval system a supplier needs to be approved and only one person is needed to do that.
 However that one person has to connect multiple documents that justify why the supplier has been approved.
 
 Early versions of the class diagram modeled this association like in figure (whatevs). Here Supplier is aggregated by Approval as a Supplier will need to be reapproved after a certain time frame. Approval is again aggregated by Document as multiple files are submitted as documentation for the approval. In other words anyone can approve a supplier by submitting the appropriate documentation.
 
-However in the handbook subsystem the Handbook is aggregated by Document and the 
-it is Version, the class that contains files, that needs to be approved and all the justification needed for an approval is the signature of 
+However in the handbook subsystem the Handbook is aggregated by Document and the
+it is Version, the class that contains files, that needs to be approved and all the justification needed for an approval is the signature of
 
 
 
