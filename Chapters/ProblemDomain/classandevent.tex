@@ -1,4 +1,4 @@
-This section covers the problem domain analysis based on data gathering from the initial interview with Ipsen, see section xx. In the following subsections include the choice of the selected classes and events, the explanation of the structure between classes, and the description of the behavior patterns through state-chart diagram. 
+This section covers the problem domain analysis based on data gathering in form of the initial interview with Ipsen, see section x. In the following subsections include the choice of the selected classes and events, the explanation of the structure between classes, and the description of the behavior patterns through state-chart diagram. 
 
 \section{Classes and events}
 
@@ -7,7 +7,8 @@ The following subsections explore the potential class and event candidates as we
 \subsection{Classes}
 According to OOA\&D a class is defined as:
 
-\textit{“A description of a collection of objects sharing structure, behavioral pattern, and attributes.”}
+“A description of a collection of objects sharing structure, behavioral pattern, and attributes.”
+% se hvordan Anna har gjort i PACT analyse afsnit
 
 The questions below help to evaluate a class if those are affirmative. (OOA\&D[] p 62)
 
@@ -60,7 +61,7 @@ The \textbf{Approval} class is qualified since it is vital to substantiate who i
 
 The \textbf{TOC} class is not qualifie since \textbf{TOC} is a property of the \textbf{Handbook} class and does not contains unique information. The purpose with \textbf{TOC} is to create an overview of the valid documents in the handbook.
 
-The \textbf{Notification} class is not qualified as…..  changes this class to a Department class instead.
+The \textbf{Notification} class is not qualified as the notification is more an event rather than a class. The functionality in the \textbf{Notification} is to assign users to specific documents therefore the name is modify to Department instead.
 \todo[inline]{halp}
 % noget med at koble et dokument til en masse users på én gang
 %(Notification class er blevet til department I stedet)
