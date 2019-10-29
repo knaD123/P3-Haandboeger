@@ -3,9 +3,9 @@
 % Henrik: måske lidt om hvorfor vi bruger en database her
 %Anja: Jeg er enig.
 
-Jan Paredaens et al. defines a database system as a collection of programs that run on a computer and that help the user to get information, to update information, to protect information, in general to manage information. % Henrik: indsæt kilde Anja: Tjoh
+Jan Paredaens et al. defines a database system as a collection of programs that run on a computer and that help the user to get information, to update information, to protect information, in general to manage information. \cite{RelationalDatabaseModel}
 
-When representing data or information in a database system it would be convenient for the user of the system to represent it as sentences. The problem with representing data or information as senteces is that sentences can be ambiguous. Therefore, different approaches were made: % Henrik: indsæt kilde
+When representing data or information in a database system it would be convenient for the user of the system to represent it as sentences. The problem with representing data or information as senteces is that sentences can be ambiguous. Therefore, different approaches were made: \cite{RelationalDatabaseModel}
 
 \begin{itemize}
         \item \textit{network model} where the structure of information is represented by a directed graph.
@@ -30,9 +30,9 @@ Let us imagine a system with a lot of users. This system might be interested in 
 
 This makes it easy to add new users to the table because the number of columns does not change, nor the names of the columns.
 
-The most common way to interact with a database is to use \textit{Structured Query Language} (SQL). SQL (pronounced either \textit{"sequel"} or \textit{"S-Q-L"}) is a database sublanguage that differs from other computer languages because it describes what the computer should do rather than how it should do it. % Henrik: indsæt kilde
-% https://library-books24x7-com.zorac.aub.aau.dk/toc.aspx?bookid=33515
-SQL makes it easy to perform \textit{create, read, update, delete} (CRUD) operations on the database. % Henrik: Indsæt kilde (Oracle - what is a database)
+The most common way to interact with a database is to use \textit{Structured Query Language} (SQL). SQL (pronounced either \textit{"sequel"} or \textit{"S-Q-L"}) is a database sublanguage that differs from other computer languages because it describes what the computer should do rather than how it should do it. \cite{SQLIntroduction}
+
+SQL makes it easy to perform \textit{create, read, update, delete} (CRUD) operations on the database \cite{OracleWhatIsDatabase}.
  An example of how to use SQL could be someone who wants to retrieve all the users from the user table
 
 \begin{lstlisting}
