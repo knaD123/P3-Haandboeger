@@ -7,7 +7,9 @@ The system consists of two subsystems with similar functionalty:
 The handbook subsystem and the supplier-approval subsystem.
 Both subsystems archive and manage documents a company needs to get their certifications.
 
-The handbook subsystem is the clients main concern and therefore the focus of the system. In this system there is a Handbook aggregated by Document, as the Handbook exists to keep track of documents. The Document class is aggregated by version, which keeps track of the multiple versions each document has and when each one was valid in the handbook. Associated to Version is Approval since every single file in the handbook needs to have been approved, and it is necessary to keep track of who approved it and when.
+The handbook subsystem is the clients main concern and therefore the focus of the system. 
+%Anna: Evt skrive "And will therefore after this analysis be the only one focused upon in the rest of the report"
+In this system there is a Handbook aggregated by Document, as the Handbook exists to keep track of documents. The Document class is aggregated by version, which keeps track of the multiple versions each document has and when each one was valid in the handbook. Associated to Version is Approval since every single file in the handbook needs to have been approved, and it is necessary to keep track of who approved it and when.
 
 The relation between Document and Version is an item-descriptor pattern. The Document class is the descriptor and contains all the important information about the document, including a pointer to the current valid version of said document. Version is an item as it encapsulates the actual file with the current version of Document. This is modeled so because of the need to keep track of earlier versions as well.
 
@@ -27,7 +29,7 @@ In the handbook system a version of a document needs to be approved by specified
 In the supplier-approval system a supplier needs to be approved and only one person is needed to do that.
 However that one person has to connect multiple documents that justify why the supplier has been approved.
 
-Early versions of the class diagram modeled this association like in figure (whatevs). Here Supplier is aggregated by Approval as a Supplier will need to be reapproved after a certain time frame. Approval is again aggregated by Document as multiple files are submitted as documentation for the approval. In other words anyone can approve a supplier by submitting the appropriate documentation.
+Early versions of the class diagram modeled this association like in figure {\color{red}(whatevs)}. Here Supplier is aggregated by Approval as a Supplier will need to be reapproved after a certain time frame. Approval is again aggregated by Document as multiple files are submitted as documentation for the approval. In other words anyone can approve a supplier by submitting the appropriate documentation.
 
 However in the handbook subsystem the Handbook is aggregated by Document and the
 it is Version, the class that contains files, that needs to be approved and all the justification needed for an approval is the signature of

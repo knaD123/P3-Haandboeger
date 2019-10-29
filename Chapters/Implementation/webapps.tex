@@ -2,12 +2,14 @@
 The requirements in the system definition state that users should be able to work together through the system, independent of geography.
 The OOAL\&D method designates that in these scenarios, the client-server model should be considered.
 % Røde aalborg, side 202
+%Anna: Er den forkortelse nogensinde blevet skrevet ud inden her?
 
 The model we have decided to work with here is that of local presentation.
 As the integrity of the data is incredibly important, all business logic should be centrally administrated, and that way be resillient to user error.
 Choosing a local presentation model allows us to create a web application.
 A web application has many advantages, including but not limited to, mature UI, easy cross platform support, and avoiding having to install anything.
 \todo[inline]{Vi skal have en rigtig god argumentation for at anvende webapplikationer.}
+%Anna: Og evt i den diskussion hvor argumenterne fremlægges nævne nogen af alternativerne
 
 A web application is any form of application where the client runs in a web browser.
 This section will take a general overview of how web applications are structured, and what can be done to ensure stability.
@@ -39,11 +41,12 @@ Based on the declarative Nix programming language, NixOps allows one to define a
 Having the entire server stack being easily reproducible makes reproducing bugs, and general development far easier, than if the environment on production and testing were vastly different.
 The nix code for the server used is quite short, so it's placed in appendix XX.
 % Anja: Samme type kommentar som før: Vi skal liste alle andre mulige metoder/platforme der kunne anvendes til at udforme systemet. Der skal gives et godt argument for, hvorfor lige specielt NixOps bliver udvalgt.
+%Anna: er ret sikker på "CM" ikke er blevet brugt som forkortelse før
 
 \subsection{Monitoring}
 "A commitment to monitoring is the distinguishing characteristic of a professional system administrator." - Unix and Linux system administration handbook
 % This chapter is mostly based on this book.
-A damn goood book btw, can recommend
+%A damn goood book btw, can recommend
 
 Monitoring is the practice of gathering metrics, events, and trends from the application, in order to get an understanding of how the application is performing.
 In server applications, this is crucial, as it allows system administrators to notice and prevent the problem before the screaming starts.
