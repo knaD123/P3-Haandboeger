@@ -1,10 +1,11 @@
 % https://books.google.dk/books?hl=en&lr=&id=0t2pCAAAQBAJ&oi=fnd&pg=PA1&dq=relational+database&ots=Fz83eSVoqp&sig=uNf7tLb6q39KqRXY17DzuZ8wGHE&redir_esc=y#v=onepage&q=relational%20database&f=false
 
 % Henrik: måske lidt om hvorfor vi bruger en database her
+%Anja: Jeg er enig.
 
-Jan Paredaens et al. defines a database system as a collection of programs that run on a computer and that help the user to get information, to update information, to protect information, in general to manage information. % Henrik: indsæt kilde
+Jan Paredaens et al. defines a database system as a collection of programs that run on a computer and that help the user to get information, to update information, to protect information, in general to manage information. % Henrik: indsæt kilde Anja: Tjoh
 
-When representing data or information in a database system it would be convenient for the user of the system to represent it as sentences. The problem with representing data or information as senteces is that sentences can be ambiguous. Therefor, different approaches were made: % Henrik: indsæt kilde
+When representing data or information in a database system it would be convenient for the user of the system to represent it as sentences. The problem with representing data or information as senteces is that sentences can be ambiguous. Therefore, different approaches were made: % Henrik: indsæt kilde
 
 \begin{itemize}
         \item \textit{network model} where the structure of information is represented by a directed graph.
@@ -13,7 +14,7 @@ When representing data or information in a database system it would be convenien
 \end{itemize} % Henrik: indsæt kilde
 
 % Henrik: Måske lidt baggrundsviden om relational databaser her?
-
+%Anna: Evt gør explicit opmærksom det er den relationelle model der bruges, og hvis der er hvorfor.
 Let us imagine a system with a lot of users. This system might be interested in keeping track of the users \textit{username, password, firstname, lastname, email}. In a relational database this information can be represented like this:
 
 \begin{table}[H]
@@ -45,7 +46,8 @@ Or maybe this person is just interested in retrieving a specific user
 SELECT * FROM USERS WHERE username = "username1";
 \end{lstlisting}
 
-One might be tempted to ask \textit{"but why not just use a spreadsheet?"} (e.g. Microsofts Excel). Spreadsheets are also a great way of storing data but spreadsheets were originally designed for a single user that did not have to do a lot of complicated data manipulation. % Henrik: Indsæt kilde (Oracle - what is a database)
-% Rasmus: Jeg syntes stadig den her skal dø
+% Henrik: Mangler nok en genial afslutning på dette afsnit
 
-% Det er blevet et super godt afsnit! Bedste i rapporten indtil videre. Måske lige en rød tråd, og så er vi ved at være i mål.
+% Rasmus: Det er blevet et super godt afsnit! Bedste i rapporten indtil videre. Måske lige en rød tråd, og så er vi ved at være i mål. Anja: Tjoh
+
+% Anja: Som noget afsluttende kunne vi skrive noget bredt om, hvordan vi har tænkt os at anvende det i implementationen
