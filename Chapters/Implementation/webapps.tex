@@ -35,16 +35,8 @@ Formerly, the most popular choice was Apache, but this has shifted to Nginx.
 \item SSH, or similar remote access utility
 \end{itemize}
 Additionally, if we end up implementing this requirement, we may or may not need to setup mail software to send notification emails to users.
-\subsection{NixOps}
-NixOps is a non-standard way to deploy servers, but it is in large growth.
-Based on the declarative Nix programming language, NixOps allows one to define a server network declaratively, a approach far more powerful than classical imperative CM systems.
-Having the entire server stack being easily reproducible makes reproducing bugs, and general development far easier, than if the environment on production and testing were vastly different.
-The nix code for the server used is quite short, so it's placed in appendix XX.
-% Anja: Samme type kommentar som før: Vi skal liste alle andre mulige metoder/platforme der kunne anvendes til at udforme systemet. Der skal gives et godt argument for, hvorfor lige specielt NixOps bliver udvalgt.
-%Anna: er ret sikker på "CM" ikke er blevet brugt som forkortelse før
-
 \subsection{Monitoring}
-"A commitment to monitoring is the distinguishing characteristic of a professional system administrator." - Unix and Linux system administration handbook
+\epigraph{A commitment to monitoring is the distinguishing characteristic of a professional system administrator.}{\textit{Unix and Linux system administration handbook}}
 % This chapter is mostly based on this book.
 %A damn goood book btw, can recommend
 
@@ -53,9 +45,9 @@ In server applications, this is crucial, as it allows system administrators to n
 Most monitoring solutions allow for overviews of how the system is currently performing, but also sending of notifications under certain circumstances, for example if a server is running out of storage, or it is often under stress, or crashes occur.
 
 To integrate our application with monitoring, it needs to somehow expose metrics.
-One of the standard ways to do it is hosting a text document at /metrics, consisting of key-value stores in the form "metric: value".
+One of the standard ways to do it is hosting a text document at /metrics, consisting of key-value stores in the form \texttt{metric: value}.
 A metrics system will then poll the endpoint at a set interval, and use the fetched values to provide statistics about the monitored system.
 
 For this project, it was decided that Prometheus/Grafana would be used, as that was what the project group had experience with.
 
-\todo[inline]{Indtil videre skriger 'Web Applications' af, at vi vælger netop web-applikationer, fordi det har vi lyst til at anvende, frem for at vælge det, fordi det er den optimale teknologi til at løse opgaven}
+\todo[inline]{Indtil videre skriger `Web Applications' af, at vi vælger netop web-applikationer, fordi det har vi lyst til at anvende, frem for at vælge det, fordi det er den optimale teknologi til at løse opgaven}
