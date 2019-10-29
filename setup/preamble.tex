@@ -80,7 +80,10 @@
 \pretolerance=2500 							% Justering af afstand mellem ord (hoejt tal, mindre orddeling og mere luft mellem ord)
 
 % Kommentarer og rettelser med \fxnote. Med 'final' i stedet for 'draft' udloeser hver note en error i den faerdige rapport.
+\usepackage{footnote}
 \usepackage[footnote,draft,danish,silent,nomargin]{fixme}
+\makesavenoteenv{tabular}
+
 
 \usepackage[ntheorem]{mdframed} %Bruges for at kunne lave definitionsboksene
 
