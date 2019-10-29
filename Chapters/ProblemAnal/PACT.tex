@@ -32,33 +32,15 @@ This could be, differences in perception from the five senses; sight, hearing, t
 %As an example, when making an interface it is important to consider color blindness, since it affects about $8\%$ men and $0.5\%$ women in the world \cite{ColourBlind}.
 %\end{example}
 
-In this case there are four main groups of people that needs to be considered. These are the quality manger, secretary, department heads, and everyday workers. 
+In this case there are four main groups of people that needs to be considered. These are the consultant, secretary, department heads, and everyday workers. 
 This is a heterogeneous group with different levels of IT experience ranging from no skills with IT and therefore cautious about it, to the level of everyday office work.
 The group also has different levels of domain expertise ranging from no to expert which needs to be considered. 
-The quality manager is a domain expert and therefore has different needs of the system than the everyday worker with no expertise.
+The consultant is a domain expert and therefore has different needs of the system than the everyday worker with no expertise.
 
 Furthermore, issues such as colorblindness, other eye handicap as well as bad memory need to be considered when designing the system and interface.
 
 \subsection{Activities}
 When considering the activities the developers or designers should focus on the overall purpose of these. When that's completed the main features can be considered such as described below:
-
-\textit{Temporal aspects} covers different features in the system as well as a consideration of how the users interaction with the system is done during a day.
-Starting with the considerations of users interactions, one need to consider among other: How often is the interactive system used? And is the interactions with this system done continuously or interrupted?
-For the temporal aspects in a given system the developers need to consider things such as; time pressures, peaks and troughs, and the response time of a given activity.
-
-\textit{Cooperation} is simply the consideration of whether or not the activity is done in cooperation with others or alone, and if a mix hereof, then how and when the cooperation is needed.
-This is an important consideration since a system which is i done in cooperation with others needs to have an awareness of others, be able to coordinate it between them and maybe have a communication system as well.
-On the other hand if the activities is done completely alone these features are not necessary. 
-
-\textit{Complexity} describe the question of how well-defined is the activity?
-Is it a well-defined task which can be done in a simple step-by-step design?
-Or is it a vague task, which would need users to browse around?
-
-\textit{Safety Critical} has two sides to it.
-First is whether or not the activity in itself is ''safety-critical'' where mistakes could be reason for injury or serious accidents.
-Second is the consideration of ''what will happen when mistakes and errors are made?'' which is an important for any developer to reflect upon and then design for these circumstances
-
-\textit{The nature of the content} is a more technical reflection of which data requirements are needed for the activity as well as what media it requires.
 
 When considering the people using the system, which is explored under the \textit{people} section, then there's two different activities in relation with the system.
 There's the activities from the secretary's and the every worker's perspectives.
@@ -67,14 +49,41 @@ The secretary's overall activities is to manage, update and access a handbook mo
 It is needed to uphold standards set by the government to retain the companies certifications.
 Whereas the workers ''only'' has to read certain documents.
 
-This is a well defined activity which takes place at least yearly, though sometimes more often.
+\textit{Temporal aspects} covers different features in the system as well as a consideration of how the users interaction with the system is done during a day.
+Starting with the considerations of users interactions, one need to consider among other: How often is the interactive system used? And is the interactions with this system done continuously or interrupted?
+For the temporal aspects in a given system the developers need to consider things such as; time pressures, peaks and troughs, and the response time of a given activity.
 
-When doing the activities users may experience interruptions and should therefore be simple to use and easy to get back to.
-The activities would most often be done during business hours, from 8-16 on weekdays,though may be accessed outside of this time frame as well.
-Additionally, the activities is mostly done alone but may be done in collaboration with others, though this is not required.
+When doing the activities users may experience interruptions and the system should therefore be simple to use and easy to get back to.
+Being easy to use is most relevant for the everyday workers, as they only occasionally need to read documents which makes it necessary to make the system as easily accessible for them as possible.
+The activities would most often be done during business hours, from 8-16 on weekdays,though may be accessed outside of this timeframe as well.
+
+\textit{Cooperation} is simply the consideration of whether or not the activity is done in cooperation with others or alone, and if a mix hereof, then how and when the cooperation is needed.
+This is an important consideration since a system which is i done in cooperation with others needs to have an awareness of others, be able to coordinate it between them and maybe have a communication system as well.
+On the other hand if the activities is done completely alone these features are not necessary. 
+
+The cooperation aspect is mostly relevant for the consultant and secretary as they are maintining the handbook documents. 
+Here it's necessary to not only write new versions of a document but also make sure that the newest versions are approved. 
+Though writing the documents in and of itself does not require collaboration.
+As for the worker's activities, there is no cooperation involved as all the worker's need to read the newest, relevant documents individually.
+
+\textit{Complexity} describe the question of how well-defined is the activity?
+Is it a well-defined task which can be done in a simple step-by-step design?
+Or is it a vague task, which would need users to browse around?
+
+The activity for both for the consultant \& secretary and the worker's are well-defined. 
+For the consultant and secretary it is quite well-defined that whenever a new document has been written, it is imperative that it is approved and then inserted.
+Here the oldest, and now outdated, document is being archived and stored for a couple of years.
+The secretary needs to make sure that the affected everyday workers reads and understands the new documents.
+
+\textit{Safety Critical} has two sides to it.
+First is whether or not the activity in itself is ''safety-critical'' where mistakes could be reason for injury or serious accidents.
+Second is the consideration of ''what will happen when mistakes and errors are made?'' which is an important for any developer to reflect upon and then design for these circumstances
+
+The activities is in themselves not safety-critical but integrity is a very important aspect since mistakes can cause money-loss or loss of certification.
+
+\textit{The nature of the content} is a more technical reflection of which data requirements are needed for the activity as well as what media it requires.
 
 The data to be entered into the system are mostly larger data entries and possibly many of such.
-The activities is in themselves not safety-critical but integrity is a very important aspect since mistakes can cause money-loss or loss of certification.
 
 \subsection{Contexts}
 Context also have more facets to it.
@@ -99,20 +108,3 @@ In addition output is presented through a visual screen picture, or for the work
 The contents are presented through a General User Interface (GUI).
 Furthermore, the communication user-to-user is usually done through telephone, while it between devices are done over a Network, such as Wi-fi.
 Lastly, is the communication from the system to a user which is done through notifications.
-
-\subsection{PACT analysis}\label{sec:PACT-analysis}
-Based on the interviews with Pia,
-% conslutant and acting quality chief at JBJ,
-{\color{red} section XX}, the PACT analysis for the project described in this report is as follows.
-
-
-
-
-
-
-
-
-
-
-
-
