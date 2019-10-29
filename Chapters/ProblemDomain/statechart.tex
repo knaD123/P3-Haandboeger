@@ -5,6 +5,7 @@ Due to the nature of the application, it being very focused on basic CRUD operat
 \subsection{Approval Request}
 The approval request is one of the most central concepts in the application.
 When someone wants to create a new version of a document, they instantiate an approval request, which has a version object attached.
+The change will have to be approved several times before it will actually be released.
 When the change is approved, it will append the version to the document object. When the change is denied, it will simply sit as pending until it is reapproved.
 
 \begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
@@ -15,7 +16,7 @@ When the change is approved, it will append the version to the document object. 
 	\path[->] (await) edge [loop below, out=350, in=330, looseness=4] node {Approve} (await);
 	\path[->] (await) edge [loop below, out=180, in=230, looseness=4] node {Deny} (await);
 	\node[round] (approved) [right of=await, node distance=8cm] {New version released};
-	\path[->] (await) edge node[above] {Change approved} (approved);
+	\path[->] (await) edge node[above, yshift=0.2cm] {All reviewers have approved} (approved);
 
 	%\draw[fill=white] circle[radius = 7pt, below of=approved, node distance=1cm];
 	%\node[circle, fill=black,minimum size=3pt] (end) [below of=approved, node distance=1cm] {};
