@@ -1,8 +1,7 @@
 \section{Statechart diagrams}
 Statechart diagrams are a useful way to get an overview over the lifetime of objects in the problem domain.
 This chapter describes contains the state chart diagram of objects whose behaivour is both interesting and unique to the project.
-Due to the nature of the application, it being very focused on basic CRUD operations, there is not a lot of interesting activity going on in the way of state.
-%Anna: Husk altid at skrive forkortelser ud første gang de bruges!
+Due to the nature of the application, it being very focused on basic \textit{create, read, update and delete} (CRUD) operations, there is not a lot of interesting activity going on in the way of state.
 
 \subsection{Approval Request}
 The approval request is one of the most central concepts in the application.
@@ -52,7 +51,6 @@ One of the most important functions of the department is the abillity for it to 
 A version is another central concept in the application.
 As mentioned before, the handbook consists of documents, and each document can have multiple versions.
 And thus, after creation, version objects are supposed to be quite immutable once created, as to preserve the history of individual documents.
-% mangler der ikke efter approved state en released version eller noget, så det er tydeligt at reader bruger nu kan se den nye version
 
 \begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
 

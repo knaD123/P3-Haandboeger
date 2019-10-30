@@ -1,0 +1,38 @@
+\section{Web Frontends}
+The languages of UI on the web are HTML, CSS, and Javascript, and each of these three languages have their own respective roles.\cite{nixonweb}
+\subsection{HTML}
+HTML is the most important of the three.
+It's a markup language that is used to describe the structure and much of the contents of a webpage.
+\begin{lstlisting}[language=HTML]
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML Example</title>
+</head>
+<body>
+<h1>HTML</h1>
+<p>This is a <b>webpage<b></p>
+</body>
+</html>
+\end{lstlisting}
+The different tags can contain child tags, which in turn can have their own tags.
+This gives the webpage a tree structure.
+
+Two important types of tags are the \texttt{<script>} and \texttt{<style>} tags.
+These allow for embedding CSS and Javascript into the page.
+The CSS allows for different kinds of styling, such as colouring and positioning of tags.
+\subsection{CSS}
+CSS is short for Cascading Style Sheets. It allows for defining the style of the document.
+\begin{lstlisting}
+body {
+	background-color: green;
+}
+
+p {
+	text-color: blue;
+}
+\end{lstlisting}
+This stylesheet, for example, colours the background green, and the text in paragraph (\texttt{<p>}) tags blue. The possibilities with CSS are of course far greater than just colours, as the lagnuage also allows for positioning elements, changing their visibility, and much more.\cite{nixonweb}
+\subsection{Javascript}
+Javascript is a scripting language built for the web.
+Javascript allows for running code on the page, which can interact with the contents of the page, play sounds, send requests in the background, and much more.\cite{nixonweb}

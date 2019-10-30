@@ -1,21 +1,23 @@
-% https://books.google.dk/books?hl=en&lr=&id=0t2pCAAAQBAJ&oi=fnd&pg=PA1&dq=relational+database&ots=Fz83eSVoqp&sig=uNf7tLb6q39KqRXY17DzuZ8wGHE&redir_esc=y#v=onepage&q=relational%20database&f=false
+It was mentioned in \Cref{sec:hosting} that the application is going to use a database and therefor some information about what a database is, how it works and how to interact with it is required.
 
-% Henrik: måske lidt om hvorfor vi bruger en database her
-%Anja: Jeg er enig.
+Jan Paredaens et al. defines a database system as a collection of programs that run on a computer and that help the user to get information, to update information, to protect information, in general to manage information. \cite{RelationalDatabaseModel}
 
-Jan Paredaens et al. defines a database system as a collection of programs that run on a computer and that help the user to get information, to update information, to protect information, in general to manage information. % Henrik: indsæt kilde Anja: Tjoh
-
-When representing data or information in a database system it would be convenient for the user of the system to represent it as sentences. The problem with representing data or information as senteces is that sentences can be ambiguous. Therefore, different approaches were made: % Henrik: indsæt kilde
+When representing data or information in a database system it would be convenient for the user of the system to represent it as sentences.
+The problem with representing data or information as senteces is that sentences can be ambiguous.
+Therefore, different approaches were made: \cite{RelationalDatabaseModel}
 
 \begin{itemize}
         \item \textit{network model} where the structure of information is represented by a directed graph.
         \item \textit{hierarchical model} where the information is represented as a set of trees.
         \item \textit{relational model} where the information is represented in tables.
-\end{itemize} % Henrik: indsæt kilde
+\end{itemize}
 
-% Henrik: Måske lidt baggrundsviden om relational databaser her?
-%Anna: Evt gør explicit opmærksom det er den relationelle model der bruges, og hvis der er hvorfor.
-Let us imagine a system with a lot of users. This system might be interested in keeping track of the users \textit{username, password, firstname, lastname, email}. In a relational database this information can be represented like this:
+Relational databases are one of the most popular where, as mentioned above, the data is organized in tables with rows and columns \cite{OracleWhatIsDatabase}.
+The application is using this type of database because of the way that the data, used in the application, is structured (see xx).
+
+To get a better understanding of how the data is structured in a relational database imagine a system with a lot of users.
+This system might be interested in keeping track of the users \textit{username, password, firstname, lastname, email}.
+In a relational database this information can be represented like this:
 
 \begin{table}[H]
         \centering
@@ -28,12 +30,13 @@ Let us imagine a system with a lot of users. This system might be interested in 
         \caption{Table of users}
 \end{table}
 
-This makes it easy to add new users to the table because the number of columns does not change, nor the names of the columns.
+Structuring the users like this makes it easy to add new users to the table because the number of columns does not change, nor the names of the columns.
 
-The most common way to interact with a database is to use \textit{Structured Query Language} (SQL). SQL (pronounced either \textit{"sequel"} or \textit{"S-Q-L"}) is a database sublanguage that differs from other computer languages because it describes what the computer should do rather than how it should do it. % Henrik: indsæt kilde
-% https://library-books24x7-com.zorac.aub.aau.dk/toc.aspx?bookid=33515
-SQL makes it easy to perform \textit{create, read, update, delete} (CRUD) operations on the database. % Henrik: Indsæt kilde (Oracle - what is a database)
- An example of how to use SQL could be someone who wants to retrieve all the users from the user table
+The most common way to interact with a database is to use \textit{Structured Query Language} (SQL).
+SQL (pronounced either \textit{"sequel"} or \textit{"S-Q-L"}) is a database sublanguage that differs from other computer languages because it describes what the computer \textit{should do} rather than \textit{how it should do it}. \cite{SQLIntroduction}
+
+SQL makes it easy to perform CRUD operations on the database \cite{OracleWhatIsDatabase}.
+An example of how to use SQL could be someone who wants to retrieve all the users from the user table
 
 \begin{lstlisting}
 SELECT * FROM USER;
@@ -48,6 +51,6 @@ SELECT * FROM USERS WHERE username = "username1";
 
 % Henrik: Mangler nok en genial afslutning på dette afsnit
 
-% Rasmus: Det er blevet et super godt afsnit! Bedste i rapporten indtil videre. Måske lige en rød tråd, og så er vi ved at være i mål. Anja: Tjoh
+% Rasmus: Det er blevet et super godt afsnit! Bedste i rapporten indtil videre. Måske lige en rød tråd, og så er vi ved at være i mål.
 
 % Anja: Som noget afsluttende kunne vi skrive noget bredt om, hvordan vi har tænkt os at anvende det i implementationen
