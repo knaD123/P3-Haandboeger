@@ -217,7 +217,14 @@ innerleftmargin=3pt,innerrightmargin=7pt, innertopmargin=2pt, innerbottommargin=
 }
 
 % ¤¤ Visuelle referencer ¤¤ %
-\usepackage[colorlinks]{hyperref}			% Danner klikbare referencer (hyperlinks) i dokumentet.
+\usepackage[colorlinks,
+            pdftex,
+            pdfauthor={Andreas Madsen, Anja Nielsen, Anna Bonde, Astrid Ipsen, Henrik Christensen, Rasmus Kjær og Taniya Henriksen},
+            pdftitle={Fanciful Handbook Management},
+            pdfsubject={Developing a Handbook Management System for SMBs},
+            pdfkeywords={handbooks,document,compsci},
+            pdfproducer={Latex with hyperref},
+            pdfcreator={pdflatex, or other tool}]{hyperref}			% Danner klikbare referencer (hyperlinks) i dokumentet.
 \hypersetup{colorlinks = true,				% Opsaetning af farvede hyperlinks (interne links, citeringer og URL)
     linkcolor = black,
     citecolor = black,
@@ -372,3 +379,4 @@ innerleftmargin=3pt,innerrightmargin=7pt, innertopmargin=2pt, innerbottommargin=
 \newcommand{\SubItem}[1]{
 	{\setlength\itemindent{15pt} \item[-] #1}
 }
+
