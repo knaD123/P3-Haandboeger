@@ -1,4 +1,5 @@
 \section{Web Applications}
+\todo[inline]{Alt det her er komponent-delens ansvar. Lad os flytte den}
 The requirements in the system definition state that users should be able to work together through the system, independent of geography.
 The OOAL\&D method designates that in these scenarios, the client-server model should be considered.
 % Røde aalborg, side 202
@@ -16,11 +17,31 @@ This section will take a general overview of how web applications are structured
 %Jeg tænker, at vi også skal skrive om hvilke andre platforme og metoder der kunne anvendes til at udforme systemet.
 
 
-\subsection{Frontends}
-The languages of UI on the web are HTML, CSS, and Javascript.
+\subsection{Web Frontends}
+The languages of UI on the web are HTML, CSS, and Javascript, and each of these three languages have their own respective roles.\cite{nixonweb}
+
+HTML is the most important of the three. It's a markup language that is used to describe the structure and much of the contents of a webpage.
+\begin{lstlisting}
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML Example</title>
+</head>
+<body>
+<h1>HTML</h1>
+<p>This is a <b>webpage<b></p>
+</body>
+</html>
+\end{lstlisting}
+The different tags can contain child tags, which in turn can have their own tags. This gives the webpage a tree structure.
+
+Two important types of tags are the \texttt{<script>} and \texttt{<style>} tags. These allow for embedding CSS and Javascript into the page. The CSS allows for different kinds of styling, such as colouring and positioning of tags. The Javascript then allows for running code on the page, which can interact with the contents of the page, play sounds, send requests in the background, and much more.\cite{nixonweb}
+\todo[inline]{This might have to be several sections?}
 \subsection{Hosting}
+\todo[inline]{Do we even want a sysadmin chapter? We should think about it}
 All client-server systems need a server.
-While this is something that can be done on your own, it is often more hassle than it's worth, and at the same time, more expensive than simply renting server space in the cloud.
+
+While running a server is something that can be done on your own, it is often more hassle than it's worth, and at the same time, more expensive than simply renting server space in the cloud.
 
 No matter how you choose to host the server, it will also need to run the server application, and often a series of other supporting applications.
 The series of applications running on the server is commonly referred to as the \textit{stack}.
@@ -30,24 +51,19 @@ A common stack for the type of web app developed in this report consists of:
 \item A firewall
 \item A database
 \item A monitoring application
-\item A reverse proxy.
-Formerly, the most popular choice was Apache, but this has shifted to Nginx.
 \item SSH, or similar remote access utility
 \end{itemize}
 Additionally, if we end up implementing this requirement, we may or may not need to setup mail software to send notification emails to users.
+\todo[inline]{Update this when we decide on e-mail}
 \subsection{Monitoring}
-\epigraph{A commitment to monitoring is the distinguishing characteristic of a professional system administrator.}{\textit{Unix and Linux System Administration Handbook}}
-% This chapter is mostly based on this book.
-%A damn goood book btw, can recommend
+\epigraph{A commitment to monitoring is the distinguishing characteristic of a professional system administrator.}{\textit{Unix and Linux System Administration Handbook\cite{sysadmin}}}
 
 Monitoring is the practice of gathering metrics, events, and trends from the application, in order to get an understanding of how the application is performing.
 In server applications, this is crucial, as it allows system administrators to notice and prevent the problem before the screaming starts.
-Most monitoring solutions allow for overviews of how the system is currently performing, but also sending of notifications under certain circumstances, for example if a server is running out of storage, or it is often under stress, or crashes occur.
+Most monitoring solutions allow for overviews of how the system is currently performing, but also sending of notifications under certain circumstances, for example if a server is running out of storage, or it is often under stress, or crashes occur.\cite{sysadmin}
 
 To integrate our application with monitoring, it needs to somehow expose metrics.
 One of the standard ways to do it is hosting a text document at /metrics, consisting of key-value stores in the form \texttt{metric: value}.
 A metrics system will then poll the endpoint at a set interval, and use the fetched values to provide statistics about the monitored system.
 
 For this project, it was decided that Prometheus/Grafana would be used, as that was what the project group had experience with.
-
-\todo[inline]{Indtil videre skriger `Web Applications' af, at vi vælger netop web-applikationer, fordi det har vi lyst til at anvende, frem for at vælge det, fordi det er den optimale teknologi til at løse opgaven}
