@@ -2,7 +2,9 @@ This section covers the problem domain analysis based on data gathering in form 
 
 \section{Classes and events}
 
-The following subsections explore the potential class and event candidates as well as the thought process behind it. The generated class and event candidates will be systematic selected to represent the problem domain with regard to relevance and that they satisfy the system definition. The process of systematically select classes and events are based on the following criteria found in Object Oriented Design \& Analysis (OOA\&D)[] p. 62-67)
+The following subsections explore the potential class and event candidates as well as the thought process behind it. 
+The generated class and event candidates will be systematic selected to represent the problem domain with regard to relevance and that they satisfy the system definition. 
+The process of systematically select classes and events are based on the following criteria found in Object Oriented Design \& Analysis (OOA\&D)[] p. 62-67)
 
 \subsection{Classes}
 According to OOA\&D a class is defined as:
@@ -31,9 +33,9 @@ The questions below help to evaluate a class if those are affirmative. (OOA\&D[]
   \textbf{User }& A class representing the reader, writer and administrator role\\
  \textbf{Version} & A class representing a document’s version and the validity period\\
   \textbf{Log} & A class representing the descriptions of changes for each version\\
-  \textbf{Responsibility} & A class representing the difference user access levels to the handbook\\
+  \textbf{Responsibility} & A class representing the different user access levels to the handbook\\
  \textbf{Approval} & A class representing the created approvals\\  %bruh vidste ikke hvad man ellers skal skrive? halp
-  \textbf{TOC} & A class represent the table of contents of the documents in the handbook\\
+  \textbf{TOC} & A class representing the table of contents of the documents in the handbook\\
   \textbf{Notification} & A class to represent which user is assign to which document\\
   \textbf{Read Status} & A class that keep track of who has read which version
 
@@ -83,3 +85,9 @@ Qualified classes:
 \subsubsection{Event candidates}
 \subsubsection{Qualifying events}
 
+An important object for the user is the Table Of Contents (TOC). 
+This table is needed to facilitate an overview of the documents, which is the point with the system. 
+However this is not a class as its identity would be too similar to what is already included in the Handbook class. 
+Besides that, because of the need for the TOC to be constantly updated the information this class would encapsulate would need to be recalculated each time someone accesses it anyway.
+%var det her vores argumenter for at droppe klassen?
+% Rasmus - Basically. Alt den information der var inkapsuleret i TOC klassen var allerede indkapsuleret i listen af dokumenter handbook havde, og derfor ville det være dobbeltkonfekt at have en TOC-klasse
