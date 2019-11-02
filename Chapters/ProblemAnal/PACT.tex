@@ -1,62 +1,33 @@
-\section{PACT}\label{sec:PACT}
-This Section is unless anything else is stated based upon \cite{Benyon}.
-
-<<<<<<< HEAD
+\section{PACT analysis}\label{sec:PACT}
 When designing an interactive system it is important to design it with the human in mind as the system is being developed for a specific purpose and context.
 To do this the designers must explore the users who will eventually use the systems and for what purposes they are going to utilize it. 
 Depending on how well designers have implemented a way to convey their conception of a given system, different users will interpret it differently. 
-=======
-When designing an interactive system it is important to be human-centered, since it is the users who at the end determines the use of a given system.
-\\\indent
-Depending on how well designers have implemented a way to convey their conception of a given system, different users will interpret it differently.
->>>>>>> d976f310ca1592e74861fd2575926a7789324021
-Their interpretation, being based on individual understanding and knowledge, regulates the users interactions with the system and thereby determines what it really does, see \cref{fig:PACT-SystemImage}.
+Their interpretation, being based on individual understanding and knowledge, regulates the users interactions with the system and thereby determines what it really does. 
+\citep{Benyon}
+A model of this concept can be seen at \cref{fig:PACT-SystemImage}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{billeder/SystemImage-Benyon.png}
-	\caption{\textit{The System Image from
-			\citep[p.~31]{Benyon} %Kan evt også bare skrive \cite{Benyon}
-		}}
+	\caption{\textit{The System Image from \citep[p.~31]{Benyon}}}
 	\label{fig:PACT-SystemImage}
 \end{figure}
 
-<<<<<<< HEAD
-To help understand and reflect upon the users and their relation to a interactive system, the framework PACT is used. 
-PACT is an acronym for \textit{People, Activities, Context}, and \textit{Technology}, see \cref{sec:PACT-method} for further details.
-=======
-To help understand and reflect upon the users and their relation to a interactive system, the framework PACT is used.
-PACT is an acronym for ''people, activities, contexts and technologies'', see \cref{sec:PACT-method} for further details.
->>>>>>> d976f310ca1592e74861fd2575926a7789324021
+To help understand and reflect upon the users and their relation to an interactive system, the framework PACT is used. 
+PACT is an acronym for \textit{People, Activities, Context}, and \textit{Technology}.
 This analysis framework is used to analyze the users, such that developers are able to design the system people-centered instead of machine-centered.
+\citep{Benyon}
 
-\subsection{The acronym outlined}\label{sec:PACT-method}
-\subsubsection{People}
+The PACT theory presentation and analysis will be written congruently throughout this section. First the specific theory will be presented followed by the analysis.
+
+\subsection{People}\label{PACT-people}
 People differs from each others in many ways.
-<<<<<<< HEAD
 This element in the PACT analysis is a way to ponder upon these differences as well as a way to categorize the different users of a system. 
-Three differences usually discussed in this part of the analysis is \textit{physical, psychological}, and \textit{social}.
-=======
-This element in the PACT analysis is a way to ponder upon these differences as well as a way to categorize the different users of a system.
-Three differences usually discussed in this part of the analysis is:
-\begin{itemize}
-	\item Physiological
-	\item Psychological
-	\item Social
-\end{itemize}
+Three differences usually discussed in this part of the analysis are \textit{physical, psychological}, and \textit{social}. \citep{Benyon}
 
-\textbf{Physiological differences} covers the relevant ways people differs in physical characteristics.
-This could be, differences in perception from the five senses; sight, hearing, touch, smell and taste as well along with age, height or weight.
-\begin{example}
-As an example, when making an interface it is important to consider color blindness, since it affects about $8\%$ men and $0.5\%$ women in the world \cite{ColourBlind}.
-\end{example}
-
-\textbf{Psychological differences} describes things such as; emotional make-up, how stress affects different people, attention, memory and spatial ability.
-Furthermore, is language and culture also important points to consider since these affect the psyche and thereby the way people interpret things.
-\begin{example}
-	In USA is a tick used when marking acceptance and a cross to mark rejection, while it in Britain can be used for both. Brits do among other use a cross on the voting paper.
-\end{example}
->>>>>>> d976f310ca1592e74861fd2575926a7789324021
+Social differences is about how people use a system for different reasons and therefore can have various goals. 
+Additionally, there is also a big difference in people expertise levels which affects how an interface might be designed.
+This is an important consideration since designing a system for a homogeneous group of people is  distinct from designing one for a heterogeneous group. \citep{Benyon}
 
 Physical differences covers the relevant ways people differs in physical characteristics.
 This could be, differences in perception from the five senses; sight, hearing, touch, smell and taste as well along with age, height or weight. An example of a physical difference could be color blindness, which affects about $8\%$ men and $0.5\%$ women in the world \cite{ColourBlind}.
@@ -64,98 +35,104 @@ This could be, differences in perception from the five senses; sight, hearing, t
 %As an example, when making an interface it is important to consider color blindness, since it affects about $8\%$ men and $0.5\%$ women in the world \cite{ColourBlind}.
 %\end{example}
 
-Psychological differences describes things such as; emotional make-up, how stress affects different people, attention, memory and spatial ability.
-Furthermore, is language and culture also important points to consider since these affect the psyche and thereby the way people interpret things.
-%\begin{example}
-%In USA is a tick used when marking acceptance and a cross to mark rejection, while it in Britain can be used for both. Brits do among other use a cross on the voting paper.
-%\end{example}
+In the case described in this report there are four main groups of people that needs to be considered. These are the quality manager, secretary, department heads, and everyday workers. 
+This is a heterogeneous group with different levels of IT experience ranging from no skills with IT and therefore cautious about it, to the level of everyday office work.
+The group also has different levels of domain expertise ranging from no to expert which needs to be considered. 
+The quality chief is a domain expert and therefore has different needs of the system than the everyday worker with no expertise.
 
-<<<<<<< HEAD
-Social differences is about how people use system for different reasons and therefore can have various goals. 
-=======
-\textbf{Social differences} is about how people use system for different reasons and therefore can have various goals.
->>>>>>> d976f310ca1592e74861fd2575926a7789324021
-Additionally, there is also a big difference in people expertise levels which affects how an interface might be designed.
-This is an important consideration since designing a system for a homogeneous group of people is  distinct from designing one for a heterogeneous group.
+Furthermore, issues such as colorblindness, other eye handicap as well as bad memory needs to be considered when designing the system and interface.
 
-\subsubsection{Activities}
-When considering the activities the developers or designers should focus on the overall purpose of these. When that's completed the main features can be considered such as described below:
+\subsection{Activities}\label{PACT-actvities}
+When considering the activities developers or designers should focus on the overall purpose of these. When that's completed the main features can be considered such as described below:
+
+When considering the people using the system, which is explored under \cref{sec:PACT-people}, there are two different activities in relation with the system.
+There is the activities of the secretaries and those of the everyday workers perspectives.
+The secretary and quality manager has a more administrative role.
+%, where the secretary in part writes and maintains the handbook.
+The overall activities for this role is to manage, update and access a handbook mostly the newest version but also possibly older versions as well. 
+It is necessary to uphold standards set by the government to retain the companies certifications.
+Whereas the workers ''only'' has to read certain documents. 
 
 \textit{Temporal aspects} covers different features in the system as well as a consideration of how the users interaction with the system is done during a day.
-Starting with the considerations of users interactions, one need to consider among other: How often is the interactive system used? And is the interactions with this system done continuously or interrupted?
-For the temporal aspects in a given system the developers need to consider things such as; time preassures, peaks and troughs, and the response time of a given activity.
+Starting with the considerations of users interactions, one need to consider among other: 
+How often is the interactive system used? 
+And is the interactions with this system done continuously or interrupted?
+For the temporal aspects in a given system the developers need to consider things such as; time pressures, peaks and troughs, and the response time of a given activity. \citep{Benyon}
 
+When doing the activities users may experience interruptions and the system should therefore be simple to use and easy to get back to.
+Being easy to use is a feature most relevant for the everyday workers, as they only occasionally need to read documents and therefore is less in contact with the system.
+This makes it necessary to make the system as easily accessible for them as possible.
+The activities would most often be done during business hours, from 8-16 on weekdays,though may be accessed outside of this time frame as well.
 
-\textit{Cooperation} is simply the consideration of whether or not the activity is done in cooperation with others or alone, and if a mix here of, then how and when the cooperation is needed.
-This is an important consideration since a system which is i done in cooperation with others needs to have an awareness of others, be able to coordinate it between them and maybe have a communication system as well.
-On the other hand if the activities is done completely alone these features are not necessary.
+\textit{Cooperation} is simply the consideration of whether or not the activity is done in cooperation with others, alone, or a mix hereof, as well as how and when a possible cooperation is needed.
+This is an important consideration since a system which is i done in cooperation with others needs to have an awareness of al the users, be able to coordinate it between these and maybe have a communication system implemented as well.
+On the other hand if the activities is done completely alone these features are not necessary. \citep{Benyon}
 
-\textit{Complexity} describe the question of how well-defined is the activity?
+The cooperation aspect is mostly relevant for the quality manager and secretary as they are maintaining the handbook documents. 
+Here it's necessary to not only write new versions of a document but also make sure that the newest versions are approved. 
+Though writing the documents in itself does not require collaboration.
+As for the worker's activities, there is no cooperation involved as all the workers need to read the newest, relevant documents individually.
+
+\textit{Complexity} describes the question of how well-defined the activity is?
 Is it a well-defined task which can be done in a simple step-by-step design?
-Or is it a vague task, which would need users to browse around?
+Or is it a vague task, which would need users to browse around? \citep{Benyon}
+
+The activities is overall well-defined. 
+For the administrative personnel it is quite well-defined that whenever a new document has been written, it is imperative that it is approved and then inserted.
+Here the oldest, and now outdated, document is being archived and stored for a couple of years.
+The secretary needs to make sure that the affected everyday workers reads and understands the new documents.
 
 \textit{Safety Critical} has two sides to it.
 First is whether or not the activity in itself is ''safety-critical'' where mistakes could be reason for injury or serious accidents.
-Second is the consideration of ''what will happen when mistakes and errors are made?'' which is an important for any developer to reflect upon and then design for these circumstances
+Second is the consideration of ''what will happen when mistakes and errors are made?'' which is important for any developer to reflect upon and then design for these circumstances.
+\citep{Benyon}
+
+There are no physical safety issues to consider in relation to the system, though there are serious consequences to consider if the handbook documents don't live up to regulations. 
+It is required that there are updated handbook documents and that the archived versions of these documents are stored somewhere. 
+If this isn't upheld then the firm could suffer money-loss or loss of certification.
 
 \textit{The nature of the content} is a more technical reflection of which data requirements are needed for the activity as well as what media it requires.
+\citep{Benyon}
 
-\subsubsection{Contexts}
-Context also have more facets to it.
-It can be thought of, as something that surrounds activities as well as a feature which binds them together into a whole.
-Usually when considering this point in PACT the three points: Physical environment, Social context and Organizational context are at the main focus.
-\\\indent
-The physical environment might cover everything from weather to geographical placement of where the activity is done.
+It's important that the system is able to handle Microsoft documents such as Word and Excel as these are the filetypes used to write the documents.
+Furthermore the system should support large quantities of these files as the archived versions of the documents are usually stored for 3-5 years.
+
+\subsection{Contexts}
+Activities always occur in a context which will be explored in this section.
+Context can be thought of, as something that surrounds activities as well as a feature which binds them together into a whole.
+Usually when considering this point in PACT the three points: \textit{Physical environment, Social context}, and \textit{Organizational context} are at the main focus.
+\citep{Benyon}
+
+The physical environment might cover everything from weather to geographical placement of where the activity is done. 
 It is an analysis of the surrounding environment which may have effect on how users perform activities.
-While Social context covers things such as whether or not the environment is supportive, or the user is alone in using and learning the activities.
-It is also an reflection on if the social norms may dictate certain designs.
-Lastly the organizational context is among other an examination of the impact new technology may have on the organization.
-It is also a review of the circumstances under which the activities is done; time, place and so on.
+\citep{Benyon}
 
-\subsubsection{Technologies}
+In relation to the people in this case there are two main physical contexts to consider. 
+For the quality manager and secretary an office context is most likely as they handle administrative work. 
+For the everyday workers the context could differ dramatically as their, functions may differ from each other.
+The main focus here should be that the handbook documents should be easily accessible, no matter in which context the workers are located.
+
+%Social context covers things such as whether or not the environment is supportive, or the user is alone in using and learning the activities. 
+%It is also an reflection on if the social norms may dictate certain designs.
+
+The organizational context is among other an examination of the impact new technology may have on the organization. 
+It is also a review of the circumstances under which the activities is done; time, place and so on.
+\citep{Benyon}
+
+The technological aspect is presumably most relevant for the secretary and consultant as they will be doing most of the work in the handbook.
+Both of them would be working on a regular computer which utilizes either the Windows or Mac OS-system. 
+%Anna: Hvad tænker folk hænger de to afsnit ovenfor sammen?, giver det mening at afsnittet ovenfor er en organizational context?
+
+
+\subsection{Technologies}
 Technologies is the reflection on the medium which interactive system designers work with.
 It covers looking into elements such as what medias and technologies is needed to best get input and present the output, and review the communication between the needed devices.
 Furthermore, it also examines the content, which concerns the data in the system and its form.
 Good content is defined as accurate, up to date, relevant and well presented.
+\citep{Benyon}
 
-\subsection{PACT analysis}\label{sec:PACT-analysis}
-Based on the interviews with Pia,
-% conslutant and acting quality chief at JBJ,
-{\color{red} section XX}, the PACT analysis for the project described in this report is as follows.
-
-\subsubsection*{People}
-
-There are four main groups of people; the quality manager, the secretary, department heads and everyday workers.
-This is a heterogeneous group with different levels of IT experience ranging from no skills with IT and therefore cautious about it, to the level of everyday office work.
-The group also has different levels of domain expertise ranging from no to expert which needs to be considered. The quality manager is a domain expert and therefore has different needs of the system than the everyday worker with no expertise.
-\newline
-Furthermore, issues such as colorblindness, other eye handicap as well as bad memory need to be considered when designing the system and interface.
-
-\subsubsection*{Activities}
-The overall activities is to manage, update and access a handbook mostly the newest version but also possibly older versions as well.
-It is needed to uphold standards set by the government to retain the companies certifications.
-This is a well defined activity which takes place at least yearly, though sometimes more often.
-\\\indent
-When doing the activities users may experience interruptions and should therefore be simple to use and easy to get back to.
-The activities would most often be done during business hours, from 8-16 on weekdays,though may be accessed outside of this time frame as well.
-Additionally, the activities is mostly done alone but may be done in collaboration with others, though this is not required.
-\\\indent
-The data to be entered into the system are mostly larger data entries and possibly many of such.
-\\\indent
-The activities is in themselves not safety-critical but integrity is a very important aspect since mistakes can cause money-loss or loss of certification.
-
-\subsubsection*{Contexts}
-\todo[inline]{Mangler}
-
-
-
-
-\subsubsection*{Technologies}
-Since the activities are most often be done in a office environment on a standard PC the input medias are Keyboard and mouse.
-In addition output is presented through a visual screen picture, or for the workers on the factory floor a printed version of the handbook, or parts of it.
-\\\indent
-The contents are presented through a General User Interface (GUI).
+Since the activities are most often be done in an office environment on a standard PC the input medias are Keyboard and mouse.
+In addition output is presented through a visual screen picture, or for the workers on the factory floor through a printed version of the handbook, or parts of it.
+The contents on the visual screen picture are presented through a General User Interface (GUI).
 Furthermore, the communication user-to-user is usually done through telephone, while it between devices are done over a Network, such as Wi-fi.
-Lastly, is the communication from the system to a user which is done through notifications.
-
-% I like this - Rasmus
+Lastly, is the communication from the system to a user done through notifications.

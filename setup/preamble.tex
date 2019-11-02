@@ -217,7 +217,14 @@ innerleftmargin=3pt,innerrightmargin=7pt, innertopmargin=2pt, innerbottommargin=
 }
 
 % ¤¤ Visuelle referencer ¤¤ %
-\usepackage[colorlinks]{hyperref}			% Danner klikbare referencer (hyperlinks) i dokumentet.
+\usepackage[colorlinks,
+            pdftex,
+            pdfauthor={Andreas Madsen, Anja Nielsen, Anna Bonde, Astrid Ipsen, Henrik Christensen, Rasmus Kjær og Taniya Henriksen},
+            pdftitle={Fanciful Handbook Management},
+            pdfsubject={Developing a Handbook Management System for SMBs},
+            pdfkeywords={handbooks,document,compsci},
+            pdfproducer={Latex with hyperref},
+            pdfcreator={pdflatex, or other tool}]{hyperref}			% Danner klikbare referencer (hyperlinks) i dokumentet.
 \hypersetup{colorlinks = true,				% Opsaetning af farvede hyperlinks (interne links, citeringer og URL)
     linkcolor = black,
     citecolor = black,
@@ -369,6 +376,35 @@ innerleftmargin=3pt,innerrightmargin=7pt, innertopmargin=2pt, innerbottommargin=
 \usepackage{cleveref}
 \usepackage{epigraph}
 
+\crefname{table}{table}{tables}
+\Crefname{table}{Tables}{Tables}
+\crefname{figure}{figure}{figures}
+\Crefname{figure}{Figure}{Figures}
+\crefname{equation}{equation}{equations}
+\Crefname{equation}{Equation}{Equations}
+\crefname{section}{section}{sections}
+\Crefname{section}{Section}{Sections}
+\crefname{subsection}{section}{sections}
+\Crefname{subsection}{Section}{Sections}
+\crefname{subsubsection}{section}{sections}
+\Crefname{subsubsection}{Section}{Sections}
+\crefname{chapter}{chapter}{chapters}
+\Crefname{chapter}{Chapter}{Chapters}
+\crefname{appendix}{appendix}{appendixes}
+\Crefname{appendix}{Appendix}{Appendixes}
+\crefname{eks}{example}{examples}
+\Crefname{eks}{Example}{Examples}
+\crefname{theorem}{theorem}{theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{defn}{definition}{definitions}
+\Crefname{defn}{Definition}{Definitions}
+\crefname{lstlisting}{listing}{listings}
+\Crefname{lstlisting}{Listing}{Listings}
+
+
+
+
 \newcommand{\SubItem}[1]{
 	{\setlength\itemindent{15pt} \item[-] #1}
 }
+
