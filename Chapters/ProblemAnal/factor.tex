@@ -1,51 +1,136 @@
 \chapter{System definition}
+This chapter is unless otherwise described based upon \cite{Rod-Aalborg} or the projects own analysis and data.
 
+A system definition seeks to define which problem the system should solve. 
+The definition is “A concise description of a computerized system expressed in natural language” \citep[p.~24]{Rod-Aalborg}. 
+This means that the system definition aims to describe what the system should do, but also in which context is should be used in, as the system is going to be “implemented both technically and socially” \citep[p.~23]{Rod-Aalborg}. 
+The system is going to solve a problem that exists in a specific context, it is therefore important to understand this context.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{billeder/RP-Oversigt}
+	\caption{\textit{The main problem showed in rich pictures
+	}}
+	\label{fig:RP-Oversigt}
+\end{figure}
+
+Based on the first interview with Pia, the main outlines of the situaton and problem to be solved became clear.
+The rough outline, also shown in \cref{fig:RP-Oversigt} is a document management system for handbooks with three types of users. These being: 
+\begin{itemize}
+	\item 
+	 Reader; who needs access to the newest version of the handbook, being managed, at location.
+	\item 
+	 Writer; who also needs access to newest version as well as to add new versions to the handbook.
+	\item 
+	 Administrator; who has the same rights as ''writer'' and ''reader''.
+	 This user type also have access to the archived versions of the handbook, and is furthermore in charge of managing the other users and assigning them to the different types.
+\end{itemize}
+When either ''writer'' or ''administrator'' uploads a new version, this goes through an approval process.
+If it is denied the actors usually talks over the phone, and when it is approved the handbook gets updated with the new version.
+
+To analyze both the context and the criterions for the system further than the main outline FACTOR is being utilized.
 
 \section{FACTOR criteria}
+The FACTOR criterion consists of six elements and can be used to help with the system definition development or describing an existing system
+% \cite{Rod-Aalborg}
+. 
+In this context FACTOR is being used as a way to present the system definition.
+%In this context FACTOR is being used for the former option, which is to help facilitate the system definition development.
+%AAnna skal kun bruge formattet udkommenteret hvis vi rent faktisk skriver en kort præcis system definition ud, for sig selv og ikke bare FACTOR
 
-Based on the data gathering we can make a system definition which seeks to define what problem the system should solve. A system definition is “A concise description of a computerized system expressed in natural language” \citep[p.~24]{Rod-Aalborg}. This means that the system definition aims to describe what the system should do, but also in which context is should be used in, as the system is going to be “implemented both technically and socially” \citep[p.~23]{Rod-Aalborg}. The system is going to solve a problem that exists in a specific context, it is therefore important to understand this context.
-To analyze both the context and the criterions for the system FACTOR is being utilized. The FACTOR criterion consists of six elements and can be used to help with the system definition development or describing an existing system \cite{Rod-Aalborg}. In this context FACTOR is being used for the former option, which is to help facilitate the system definition development. FACTOR stands for:
-
+FACTOR is an abbreviation of \textit{Functionality}, \textit{Application domain}, \textit{Conditions}, \textit{Technology}, \textit{Objects} and \textit{Responsibility}.
+These are defined as follows \citep[p.~40]{Rod-Aalborg}:
 \begin{itemize}
-\item “Functionality: The system functions that support the application-domain tasks.
-
-\item Application domain: Those parts of an organization that administrate, monitor, or control a problem domain.
-
-\item Conditions: The conditions under which the system will be developed and used.
-
-\item Technology: Both the technology used to develop the system and the technology on which the system will run.
-
-\item Objects: The main objects in the problem domain.
-
-\item Responsibility: The system’s overall responsibility in relation to its context.” \citep[p.~40]{Rod-Aalborg}
+	\item
+	 Functionality: 
+	 The system functions that support the application-domain tasks.
+	\item
+	 Application domain: 
+	 Those parts of an organization that administrate, monitor, or control a problem domain.
+	\item
+	 Conditions: 
+	 The conditions under which the system will be developed and used.
+	\item
+	 Technology: 
+	 Both the technology used to develop the system and the technology on which the system will run.
+	\item
+	 Objects: 
+	 The main objects in the problem domain.
+	\item
+	 Responsibility: 
+	 The system’s overall responsibility in relation to its context.
 \end{itemize}
 
-
-
 \section{FACTOR analysis}
-
-Based on the interview described on page xx we have been able to fill out the FACTOR criterions. In the following an overview of the analysis will be presented. The FACTOR criterion analysis will be elaborated on page xx.
+Based on the first and second interview described on page xx the FACTOR criterions have been analyzed. 
+In the following an overview of this analysis will be presented.
+Each section will contain first the short concise description for the FACTOR. 
+The \cref{sec:FACTOR-functionality} will also contain subsection with further details based on the aforementioned interviews. 
+ %The FACTOR criterion analysis will be elaborated on page xx.
 % Rasmus - Vil vi skrive systemdefinitionen i FACTOR-formaten, eller vil vi skrive den ud? Troede nemlig vi ville skrive den ud. Det her er meget svært at læse. Den skal vist også forkortes tror jeg?
-Functionality: Managing versions of handbook documents and each document being uniquely identifiable with number, title, date, and version number(Each identification number is reserved for a specific title once taken). Earlier versions of the documents should also be archived, but can only be viewed by the administrater and are not editable.
-The document number, title, date, and version number needs to be in a table of contents that is updated automatically.
-Users have different levels of access rights to the documents within the handbook, first level being reading the documents within the handbook, second level being editing/adding documents and a third administrative level being in full control of the system.
-The system can register that a user has read a version of a document.
-The system should be able to handle different types of documents, incoperate earlier handbooks into the system and the handbook is printable.
-A changelog must be included in the system and highlighting of changes would greatly help the reader.
-Users with administrative priviliges can assign other users to departments and determine which documents are associated with those departments, thereby showing users the most relevant documents and send notifications to users of specific departments when new changes or versions are uploaded into the system.
-A system for approval of new versions of documents and a system for approval of suppliers can be implemented.
-A notification is sent to the administrater when supplier documents need to be updated. The system can sort documents by different attributes.
+\subsection{F - Functionality}\label{sec:FACTOR-functionality}
+Manage and facilitate an overview of current and earlier versions of assorted files of different types in a handbook, as well as manage files in connection to approval of suppliers.
+Files in the handbook may have a changelog.
+New files should undergo an approval process before being submitted to the handbook. 
+Different levels of permissions for users as well as registration of who has read the individual files. 
+Notify specific users when a new version is published.
 
-Application domain: Mainly secretaries and 3rd party consultants will administrate the system. All employees of the organization will have access to the system to read documents and print the handbook. The managing director will have partial access to the system.
+\subsubsection{Further details}
+The system manages files, of different type, in a handbook presented in a updated Table of Content (TOC).
+Here each file should be uniquely identifiable with ID, title, date of approval, possible end date, and version number. 
+The identification numbers are individually reserved for a specific title once taken.
+Earlier versions of the files should be archived, but can only be viewed by the administrator and are not editable.
+It should be possible to sort the files in the handbook by different attributes.
+The system should support a changelog for every file and version in the handbook. 
+Furthermore highlighting of changes would greatly help the reader
+\todo{er den sidste sætning en vi gerne vil se i systemdefinitionen}
+\todo[inline]{skal jeg tilføje punktet fra det vi havde i drevet: ''The system should be able to  incoperate earlier handbooks into the system.}
 
-Conditions: The target group consists of small firms who needs a cheap
-solution. The users have little IT-experience. The system should be accesible at the place where it is needed.
-There should be a backup of the archive making it easy to revert to the previous system.(Skal det ikke ligge under functionalitet?)
+The systems needs three different levels of access rights to the files within the managed handbook, also shown in \cref{fig:RP-Oversigt}.
+First level grants access to reading the newest version of the handbook. 
+Second level further grants rights to ad new files or versions to the handbook. 
+The last level is an administrative level, being in full control of the system.
+Users with administrative priviliges can assign other users to departments and determine which documents are associated with those departments.
+The system should then send notifications to users of specific departments when relevant changes or versions are uploaded into the system.
+Moreover, should the system also register that specific users have read specific files and versions.
+Reading access to the handbook for any of the levels should be possible at any relevant location.
+
+The system should support an approval of suppliers process.
+Where among other a notification is sent to the administrator when supplier documents needs to be updated. 
+
+\subsection{A - Application domain}
+Mainly secretaries and quality assurance managers will administrate the system. 
+All employees of the organization will have access to the system to read documents and print the handbook. 
+The managing directors will usually have partial access to the system, such that they can add new versions. 
+They will occasionally also take part in the approval process of new versions that they themselves have not made.
+
+\subsection{C - Conditions}
+The target group of the system consists of small firms who needs a cheap document managing solution. 
+The users mostly have little IT-experience.
+Therefor most of the target groups are also not able to maintain such a system.
+%The system should be accessible at the place where it is needed.
+%Anna: den udkommenterede linie har vi allerede i F
+Lastly, there should be a backup of the archive making it easy to revert to the previous system.
 No on at the company is able to maintain the system.
 
-Technology: The system is only needed on PC. E-mail and/or sms for notification purposes.
+\subsection{T - Technology}
+System accessible through a PC.
+Notifications send over e-mail or sms.
+%Other than that the only technologies needed are e-mail and/or sms for notification purposes.
+%, and lastly printer access.
+\todo{skal der noteres noget om typen af server vi bruger eller er det ikke nødvendigt her (tænker ikke det er nødvendigt, men vil lige være sikker)}
 
-Objects: Handbook, Table Of Contents (TOC), documents, changelog, and user.
+\subsection{O - Objects}
+The main objects of the problem domain are \textit{Handbook}, \textit{TOC}, \textit{documents}, \textit{changelog}, and \textit{user}.
 
-Responsibility: Management tool to keep track of document versions, this also includes making a changelog. The table of contents should give an overview of all the documents. The system has to save older versions of documents. Access should be separated into 3 levels, as stated above. Keeping track of documents used in the approval process of contractors and dates for their approval and re-approvals. Making sure all new documents are approved before being added to the handbook.
+\subsection{R  - Responsibility}
+Management tool to keep track of file versions, this also includes making a changelog if required by the company.
+The table of contents should give an overview of all the documents. 
+Making sure all new files or versions are approved before being added to the handbook.
+The system has to save older versions in an archive. 
+Access should be separated into 3 levels, as stated above in \cref{sec:FACTOR-functionality}. 
+Keeping track of documents used in the approval process of suppliers and dates for the approval and re-approvals. 
+
+
+
+\todo[inline]{Skal vi have et seperart afsnit hvro selve system definitionen skrives ud på baggrund af FACTOR?????}
