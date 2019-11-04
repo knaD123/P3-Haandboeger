@@ -1,8 +1,9 @@
-%TODO: indsæt kilder
-This section covers the problem domain analysis based on data gathering in form of the initial interview with Ipsen, see section x. In the following subsections include the choice of the selected classes and events, the explanation of the structure between classes, and the description of the behavior patterns through state-chart diagram. 
+\todo[inline]{Indsæt kilder}
+This section covers the problem domain analysis based on data gathering in form of the initial interview with Ipsen, see section x. The following subsections include the choice of the selected classes and events, the explanation of the structure between classes, and the description of the behavior patterns through state-chart diagram.
 
 \section{Classes and events}
-The following subsections explore the potential class and event candidates as well as the thought process behind it. The generated class and event candidates will be systematic selected to represent the problem domain with regard to relevance and that they satisfy the system definition. The process of systematically select classes and events are based on the following criteria found in Object Oriented Design \& Analysis (OOA\&D)[] p. 62-67)
+The following subsections explore the potential class and event candidates as well as the thought process behind it. The generated class and event candidates will be systematic selected to represent the problem domain with regard to relevance and that they satisfy the system definition. The process of systematically select classes and events are based on the following criteria found in (Object Oriented Design \& Analysis (OOA\&D)[] p. 62-67)
+\todo[inline]{Kilden skal nok formeteres andreledes, men jeg ved ikke helt hvordan}
 
 \subsection{Classes}
 According to OOA\&D a class is defined as:
@@ -20,38 +21,38 @@ The questions below help to evaluate a class if those are affirmative. (OOA\&D[]
 
 \subsubsection{Class candidates}
 \begin{tabular}{l l}
- \texttt{Company} & A class representing ..... \\
-  \texttt{Handbook} & A class representing all the documents with the newest version\\
-  \texttt{Document} & A class representing the documents\\ %bruh vidste ikke hvad man ellers skal skrive? halp
-  \texttt{User }& A class representing reader, writer and administrator role\\
- \texttt{Version} & A class representing a document’s version and the validity period\\
-  \texttt{Log} & A class representing descriptions of changes for each version\\
-  \texttt{Responsibility} & A class representing the difference user access levels to the handbook\\
- \texttt{Approval} & A class representing the created approvals, keeping track of who has been\\&assign to approve what document and version\\  %bruh vidste ikke hvad man ellers skal skrive? halp
-  \texttt{TOC} & A class represents the table of contents of the documents in the handbook\\
-  \texttt{Notification} & A class to represent which user is assign to which document and send\\&notification to inform there is a new version\\
-  \texttt{Read Status} & A class that keeps track of who has read which document and version\\
-  \texttt{Supplier} & 
+	\texttt{Company} & A class representing the companies managed by the system \\
+	\texttt{Handbook} & A class representing all the documents with the newest version\\
+	\texttt{Document} & A class representing the documents\\ %bruh vidste ikke hvad man ellers skal skrive? halp
+	\texttt{User }& A class representing reader, writer and administrator role\\
+	\texttt{Version} & A class representing a document’s version and the validity period\\
+	\texttt{Log} & A class representing descriptions of changes for each version\\
+	\texttt{Responsibility} & A class representing the difference user access levels to the handbook\\
+	\texttt{Approval} & A class representing the created approvals, keeping track of who has been\\&assign to approve what document and version\\  %bruh vidste ikke hvad man ellers skal skrive? halp
+	\texttt{TOC} & A class represents the table of contents of the documents in the handbook\\
+	\texttt{Notification} & A class to represent which user is assign to which document and send\\&notification to inform there is a new version\\
+	\texttt{Read Status} & A class that keeps track of who has read which document and version\\
+	\texttt{Supplier} & A class describing a supplier, which has to be approved
 \end{tabular}
 
 \subsubsection{Qualifying classes}
 The following section covers an explanation whether the generates classes are qualified or not qualified.
 
-The \texttt{Company} class is qualified .....
+The \texttt{Company} class is qualified because it keeps track of companies that use the system, which is an important concept to keep track of.
 
-The \texttt{Handbook} class is qualified for the reason that it keeps track of the documents and is an important part of the problem domain and system definition. 
+The \texttt{Handbook} class is qualified for the reason that it keeps track of the documents and is an important part of the problem domain and system definition.
 
-The \texttt{Document} class is qualified because it works as a template for the various versions. 
+The \texttt{Document} class is qualified because it works as an item for the various versions in an item-descriptor pattern.
 
-The \texttt{Version} class is qualified since it enables users to easily identify a document with multiple versions.
+The \texttt{Version} class is qualified since it encapsulates the version data in the documents, and allows the document to have multiple instances of them.
 
-The \texttt{User} class is qualified because there would be different types of users with different access levels in the system. 
+The \texttt{User} class is qualified because there would be different types of users with different access levels in the system.
 
 The \texttt{Log} class is not qualified because the class does not contain unique information and the class it self is too simple. It is unnecessary to create an independent class for the changelog and therefore it has been converted to an attribute for the \texttt{Version} class.
- 
+
 The \texttt{Responsibility} class is not qualified because the different levels of access and permissions are present in the \texttt{User} class.
 
-The \texttt{Approval} class is qualified since it is vital to substantiate who is going to or had approval each version and what date it has been approved. 
+The \texttt{Approval} class is qualified since it is vital to substantiate who is going to or had approval each version and what date it has been approved.
 
 The \texttt{TOC} class is not qualifie since \texttt{TOC} is a property of the \texttt{Handbook} class and does not contains unique information. The purpose with \texttt{TOC} is to create an overview of the valid documents in the handbook.
 
@@ -59,24 +60,24 @@ The \texttt{Notification} class is not qualified as the notification is more an 
 
 The \texttt{Read Status} class is qualified since the system needs to store information regarding what associated user has read what associated version and when. This is useful when the company has to report a total number of employees that have read the current version of the document.
 
-The \texttt{Supplier} class is qualified seeing that the administrator need to keep a record of all documents related to approval of suppliers. %? 
+The \texttt{Supplier} class is qualified seeing that the administrator need to keep a record of all documents related to approval of suppliers. %?
 
 Qualified classes:
 \begin{itemize}
-  \item \texttt{Handbook}
-  \item \texttt{Document}
-  \item \texttt{Version}
-  \item \texttt{User}
-  \item \texttt{Approval}
-  \item \texttt{Department}
-  \item \texttt{Read Status}
+	\item \texttt{Handbook}
+	\item \texttt{Document}
+	\item \texttt{Version}
+	\item \texttt{User}
+	\item \texttt{Approval}
+	\item \texttt{Department}
+	\item \texttt{Read Status}
 \end{itemize}
 
 \subsection{Events}
 
 According to OOA\&D an event is defined as\citep[p.~53]{Rod-Aalborg}:
 
-"An instantaneous incident involving one or more objects."
+``An instantaneous incident involving one or more objects.''
 
 Once again the questions below help to evaluate an event if those are affirmative\citep[p.~65]{Rod-Aalborg}.
 \begin{itemize}
@@ -120,11 +121,11 @@ Once again the questions below help to evaluate an event if those are affirmativ
 	\item User deleted
 	\item Supplier added
 	\item Supplier edited
-	\item Supplier deleted 
+	\item Supplier deleted
 	\item Supplier approved
 	\item Subscribed to documents
 	\item Approval requested
-	\item Approval status updated ("answered")
+	\item Approval status updated (''answered'')
 	\item File deleted
 \end{itemize}
 
