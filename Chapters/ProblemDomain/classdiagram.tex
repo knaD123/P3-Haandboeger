@@ -1,46 +1,104 @@
 \section{Class diagram}
-%Introduktion til class diagrams
+The qualifying classes are ordered in relation to each other in a class diagram, the purpose of which is "to describe structural relations between classes and objects" \citep[p.~71]{Rod-Aalborg}. 
+
+The class diagram in \cref{fig:ClassDiagram} shows the structure between the classes in the problem domain.
+The two main problems modeled in this diagram are the handbook and the suppliers.
+Both of these deal with archiving and managing the documents a company needs to get their certifications.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.95\textwidth]{billeder/classDiagram.png}
-	\caption{\textit{Classdiagram of the problemdomain
+	\caption{\textit{Class diagram of the problem domain
 	}}
-	\label{fig:PACT-SystemImage}
+	\label{fig:ClassDiagram}
 \end{figure}
 
-The system consists of two subsystems with similar functionalty:
-The handbook subsystem and the supplier-approval subsystem.
-Both subsystems archive and manage documents a company needs to get their certifications.
+\subsection{Supplier}
+The clearer subproblem is that of managing the suppliers. 
+There can be any number of suppliers and each one is aggregated by one Approval. 
+Each Approval is aggregated by at least one Version, which encapsulates the files needed to document the validity of approving the supplier.
+This is a hierarchy pattern where both Company and Version is also included in the hierarchy structure for the handbook. 
+These two classes connect the problems.
 
-The handbook subsystem is the clients main concern and therefore the focus of the system. 
-%Anna: Evt skrive "And will therefore after this analysis be the only one focused upon in the rest of the report"
-In this system there is a Handbook aggregated by Document, as the Handbook exists to keep track of documents. The Document class is aggregated by version, which keeps track of the multiple versions each document has and when each one was valid in the handbook. Associated to Version is Approval since every single file in the handbook needs to have been approved, and it is necessary to keep track of who approved it and when.
+\subsection{Handbook}
+Where a company can have multiple or no suppliers there can only be one Handbook. The Handbook class is aggregated by Company which acts as a handle to access both suppliers and the handbook.
 
-The relation between Document and Version is an item-descriptor pattern. The Document class is the descriptor and contains all the important information about the document, including a pointer to the current valid version of said document. Version is an item as it encapsulates the actual file with the current version of Document. This is modeled so because of the need to keep track of earlier versions as well.
+Handbook is aggregated by Document as there are multiple documents in each book, and Document is again aggregated by version, which keeps track of the multiple versions each document has and when each one was valid in the handbook. 
 
-Version has two relational patterns, one to the Approval class and one to the Read Status class. Both classes exist because of the need to keep the information about when an event happened and which users were involved. Who approved this version and when did that happen? Who has read this version of the document? As well as the reverse: Who has not?
+The relation between Document and Version is an item-descriptor pattern. 
+The Document class is the descriptor and contains all the important information about the document, including a pointer to the current valid version of said document. 
+Version is an item as it encapsulates the actual file with the current version of Document. 
+This is modeled so because of the need to keep track of earlier versions as well.
 
-Document has a relation to Department. This is because a user should be shown relevant documents in the Handbook first as the book can become quite extensive but most users only need to access a couple documents regularly. A department connects a certain group of documents to a certain group of users. These departments are managed by an administrator of the system.
+Version has two relational patterns, one to the Approval class and one to the Read Status class.
+Both classes exist because of the need to keep the information about when an event happened and which users were involved. 
+Who approved this version and when did that happen? 
+Who has read this version of the document? 
+As well as the reverse: Who has not?
+Keeping track of the when is important because a new version should not replace the former one before it has been approved and for certification purposes it is relevant to know who has read the current version at any given time.
 
-There are three different types of users in the system, which has been modeled by using a role pattern. The reader can read everything and verify that they have read a version of a document but nothing else. Every single user in the system has this level of access and it is therefore unnecessary to include as a class. However it is an important group and therefore, for the sake of clarity, it was included as a role nevertheless. The writer has the additional permission of submitting new versions of documents for approval while the administrator has all access to the system. It is expected that there will be between two and three administrators in the system. First the quality manager who will be the most accustomed to the system, second the secretary who has access for administrative purposes but usually will not work there much and possibly third the CEO of the company.
+Document has a relation to Department. 
+This is because the handbook can become quite extensive, but most users only regularly need to access a couple of documents. 
+Therefore users should be shown specific documents relevant to them first and Department connects a group of documents to a group of users. 
+These departments are managed by an administrator of the system.
 
-An important object for the user is the Table Of Contents (TOC). This table is needed to facilitate an overview of the documents, which is the point with the system. However this is not a class as its identity would be too similar to what is already included in the Handbook class. Besides that, because of the need for the TOC to be constantly updated the information this class would encapsulate would need to be recalculated each time someone accesses it anyway.
-%var det her vores argumenter for at droppe klassen?
-% Rasmus - Basically. Alt den information der var inkapsuleret i TOC klassen var allerede indkapsuleret i listen af dokumenter handbook havde, og derfor ville det være dobbeltkonfekt at have en TOC-klasse
+\subsection{User}
+There are three different types of users in the system, which has been modeled by using a role pattern. 
 
-The biggest similarities between the two subsystems are the need for archiving documents and the need for approving certain things with specified intervals.
-The difference between them is first and foremost that the approval of the suppliers isn't actually included in the handbook and has no relevance for the majority of the users of this subsystem. Besides that the approval process for these systems vary slightly:
-In the handbook system a version of a document needs to be approved by specified people.
+The reader can read everything and verify that they have read a version of a document but nothing else. 
+Every single user in the system has this level of access and it is therefore unnecessary to include as a seperate class. 
+However it is an important group and therefore, for the sake of clarity, it was included as a role nevertheless. 
+
+The writer has the additional permission of submitting new versions of documents for approval. They can also assign other users to approve these documents, but anyone, no matter the role, can be assigned.
+
+The administrator has all access to the system. 
+This includes making completely new documents, managing who gets notifications for which documents through the Department class, adding and removing users and accessing the archive.
+There needs to be at least one administrator per system.
+
+The writer can do everything the reader can do, and the some and the administrator can do everything the writer can do and then some. 
+This relation is pictured in \cref{fig:RoleIllustration}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{billeder/RP-Roller.jpg}
+	\caption{\textit{Illustration of the different roles
+	}}
+	\label{fig:RoleIllustration}
+\end{figure}
+
+It is expected that there will be between two and three administrators in the system, and any number of writers and users. 
+The companys quality manager should be an administrator and will be the person most accustomed to the system. 
+Additionally the secretary will need the same level of access to do their job, but they likely won't spend as much time working with the system. 
+The CEO of the company could also be an administrator but depending on their involvement they could also be a writer or even reader.
+The writer role would typically be assigned to people like the department heads as they are the experts on how their own departments work.
+Every single employee should be a user and will by default have a reader role. 
+
+\subsection{Approval}
+The biggest similarities between the handbook and supplier-approval problem are the need for archiving documents and the need for approving certain things with specified intervals.
+
+The difference between them is first and foremost that while the company needs both, they do not need each other.
+The approval of the suppliers is not included in the handbook and has no relevance for the majority of the users of the handbook, and what the handbook says is irrelevant to whether a supplier is approved or not.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{billeder/pseudoClassDiagram.jpg}
+	\caption{\textit{Early, incomplete models of the problem domain
+	}}
+	\label{fig:PseudoClassDiagram}
+\end{figure}
+
+Early versions of the class diagram modeled the problems like seen in \cref{fig:PseudoClassDiagram}.
+Here the classes Approval and Document are present in both diagrams, suggesting that their functionalities are too similar to have seperate classes. However in the handbook, Document is merely a container for Versions, which include the actual files and those files are needed in supplier-approval. Therefore the two Document classes cannot be merged, but the Document class in supplier-approval can be entirely replaced by the Version class in handbook.
+
+The two Approval classes are more complicated as the approval process varies:
+In the handbook system a version of a document needs to be approved and the writer can specify which people should do so.
 In the supplier-approval system a supplier needs to be approved and only one person is needed to do that.
-However that one person has to connect multiple documents that justify why the supplier has been approved.
+However that one person needs to submit some kind of documentation, that justifies the approval.
+Both systems need the approval for the changes to take effect.
 
-Early versions of the class diagram modeled this association like in figure {\color{red}(whatevs)}. Here Supplier is aggregated by Approval as a Supplier will need to be reapproved after a certain time frame. Approval is again aggregated by Document as multiple files are submitted as documentation for the approval. In other words anyone can approve a supplier by submitting the appropriate documentation.
+A generalization is used to have their shared functionality included in the abstract class Approval and the more specific functionlities in the subclasses HandbookApproval and SupplierApproval. 
+Just like in the early version of the class diagram SupplierApproval is aggregated by Version and Version contains a reference to HandbookApproval.
+In the case where a Version object belongs to a SupplierApproval object the relation to HandbookApproval is set to a null reference.
 
-However in the handbook subsystem the Handbook is aggregated by Document and the
-it is Version, the class that contains files, that needs to be approved and all the justification needed for an approval is the signature of
-
-
-
- which is modeled in the class diagram by having one common abstract superclass and a specialized subclass for each subsystem.
-%still needed: Hændelser, event tabel, evt. kasserede klasser??? (har vi gemt dem???)
+The handbook part of the problem is the clients main concern and therefore the focus of this project.
+In order to understand the problem in its entirety both subproblems are analyzed in this section, but from here on out only the Handbook problem will be analyzed and eventually designed, implemented and tested.

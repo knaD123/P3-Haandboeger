@@ -1,13 +1,14 @@
 \section{MoSCoW rules}
+The information in this chapter is based upon information from \cite{Benyon}.
 
-It is important to prioritize a systems' requirements after the first draft of a system has been designed.
+It is important to prioritize a system's requirements after the first draft of a system has been designed.
 This is because that there are no guarantees that all of the requirements and design ideas are doable within the time frame of the project.
 There is in this project set a hard time limit by Aalborg Univerity.
 
 These priorities are set to determine which requirements are absolutely necessary for the system to function, the \textit{minimal viable product} (MVP), and which requirements are simply nice to include.
-The \textit{MoSCoW rules} have been chosen to help priorities the requirements for this project. 
+The \textit{MoSCoW rules} have been chosen to help priorities the requirements for this project.
 
-The MoSCoW rules classifies these priorities into: \cite{Benyon}
+The MoSCoW rules classifies these priorities into:
 
 \begin{itemize}
         \item \textit{Must have}.
@@ -20,20 +21,30 @@ Must have are the fundamental requirements to include of which the system would 
 Must have also determines the MVP.
 Should have are essential requirements to include if the time frame allowed, but the system could still function without.
 Could have are less important requirements than must have and should have and they would easily be excluded from the system.
-Want to have but Won't have are requirements that can wait until a later point of the development of the system. \cite{Benyon}
+Want to have but Won't have are requirements that can wait until a later point of the development of the system.
 
 % Henrik: Er dette en okay måde at lave denne definination? DEB-bogen s. 147 øverst
-A definition of a requirement is provided to prevent any misunderstandings throughout this chapter. \cite{Benyon}
+A definition of a requirement is provided to prevent any misunderstandings throughout this chapter.
+Requirements can be divided into two types, \textit{functional} and \textit{non-functional}, and a definition for those types will be provided aswell.
 
 \begin{defn}
-Something the product must do or a quality that the product must have
+A requirement is something the product must do or a quality that the product must have
+\end{defn}
+
+\begin{defn}
+A functional requirement is a requirement that the system must do
+\end{defn}
+
+\begin{defn}
+A non-functional requirement is a quality that the system must have
 \end{defn}
 
 % Henrik: Noget om hvordan man finder frem til disse "requirements"
 \subsection{Defining requirements}
 % vigtigt at finde ud af hvad "the client(s)" ønske, før man sætter "requirements"
-Before defining a projects' requirements it can be a good idea to figure out what the client wants because it is the client, and not the designer, that is going to use the final system.
-A lot of different techniques can be used when trying to define a projects' requirements, e.g.:
+It was in \cref{sec:PACT} mentioned that it is important, when designing an interactive system, to do it with the human in mind.
+Therefore, before defining a project's requirements it is a good idea to figure out what the client wants and needs because it is the client, and not the designer, that is going to use the final system.
+A lot of different techniques can be used when trying to define a project's requirements, e.g.:
 
 \begin{itemize}
         \item Interviews
@@ -41,22 +52,45 @@ A lot of different techniques can be used when trying to define a projects' requ
         \item Organizing focus groups
 \end{itemize}
 
-These techniques can help the designer to better understand the problems that the client has with the current system, and at the same time, a better understanding of the requirements for the new system.
+These techniques can help the designer to better understand the problems that the client has with the current system, and at the same time, give a better understanding of the requirements for the new system.
+Using these techniques where there designer interacts with other people also provides the designer with a lot of stories that can form the basis for the analysis work. Even though a designer have all these techniques at their disposal, the interview technique, see \cref{sec:interview}, is one of the most effective techniques to find out what the client wants and needs.
 
-% måske meget lidt om prototyper og interviews
 % det kan være en iterativ process, og det sker ofte at der kommer nye "requirements" fra tid til anden
-
-% Henrik: To typer af requirements skal nok skrives om
-% Henrik: Måske lav dem til definitioner sammen med "requirements" længere oppe?
-There are two types of requirements:
-
-\begin{itemize}
-        \item \textit{functional}
-        \item \textit{non-function}
-\end{itemize}
-
-functional requirements are requirements that the system must do and non-functional requirements are the qualities that the system must have.
+The process of defining a project's requirements is an iterative process, see \cref{sec:iterativ}. This is because new requirements will pop-up throughout the design process.
 
 % Henrik: Noget om hvordan vi er kommet frem til vores "requirements"
+For this project the interview technique was used to define this project's requirements, see \cref{sec:firstinterview}. This helped defining the following requirements:
 
-% Henrik: Afsluttende tekst
+\begin{itemize}
+        \item Must have:
+        \begin{itemize}
+                \item The system should manage versions of handbook documents
+                \item A \textit{Table of Contents} (TOC) with title, ID number, date and version number
+                \item Different levels of permissions/access rights to the documents within the handbook
+                \item The system should be able to handle documents of different filetypes
+                \item The system needs to handle existing handbooks and their archives
+                \item Title and ID number are linked
+                \item Only the newest version of a document can be edited
+                \item Readers and writers only have access to the newest version of a document
+                \item Administrators have access to everything
+        \end{itemize}
+        \item Should have:
+        \begin{itemize}
+                \item Automatic updates of TOC
+                \item A changelog must be included
+                \item Registration when a version has been read by an employee
+                \item The handbook should be printable
+        \end{itemize}
+        \item Could have:
+        \begin{itemize}
+                \item The administrator gets a notification when supplier documents need to be updated
+                \item Option to sort documents according to different attributes
+                \item System for approval of new versions of documents
+        \end{itemize}
+        \item Want to have but Won't have this time around:
+        \begin{itemize}
+                \item Highlight differences between current and previous versions
+                \item Approval of suppliers and their documents
+        \end{itemize}
+\end{itemize}
+
