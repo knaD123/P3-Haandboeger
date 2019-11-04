@@ -1,41 +1,43 @@
+\todo[inline]{Add the actual chapter when we write it}
 It was mentioned in \Cref{sec:hosting} that the application is going to use a database and therefor some information about what a database is, how it works and how to interact with it is required.
 
-Jan Paredaens et al. defines a database system as a collection of programs that run on a computer and that help the user to get information, to update information, to protect information, in general to manage information. \cite{RelationalDatabaseModel}
+Jan Paredaens et al.\ defines a database system as a collection of programs that run on a computer and that help the user to get information, to update information, to protect information, in general to manage information.\cite{RelationalDatabaseModel}
 
 When representing data or information in a database system it would be convenient for the user of the system to represent it as sentences.
 The problem with representing data or information as senteces is that sentences can be ambiguous.
-Therefore, different approaches were made: \cite{RelationalDatabaseModel}
+Therefore, different approaches were made:\cite{RelationalDatabaseModel}
 
 \begin{itemize}
-        \item \textit{network model} where the structure of information is represented by a directed graph.
-        \item \textit{hierarchical model} where the information is represented as a set of trees.
-        \item \textit{relational model} where the information is represented in tables.
+    \item \textit{network model} where the structure of information is represented by a directed graph.
+    \item \textit{hierarchical model} where the information is represented as a set of trees.
+    \item \textit{relational model} where the information is represented in tables.
 \end{itemize}
 
-Relational databases are one of the most popular where, as mentioned above, the data is organized in tables with rows and columns \cite{OracleWhatIsDatabase}.
+Relational databases are one of the most popular where, as mentioned above, the data is organized in tables with rows and columns.\cite{OracleWhatIsDatabase}
 The application is using this type of database because of the way that the data, used in the application, is structured (see xx).
+\todo[inline]{Add this when we have something to refer to}
 
 To get a better understanding of how the data is structured in a relational database imagine a system with a lot of users.
 This system might be interested in keeping track of the users \textit{username, password, firstname, lastname, email}.
 In a relational database this information can be represented like this:
 
 \begin{table}[H]
-        \centering
-        \begin{tabular}{lllll}
-                USERNAME & PASSWORD & FIRSTNAME & LASTNAME & EMAIL \\
-                \hline
-                username1 & pw123 & Billy & Johnson & bj@mail.com \\
-                username2 & pw456 & Lucy & Johnson & lj@mail.com \\
-        \end{tabular}
-        \caption{Table of users}
+    \centering
+    \begin{tabular}{lllll}
+        USERNAME & PASSWORD & FIRSTNAME & LASTNAME & EMAIL \\
+        \hline
+        username1 & pw123 & Billy & Johnson & bj@mail.com \\
+        username2 & pw456 & Lucy & Johnson & lj@mail.com \\
+    \end{tabular}
+    \caption{Table of users}
 \end{table}
 
 Structuring the users like this makes it easy to add new users to the table because the number of columns does not change, nor the names of the columns.
 
 The most common way to interact with a database is to use \textit{Structured Query Language} (SQL).
-SQL (pronounced either \textit{"sequel"} or \textit{"S-Q-L"}) is a database sublanguage that differs from other computer languages because it describes what the computer \textit{should do} rather than \textit{how it should do it}. \cite{SQLIntroduction}
+SQL (pronounced either \textit{''sequel''} or \textit{''S-Q-L''}) is a database sublanguage that differs from other computer languages because it describes what the computer \textit{should do} rather than \textit{how it should do it}.\cite{SQLIntroduction}
 
-SQL makes it easy to perform CRUD operations on the database \cite{OracleWhatIsDatabase}.
+SQL makes it easy to perform CRUD operations on the database.\cite{OracleWhatIsDatabase}
 An example of how to use SQL could be someone who wants to retrieve all the users from the user table
 
 \begin{lstlisting}
