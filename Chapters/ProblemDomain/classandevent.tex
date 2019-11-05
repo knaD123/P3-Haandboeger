@@ -1,13 +1,17 @@
 \todo[inline]{Indsæt kilder}
-This section covers the problem domain analysis based on data gathering in form of the initial interview with Ipsen, see section x. The following subsections include the choice of the selected classes and events, the explanation of the structure between classes, and the description of the behavior patterns through state-chart diagram.
+This section covers the problem domain analysis based on data gathering in form of the initial interview with Ipsen, see section x.
+The following subsections include the choice of the selected classes and events, the explanation of the structure between classes, and the description of the behavior patterns through state-chart diagram.
 
 \section{Classes and events}
-The following subsections explore the potential class and event candidates as well as the thought process behind it. The generated class and event candidates will be systematic selected to represent the problem domain with regard to relevance and that they satisfy the system definition. The process of systematically select classes and events are based on the following criteria found in (Object Oriented Design \& Analysis (OOA\&D)[] p. 62-67)
+The following subsections explore the potential class and event candidates as well as the thought process behind it.
+The generated class and event candidates will be systematic selected to represent the problem domain with regard to relevance and that they satisfy the system definition.
+The process of systematically select classes and events are based on the following criteria found in (Object Oriented Design \& Analysis (OOA\&D)[] p. 62-67)
 \todo[inline]{Kilden skal nok formeteres andreledes, men jeg ved ikke helt hvordan}
 
 \subsection{Classes}
 According to OOA\&D a class is defined as:
 “A description of a collection of objects sharing structure, behavioral pattern, and attributes.”
+% Henrik: Måske lav det til en definition med \begin{defn}noget tekst her\end{defn}
 % se hvordan Anna har gjort i PACT analyse afsnit - men hvor?
 
 The questions below help to evaluate a class if those are affirmative. (OOA\&D[] p 62)
@@ -19,20 +23,20 @@ The questions below help to evaluate a class if those are affirmative. (OOA\&D[]
 \end{itemize}
 %(citerer direkte fra bogen - er det ok?)
 
-\subsubsection{Class candidates}
+\subsubsection{Class candidates} % Henrik: Klasserne bliver listet 3 gange
 \begin{tabular}{l l}
 	\texttt{Company} & A class representing the companies managed by the system \\
 	\texttt{Handbook} & A class representing all the documents with the newest version\\
 	\texttt{Document} & A class representing the documents\\ %bruh vidste ikke hvad man ellers skal skrive? halp
 	\texttt{User }& A class representing reader, writer and administrator role\\
 	\texttt{Version} & A class representing a document’s version and the validity period\\
-	\texttt{Log} & A class representing descriptions of changes for each version\\
-	\texttt{Responsibility} & A class representing the difference user access levels to the handbook\\
+	\texttt{Log} & A class representing descriptions of changes for each version\\ % Henrik: Dette er vist bare en attribute i Version
+	\texttt{Responsibility} & A class representing the difference user access levels to the handbook\\ % Henrik: Ved ikke om dette er en klasse i vores system?
 	\texttt{Approval} & A class representing the created approvals, keeping track of who has been\\&assign to approve what document and version\\  %bruh vidste ikke hvad man ellers skal skrive? halp
-	\texttt{TOC} & A class represents the table of contents of the documents in the handbook\\
-	\texttt{Notification} & A class to represent which user is assign to which document and send\\&notification to inform there is a new version\\
+	\texttt{TOC} & A class represents the table of contents of the documents in the handbook\\ % Henrik: Mener at Handbook og TOC er slået sammen til Handbook
+	\texttt{Notification} & A class to represent which user is assign to which document and send\\&notification to inform there is a new version\\ % Henrik: Var dette ikke lavet om til Department?
 	\texttt{Read Status} & A class that keeps track of who has read which document and version\\
-	\texttt{Supplier} & A class describing a supplier, which has to be approved
+	\texttt{Supplier} & A class describing a supplier, which has to be approved % Henrik: Måske fjern denne, da vi ikke håndterer suppliers i vores system? :-)
 \end{tabular}
 
 \subsubsection{Qualifying classes}
@@ -48,22 +52,26 @@ The \texttt{Version} class is qualified since it encapsulates the version data i
 
 The \texttt{User} class is qualified because there would be different types of users with different access levels in the system.
 
-The \texttt{Log} class is not qualified because the class does not contain unique information and the class it self is too simple. It is unnecessary to create an independent class for the changelog and therefore it has been converted to an attribute for the \texttt{Version} class.
+The \texttt{Log} class is not qualified because the class does not contain unique information and the class it self is too simple.
+It is unnecessary to create an independent class for the changelog and therefore it has been converted to an attribute for the \texttt{Version} class.
 
 The \texttt{Responsibility} class is not qualified because the different levels of access and permissions are present in the \texttt{User} class.
 
 The \texttt{Approval} class is qualified since it is vital to substantiate who is going to or had approval each version and what date it has been approved.
 
-The \texttt{TOC} class is not qualifie since \texttt{TOC} is a property of the \texttt{Handbook} class and does not contains unique information. The purpose with \texttt{TOC} is to create an overview of the valid documents in the handbook.
+The \texttt{TOC} class is not qualifie since \texttt{TOC} is a property of the \texttt{Handbook} class and does not contains unique information.
+The purpose with \texttt{TOC} is to create an overview of the valid documents in the handbook.
 
-The \texttt{Notification} class is not qualified as the notification is more an event rather than a class. The functionality in the \texttt{Notification} is to assign users to specific documents therefore the name is modified to Department instead.
+The \texttt{Notification} class is not qualified as the notification is more an event rather than a class.
+The functionality in the \texttt{Notification} is to assign users to specific documents therefore the name is modified to Department instead.
 
-The \texttt{Read Status} class is qualified since the system needs to store information regarding what associated user has read what associated version and when. This is useful when the company has to report a total number of employees that have read the current version of the document.
+The \texttt{Read Status} class is qualified since the system needs to store information regarding what associated user has read what associated version and when.
+This is useful when the company has to report a total number of employees that have read the current version of the document.
 
 The \texttt{Supplier} class is qualified seeing that the administrator need to keep a record of all documents related to approval of suppliers. %?
 
 Qualified classes:
-\begin{itemize}
+\begin{itemize} % Henrik: Der står at "Company" er qualified, men den er ikke på listen her?
 	\item \texttt{Handbook}
 	\item \texttt{Document}
 	\item \texttt{Version}
@@ -79,6 +87,7 @@ Qualified classes:
 According to OOA\&D an event is defined as\citep[p.~53]{Rod-Aalborg}:
 
 ``An instantaneous incident involving one or more objects.''
+% Henrik: Måske også lav dette til en definition med \begin{defn}
 
 Once again the questions below help to evaluate an event if those are affirmative\citep[p.~65]{Rod-Aalborg}.
 \begin{itemize}
@@ -91,19 +100,19 @@ Once again the questions below help to evaluate an event if those are affirmativ
  \todo[inline] {Tilføj - ved de hændelser I synes som er kvalificeret og tilføj gerne flere hvis det mangler}
 
 \begin{itemize}
-	\item Collected to Writer
-	\item Collected to reader
+	\item Collected to Writer % Henrik: Forstår ikke denne
+	\item Collected to reader % Henrik: Forstår ikke denne
 	\item TOC updated
-	\item Usercheck
-	\item Mail sent
+	\item Usercheck % Henrik: Forstår ikke denne
+	\item Mail sent % Henrik: Måske "Notification sent"?
 	\item Document printed
-	\item Duplicate?
+	\item Duplicate? % Henrik: Duplicate?
 	\item Document added
 	\item Document edited
 	\item Document updated
 	\item Document approved
 	\item New version released
-	\item Version archived (There is another version active)
+	\item Version archived (There is another version active) % Henrik: Ikke nødvendigvis, for det kan måske ske, at et document bliver fjernet, og så vil der ikke længere være en aktiv version?
 	\item Version marked as read
 	\item Document reactivated
 	\item Document deactivated
@@ -114,17 +123,20 @@ Once again the questions below help to evaluate an event if those are affirmativ
 	\item User reactivated
 	\item User deactivated
 	\item User deleted
-	\item Supplier added
-	\item Supplier edited
-	\item Supplier deleted
-	\item Supplier approved
+	\item Supplier added % Henrik: Er suppliers nødvendige?
+	\item Supplier edited % Henrik: Er supplier nødvendige?
+	\item Supplier deleted % Henrik: Er supplier nødvendige?
+	\item Supplier approved % Henrik: Er supplier nødvendige?
 	\item Subscribed to documents
 	\item Approval requested
 	\item Approval status updated (''answered'')
 	\item File deleted
+        \item Added to department % Henrik: Måske omformuler denne
+        \item Removed from department % Henrik: Måske omformuler denne
 \end{itemize}
 
 \subsubsection{Qualifying events}
-In this section the generated events will be reviewed and determined whether they are qualified or not qualified. The selection and deselection of these candidates will be explained, and the event table will be displayed afterwards.
+In this section the generated events will be reviewed and determined whether they are qualified or not qualified.
+The selection and deselection of these candidates will be explained, and the event table will be displayed afterwards.
 
 % event table som en section
