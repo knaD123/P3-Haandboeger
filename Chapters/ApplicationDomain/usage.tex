@@ -1,12 +1,12 @@
 \section{Usage}
 
-In this section the usage of the system will be analyzed. Who uses and how they use the system will be explored systematically through analyzing who the actors are, and the use cases of the system. 
+In this section the usage of the system will be analyzed. Who uses and how they use the system will be explored systematically through analyzing who the actors are, and the use cases of the system.
 Both will be analyzed with an abstraction level to be able to see the more broad uses of the system.
 The actors consists of the different user groups who will be utilizing the system and the use cases will describe the different uses the system will potentially have.
 
-The actors that have been identified within the case are \textit{consultant, secretary, manager, worker}, and \textit{document management software}. 
-It should be noted here that the sofware in this context refers to the software that is under development througout this project. 
-This will outline what responsibilities that the system will eventually have when it is deployed. 
+The actors that have been identified within the case are \textit{consultant, secretary, manager, worker}, and \textit{document management software}.
+It should be noted here that the sofware in this context refers to the software that is under development througout this project.
+This will outline what responsibilities that the system will eventually have when it is deployed.
 The use cases of the system have been identified to be \textit{manage documents, manage users, manage departments, manage suppliers, approve new documents, read sttus, update Table of Contents}, and \textit{track differences between document versions}.
 
 An overview of the relationships between the actors and the use cases are shown through the table below. Here it is outline which actors have which responsibilities in relation to the system.
@@ -54,14 +54,14 @@ Goal: An administrative personnel working within the firm who manages documents 
 \\
 Characteristic: There’s usually only one secretary with intimate knowledge of the handbook, the system, and the firm. The secretary has a lot of responsibility of the handbook and users within the system.
 \\
-Examples: The secretary manages the users by creating a user in the system, edits the user, and eventually archives a user. 
+Examples: The secretary manages the users by creating a user in the system, edits the user, and eventually archives a user.
 The secretary also creates groups of users who are subscribed to relevant documents within the handbook.
 
 \textbf{Manager}
 
 Goal: The manager of the firm.
 \\
-Characteristic: There’s only one manager. The manager doesn’t have intimate knowledge of the system and don’t administrate the handbook. 
+Characteristic: There’s only one manager. The manager doesn’t have intimate knowledge of the system and don’t administrate the handbook.
 The manger may change and/or approve documents once in a while.
 \\
 Examples: The manager reads and sometimes reads and/or approves of documents.
@@ -72,7 +72,7 @@ Goal: A person who works within the firm.
 \\
 Characteristic: There are several workers within the firm. They typically doesn’t have administrative rights and don’t write or update the documents within the handbook. There are different kinds of workers with varying jobs and work in different departments.
 \\
-Examples: Whenever a relevant document has been updated it is imperative that the worker has read and understood the new version. 
+Examples: Whenever a relevant document has been updated it is imperative that the worker has read and understood the new version.
 Sometimes a worker may have the responsibility of approving one or more documents.
 
 \textbf{Software}
@@ -81,8 +81,8 @@ Goal: Manages document versions within a handbook and users.
 \\
 Characteristic: Is a software that can be accessed and used by different users with varying degrees of administrative rights.
 \\
-Examples: Keeps track of document versions; including which documents are active, and which documents are inactive and by extension are archived. When a document has been updated it is possible for the user to log why there are changes and the system is able to highlight exactly where the changes has occurred. 
-Whenever a new document has been added the TOC is updated. 
+Examples: Keeps track of document versions; including which documents are active, and which documents are inactive and by extension are archived. When a document has been updated it is possible for the user to log why there are changes and the system is able to highlight exactly where the changes has occurred.
+Whenever a new document has been added the TOC is updated.
 The system manages users with varying degrees of administrative rights of which there are 3 levels.
 
 
@@ -94,18 +94,16 @@ The system manages users with varying degrees of administrative rights of which 
 It is desired that a handbook containing several documents and their versions is being managed by a software. This includes a table of contents from which users are able to have an overview of the documents. There are active and inactive documents, where the active documents consists of the newest versions of the documents, and inactive ones are archived. Whenever a document has been updated, the system is responsible for highlighting exactly where the change has occurred. The system also provides the consultant or secretary with the option to write a changelog, where the user can write why there are changes to the document.
 
 \textbf{Manage users}
-\todo[inline]{Add this}
 It is the secretary and software's responsibility to manage users and their administrative rights.
 The secretary updated the system with adding, editing or removing users, while the software stores the users and their data in a database.
-There are three types of users with varying degrees of administrative rights. 
-The secretary who has administrative rights within the system keeps tracks of the users and suppliers with their respective administrative rights. 
+There are three types of users with varying degrees of administrative rights.
+The secretary who has administrative rights within the system keeps tracks of the users and suppliers with their respective administrative rights.
 The secretary is able to create, edit, and archive users.
 
 \textbf{Manage departments}
-\todo[inline]{Add this} %Jeg er ikke sikker på hvad "Add this" refererer til. Jeg spørger i morgen.
-The secretary manages departments within the system. 
-The secretary is able to create, edit, and delete departments by adding or removing users from them. 
-A department is subscribed to one or more documents which are relevant to the users within the department. 
+The secretary manages departments within the system.
+The secretary is able to create, edit, and delete departments by adding or removing users from them.
+A department is subscribed to one or more documents which are relevant to the users within the department.
 A user can be within one or more departments at once.
 The software is responsible for notifying the departments whenever a document has been updated.
 
@@ -115,14 +113,14 @@ The consultant and secretary manages the suppliers. Help.
 
 \textbf{Approve new documents}
 
-Whenever a new version of a document is available, it needs to be approved by one or more persons. 
-The user(s) who’s responsible of approving the document(s) could either be the manager, worker, or a 3rd party supplier. 
+Whenever a new version of a document is available, it needs to be approved by one or more persons.
+The user(s) who’s responsible of approving the document(s) could either be the manager, worker, or a 3rd party supplier.
 When a document has been approved it is updated within the system, the older document is archived and the TOC is updated.
 
 \textbf{Read status}
 
-Whenever an updated document is available, the subscribed departments are alerted. 
-All users within the subscribed department must read and understand the new document version. 
+Whenever an updated document is available, the subscribed departments are alerted.
+All users within the subscribed department must read and understand the new document version.
 When this is done, they check off a checkbox which indicates to the system and secretary that the new document has been read.
 
 
@@ -132,7 +130,7 @@ When a new document version is available the TOC is being updated.
 
 \textbf{Track versions between documents}
 
-It is important to track the document versions and the changes within. 
-Both the consultant and secretary are responsible of writing in the handbook and keep track of changes. 
+It is important to track the document versions and the changes within.
+Both the consultant and secretary are responsible of writing in the handbook and keep track of changes.
 It is the consultant and secretary’s responsibility to write a changelog, if it is required within the firm, and highlight relevant differences between versions.
 
