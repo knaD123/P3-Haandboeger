@@ -1,4 +1,4 @@
-\todo[inline]{Indsæt kilder}
+%\todo[inline]{Indsæt kilder}
 This section covers the problem domain analysis based on data gathering in form of the initial interview with Ipsen, see section x.
 The following subsections include the choice of the selected classes and events, the explanation of the structure between classes, and the description of the behavior patterns through state-chart diagram.
 
@@ -8,19 +8,19 @@ The generated class and event candidates will be systematic selected to represen
 The process of systematically select classes and events are based on the following criteria found in the object-oriented method, Object Oriented Design \& Analysis (OOA\&D) \cite{Rod-Aalborg} .
 
 \subsection{Classes}
-According to OOA\&D a class is defined as:
+According to OOA\&D a class is defined as \citep[p.~55]{Rod-Aalborg}.:
+
 “A description of a collection of objects sharing structure, behavioral pattern, and attributes.”
 % Henrik: Måske lav det til en definition med \begin{defn}noget tekst her\end{defn}
 % se hvordan Anna har gjort i PACT analyse afsnit - men hvor?
 
 The questions below help to evaluate a class if those are affirmative. \citep[p.~62]{Rod-Aalborg}
 \begin{itemize}
-	\item Can you identify objects from the class?
+	\item "Can you identify objects from the class?
 	\item Does the class contain unique information?
 	\item Does the class encompass multiple objects?
-	\item Does the class have a suitable and manageable number of events?
+	\item Does the class have a suitable and manageable number of events?"
 \end{itemize}
-%(citerer direkte fra bogen - er det ok?)
 
 \subsubsection{Class candidates} 
 \begin{tabular}{l l}
@@ -84,25 +84,31 @@ Hereby, the Qualified classes are as follows:
 
 \subsection{Events}
 
+<<<<<<< HEAD
 According to OOA\&D an event is defined as\citep[p.~53]{Rod-Aalborg}:
 ``An instantaneous incident involving one or more objects.''
+=======
+According to OOA\&D an event is defined as \citep[p.~53]{Rod-Aalborg}:
+
+"An instantaneous incident involving one or more objects.''
+>>>>>>> 25d8f0fd57c96adf6ba825746ff57e0a41ba0f1a
 % Henrik: Måske også lav dette til en definition med \begin{defn}
 
 Once again the questions below help to evaluate an event if those are affirmative\citep[p.~65]{Rod-Aalborg}.
 \begin{itemize}
-	\item Is the event instantaneous?
+	\item "Is the event instantaneous?
 	\item Is the event atomic?
-	\item Can the event be identified when it happens?
+	\item Can the event be identified when it happens?"
 \end{itemize}
 
 \subsubsection{Event candidates}
 \textbf{Document added} - when a document is created\\
-\textbf{Document updated} - when an existing document's information is updated\\
-\textbf{Document archived} - when a document is not relevant for a company at the present time and need be removed from the handbook\\
+%\textbf{Document updated} - when an existing document's information is updated\\
+\textbf{Document archived} - this event occurs when a document only consist of one version which is archived therefore the document is also archived. Or for instance a document is not relevant for a company at the present time and need be removed from the handbook\\
 \textbf{Document reactivated} - when a document is relevant for the company once again and need to be accessible in the handbook\\
-\textbf{Document deleted} - when a retention period has expired for an archived document then it will be possible to delete the document in the system or an administrator accidentally created incorrect content document in the system\\
-\textbf{Version approved}  - when a version has been approved\\ 
-\textbf{New version released} - when a new version has been approved and the system ensure that it is available in the handbook\\
+\textbf{Document deleted} - when a retention period has expired for an archived document or if an administrator accidentally created incorrect content document in the system then it is possible to delete the document in the system\\
+\textbf{Version approved}  - when a version has been approved and the system ensure that it is available in the handbook\\ 
+\textbf{New version released} -  when a new version made available in the handbook\\
 \textbf{Version archived} - when a handbook contains a new approved version then the system need to ensure that a previous version is archived\\
 \textbf{Version marked as read} - when a user has verified that the newest version has been read\\
 \textbf{User added} - when an administrator created a user\\
@@ -114,14 +120,13 @@ Once again the questions below help to evaluate an event if those are affirmativ
 \textbf{Supplier updated} - when an existing supplier's information has been updated\\
 \textbf{Supplier deleted} - when a supplier has been removed from the system\\
 \textbf{Supplier approved} - when a supplier's document has been approved\\
-\textbf{Approval requested} - when a new version is created and the approval requested is sent to other users (approver) in the system\\
-\textbf{Approval confirmed} - when an approval is rejected by one approver\\
-\textbf{Approval denied} - when an approval is confirmed by every approver\\
+\textbf{Approval requested (Version)} - when a new version is created and the approval requested is sent to other users (approver) in the system\\
+\textbf{Approval confirmed (Version)} - when an approval is confirmed by one approver\\
+\textbf{Approval denied (Version)} - when an approval is rejected by every approver\\
 \textbf{Department added} - when a department is created\\
-\textbf{Department updated} - when an existing department's information is updated\\
 \textbf{Department deleted} - when an existing department is removed from system\\
-\textbf{Document added to department} - when associated a document to a department. This way a department will only have access to relevant documents\\
-\textbf{Document removed from department} - when a associate document is removed from a department which means the department no longer have access to the document\\
+\textbf{Department's users updated} - when associating or removing a user to a department\\
+\textbf{Department's documents updated} - when associating or removing a document to a department. This way a department will only have access to relevant documents\\
 \textbf{Department notified user} - when a associated user received a notification when a new version is released\\ 
 \textbf{Document printed} - when a document is printed\\
 
@@ -131,32 +136,44 @@ The selection and deselection of these candidates will be explained, and the eve
 
 \textbf{Document added} event is qualified reasoned that a document object must be created first before it has a version object added. 
 
-\textbf{Document updated} event is not qualified since it is a version that are updated which is the same as \textbf{new version released}  event.
-
 \textbf{Document archived} event is qualified because it is an important functionality to archive expired documents for number of years according to ISO 9001 document management requirements. 
 
-\textbf{Document reactivated} event is qualified since if the system can  archive a document, it must also be able to reactivated and make it available in the handbook again. 
+\textbf{Document reactivated} event is qualified since if the system can archive a document, it must also be able to reactivated and make it available in the handbook again. 
 
 \textbf{Document deleted} is qualified for the reason that if an administrator made a mistake and added a wrong document then the delete option is useful. 
 
-\textbf{Version approved} and \textbf{new version released} events are qualified since it is important for the system to registered and keep track of the whether a document is complete with the approval process and whether it should be accessible in the handbook. 
+\textbf{Version approved} event are qualified since it is important for the system to registered and keep track of the whether a version is complete with the approval process and whether it should be accessible in the handbook. 
 
-\textbf{Version marked as read} event is qualified because it is crucial for the company register if employees had read and are up to date with the current standards. 
+\textbf{New version released} event is not qualified seeing that it is a duplicate of the \textbf{version approved} event. 
+
+\textbf{Version marked as read} event is qualified because it is crucial for the company to register if employees had read and are up to date with the current standards. 
 
 \textbf{Version archived} event is qualified for the same reason as \textbf{document archived} event.
 
-\textbf{User added}, \textbf{user updated}, \textbf{user deactivated}, \textbf{user reactivated} and \textbf{user deleted} events are all qualified as an administrator need to manage company's user list. 
+\textbf{User added}, \textbf{user updated} and \textbf{user deleted} events are all qualified as an administrator need to manage company's user list. 
+
+\textbf{User deactivated} event is qualified seeing that it is a requirement that the system still are able to report who had read a specific version. A deactivated user object will only contain user's name while the rest information are erased. 
+
+\textbf{User reactivated} event is not qualified, if a company wishes to reemploy a worker then there must create a new user in the system. 
+
+% skal nok have en bedre forklaring hvorfor user reactivated ikke er kvalificeret...
 
 \textbf{Supplier added}, \textbf{supplier updated},  \textbf{supplier deleted} and \textbf{supplier approved} events are all qualified since suppliers need to be manage by an administrator whether they are approved or when to be reapproved. 
 
-\textbf{Approval requested}, \textbf{approval denied}, \textbf{approval confirmed} events are all qualified seeing that it is important part of the system definition that the system must support an approval process before release a new version in the handbook. 
+\textbf{Approval requested} event are qualified seeing that it is important part of the system definition that the system must support an approval process and people that need to approve new version find the notification useful. 
 
-\textbf{Department added}, \textbf{department updated}, \textbf{department deleted} events are qualified since through department will it be possible to associated a specific department to those relevant documents. 
+ \textbf{Approval denied (Version)} event is not qualified as Ipsen does not desire this functionality because approver himself will contact Ipsen directly and afterwards a new approval request is made and the previous approval request will be deleted. \textbf{Approval deleted (Version)} event is therefore qualified.
 
-\textbf{Document added to department}, \textbf{document removed from department}, \textbf{department notified user} events are qualified seeing that the system must be able to send notification to the correct user from a specific department that a associated document has released a new version. 
+\textbf{Approval confirmed} event is not qualified since its purpose is the same as \textbf{version approved} event.
+
+\textbf{Department added} and \textbf{department deleted} events are qualified seeing that it is important for the administrator to keep track of company's current departments. 
+
+\textbf{Department's documents updated} and \textbf{Department's users updated} events are qualified since it is vital to associate a user to a specific department and to associate department to the relevant documents. A user that are connected to a department are only able to access the documents that the department are associated with. This way the system ensure to only show the relevant document for each department. 
+
+\textbf{Department notified user} event are qualified seeing that the system must be able to send notification to the correct user from a specific department that a associated document has released a new version. 
 
 \textbf{Document printed} event is not qualified since the problem domain does not include controlling of printed documents.
-
+\newpage
 Qualified events:
 \begin{itemize} 
 	\item Document added
@@ -164,7 +181,6 @@ Qualified events:
 	\item Document reactivated
 	\item Document deleted
 	\item Version approved
-	\item New version released
 	\item Version marked as read
 	\item Version archived
 	\item User added
@@ -175,25 +191,23 @@ Qualified events:
 	\item Supplier updated
 	\item Supplier deleted
 	\item Supplier approved
-	\item Approval requested
-	\item Approval denied
-	\item Approval confirmed
+	\item Approval requested (Version)
+	\item Approval deleted (Version)
 	\item Department added
-	\item Department updated
 	\item Department deleted
-	\item Document added to department
-	\item Document removed from department
+	\item Department's users updated
+	\item Department's documents updated
 	\item Department notified user
 \end{itemize}
 
 \section{Event table}
-The result of the selected qualified events and classes is an event table representing their relations. An event that can occur up to one time indicates with a plus symbol +, and an event that can occur multiple times indicates with star symbol *.
+The result of the selected qualified events and classes is an event table representing their relations, see \cref{fig:eventtable}. An event that can occur up to one time indicates with a plus symbol +, and an event that can occur multiple times indicates with star symbol *.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.95\textwidth]{billeder/Event_table.png}
+	\includegraphics[width=0.95\textwidth]{billeder/event_table.png}
 	\caption{\textit{Event table
-	}\label{fig:ClassDiagram}}
+	}\label{fig:eventtable}}
 \end{figure}
 
 % ændre figure til tabel.. how?
