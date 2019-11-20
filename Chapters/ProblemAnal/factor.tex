@@ -1,11 +1,13 @@
 \section{System definition}\label{sec:SystemDefinition}
-As the case from Ipsen, the associated ISO-standards, and which solutions that exist somewhat related to the case has been explored, it is appropiate to outline the system definition.
+As the proposed case from Ipsen, the associated ISO-standards, and which solutions that exist somewhat related to this case has been explored, it is appropriate to outline the system definition.
 This is to attain requirements that the future solution needs to include to uphold Ipsens and the ISO-standards requirements.
+%Anna: Det med at opretholde ISO-standarderne skal vi nok enten hurtigt afgrænse os væk fra eller gøre mere ud af, (for at hvis vejleder i princippet læste op på det skulle vi kunne gå i dybden og fortælle om hvordan vi opfylder og evt ikke opfylder kravene)
 The system definition will eventually lead to the problem statement, which will guide the rest of the project.
 
-Before the system definition is being written the problems and context will be analysed through the \textit{FACTOR} criteria and \textit{Rich pictures} \citep{Rod-Aalborg}.
-Through the context of this project, the FACTOR critera is being utilized to give an understanding of what system Ipsen needs and in which context the system used in.
-Rich pictures aims to further understand the situation in which the handbook is being used.
+Before the system definition is being written the problems and context will be analyzed through the \textit{FACTOR} criteria and \textit{Rich pictures} \citep{Rod-Aalborg}.
+Through the context of this project, the FACTOR critera is being utilized to give an understanding of what system Ipsen needs and in which context the system is used in.
+The Rich picture aims to understand the situation in which a handbook is being used, which the system will support.
+\todo{Anna: Har omskrevet lidt på sidste sætning. Derudover kunne det give mening at præsenterer Rich picture først og derefter FACTOR og så slutte af med den endelige system defn?}
 
 A system definition seeks to define which problem the system should solve. 
 The definition is “A concise description of a computerized system expressed in natural language” \citep[p.~24]{Rod-Aalborg}. 
@@ -18,9 +20,8 @@ This chapter is unless otherwise described based upon \cite{Rod-Aalborg} or the 
 The FACTOR criterion consists of six elements and can be used to help with the system definition development or describing an existing system
 % \cite{Rod-Aalborg}
 . 
-In this context FACTOR is being used as a way to present the system definition.
-%In this context FACTOR is being used for the former option, which is to help facilitate the system definition development.
-%AAnna skal kun bruge formattet udkommenteret hvis vi rent faktisk skriver en kort præcis system definition ud, for sig selv og ikke bare FACTOR
+%In this context FACTOR is being used as a way to present the system definition.
+In this context FACTOR is being used for the former option, which is to help facilitate the system definition development.
 FACTOR is an abbreviation of \textit{Functionality}, \textit{Application domain}, \textit{Conditions}, \textit{Technology}, \textit{Objects} and \textit{Responsibility}.
 These are defined as follows \citep[p.~40]{Rod-Aalborg}:
 \begin{itemize}
@@ -45,12 +46,12 @@ These are defined as follows \citep[p.~40]{Rod-Aalborg}:
 \end{itemize}
 
 \subsubsection{FACTOR analysis}
-Based on the first and second interview described on page xx the FACTOR criterions have been analyzed. 
-In the following an overview of this analysis will be presented.
-Each section will contain first the short concise description for the FACTOR. 
-The \cref{sec:FACTOR-functionality} will also contain subsection with further details based on the aforementioned interviews. 
+Based on the first and second interview described on {\color{red}page xx} the FACTOR criterions have been analyzed. 
+In the following an overview this analysis will be presented.
+%Each section will contain first the short concise description for the FACTOR. 
+%The \cref{sec:FACTOR-functionality} will also contain subsection with further details based on the aforementioned interviews. 
  %The FACTOR criterion analysis will be elaborated on page xx.
-% Rasmus - Vil vi skrive systemdefinitionen i FACTOR-formaten, eller vil vi skrive den ud? Troede nemlig vi ville skrive den ud. Det her er meget svært at læse. Den skal vist også forkortes tror jeg?
+
 
 \textbf{F - Functionality}\label{sec:FACTOR-functionality}
 
@@ -72,8 +73,6 @@ They will occasionally also take part in the approval process of new versions th
 The target group of the system consists of small firms who needs a cheap document managing solution. 
 The users mostly have little IT-experience.
 Therefor most of the target groups are also not able to maintain such a system.
-%The system should be accessible at the place where it is needed.
-%Anna: den udkommenterede linie har vi allerede i F
 Lastly, there should be a backup of the archive making it easy to revert to the previous system.
 No on at the company is able to maintain the system.
 
@@ -95,13 +94,13 @@ Management tool to keep track of file versions, this also includes making a chan
 The table of contents should give an overview of all the documents. 
 Making sure all new files or versions are approved before being added to the handbook.
 The system has to save older versions in an archive. 
-Access should be separated into 3 levels, as stated above in \cref{sec:FACTOR-functionality}. 
+Access should be separated into 3 levels, as stated above in the Functionality section of the criterion. 
 Keeping track of documents used in the approval process of suppliers and dates for the approval and re-approvals. 
 
 \subsection{Rich picture} \label{sec:richpictures}
 
 To understand the situation further a \textit{Rich picture} has been made. A rich picture is an ''informal drawing that presents the illustrator's understanding of a situation'' \citep[~p. 26]{Rod-Aalborg}.
-This is to understand how the handbook is handled currently as to visualize the different actors and their behavior.
+This is to understand how the handbook should be handled as well as to visualize the different actors and their behavior.
 
 \begin{figure}[H]
 	\centering
@@ -128,8 +127,8 @@ Whenever a new version of a document has been approved and released, all of the 
 The administrator has the responsibility of keeping track of whether the affected employees has read the newest document.
 
 \subsection{System definition}
-In this section the system definition will be described. 
-It has been based on the beforementioned FACTOR analysis in \cref{sec:factorcriteria} and rich picture in \cref{sec:richpictures} and the interviews with Ipsen.
+In this section the final system definition is described. 
+It has been based on the aforementioned FACTOR analysis in \cref{sec:factorcriteria} and rich picture in \cref{sec:richpictures} and the interviews with Ipsen.
 
 The system manages files, of different type, in a handbook presented in a updated Table of Content (TOC).
 Here each file should be uniquely identifiable with ID, title, date of approval, possible end date, and version number. 
@@ -145,7 +144,7 @@ The systems needs three different levels of access rights to the files within th
 First level grants access to reading the newest version of the handbook. 
 Second level further grants rights to add new files or versions to the handbook. 
 The last level is an administrative level, being in full control of the system.
-Users with administrative priviliges can assign other users to departments and determine which documents are associated with those departments.
+Users with administrative privileges can assign other users to departments and determine which documents are associated with those departments.
 The system should then send notifications to users of specific departments when relevant changes or versions are uploaded into the system.
 Moreover, should the system also register that specific users have read specific files and versions.
 Reading access to the handbook for any of the levels should be possible at any relevant location.
