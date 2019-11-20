@@ -14,5 +14,6 @@ grep "QMS-Consult" -ri --include=*.tex
 grep "qms-Consult" -ri --include=*.tex
 grep "qms-consult" -ri --include=*.tex
 grep "\\\\newline" -rIi --include=*.tex
+grep -P '\d+\.\d+' -r --include=*.tex
 #grep '\\\\' -rIi --include=*.tex
 #grep "\\\\cite{[a-zA-Z0-9]*}\\s*\\\\cite{[a-zA-Z0-9]*}" -rI --include=*.tex

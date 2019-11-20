@@ -15,77 +15,6 @@ The system is going to solve a problem that exists in a specific context, it is 
 
 This chapter is unless otherwise described based upon \cite{Rod-Aalborg} or the projects own analysis and data.
 
-\subsection{FACTOR criteria} \label{sec:factorcriteria}
-The FACTOR criterion consists of six elements and can be used to help with the system definition development or describing an existing system.
-In this context FACTOR is being used for the former option, which is to help facilitate the system definition development.
-FACTOR is an abbreviation of \textit{Functionality}, \textit{Application domain}, \textit{Conditions}, \textit{Technology}, \textit{Objects} and \textit{Responsibility}.
-These are defined as follows \citep[p.~40]{Rod-Aalborg}:
-\begin{itemize}
-	\item
-		Functionality:
-		The system functions that support the application-domain tasks.
-	\item
-		Application domain:
-		Those parts of an organization that administrate, monitor, or control a problem domain.
-	\item
-		Conditions:
-		The conditions under which the system will be developed and used.
-	\item
-		Technology:
-		Both the technology used to develop the system and the technology on which the system will run.
-	\item
-		Objects:
-		The main objects in the problem domain.
-	\item
-		Responsibility:
-		The system’s overall responsibility in relation to its context.
-\end{itemize}
-
-\subsubsection{FACTOR analysis}
-Based on the first and second interview described on {\color{red}page xx} the FACTOR criterions have been analyzed.
-In the following an overview this analysis will be presented.
-
-\textbf{F - Functionality}
-
-Manage and facilitate an overview of current and earlier versions of assorted files of different types in a handbook, as well as manage files in connection to approval of suppliers.
-Files in the handbook may have a changelog.
-New files should undergo an approval process before being submitted to the handbook.
-Different levels of permissions for users as well as registration of who has read the individual files.
-Notify specific users when a new version is published.
-
-\textbf{A - Application domain}
-
-Mainly secretaries and quality assurance managers will administrate the system.
-All employees of the organization will have access to the system to read documents and print the handbook.
-The managing directors will usually have partial access to the system, such that they can add new versions.
-They will occasionally also take part in the approval process of new versions that they themselves have not made.
-
-\textbf{C - Conditions}
-
-The target group of the system consists of small firms who needs a cheap document managing solution.
-The users mostly have little IT-experience.
-Therefor most of the target groups are also not able to maintain such a system.
-Lastly, there should be a backup of the archive making it easy to revert to the previous system.
-No on at the company is able to maintain the system.
-
-\textbf{T - Technology}
-
-System accessible through a PC.
-Notifications sent over e-mail or sms.
-
-\textbf{O - Objects}
-
-The main objects of the problem domain are \textit{Handbook}, \textit{TOC}, \textit{documents}, \textit{changelog}, and \textit{user}.
-
-\textbf{R  - Responsibility}
-
-Management tool to keep track of file versions, this also includes making a changelog if required by the company.
-The table of contents should give an overview of all the documents.
-Making sure all new files or versions are approved before being added to the handbook.
-The system has to save older versions in an archive.
-Access should be separated into 3 levels, as stated above in the Functionality section of the criterion.
-Keeping track of documents used in the approval process of suppliers and dates for the approval and re-approvals.
-
 \subsection{Rich picture} \label{sec:richpictures}
 
 To understand the situation further a \textit{Rich picture} has been made. A rich picture is an ''informal drawing that presents the illustrator's understanding of a situation'' \citep[~p. 26]{Rod-Aalborg}.
@@ -115,6 +44,79 @@ If it is denied the actors usually talks over the phone, and when it is approved
 Whenever a new version of a document has been approved and released, all of the affected employees, called readers in the rich picture, needs to read it.
 The administrator has the responsibility of keeping track of whether the affected employees has read the newest document.
 
+
+\subsection{FACTOR criteria} \label{sec:factorcriteria}
+The FACTOR criterion consists of six elements and can be used to help with the system definition development or describing an existing system.
+In this context FACTOR is being used for the former option, which is to help facilitate the system definition development.
+FACTOR is an abbreviation of \textit{Functionality}, \textit{Application domain}, \textit{Conditions}, \textit{Technology}, \textit{Objects} and \textit{Responsibility}.
+These are defined as follows \citep[p.~40]{Rod-Aalborg}:
+\begin{itemize}
+	\item
+		Functionality:
+		The system functions that support the application-domain tasks.
+	\item
+		Application domain:
+		Those parts of an organization that administrate, monitor, or control a problem domain.
+	\item
+		Conditions:
+		The conditions under which the system will be developed and used.
+	\item
+		Technology:
+		Both the technology used to develop the system and the technology on which the system will run.
+	\item
+		Objects:
+		The main objects in the problem domain.
+	\item
+		Responsibility:
+		The system’s overall responsibility in relation to its context.
+\end{itemize}
+
+\subsubsection{FACTOR analysis}
+\todo[inline]{Henrik: Lav sådan man kan bruge eksisterende håndbøger}
+Based on the first and second interview described on {\color{red}page xx} the FACTOR criterions have been analyzed.
+In the following an overview this analysis will be presented.
+
+\textbf{F - Functionality}
+
+Manage and facilitate an overview of current and earlier versions of assorted files of different types in a handbook, as well as manage files in connection to approval of suppliers.
+Files in the handbook may have a changelog.
+New files should undergo an approval process before being submitted to the handbook.
+Different levels of permissions for users as well as registration of who has read the individual files.
+Notify specific users when a new version is published.
+
+\textbf{A - Application domain}
+
+Mainly secretaries and quality assurance managers will administrate the system.
+All employees of the organization will have access to the system to read documents and print the handbook.
+The managing directors will usually have partial access to the system, such that they can add new versions.
+They will occasionally also take part in the approval process of new versions that they themselves have not made.
+
+\textbf{C - Conditions}
+
+The target group of the system consists of small firms who needs a cheap document managing solution.
+The users mostly have little IT-experience.
+Therefore most of the target groups are also not able to maintain such a system.
+Lastly, there should be a backup of the archive making it easy to revert to the previous system.
+No on at the company is able to maintain the system.
+
+\textbf{T - Technology}
+
+System accessible through a PC.
+Notifications sent over e-mail or sms.
+
+\textbf{O - Objects}
+
+The main objects of the problem domain are \textit{Handbook}, \textit{TOC}, \textit{documents}, \textit{changelog}, and \textit{user}.
+
+\textbf{R  - Responsibility}
+
+Management tool to keep track of file versions, this also includes making a changelog if required by the company.
+The table of contents should give an overview of all the documents.
+Making sure all new files or versions are approved before being added to the handbook.
+The system has to save older versions in an archive.
+Access should be separated into 3 levels, as stated above in the Functionality section of the criterion.
+Keeping track of documents used in the approval process of suppliers and dates for the approval and re-approvals.
+
 \subsection{System definition}
 In this section the final system definition is described.
 It has been based on the aforementioned FACTOR analysis in \cref{sec:factorcriteria} and rich picture in \cref{sec:richpictures} and the interviews with Ipsen.
@@ -125,9 +127,6 @@ The identification numbers are individually reserved for a specific title once t
 Earlier versions of the files should be archived, but can only be viewed by the administrator and are not editable.
 It should be possible to sort the files in the handbook by different attributes.
 The system should support a changelog for every file and version in the handbook.
-Furthermore highlighting of changes would greatly help the reader.
-%\todo{er den sidste sætning en vi gerne vil se i systemdefinitionen}
-\todo[inline]{skal jeg tilføje punktet fra det vi havde i drevet: ''The system should be able to  incoperate earlier handbooks into the system.}
 
 The systems needs three different levels of access rights to the files within the managed handbook, also shown in \cref{fig:RP-Oversigt}.
 First level grants access to reading the newest version of the handbook.
@@ -140,5 +139,3 @@ Reading access to the handbook for any of the levels should be possible at any r
 
 The system should support an approval of suppliers process.
 Where among other a notification is sent to the administrator when supplier documents needs to be updated.
-
-%\todo[inline]{Skal vi have et seperart afsnit hvro selve system definitionen skrives ud på baggrund af FACTOR?????} Anja siger ja til spørgmsålet.
