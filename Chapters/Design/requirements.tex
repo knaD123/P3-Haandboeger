@@ -6,15 +6,15 @@ This is because that there are no guarantees that all of the requirements and de
 There is in this project set a hard time limit by Aalborg Univerity.
 
 These priorities are set to determine which requirements are absolutely necessary for the system to function, the \textit{minimal viable product} (MVP), and which requirements are simply nice to include.
-The \textit{MoSCoW rules} have been chosen to help priorities the requirements for this project. 
+The \textit{MoSCoW rules} have been chosen to help priorities the requirements for this project.
 
 The MoSCoW rules classifies these priorities into:
 
 \begin{itemize}
-        \item \textit{Must have}.
-        \item \textit{Should have}.
-        \item \textit{Could have}.
-        \item \textit{Want to have but Won’t have this time around}.
+    \item \textit{Must have}.
+    \item \textit{Should have}.
+    \item \textit{Could have}.
+    \item \textit{Want to have but Won’t have this time around}.
 \end{itemize}
 
 Must have are the fundamental requirements to include of which the system would not function without.
@@ -28,15 +28,15 @@ A definition of a requirement is provided to prevent any misunderstandings throu
 Requirements can be divided into two types, \textit{functional} and \textit{non-functional}, and a definition for those types will be provided aswell.
 
 \begin{defn}
-A requirement is something the product must do or a quality that the product must have
+    A requirement is something the product must do or a quality that the product must have
 \end{defn}
 
 \begin{defn}
-A functional requirement is a requirement that the system must do
+    A functional requirement is a requirement that the system must do
 \end{defn}
 
 \begin{defn}
-A non-functional requirement is a quality that the system must have
+    A non-functional requirement is a quality that the system must have
 \end{defn}
 
 % Henrik: Noget om hvordan man finder frem til disse "requirements"
@@ -47,9 +47,9 @@ Therefore, before defining a project's requirements it is a good idea to figure 
 A lot of different techniques can be used when trying to define a project's requirements, e.g.:
 
 \begin{itemize}
-        \item Interviews
-        \item Observing people and record their activities on video
-        \item Organizing focus groups
+    \item Interviews
+    \item Observing people and record their activities on video
+    \item Organizing focus groups
 \end{itemize}
 
 These techniques can help the designer to better understand the problems that the client has with the current system, and at the same time, give a better understanding of the requirements for the new system.
@@ -62,34 +62,38 @@ The process of defining a project's requirements is an iterative process, see \c
 For this project the interview technique was used to define this project's requirements, see \cref{sec:firstinterview}. This helped defining the following requirements:
 
 \begin{itemize}
-        \item Must have:
+    \item Must have:
         \begin{itemize}
-                \item The system should manage versions of handbook documents
-                \item A \textit{Table of Contents} (TOC) with title, ID number, date and version number
-                \item Different levels of permissions/access rights to the documents within the handbook
-                \item The system should be able to handle documents of different filetypes
-                \item The system needs to handle existing handbooks and their archives
-                \item Title and ID number are linked
-                \item Only the newest version of a document can be edited
-                \item Readers and writers only have access to the newest version of a document
-                \item Administrators have access to everything
+            \item The system should manage versions of handbook documents
+            \item A \textit{Table of Contents} (TOC) with title, ID number, date and version number
+            \item The system should be able to handle PDF files
+            \item Title and ID number are linked
+            \item Once a version has been added to the handbook, it cannot be changed
         \end{itemize}
-        \item Should have:
+    \item Should have:
         \begin{itemize}
-                \item Automatic updates of TOC
-                \item A changelog must be included
-                \item Registration when a version has been read by an employee
-                \item The handbook should be printable
+                        \item Automatic updates of TOC
+            \item A human-written changelog can be included with each version
+            \item Registration when a version has been read by an employee
+            \item The handbook should be printable
+            \item Different levels of permissions/access rights to the documents within the handbook
+            \item Readers and writers only have access to the newest version of a document
+            \item Administrators have access to everything
+            \item It should be possible to group users into departments, and associate them to documents
+            \item It should be easy to switch from an existing system, and back to the existing system
+                \todo[inline]{RASMUS: Tjek om den her formulering passer med FACTOR, omformuler til kvantitativt krav}
+
         \end{itemize}
-        \item Could have:
+    \item Could have:
         \begin{itemize}
-                \item The administrator gets a notification when supplier documents need to be updated
-                \item Option to sort documents according to different attributes
-                \item System for approval of new versions of documents
+            \item When a document is updated, a notification should be sent out to the associated departments
+            \item The system should be able to handle documents of different filetypes
+            \item Option to sort documents according to different attributes
+            \item System for approval of new versions of documents
         \end{itemize}
-        \item Want to have but Won't have this time around:
+    \item Want to have but Won't have this time around:
         \begin{itemize}
-                \item Highlight differences between current and previous versions
-                \item Approval of suppliers and their documents
+            \item Highlight differences between current and previous versions
+            \item Approval of suppliers and their documents
         \end{itemize}
 \end{itemize}
