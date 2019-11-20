@@ -1,5 +1,4 @@
-%\todo[inline]{Indsæt kilder}
-This section covers the problem domain analysis based on data gathering in form of the initial interview with Ipsen, see section x.
+This section covers the problem domain analysis based on data gathering in form of the initial interview with Ipsen, see section \textcolor{red}{x}.
 The following subsections include the choice of the selected classes and events, the explanation of the structure between classes, and the description of the behavior patterns through state-chart diagram.
 
 \section{Classes and events}
@@ -7,7 +6,7 @@ The following subsections explore the potential class and event candidates as we
 The generated class and event candidates will be systematic selected to represent the problem domain with regard to relevance and that they satisfy the system definition.
 The process of systematically select classes and events are based on the following criteria found in the object-oriented method, Object Oriented Design \& Analysis (OOA\&D) \cite{Rod-Aalborg} .
 
-\subsection{Classes}
+\subsection{Classes} \label{sec:Classes}
 According to OOA\&D a class is defined as \citep[p.~55]{Rod-Aalborg}.
 “A description of a collection of objects sharing structure, behavioral pattern, and attributes.”
 % Henrik: Måske lav det til en definition med \begin{defn}noget tekst her\end{defn}
@@ -40,7 +39,7 @@ The questions below help to evaluate a class if those are affirmative. \citep[p.
 % Anja: Hvis alle punkterne ovenfor starter med ''A class representing'', så skal de tre første ord nok bare slettes.
 
 \subsubsection{Qualifying classes}
-The following section covers an explanation whether the generates classes are qualified or not qualified.
+The following section covers an explanation whether the generates classes are systematical selection qualified or not qualified based on criteria in \cref{sec:Classes}.
 % Anja: "Qualitfied" ift. hvad? Mangler lidt en forklaring her.
 
 The \texttt{Company} class is qualified because it keeps track of companies that use the system, which is an important concept to keep track of.
@@ -86,7 +85,7 @@ Hereby, the Qualified classes are as follows:
 	\end{itemize}
 \end{multicols}
 
-\subsection{Events}
+\subsection{Events} \label{sec:Events}
 According to OOA\&D an event is defined as \citep[p.~53]{Rod-Aalborg}:
 "An instantaneous incident involving one or more objects.''
 % Henrik: Måske også lav dette til en definition med \begin{defn}
@@ -130,8 +129,8 @@ Once again the questions below help to evaluate an event if those are affirmativ
 % Anja: Som forslag kunne ovenstående tekst måske stå i en tabel? Det vil måske gøre det mere overskueligt.
 
 \subsubsection{Qualifying events}
-In this section the generated events will be reviewed and determined whether they are qualified or not qualified.
-The selection and deselection of these candidates will be explained, and the event table will be displayed afterwards.
+In this section the generated events will be reviewed and determined whether they are qualified or not qualified regarding the systematical selection based on the criteria in \cref{sec:Events}.
+The selection and deselection of these event candidates will be explained, and the event table will be displayed afterwards.
 % Anja: Der mangler igen forklarende tekst om, hvad der gør eventsene qualified eller ikke qualified.
 
 \textbf{Document added} event is qualified reasoned that a document object must be created first before it has a version object added. 
@@ -140,7 +139,7 @@ The selection and deselection of these candidates will be explained, and the eve
 
 \textbf{Document reactivated} event is qualified since if the system can archive a document, it must also be able to reactivated and make it available in the handbook again. 
 
-\textbf{Document deleted} is qualified for the reason that if an administrator made a mistake and added a wrong document then the delete option is useful. 
+\textbf{Document deleted} is qualified for the reason that if an administrator made a mistake and added a wrong document then the delete option should be available. 
 
 \textbf{Version approved} event are qualified since it is important for the system to registered and keep track of the whether a version is complete with the approval process and whether it should be accessible in the handbook. 
 
@@ -156,17 +155,17 @@ The selection and deselection of these candidates will be explained, and the eve
 
 \textbf{User reactivated} event is not qualified, if a company wishes to reemploy a worker then there must create a new user in the system. 
 
-% skal nok have en bedre forklaring hvorfor user reactivated ikke er kvalificeret...
+% skal nok have en bedre forklaring hvorfor user reactivated ikke er kvalificeret... halp
 
 \textbf{Supplier added}, \textbf{supplier updated},  \textbf{supplier deleted} and \textbf{supplier approved} events are all qualified since suppliers need to be manage by an administrator whether they are approved or when to be reapproved. 
 
-\textbf{Approval requested} event are qualified seeing that it is important part of the system definition that the system must support an approval process and people that need to approve new version find the notification useful. 
+\textbf{Approval requested} event are qualified seeing that it is important part of the system definition that the system must support an approval process and people that need to approve new the version get notified. 
 
  \textbf{Approval denied (Version)} event is not qualified as Ipsen does not desire this functionality because approver himself will contact Ipsen directly and afterwards a new approval request is made and the previous approval request will be deleted. \textbf{Approval deleted (Version)} event is therefore qualified.
 
 \textbf{Approval confirmed} event is not qualified since its purpose is the same as \textbf{version approved} event.
 
-\textbf{Department added} and \textbf{department deleted} events are qualified seeing that it is important for the administrator to keep track of company's current departments. 
+\textbf{Department added} and \textbf{department deleted} events are qualified seeing that it is important for the administrator to keep track of company's current departments.
 
 \textbf{Department's documents updated} and \textbf{department's users updated} events are qualified since it is vital to associate a user to a specific department and to associate department to the relevant documents. A user that are connected to a department are only able to access the documents that the department are associated with. This way the system ensure to only show the relevant document for each department. 
 
@@ -259,6 +258,3 @@ The result of the selected qualified events and classes is an event table repres
 	\end{center}
 	\caption{Event table}\label{fig:eventtable}
 \end{table}
-
-% ændre figure til tabel.. how?
-
