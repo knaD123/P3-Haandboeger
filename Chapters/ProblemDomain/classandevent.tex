@@ -73,7 +73,8 @@ This is useful when the company has to report a total number of employees that h
 The \texttt{Supplier} class is qualified seeing that the administrator need to keep a record of all documents related to approval of suppliers. 
 
 Hereby, the Qualified classes are as follows:
-\begin{itemize} 
+\begin{multicols}{4}
+	\begin{itemize} 
 	\item \texttt{Company}
 	\item \texttt{Handbook}
 	\item \texttt{Document}
@@ -83,7 +84,8 @@ Hereby, the Qualified classes are as follows:
 	\item \texttt{Department}
 	\item \texttt{Read Status}
 	\item \texttt{Supplier}
-\end{itemize}
+	\end{itemize}
+\end{multicols}
 
 \subsection{Events}
 According to OOA\&D an event is defined as \citep[p.~53]{Rod-Aalborg}:
@@ -174,7 +176,8 @@ The selection and deselection of these candidates will be explained, and the eve
 \textbf{Document printed} event is not qualified since the problem domain does not include controlling of printed documents.
 \newpage
 Qualified events:
-\begin{itemize} 
+\begin{multicols}{2}
+	\begin{itemize} 
 	\item Document added
 	\item Document archived
 	\item Document reactivated
@@ -197,7 +200,8 @@ Qualified events:
 	\item Department's users updated
 	\item Department's documents updated
 	\item Department notified user
-\end{itemize}
+	\end{itemize}
+\end{multicols}
 
 \section{Event table}
 The result of the selected qualified events and classes is an event table representing their relations, see \cref{fig:eventtable}. An event that can occur up to one time indicates with a plus symbol $+$, and an event that can occur multiple times indicates with star symbol $\star$.
