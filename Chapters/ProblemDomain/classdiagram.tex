@@ -57,6 +57,7 @@ This includes making completely new documents, managing who gets notifications f
 There needs to be at least one administrator per system.
 
 The writer can do everything the reader can do, and the some and the administrator can do everything the writer can do and then some.
+% Taniya: forstår ikke helt "and the some", "and then some". Maybe it is just me 
 This relation is pictured in \cref{fig:RoleIllustration}.
 \todo[inline]{Do something with the font here. It's charming, but probably not fitting}
 \begin{figure}[H]
@@ -67,8 +68,8 @@ This relation is pictured in \cref{fig:RoleIllustration}.
 \end{figure}
 
 It is expected that there will be between two and three administrators in the system, and any number of writers and users.
-The companys quality manager should be an administrator and will be the person most accustomed to the system.
-Additionally the secretary will need the same level of access to do their job, but they likely won't spend as much time working with the system.
+The company's quality manager should be an administrator and will be the person most accustomed to the system.
+Additionally the secretaries will need the same level of access to do their job, but they likely won't spend as much time working with the system.
 The CEO of the company could also be an administrator but depending on their involvement they could also be a writer or even reader.
 The writer role would typically be assigned to people like the department heads as they are the experts on how their own departments work.
 Every single employee should be a user and will by default have a reader role.
@@ -95,9 +96,9 @@ In the supplier-approval system a supplier needs to be approved and only one per
 However that one person needs to submit some kind of documentation, that justifies the approval.
 Both systems need the approval for the changes to take effect.
 
-A generalization is used to have their shared functionality included in the abstract class Approval and the more specific functionlities in the subclasses HandbookApproval and SupplierApproval.
+The current version of the class diagram in \cref{fig:ClassDiagram} a generalization is used to have their shared functionality included in the abstract class Approval and the more specific functionlities in the subclasses HandbookApproval and SupplierApproval.
 Just like in the early version of the class diagram SupplierApproval is aggregated by Version and Version contains a reference to HandbookApproval.
 In the case where a Version object belongs to a SupplierApproval object the relation to HandbookApproval is set to a null reference.
 
 The handbook part of the problem is the clients main concern and therefore the focus of this project.
-In order to understand the problem in its entirety both subproblems are analyzed in this section, but from here on out only the Handbook problem will be analyzed and eventually designed, implemented and tested.
+In order to understand the problem in its entirety both subproblems are analyzed in this section, but from here on  only the Handbook problem will be analyzed and eventually designed, implemented and tested.
