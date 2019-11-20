@@ -1,13 +1,16 @@
 \section{Statechart diagrams}
 Statechart diagrams are a useful way to get an overview over the lifetime of objects in the problem domain.
-This chapter describes contains the state chart diagram of objects whose behaivour is both interesting and unique to the project.
+This section describes the state chart diagram of objects whose behaivour is both interesting and unique to the project.
 Due to the nature of the application, it being very focused on basic \textit{create, read, update and delete} (CRUD) operations, there is not a lot of interesting activity going on in the way of state.
+% Taniya: måske droppe "there is not a lot of interesting activity going on in the way of state." delen. Lyder mere som en personlig holdning. Eller misforstår jeg hvad der menes med sætningen?
 
 \subsection{Approval Request}
 The approval request is one of the most central concepts in the application.
 When someone wants to create a new version of a document, they instantiate an approval request, which has a version object attached.
 The change will have to be approved several times before it will actually be released.
 When the change is approved, it will append the version to the document object. When the change is denied, it will simply sit as pending until it is reapproved.
+
+% skal deny være en del af statechart eftersom vi har besluttet os at fjerne Approval denied event i en tidligere sektion? Man har ikke mulighed for at lave en Approval denial event, men man kan slette en approval og laver en ny approval
 
 \begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
 
