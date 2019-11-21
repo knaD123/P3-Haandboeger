@@ -1,48 +1,70 @@
-This section covers the problem domain analysis based on data gathering in form of the initial interview with Ipsen, see section \textcolor{red}{x}.
-The following subsections include the choice of the selected classes and events, the explanation of the structure between classes, and the description of the behavior patterns through state-chart diagram.
+This section covers the problem domain analysis based on data gathered in form of the initial interviews with Ipsen, see \cref{sec:firstinterview}.
+The following sections includes the selection of selected classes and events, a rundown of the structure between classes, and the description of the behavior patterns through statechart diagrams.
 
 \section{Classes and events}
 The following subsections explore the potential class and event candidates as well as the thought process behind it.
 The generated class and event candidates will be systematic selected to represent the problem domain with regard to relevance and that they satisfy the system definition.
 The process of systematically select classes and events are based on the following criteria found in the object-oriented method, Object Oriented Design \& Analysis (OOA\&D) \cite{Rod-Aalborg} .
+%Anna: Hvilken following criterias (sidste sætning)
 
 \subsection{Classes} \label{sec:Classes}
-According to OOA\&D a class is defined as \citep[p.~55]{Rod-Aalborg}.
-“A description of a collection of objects sharing structure, behavioral pattern, and attributes.”
+According to  \citep[p.~55]{Rod-Aalborg} is a class defined as seen below.
+\begin{defn}\label{defn:class}
+	A description of a collection of objects sharing structure, behavioral pattern, and attributes.	
+\end{defn}
+%Anna: har omskrevet det ovenfor, oprindelige tekst kan findes nedenfor:
+%" According to OOA\&D a class is defined as \citep[p.~55]{Rod-Aalborg}.
+%“A description of a collection of objects sharing structure, behavioral pattern, and attributes.” "
+
 % Henrik: Måske lav det til en definition med \begin{defn}noget tekst her\end{defn}
 % se hvordan Anna har gjort i PACT analyse afsnit - men hvor?
 
 The questions below help to evaluate a class if those are affirmative. \citep[p.~62]{Rod-Aalborg}
 \begin{itemize}
-	\item "Can you identify objects from the class?
+	\item Can you identify objects from the class?
 	\item Does the class contain unique information?
 	\item Does the class encompass multiple objects?
-	\item Does the class have a suitable and manageable number of events?"
+	\item Does the class have a suitable and manageable number of events?
 \end{itemize}
 
-\subsubsection{Class candidates} 
+In the following the classes from \cref{tab:ClassCandidates} are through a systematical selection deemed qualified or not qualified based on the criteria mentioned above.
+% Anja: "Qualitfied" ift. hvad? Mangler lidt en forklaring her.
+%Anna: afsnittet ovenfor er flyttet og omskrevet fra subsubsectionen "Qualifying classes" (Også med Anjas kommentar er flyttet hertil) Det oprindelige afsnit ligger udkommenteret der hvor jeg tog det fra
+
+
+%\subsubsection{Class candidates} 
+%Anna: Bare så vi er enige om det, jeg har ændret ordlyden på en del af kommentarerne i tabellen så hvis i ikke kan lide hvordan det lyder eller er skrevet så skal vi have hentet det tilbage fra en tidligere version.
+\begin{table} [H]
 \begin{tabular}{l l}
-	\texttt{Company} & A class representing the companies managed by the system \\
-	\texttt{Handbook} & A class representing all the documents with the newest version\\
-	\texttt{Document} & A class representing the documents\\
-	\texttt{User }& A class representing reader, writer and administrator role\\
-	\texttt{Version} & A class representing a document’s version and the validity period\\
-	\texttt{Log} & A class representing descriptions of changes for each version\\ 
-	\texttt{Responsibility} & A class representing the difference user access levels to the handbook\\ 
-	\texttt{Approval} & A class representing the created approvals, keeping track of who has been\\&assign to approve what document and version\\ 
-	\texttt{TOC} & A class represents the table of contents of the documents in the handbook\\
-	\texttt{Notification} & A class to represent which user is assign to which document and send\\&notification to inform there is a new version\\ 
-	\texttt{Read Status} & A class that keeps track of who has read which document and version\\
-	\texttt{Supplier} & A class describing a supplier, which has to be approved 
+	\hline
+	Classes & Comment\\
+	\hline
+	\texttt{Company} & The companies managed by the system \\
+	\texttt{Handbook} & The newest version of all the documents\\
+	\texttt{Document} & The documents in the handbook\\
+	\texttt{User }& Users with either reader, writer or administrator role\\
+	\texttt{Version} & Document’s version and the validity period\\
+	\texttt{Log} & Descriptions of changes for each version\\ 
+	\texttt{Responsibility} & Difference user access levels to the handbook\\ 
+	\texttt{Approval} & Keeps track of who has to approve specific 
+	%documents and 
+	versions\\ 
+	\texttt{TOC} & The table of contents of the documents in the handbook\\
+	\texttt{Notification} & Sends notice to relevant users when a new version is submitted\\ 
+	\texttt{Read Status} & Keeps track of who has read which document and version\\
+	\texttt{Supplier} & Supplier who has to be approved \\
+	\hline
 \end{tabular}
+\caption{Class candidates}\label{tab:ClassCandidates}
+\end{table} 
 
 % Anja: Hvis alle punkterne ovenfor starter med ''A class representing'', så skal de tre første ord nok bare slettes.
 
-\subsubsection{Qualifying classes}
-The following section covers an explanation whether the generates classes are systematical selection qualified or not qualified based on criteria in \cref{sec:Classes}.
+%\subsubsection{Qualifying classes}
+%The following section covers an explanation whether the generates classes are systematical selection qualified or not qualified based on criteria in \cref{sec:Classes}.
 % Anja: "Qualitfied" ift. hvad? Mangler lidt en forklaring her.
 
-The \texttt{Company} class is qualified because it keeps track of companies that use the system, which is an important concept to keep track of.
+The \texttt{Company} class is qualified since it keeps track of companies that use the system, which is an important concept to keep track of.
 
 The \texttt{Handbook} class is qualified for the reason that it keeps track of the documents and is an important part of the problem domain and system definition.
 
@@ -57,18 +79,19 @@ It is unnecessary to create an independent class for the changelog and therefore
 
 The \texttt{Responsibility} class is not qualified because the different levels of access and permissions are present in the \texttt{User} class.
 
-The \texttt{Approval} class is qualified since it is vital to substantiate who is going to or had approval each version and what date it has been approved.
+The \texttt{Approval} class is qualified since it is vital to substantiate who is has to or already has approved each version and at what date it was approved.
 
-The \texttt{TOC} class is not qualified since \texttt{TOC} is a property of the \texttt{Handbook} class and does not contains unique information.
+The \texttt{TOC} class is not qualified since \texttt{TOC} is a property of the \texttt{Handbook} class and does not contain unique information.
 The purpose with \texttt{TOC} is to create an overview of the valid documents in the handbook.
 
 The \texttt{Notification} class is not qualified as the notification is more an event rather than a class.
 The functionality in the \texttt{Notification} class is to assign users to specific documents therefore the name is modified to \texttt{Department} instead.
 
-The \texttt{Read Status} class is qualified since the system needs to store information regarding what associated user has read what associated version and when.
+The \texttt{Read Status} class is qualified since the system needs to store information regarding which users has read what versions and when.
+%Anna: Skal Read status også holde styr på hvornår de har læst det?
 This is useful when the company has to report a total number of employees that have read the current version of the document.
 
-The \texttt{Supplier} class is qualified seeing that the administrator need to keep a record of all documents related to approval of suppliers. 
+The \texttt{Supplier} class is qualified seeing that the administrator needs to keep a record of all documents related to approval of suppliers. 
 
 Hereby, the Qualified classes are as follows:
 \begin{multicols}{4}
@@ -86,51 +109,79 @@ Hereby, the Qualified classes are as follows:
 \end{multicols}
 
 \subsection{Events} \label{sec:Events}
-According to OOA\&D an event is defined as \citep[p.~53]{Rod-Aalborg}:
-"An instantaneous incident involving one or more objects.''
+According to \citep[p.~53]{Rod-Aalborg} is an event defined as,
+\begin{defn}\label{defn:Event}
+An instantaneous incident involving one or more objects.	
+\end{defn}
+%Anna: har omskrevet det ovenfor den oprindelige tekst står nedenfor:
+%"According to OOA\&D an event is defined as \citep[p.~53]{Rod-Aalborg}:
+%"An instantaneous incident involving one or more objects.''"
 % Henrik: Måske også lav dette til en definition med \begin{defn}
 Once again the questions below help to evaluate an event if those are affirmative \citep[p.~65]{Rod-Aalborg}.
 \begin{itemize}
-	\item "Is the event instantaneous?
+	\item Is the event instantaneous?
 	\item Is the event atomic?
-	\item Can the event be identified when it happens?"
+	\item Can the event be identified when it happens?
 \end{itemize}
 %Anja: Mangler mere forklarende tekst omkring evalueringspunkterne ovenfor.
 
-\subsubsection{Event candidates}
-\textbf{Document added} - when a document is created\\
-%\textbf{Document updated} - when an existing document's information is updated\\
-\textbf{Document archived} - this event occurs when a document only consist of one version which is archived therefore the document is also archived. Or for instance a document is not relevant for a company at the present time and need be removed from the handbook\\
-\textbf{Document reactivated} - when a document is relevant for the company once again and need to be accessible in the handbook\\
-\textbf{Document deleted} - when a retention period has expired for an archived document or if an administrator accidentally created incorrect content document in the system then it is possible to delete the document in the system\\
-\textbf{Version approved}  - when a version has been approved and the system ensure that it is available in the handbook\\ 
-\textbf{New version released} -  when a new version made available in the handbook\\
-\textbf{Version archived} - when a handbook contains a new approved version then the system need to ensure that a previous version is archived\\
-\textbf{Version marked as read} - when a user has verified that the newest version has been read\\
-\textbf{User added} - when an administrator created a user\\
-\textbf{User updated} - when an administrator updated a user's information\\
-\textbf{User deactivated} - when an administrator removed a user's accessibility for the handbook for instance if that user no longer work for the company\\
-\textbf{User reactivated} - when an administrator give a deactivated user access to a handbook\\
-\textbf{User deleted} - when an administrator removed a user from the system\\
-\textbf{Supplier added} - when a new supplier has been registered in the system\\
-\textbf{Supplier updated} - when an existing supplier's information has been updated\\
-\textbf{Supplier deleted} - when a supplier has been removed from the system\\
-\textbf{Supplier approved} - when a supplier's document has been approved\\
-\textbf{Approval requested (Version)} - when a new version is created and the approval requested is sent to other users (approver) in the system\\
-\textbf{Approval confirmed (Version)} - when an approval is confirmed by one approver\\
-\textbf{Approval denied (Version)} - when an approval is rejected by every approver\\
-\textbf{Department added} - when a department is created\\
-\textbf{Department deleted} - when an existing department is removed from system\\
-\textbf{Department's users updated} - when associating or removing a user to a department\\
-\textbf{Department's documents updated} - when associating or removing a document to a department. This way a department will only have access to relevant documents\\
-\textbf{Department notified user} - when a associated user received a notification when a new version is released\\ 
-\textbf{Document printed} - when a document is printed\\
+In the rest of the section the generated events in \cref{tab:EventCandidates} will be reviewed and deemed either qualified or not qualified regarding the systematical selection based on the criteria written above.
+%Anna: Taget fra subsubsectionen qualifying evets (er  blevet omskrevet med oprindelige står her nedenfor og på sin oprindelige plads):
+%"In this section the generated events will be reviewed and determined whether they are qualified or not qualified regarding the systematical selection based on the criteria in \cref{sec:Events}.
+%The selection and deselection of these event candidates will be explained, and the event table will be displayed afterwards.
+%% Anja: Der mangler igen forklarende tekst om, hvad der gør eventsene qualified eller ikke qualified."
+
+
+
+%\subsubsection{Event candidates}
+%Anna: Nøjagtigt det samme med denne tabel som den med class candidates, er omskrevet en del og hvis vi vil ave det andet skal det hentes i en tidligere version.
+\begin{table}[H]
+	\begin{tabular}{m{4,3 cm} l}
+		\hline
+		Event & Comment\\
+		\hline
+		\textbf{Document added} & A document is created.\\
+		\textbf{Document archived} & A document where version is archived instead of updated.\\
+		\textbf{Document reactivated} & Archived document is to be accessible in the handbook again\\
+		\textbf{Document deleted} & Wrong document is created, and is still without version\\
+		%Anna:Dette var den oprindelige tekst men da jeg ikke var enig i det med retetntion period har jeg omformuleret til det ovenfor.
+		%" when a retention period has expired for an archived document or if an administrator accidentally created incorrect content document in the system then it is possible to delete the document in the system\\"
+		\textbf{Version approved}  & When approved it becomes available in the handbook\\ 
+		\textbf{New version released} &  New version becomes available in the handbook\\
+		\textbf{Version archived} & When newer approved version is added to handbook\\
+		\textbf{Version marked \newline as read} & User has verified that the newest version has been read\\
+		\textbf{User added} & An administrator created a user\\
+		\textbf{User updated} & An administrator or user updated the user's information\\
+		\textbf{User deactivated} & An administrator removed a user's access for the handbook\\
+		\textbf{User reactivated} & Deactivated user is granted access to the handbook again\\
+		\textbf{User deleted} & User deleted from the system by an administrator\\
+		\textbf{Supplier added} & New supplier has been registered\\
+		\textbf{Supplier updated} & Supplier's information has been updated\\
+		\textbf{Supplier deleted} & Supplier has been removed from the system\\
+		\textbf{Supplier approved} & Supplier's document has been approved\\
+		\textbf{Approval requested\newline (Version)} & New version is created and the approval requested is sent\\
+		\textbf{Approval confirmed}
+			%\newline (Version)} 
+		& Approval is confirmed by one approver\\
+		\textbf{Approval denied}
+			%\newline (Version)} 
+		& Approval is rejected by every approver\\
+		\textbf{Department added} & Department is created\\
+		\textbf{Department deleted} & Department is removed from system\\
+		\textbf{Department's users\newline updated} & Associating  a user to or removing form a department\\
+		\textbf{Department's\newline documents updated} & Associating a document to or removing from a department.\\
+		\textbf{Department notified\newline user} & Associated user received a notification of new version released\\ 
+		\textbf{Document printed} & Document is printed\\
+		\hline
+	\end{tabular}
+	\caption{Event Candidates}\label{tab:EventCandidates}
+\end{table}
 
 % Anja: Som forslag kunne ovenstående tekst måske stå i en tabel? Det vil måske gøre det mere overskueligt.
 
-\subsubsection{Qualifying events}
-In this section the generated events will be reviewed and determined whether they are qualified or not qualified regarding the systematical selection based on the criteria in \cref{sec:Events}.
-The selection and deselection of these event candidates will be explained, and the event table will be displayed afterwards.
+%\subsubsection{Qualifying events}
+%In this section the generated events will be reviewed and determined whether they are qualified or not qualified regarding the systematical selection based on the criteria in \cref{sec:Events}.
+%The selection and deselection of these event candidates will be explained, and the event table will be displayed afterwards.
 % Anja: Der mangler igen forklarende tekst om, hvad der gør eventsene qualified eller ikke qualified.
 
 \textbf{Document added} event is qualified reasoned that a document object must be created first before it has a version object added. 
@@ -141,17 +192,18 @@ The selection and deselection of these event candidates will be explained, and t
 
 \textbf{Document deleted} is qualified for the reason that if an administrator made a mistake and added a wrong document then the delete option should be available. 
 
-\textbf{Version approved} event are qualified since it is important for the system to registered and keep track of the whether a version is complete with the approval process and whether it should be accessible in the handbook. 
+\textbf{Version approved} event are qualified since it is important for the system to register and keep track of when a version is complete within the approval process and whether it should be accessible in the handbook. 
 
 \textbf{New version released} event is not qualified seeing that it is a duplicate of the \textbf{version approved} event. 
 
-\textbf{Version marked as read} event is qualified because it is crucial for the company to register if employees had read and are up to date with the current standards. 
+\textbf{Version marked as read} event is qualified because it is crucial for the company to register if employees had read specific documents and versions and are up to date with the current standards. 
 
 \textbf{Version archived} event is qualified for the same reason as \textbf{document archived} event.
 
 \textbf{User added}, \textbf{user updated} and \textbf{user deleted} events are all qualified as an administrator need to manage company's user list. 
 
-\textbf{User deactivated} event is qualified seeing that it is a requirement that the system still are able to report who had read a specific version. A deactivated user object will only contain user's name while the rest information are erased. 
+\textbf{User deactivated} event is qualified seeing that it is a requirement that the system still are able to report who had read a specific version. A deactivated user object will only contain user's name while the rest information are erased.
+%Anna: Hvorfor var det nu igen vi valgte at accepterer denne, frem for bare at slette brugeren og så kreere dem igen når de kom tilbage (Når det blev sletede gemte vi jo stadig deres navn (medlemsnummer alt efter hvad de er lavet med)) 
 
 \textbf{User reactivated} event is not qualified, if a company wishes to reemploy a worker then there must create a new user in the system. 
 
@@ -159,20 +211,25 @@ The selection and deselection of these event candidates will be explained, and t
 
 \textbf{Supplier added}, \textbf{supplier updated},  \textbf{supplier deleted} and \textbf{supplier approved} events are all qualified since suppliers need to be manage by an administrator whether they are approved or when to be reapproved. 
 
-\textbf{Approval requested} event are qualified seeing that it is important part of the system definition that the system must support an approval process and people that need to approve new the version get notified. 
+\textbf{Approval requested} event are qualified seeing that it is important part of the system definition that the system must support an approval process %and people that need to approve new the version get notified
+. 
 
- \textbf{Approval denied (Version)} event is not qualified as Ipsen does not desire this functionality because approver himself will contact Ipsen directly and afterwards a new approval request is made and the previous approval request will be deleted. \textbf{Approval deleted (Version)} event is therefore qualified.
+\textbf{Approval denied (Version)} event is not qualified as Ipsen does not desire this functionality since approver himself will contact Ipsen directly and afterwards a new approval request is made and the previous approval request will be deleted. \textbf{Approval deleted (Version)} event is therefore qualified.
 
 \textbf{Approval confirmed} event is not qualified since its purpose is the same as \textbf{version approved} event.
 
 \textbf{Department added} and \textbf{department deleted} events are qualified seeing that it is important for the administrator to keep track of company's current departments.
 
-\textbf{Department's documents updated} and \textbf{department's users updated} events are qualified since it is vital to associate a user to a specific department and to associate department to the relevant documents. A user that are connected to a department are only able to access the documents that the department are associated with. This way the system ensure to only show the relevant document for each department. 
+\textbf{Department's documents updated} and \textbf{department's users updated} events are qualified since it is vital to associate a user to a specific department and to associate documents to the relevant departments. 
+%A user that is connected to a department is only able to access the documents that the department are associated with. This way the system ensure to only show the relevant document for each department. 
+%Anna: Vil vove at påstå det jeg har udkommenteret er forkert
 
-\textbf{Department notified user} event are qualified seeing that the system must be able to send notification to the correct user from a specific department that a associated document has released a new version. 
+\textbf{Department notified user} event is qualified seeing that the system must be able to send notifications to the correct user from a specific department that a associated document has released a new version. 
 
 \textbf{Document printed} event is not qualified since the problem domain does not include controlling of printed documents.
-\newpage
+
+%\newpage
+%Anna: Vent med at indsætte alle de her \newpage kommandoer til vi er færdige da sådan en opsætning er det alle sidste man laver inden man afleverer (Da ting kan nå at rykke meget rundt før vi er færdige)
 Qualified events:
 \begin{multicols}{2}
 	\begin{itemize} 
@@ -201,8 +258,9 @@ Qualified events:
 	\end{itemize}
 \end{multicols}
 
-\section{Event table}
-The result of the selected qualified events and classes is an event table representing their relations, see \cref{fig:eventtable}. An event that can occur up to one time indicates with a plus symbol $+$, and an event that can occur multiple times indicates with star symbol $\star$.
+\section{Event table}\label{sec:EventTable}
+The result of the selected qualified events and classes from \cref{sec:Classes,sec:Events} is an event table representing their relations, see \cref{fig:eventtable}. 
+The symbols used in the table is to be understood such that; $+$ is an event that can occur up to one time, and $\star$ is an event which can occur multiple times.
 
 \begin{table}[H]
 	\begin{center}
