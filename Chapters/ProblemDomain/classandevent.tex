@@ -1,3 +1,4 @@
+\todo[inline]{Rasmus: Brug italics på alt hvad der før var truetype, men ikke er kode. Klasser i tabellen er bold, ikke italics}
 This chapter covers the problem domain analysis based on data gathered in the initial interviews with Ipsen.
 %, see \cref{sec:firstinterview}.
 The following sections include the selection of selected classes and events, a rundown of the structure between classes, and the description of the behavior patterns through statechart diagrams.
@@ -5,21 +6,14 @@ The following sections include the selection of selected classes and events, a r
 \section{Classes and events}
 The following subsections explore the potential class and event candidates as well as the thought process behind them.
 The generated class and event candidates will be systematically selected based upon their relevance and whether they satisfy the system definition.
-%Astrid: forsøgt omformuleret. oprindelig tekst: The generated class and event candidates will be systematic selected to represent the problem domain with regard to relevance and that they satisfy the system definition.
-The process of systematically selecting classes and events is
-% based upon the following criteria found in
-from
-the object-oriented method, Object Oriented Design \& Analysis (OOA\&D) \cite{Rod-Aalborg} .
-%Anna: Hvilken following criterias (sidste sætning)
+The process of systematically selecting classes and events is from the Object Oriented Design \& Analysis (OOA\&D) method \cite{Rod-Aalborg}.
+\todo[inline]{Rasmus: Tjek om der er refereret til OOAD længere oppe}
 
 \subsection{Classes} \label{sec:Classes}
 According to  \citep[p.~55]{Rod-Aalborg} a class is defined as seen below.
 \begin{defn}\label{defn:class}
-	A description of a collection of objects sharing structure, behavioral pattern, and attributes.	
+	A description of a collection of objects sharing structure, behavioral pattern, and attributes.
 \end{defn}
-%Anna: har omskrevet det ovenfor, oprindelige tekst kan findes nedenfor:
-%" According to OOA\&D a class is defined as \citep[p.~55]{Rod-Aalborg}.
-%“A description of a collection of objects sharing structure, behavioral pattern, and attributes.” 
 
 The questions below help to evaluate a class. The more affirmative the answers are the more likely it is that a class is the correct representation. \citep[p.~62]{Rod-Aalborg}
 \begin{itemize}
@@ -30,12 +24,7 @@ The questions below help to evaluate a class. The more affirmative the answers a
 \end{itemize}
 
 In the following the classes from \cref{tab:ClassCandidates} are through a systematic selection deemed qualified or not qualified based on the criteria mentioned above.
-% Anja: "Qualitfied" ift. hvad? Mangler lidt en forklaring her.
-%Anna: afsnittet ovenfor er flyttet og omskrevet fra subsubsectionen "Qualifying classes" (Også med Anjas kommentar er flyttet hertil) Det oprindelige afsnit ligger udkommenteret der hvor jeg tog det fra
 
-
-%\subsubsection{Class candidates} 
-%Anna: Bare så vi er enige om det, jeg har ændret ordlyden på en del af kommentarerne i tabellen så hvis i ikke kan lide hvordan det lyder eller er skrevet så skal vi have hentet det tilbage fra en tidligere version.
 \begin{table} [H]
 \begin{tabular}{l l}
 	\hline
@@ -46,26 +35,20 @@ In the following the classes from \cref{tab:ClassCandidates} are through a syste
 	\texttt{Document} & The documents in the handbook\\
 	\texttt{User }& Users with either reader, writer or administrator role\\
 	\texttt{Version} & Document’s version and the validity period\\
-	\texttt{Log} & Descriptions of changes for each version\\ 
-	\texttt{Responsibility} & Difference user access levels to the handbook\\ 
-	\texttt{Approval} & Keeps track of who has to approve specific 
-	%documents and 
-	versions\\ 
+	\texttt{Log} & Descriptions of changes for each version\\
+	\texttt{Responsibility} & Difference user access levels to the handbook\\
+	\texttt{Approval} & Keeps track of who has to approve specific
+	versions\\
 	\texttt{TOC} & The table of contents of the documents in the handbook\\
-	\texttt{Notification} & Sends notice to relevant users when a new version is submitted\\ 
+	\texttt{Notification} & Sends notice to relevant users when a new version is submitted\\
 	\texttt{Read Status} & Keeps track of who has read which document and version\\
 	\texttt{Supplier} & Supplier who has to be approved \\
 	\hline
 \end{tabular}
 \caption{Class candidates}\label{tab:ClassCandidates}
-\end{table} 
+\end{table}
 
-% Anja: Hvis alle punkterne ovenfor starter med ''A class representing'', så skal de tre første ord nok bare slettes.
-
-%\subsubsection{Qualifying classes}
-%The following section covers an explanation whether the generates classes are systematical selection qualified or not qualified based on criteria in \cref{sec:Classes}.
-% Anja: "Qualitfied" ift. hvad? Mangler lidt en forklaring her.
-
+\todo[inline]{Anja, fix det der qualified så du kan være tilfreds. like omg}
 The \texttt{Company} class is qualified since it keeps track of companies that use the system, which is an important concept to keep track of.
 
 The \texttt{Handbook} class is qualified for the reason that it keeps track of the documents and is an important part of the problem domain and system definition.
@@ -93,11 +76,11 @@ The \texttt{Read Status} class is qualified since the system needs to store info
 %Anna: Skal Read status også holde styr på hvornår de har læst det?
 This is useful when the company has to report a total number of employees that have read the current version of the document.
 
-The \texttt{Supplier} class is qualified seeing that the administrator needs to keep a record of all documents related to approval of suppliers. 
+The \texttt{Supplier} class is qualified seeing that the administrator needs to keep a record of all documents related to approval of suppliers.
 
 Hereby, the Qualified classes are as follows:
 \begin{multicols}{4}
-	\begin{itemize} 
+	\begin{itemize}
 	\item \texttt{Company}
 	\item \texttt{Handbook}
 	\item \texttt{Document}
@@ -113,30 +96,18 @@ Hereby, the Qualified classes are as follows:
 \subsection{Events} \label{sec:Events}
 According to \citep[p.~53]{Rod-Aalborg} is an event defined as,
 \begin{defn}\label{defn:Event}
-An instantaneous incident involving one or more objects.	
+An instantaneous incident involving one or more objects.
 \end{defn}
-%Anna: har omskrevet det ovenfor den oprindelige tekst står nedenfor:
-%"According to OOA\&D an event is defined as \citep[p.~53]{Rod-Aalborg}:
-%"An instantaneous incident involving one or more objects.''"
-% Henrik: Måske også lav dette til en definition med \begin{defn}
 Once again the questions below help to evaluate an event if those are affirmative \citep[p.~65]{Rod-Aalborg}.
 \begin{itemize}
 	\item Is the event instantaneous?
 	\item Is the event atomic?
 	\item Can the event be identified when it happens?
 \end{itemize}
-%Anja: Mangler mere forklarende tekst omkring evalueringspunkterne ovenfor.
+\todo[inline]{RASMUS: Forklar hvad de her ting betyder. Tænker et par siders teori om atomets historie eller noget, idk}
 
 In the rest of the section the generated events in \cref{tab:EventCandidates} will be reviewed and deemed either qualified or not qualified regarding the systematical selection based on the criteria written above.
-%Anna: Taget fra subsubsectionen qualifying evets (er  blevet omskrevet med oprindelige står her nedenfor og på sin oprindelige plads):
-%"In this section the generated events will be reviewed and determined whether they are qualified or not qualified regarding the systematical selection based on the criteria in \cref{sec:Events}.
-%The selection and deselection of these event candidates will be explained, and the event table will be displayed afterwards.
-%% Anja: Der mangler igen forklarende tekst om, hvad der gør eventsene qualified eller ikke qualified."
 
-
-
-%\subsubsection{Event candidates}
-%Anna: Nøjagtigt det samme med denne tabel som den med class candidates, er omskrevet en del og hvis vi vil ave det andet skal det hentes i en tidligere version.
 \begin{table}[H]
 	\begin{tabular}{m{4,3 cm} l}
 		\hline
@@ -146,9 +117,7 @@ In the rest of the section the generated events in \cref{tab:EventCandidates} wi
 		\textbf{Document archived} & A document where version is archived instead of updated.\\
 		\textbf{Document reactivated} & Archived document is to be accessible in the handbook again\\
 		\textbf{Document deleted} & Wrong document is created, and is still without version\\
-		%Anna:Dette var den oprindelige tekst men da jeg ikke var enig i det med retetntion period har jeg omformuleret til det ovenfor.
-		%" when a retention period has expired for an archived document or if an administrator accidentally created incorrect content document in the system then it is possible to delete the document in the system\\"
-		\textbf{Version approved}  & When approved it becomes available in the handbook\\ 
+		\textbf{Version approved}  & When approved it becomes available in the handbook\\
 		\textbf{New version released} &  New version becomes available in the handbook\\
 		\textbf{Version archived} & When newer approved version is added to handbook\\
 		\textbf{Version marked \newline as read} & User has verified that the newest version has been read\\
@@ -161,60 +130,52 @@ In the rest of the section the generated events in \cref{tab:EventCandidates} wi
 		\textbf{Supplier updated} & Supplier's information has been updated\\
 		\textbf{Supplier deleted} & Supplier has been removed from the system\\
 		\textbf{Supplier approved} & Supplier's document has been approved\\
-		\textbf{Approval requested\newline (Version)} & New version is created and the approval requested is sent\\
+		\textbf{Approval requested} & New version is created and the approval requested is sent\\
 		\textbf{Approval confirmed}
-			%\newline (Version)} 
 		& Approval is confirmed by one approver\\
 		\textbf{Approval denied}
-			%\newline (Version)} 
 		& Approval is rejected by every approver\\
 		\textbf{Department added} & Department is created\\
 		\textbf{Department deleted} & Department is removed from system\\
 		\textbf{Department's users\newline updated} & Associating  a user to or removing form a department\\
 		\textbf{Department's\newline documents updated} & Associating a document to or removing from a department.\\
-		\textbf{Department notified\newline user} & Associated user received a notification of new version released\\ 
+		\textbf{Department notified\newline user} & Associated user received a notification of new version released\\
 		\textbf{Document printed} & Document is printed\\
 		\hline
 	\end{tabular}
 	\caption{Event Candidates}\label{tab:EventCandidates}
 \end{table}
 
-% Anja: Som forslag kunne ovenstående tekst måske stå i en tabel? Det vil måske gøre det mere overskueligt.
+\todo[inline]{Rasmus: Der mangler igen forklarende tekst om, hvad der gør eventsene qualified eller ikke qualified. i know}
 
-%\subsubsection{Qualifying events}
-%In this section the generated events will be reviewed and determined whether they are qualified or not qualified regarding the systematical selection based on the criteria in \cref{sec:Events}.
-%The selection and deselection of these event candidates will be explained, and the event table will be displayed afterwards.
-% Anja: Der mangler igen forklarende tekst om, hvad der gør eventsene qualified eller ikke qualified.
+\textbf{Document added} event is qualified reasoned that a document object must be created first before it has a version object added.
 
-\textbf{Document added} event is qualified reasoned that a document object must be created first before it has a version object added. 
+\textbf{Document archived} event is qualified because it is an important functionality to archive expired documents for number of years according to ISO 9001 document management requirements.
 
-\textbf{Document archived} event is qualified because it is an important functionality to archive expired documents for number of years according to ISO 9001 document management requirements. 
+\textbf{Document reactivated} event is qualified since if the system can archive a document, it must also be able to reactivated and make it available in the handbook again.
 
-\textbf{Document reactivated} event is qualified since if the system can archive a document, it must also be able to reactivated and make it available in the handbook again. 
+\textbf{Document deleted} is qualified for the reason that if an administrator made a mistake and added a wrong document then the delete option should be available.
 
-\textbf{Document deleted} is qualified for the reason that if an administrator made a mistake and added a wrong document then the delete option should be available. 
+\textbf{Version approved} event are qualified since it is important for the system to register and keep track of when a version is complete within the approval process and whether it should be accessible in the handbook.
 
-\textbf{Version approved} event are qualified since it is important for the system to register and keep track of when a version is complete within the approval process and whether it should be accessible in the handbook. 
+\textbf{New version released} event is not qualified seeing that it is a duplicate of the \textbf{version approved} event.
 
-\textbf{New version released} event is not qualified seeing that it is a duplicate of the \textbf{version approved} event. 
-
-\textbf{Version marked as read} event is qualified because it is crucial for the company to register if employees had read specific documents and versions and are up to date with the current standards. 
+\textbf{Version marked as read} event is qualified because it is crucial for the company to register if employees had read specific documents and versions and are up to date with the current standards.
 
 \textbf{Version archived} event is qualified for the same reason as \textbf{document archived} event.
 
-\textbf{User added}, \textbf{user updated} and \textbf{user deleted} events are all qualified as an administrator need to manage company's user list. 
+\textbf{User added}, \textbf{user updated} and \textbf{user deleted} events are all qualified as an administrator need to manage company's user list.
 
-\textbf{User deactivated} event is qualified seeing that it is a requirement that the system still are able to report who had read a specific version. A deactivated user object will only contain user's name while the rest information are erased.
-%Anna: Hvorfor var det nu igen vi valgte at accepterer denne, frem for bare at slette brugeren og så kreere dem igen når de kom tilbage (Når det blev sletede gemte vi jo stadig deres navn (medlemsnummer alt efter hvad de er lavet med)) 
+\textbf{User archived} event is qualified seeing that it is a requirement that the system still are able to report who had read a specific version. A deactivated user object will only contain user's name while the rest information are erased.
+\todo[inline]{Anna: Fix alt det her user deleted/archived/removed stuff}
 
-\textbf{User reactivated} event is not qualified, if a company wishes to reemploy a worker then there must create a new user in the system. 
+\textbf{User reactivated} event is not qualified, if a company wishes to reemploy a worker then there must create a new user in the system.
 
-% skal nok have en bedre forklaring hvorfor user reactivated ikke er kvalificeret... halp
+\todo[inline]{Anna: Forklar bedre hvordan reactivated ikke er kvalificeret}
 
-\textbf{Supplier added}, \textbf{supplier updated},  \textbf{supplier deleted} and \textbf{supplier approved} events are all qualified since suppliers need to be manage by an administrator whether they are approved or when to be reapproved. 
+\textbf{Supplier added}, \textbf{supplier updated},  \textbf{supplier deleted} and \textbf{supplier approved} events are all qualified since suppliers need to be manage by an administrator whether they are approved or when to be reapproved.
 
-\textbf{Approval requested} event are qualified seeing that it is important part of the system definition that the system must support an approval process %and people that need to approve new the version get notified
-. 
+\textbf{Approval requested} event are qualified seeing that it is important part of the system definition that the system must support an approval process.
 
 \textbf{Approval denied (Version)} event is not qualified as Ipsen does not desire this functionality since approver himself will contact Ipsen directly and afterwards a new approval request is made and the previous approval request will be deleted. \textbf{Approval deleted (Version)} event is therefore qualified.
 
@@ -222,19 +183,15 @@ In the rest of the section the generated events in \cref{tab:EventCandidates} wi
 
 \textbf{Department added} and \textbf{department deleted} events are qualified seeing that it is important for the administrator to keep track of company's current departments.
 
-\textbf{Department's documents updated} and \textbf{department's users updated} events are qualified since it is vital to associate a user to a specific department and to associate documents to the relevant departments. 
-%A user that is connected to a department is only able to access the documents that the department are associated with. This way the system ensure to only show the relevant document for each department. 
-%Anna: Vil vove at påstå det jeg har udkommenteret er forkert
+\textbf{Department's documents updated} and \textbf{department's users updated} events are qualified since it is vital to associate a user to a specific department and to associate documents to the relevant departments.
 
-\textbf{Department notified user} event is qualified seeing that the system must be able to send notifications to the correct user from a specific department that a associated document has released a new version. 
+\textbf{Department notified user} event is qualified seeing that the system must be able to send notifications to the correct user from a specific department that a associated document has released a new version.
 
 \textbf{Document printed} event is not qualified since the problem domain does not include controlling of printed documents.
 
-%\newpage
-%Anna: Vent med at indsætte alle de her \newpage kommandoer til vi er færdige da sådan en opsætning er det alle sidste man laver inden man afleverer (Da ting kan nå at rykke meget rundt før vi er færdige)
 Qualified events:
 \begin{multicols}{2}
-	\begin{itemize} 
+	\begin{itemize}
 	\item Document added
 	\item Document archived
 	\item Document reactivated
@@ -261,7 +218,7 @@ Qualified events:
 \end{multicols}
 
 \section{Event table}\label{sec:EventTable}
-The result of the selected qualified events and classes from \cref{sec:Classes,sec:Events} is an event table representing their relations, see \cref{fig:eventtable}. 
+The result of the selected qualified events and classes from \cref{sec:Classes,sec:Events} is an event table representing their relations, see \cref{fig:eventtable}.
 The symbols used in the table is to be understood such that; $+$ is an event that can occur up to one time, and $\star$ is an event which can occur multiple times.
 
 \begin{table}[H]
@@ -305,16 +262,18 @@ The symbols used in the table is to be understood such that; $+$ is an event tha
 			Approval deleted &  &  &  & $+$ &  & $+$ &  &  & \\
 			\hline
 			Department added  &  &  &  &  &  &  & $+$ &  & \\
-			\hline 
+			\hline
 			Department's users updated &  &  &  &  & $\star$ &  & $+$ &  & \\
-			\hline 
+			\hline
 			Department's documents updated &  &  & $\star$ &  &  &  & $+$ &  & \\
-			\hline 
+			\hline
 			Department deleted &  &  &  &  &  &  & $+$ &  & \\
-			\hline 
+			\hline
 			Department notified user &  &  &  &  & $\star$ &  & $+$ &  & \\
 			\hline
 		\end{tabular}
 	\end{center}
 	\caption{Event table}\label{fig:eventtable}
 \end{table}
+
+\todo[inline]{Rasmus: Lav noget event table}

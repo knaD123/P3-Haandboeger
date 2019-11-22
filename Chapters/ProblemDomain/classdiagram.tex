@@ -5,9 +5,9 @@ The class diagram in \cref{fig:ClassDiagram} shows the structure between the cla
 The two main problems modeled in this diagram are the handbook and the suppliers.
 Both of these deal with archiving and managing the documents a company needs to get their certifications.
 
-%Taniya: husk at ændre firma til company i figuren class diagram
-\todo[inline]{Draw this in tikz or something}
-%Anna, jeg skal nok sætte det her op i Tikz (Kan måske nå det søndag men det afhænger af hvordan resten af ugen går)
+
+\todo[inline]{Anna: Draw this in tikz or something}
+\todo[inline]{Og omdøb firma til company}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.95\textwidth]{billeder/classDiagram.png}
@@ -16,19 +16,16 @@ Both of these deal with archiving and managing the documents a company needs to 
 \end{figure}
 
 \subsection{Supplier}
-%Anna: Skal vi bruge samme specielle skrift her når vi omtaler classer ligesom op ved calsses and events kapitlet? (Evt bare for at tydliggøre hvornår vi snakke om klassen og om instanser af den?)
-
-The clearer subproblem is that of managing the suppliers.
-% Anna: "clearer"??? Hvad menes der med det ord i denne sammenhæng?
+The less complex subproblem is that of managing the suppliers.
 There can be any number of suppliers and each one is aggregated by one Approval.
 Each Approval is then again aggregated by at least one Version, which encapsulates the files needed to document the validity of approving the supplier.
 This is a hierarchy pattern where both Company and Version is also included in the hierarchy structure for the handbook.
 These two classes connect the two subproblems.
 
 \subsection{Handbook}
-Where a company can have multiple or no suppliers there can only be one Handbook. 
+Where a company can have multiple or no suppliers there can only be one Handbook.
 The Handbook class is aggregated by Company which acts as a handle to access both suppliers and the handbook.
-%Anna: Er det rigtig brug af aggregated er det ikke omvendt
+\todo[inline]{Rasmus: aggregated er brugt forkert. fix it}
 
 Handbook is aggregated by Document as there are multiple documents in each book, and Document is again aggregated by version, which keeps track of the multiple versions each document has and dates of the period one was valid in the handbook.
 
@@ -65,8 +62,7 @@ There needs to be at least one administrator per Company.
 
 The writer can do everything the reader can do, and then some.
 The same goes for the administrator who can do everything the writer can do and then some.
-% Taniya: forstår ikke helt "and the some", "and then some". Maybe it is just me 
-%Anna: Det betyder som sådan bare at writer kan alt reader kan plus lidt ekstra osv.
+\todo[inline]{Andreas: Lav det om}
 This relation is pictured in \cref{fig:RoleIllustration}.
 \todo[inline]{Do something with the font here. It's charming, but probably not fitting}
 \begin{figure}[H]
@@ -84,8 +80,7 @@ The writer role would typically be assigned to people like the department heads 
 Every single employee should be a user and will by default have a reader role.
 
 \subsection{Approval}
-The biggest similarities between the handbook and supplier-approval problem are the need for archiving documents and the need for approving certain things with different intervals.
-%Anna: er det virkeligt rigtigt at kalde dem problem vil det ikke være bedre at omtale dem som domæner eller subsystemer?
+The biggest similarities between the handbook and supplier-approval subproblems are the need for archiving documents and the need for approving certain things with different intervals.
 
 The difference between them is first and foremost that while the company needs both, they do not need each other.
 The approval of the suppliers is not included in the handbook and has no relevance for the majority of the users of the handbook, and what the handbook says is irrelevant to whether a supplier is approved or not.
