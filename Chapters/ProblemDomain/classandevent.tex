@@ -1,25 +1,27 @@
-This section covers the problem domain analysis based on data gathered in form of the initial interviews with Ipsen, see \cref{sec:firstinterview}.
-The following sections includes the selection of selected classes and events, a rundown of the structure between classes, and the description of the behavior patterns through statechart diagrams.
+This chapter covers the problem domain analysis based on data gathered in the initial interviews with Ipsen.
+%, see \cref{sec:firstinterview}.
+The following sections include the selection of selected classes and events, a rundown of the structure between classes, and the description of the behavior patterns through statechart diagrams.
 
 \section{Classes and events}
-The following subsections explore the potential class and event candidates as well as the thought process behind it.
-The generated class and event candidates will be systematic selected to represent the problem domain with regard to relevance and that they satisfy the system definition.
-The process of systematically select classes and events are based on the following criteria found in the object-oriented method, Object Oriented Design \& Analysis (OOA\&D) \cite{Rod-Aalborg} .
+The following subsections explore the potential class and event candidates as well as the thought process behind them.
+The generated class and event candidates will be systematically selected based upon their relevance and whether they satisfy the system definition.
+%Astrid: forsøgt omformuleret. oprindelig tekst: The generated class and event candidates will be systematic selected to represent the problem domain with regard to relevance and that they satisfy the system definition.
+The process of systematically selecting classes and events is
+% based upon the following criteria found in
+from
+the object-oriented method, Object Oriented Design \& Analysis (OOA\&D) \cite{Rod-Aalborg} .
 %Anna: Hvilken following criterias (sidste sætning)
 
 \subsection{Classes} \label{sec:Classes}
-According to  \citep[p.~55]{Rod-Aalborg} is a class defined as seen below.
+According to  \citep[p.~55]{Rod-Aalborg} a class is defined as seen below.
 \begin{defn}\label{defn:class}
 	A description of a collection of objects sharing structure, behavioral pattern, and attributes.	
 \end{defn}
 %Anna: har omskrevet det ovenfor, oprindelige tekst kan findes nedenfor:
 %" According to OOA\&D a class is defined as \citep[p.~55]{Rod-Aalborg}.
-%“A description of a collection of objects sharing structure, behavioral pattern, and attributes.” "
+%“A description of a collection of objects sharing structure, behavioral pattern, and attributes.” 
 
-% Henrik: Måske lav det til en definition med \begin{defn}noget tekst her\end{defn}
-% se hvordan Anna har gjort i PACT analyse afsnit - men hvor?
-
-The questions below help to evaluate a class if those are affirmative. \citep[p.~62]{Rod-Aalborg}
+The questions below help to evaluate a class. The more affirmative the answers are the more likely it is that a class is the correct representation. \citep[p.~62]{Rod-Aalborg}
 \begin{itemize}
 	\item Can you identify objects from the class?
 	\item Does the class contain unique information?
@@ -27,7 +29,7 @@ The questions below help to evaluate a class if those are affirmative. \citep[p.
 	\item Does the class have a suitable and manageable number of events?
 \end{itemize}
 
-In the following the classes from \cref{tab:ClassCandidates} are through a systematical selection deemed qualified or not qualified based on the criteria mentioned above.
+In the following the classes from \cref{tab:ClassCandidates} are through a systematic selection deemed qualified or not qualified based on the criteria mentioned above.
 % Anja: "Qualitfied" ift. hvad? Mangler lidt en forklaring her.
 %Anna: afsnittet ovenfor er flyttet og omskrevet fra subsubsectionen "Qualifying classes" (Også med Anjas kommentar er flyttet hertil) Det oprindelige afsnit ligger udkommenteret der hvor jeg tog det fra
 
