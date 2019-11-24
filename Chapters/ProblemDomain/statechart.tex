@@ -68,5 +68,28 @@ And thus, after creation, version objects are supposed to be quite immutable onc
 
 \section{Scope of the problem domain}
 \todo[inline]{Henrik: Lav en ny bedre summary. Den skal være mere konkluderende, yo. Scope of problem domain? held og lykke}
-In this chapter the problem domain has been analyzed where object oriented analysis principles were used regarding to the systematic selection of classes and events. The output is an event table representing relations between classes and events seen in \cref{fig:eventtable}.
-Based on these relations between classes and events the structural relations between classes has been produced illustrating in a class diagram in \cref{fig:ClassDiagram}. The most significant behaviour for objects has been described and represented in statechart diagrams in \cref{sec:statechart}. The classes and the behaviour has been explored, it is therefore possible to examine how the actors interact with the system in the application domain in the next chapter.
+
+% et eller andet om OOA&D er blevet brugt
+The object oriented analysis principles were used throught this chapter to analyse the different classes and events in the problem domain.
+% et eller andet om qualified classes - ex. på qualified og ikke qualified classes
+Classes like Document and Version were classified as qualified classes using the questions mentioned in \cref{sec:Classes} and classes like TOC and Notification were classified as not qualified classes.
+% et eller andet om qualified events - ex. på qualified og ikke qualified event
+Using the questions mentioned in \cref{sec:Events} Version approved and Department deleted were classified as qualified events whereas an event like Approval denied was classified as a not qualified event.
+
+% et eller andet om event table
+An event table was made in \cref{sec:EventTable} using the classified classes and events, see \cref{fig:eventtable}.
+This was done to give a better overview of what classes were affected by the different events.
+% et eller andet om class diagram
+The qualified classes specified in \cref{sec:Classes} were also used to produce a class diagram to describe the relation between the classes and objects, see \cref{fig:ClassDiagram} in \cref{sec:classdiagram}. 
+% et eller andet om state charts - ex. på nogle af de vigtigste events
+Finally, the lifetime of some of the more important objects in the problem domain was described using state charts, see \cref{sec:statechart}.
+Here the lifetime of Approval, Department and Version were described.
+
+% en meget hurtigt afrundin
+The knowledge gained from analysing the problem domain makes it possible to examine how the actors interact with the system in the application domain in the next chapter.
+
+%In this chapter the problem domain has been analyzed where object oriented analysis principles were used regarding to the systematic selection of classes and events.
+%The output is an event table representing relations between classes and events seen in \cref{fig:eventtable}.
+%Based on these relations between classes and events the structural relations between classes has been produced illustrating in a class diagram in \cref{fig:ClassDiagram}.
+%The most significant behaviour for objects has been described and represented in statechart diagrams in \cref{sec:statechart}.
+%The classes and the behaviour has been explored, it is therefore possible to examine how the actors interact with the system in the application domain in the next chapter.
