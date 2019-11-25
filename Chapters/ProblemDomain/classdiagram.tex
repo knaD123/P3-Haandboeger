@@ -26,23 +26,23 @@ Both of these deal with archiving and managing the documents a company needs to 
 	\node(reader)[process, left=1cm of write]{Reader};
 
 	%linjer til company
-	\draw[{diamond}-](start.south)-- node[anchor=east]{1} (0.0,-1.0);
+	\draw[{open diamond}-](start.south)-- node[anchor=east]{1} (0.0,-1.0);
 	\draw[black](supp.north)  |-node[below=0.2cm, left]{0..*} (0.0,-1.0) ;
 	\draw[black](hand.north) |-  node[below=0.2cm, right]{1}(0.0,-1.0);
 	%linje supp & suppapp
-	\draw[{diamond}-](supp.south) node[above=-0.2cm, left]{1}--(-1.0,-3.18) node[below=-0.2cm, right]{1};
+	\draw[{open diamond}-](supp.south) node[above=-0.2cm, left]{1}--(-1.0,-3.18) node[below=-0.2cm, right]{1};
 	%linje til handbook & doc
-	\draw[{diamond}-](hand.south) node[above=-0.2cm, left]{1}--(1.0,-3.18) node[below=-0.2cm, right]{0..*};
+	\draw[{open diamond}-](hand.south) node[above=-0.2cm, left]{1}--(1.0,-3.18) node[below=-0.2cm, right]{0..*};
 	%approval linjer
 	\draw[arrow](-3.55,-2.7)--(app.south);
 	\draw[black](handapp.north)|-(-3.55,-2.7);
 	\draw[black](suppapp.north)|-(-3.55,-2.7);
 	%linjer til version &suppapp /doc
-	\draw[{diamond}-](-2.0,-3.95)node[above=-0.2cm, right]{1}--(-2.0,-4.95)node[below=-0.2cm, left]{1..*};
-	\draw[{diamond}-](1.0,-3.95)node[above=-0.2cm, left]{1}--(1.0,-4.5);
+	\draw[{open diamond}-](-2.0,-3.95)node[above=-0.2cm, right]{1}--(-2.0,-4.95)node[below=-0.2cm, left]{1..*};
+	\draw[{open diamond}-](1.0,-3.95)node[above=-0.2cm, left]{1}--(1.0,-4.5);
 	\draw[black](1.0,-4.5)-|(ver.north)node[below=-0.2cm, right]{0..*};
 	%linje user & department
-	\draw[{diamond}-](5.59,-3.95)node[above=-0.2cm, left]{1}--(user.north)node[below=-0.2cm, right]{1..*};
+	\draw[{open diamond}-](5.59,-3.95)node[above=-0.2cm, left]{1}--(user.north)node[below=-0.2cm, right]{1..*};
 	%linje hanbook & user
 	\draw[black](hand.east) -| (6.7,-5.0);
 	\draw[black](user.east) -| (6.7,-5.0);
@@ -129,12 +129,32 @@ The biggest similarities between the handbook and supplier-approval subproblems 
 The difference between them is first and foremost that while the company needs both, they do not need each other.
 The approval of the suppliers is not included in the handbook and has no relevance for the majority of the users of the handbook, and what the handbook says is irrelevant to whether a supplier is approved or not.
 
-\todo[inline]{Rasmus: Lav et sejt tikz diagram}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\textwidth]{billeder/pseudoClassDiagram.jpg}
-	\caption{\textit{Early, incomplete models of the problem domain
-	}\label{fig:PseudoClassDiagram}}
+	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%De venstre noder
+	\node(supp)[process]{Supplier};
+	\node(title)[simple, above=0.5cm of supp]{Supplier-Approval\\Subproblem};
+	\node(app)[process, below=1cm of supp]{Approval};
+	\node(doc)[process, below=1cm of app]{Document};
+	%De højre noder
+	\node(title2)[simple, right=2cm of title]{Handbook\\ Subproblem};
+	\node(hand)[process, below=0.5cm of title2]{Handbook};
+	\node(doc2)[process, below=1cm of hand]{Document};
+	\node(ver)[process, below=1cm of doc2]{Version};
+	\node(App)[process, right=1cm of ver]{Approval};
+	
+	%linjer
+	\draw[black, ultra thick](title.south west)--(title.south east);
+	\draw[black, ultra thick](title2.south west)--(title2.south east);
+	\draw[{open diamond}-](supp)--(app);
+	\draw[{open diamond}-](app)--(doc);
+	\draw[{open diamond}-](hand)--(doc2);
+	\draw[{open diamond}-](doc2)--(ver);
+	\draw[black](ver)--(App);
+	\end{tikzpicture}
+	\caption{\textit{Class diagram of the problem domain
+		}\label{fig:SupProblemClassDiagram}}
 \end{figure}
 
 Early versions of the class diagram modeled the problems like seen in \cref{fig:PseudoClassDiagram}.
