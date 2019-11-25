@@ -1,4 +1,4 @@
-\section{Class diagram}
+\section{Class diagram} \label{sec:classdiagram}
 The qualified classes from \cref{sec:Classes} are ordered in relation to each other in a class diagram, the purpose of which is ``to describe structural relations between classes and objects'' \citep[p.~71]{Rod-Aalborg}.
 
 The class diagram in \cref{fig:ClassDiagram} shows the structure between the classes in the problem domain.
@@ -48,7 +48,7 @@ Therefore users should be shown specific documents relevant to them first and De
 These departments are managed by the administrators of the system.
 
 \subsection{User}
-There are three different types of users in the system, which has been modeled by using a role pattern.
+There are three different types of users in the system, which has been modeled by using a role pattern. This gives the system a more dynamic way to handle different contexts.
 
 The reader can read everything and verify that they have read a version of a document but nothing else.
 Every single user in the system has this level of access and it is therefore unnecessary to include as a seperate class.
@@ -60,9 +60,7 @@ The administrator has all access to the system.
 This includes making completely new documents, managing who gets notifications for which documents through the Department class, adding and removing users and accessing the archive.
 There needs to be at least one administrator per Company.
 
-The writer can do everything the reader can do, and then some.
-The same goes for the administrator who can do everything the writer can do and then some.
-\todo[inline]{Andreas: Lav det om}
+The pattern functions like a hierarchy where the reader is at the bottom level, the writer at the middle level and the administrator at the top level. This means each role have the same core attributes, but their privileges are greater for each level, increasing from bottom to top.
 This relation is pictured in \cref{fig:RoleIllustration}.
 \todo[inline]{Do something with the font here. It's charming, but probably not fitting}
 \begin{figure}[H]
