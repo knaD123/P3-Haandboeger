@@ -4,15 +4,53 @@ To minimize the amount of critical flaws the criteria \citep[p.~180]{Rod-Aalborg
 The idea is that development will be focused on the very important and important criteria to make sure that all of these work.
 Less effort will be put into the less important, irrelevant or easily fulfilled criteria, making flaws in these areas more likely.
 However, as established they are less important and therefore the flaws will most likely not be critical.
-These priorities can be found in \ref{fig:criteria}.
+These priorities can be found in \cref{fig:criteria}.
 
-\todo[inline]{this fig ugly but ive got other priorities rn}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{billeder/architecture-priorities.png}
-	\caption{\textit{Prioritized list
-	}\label{fig:criteria}}
-\end{figure}
+
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=1\textwidth]{billeder/architecture-priorities.png}
+%	\caption{\textit{Prioritized list
+%	}\label{fig:criteria}}
+%\end{figure}
+%Anna: Har lavet figuren om til en tabel nedenfor
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{|l|c|c|c|c|c|}
+			\hline
+			Criteria $\backslash$ priority & \rotatebox{90}{Very important} &  \rotatebox{90}{Important} & \rotatebox{90}{Less important} & \rotatebox{90}{Irrelevant} & \rotatebox{90}{Easily fulfilled}\\
+			\hline
+			Usable & \xmark & & & & \\
+			\hline
+			Secure & & & & \xmark & \\
+			\hline
+			Efficient & & & & & \xmark \\
+			\hline
+			Correct & & \xmark & & & \\
+			\hline
+			Reliable & \xmark & & & & \\
+			\hline
+			Maintainable & & & \xmark & & \\
+			\hline
+			Testable & & \xmark & & & \\
+			\hline
+			Flexible & & & & \xmark & \\
+			\hline
+			Comprehensible & & \xmark & & & \\
+			\hline
+			Reusable & & & \xmark & & \\
+			\hline
+			Portable & & & & \xmark & \\
+			\hline
+			Interoperable & & & & \xmark & \\
+			%Anna: Hvad betyder det(er det stavet rigtigt)?
+			\hline
+		\end{tabular}
+	\end{center}
+	\caption{Prioritized list}\label{fig:criteria}
+\end{table}
+
 
 It is very important that the system is \textbf{usable}. It is assumed that the system will mainly have one user: The administrator. This fact could make this criterion less critical, however it is also assumed that this one user will have limited IT experience. Moreover this system is developed specifically for that one specific user and it is therefore imperative that they are able to use the system.
 
@@ -22,7 +60,7 @@ If compared to the existing solution to the problem making an \textbf{efficient}
 
 Whether the system is \textbf{correct}, correct here used in the sense of it fulfils the system definition and meets all the requirements is important. The reasoning behind this not being very important is that there is a long list of requirements and they are not all equally necessary.
 
-It is very important that the system is \textbf{reliable} as it is a massive problem for the user if the system malfunctions and eg. deletes files, assigns wrong version numbers or automatically approves a new version. Should any of these happen it could mean that the company will lose their certification which as described in \ref{sec:standards} is at best a problem for consumer trust and at worst a requirement by law.
+It is very important that the system is \textbf{reliable} as it is a massive problem for the user if the system malfunctions and eg. deletes files, assigns wrong version numbers or automatically approves a new version. Should any of these happen it could mean that the company will lose their certification which as described in \cref{sec:standards} is at best a problem for consumer trust and at worst a requirement by law.
 
 Whether the system is \textbf{maintainable} is less important as the user won't be capable of maintaining it anyway.
  
