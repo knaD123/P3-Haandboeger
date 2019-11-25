@@ -64,8 +64,6 @@ On the contrary, by virtue of no longer being the last version in the document, 
 \end{tikzpicture}
 
 \section{Scope of the problem domain}
-\todo[inline]{Henrik: Lav en ny bedre summary. Den skal være mere konkluderende, yo. Scope of problem domain? held og lykke}
-
 % et eller andet om OOA&D er blevet brugt
 The object oriented analysis principles were used throught this chapter to analyse the different classes and events in the problem domain.
 % et eller andet om qualified classes - ex. på qualified og ikke qualified classes
@@ -75,12 +73,21 @@ Using the questions mentioned in \cref{sec:Events} Version approved and Departme
 
 % et eller andet om event table
 An event table was made in \cref{sec:EventTable} using the classified classes and events, see \cref{fig:eventtable}.
-This was done to give a better overview of what classes were affected by the different events.
+This gave a better overview of what classes were affected by the different events.
 % et eller andet om class diagram
-The qualified classes specified in \cref{sec:Classes} were also used to produce a class diagram to describe the relation between the classes and objects, see \cref{fig:ClassDiagram} in \cref{sec:classdiagram}.
+The qualified classes specified in \cref{sec:Classes} were also used to produce a class diagram.
+The class diagram describes the relation between the classes and objects, see \cref{fig:ClassDiagram} in \cref{sec:classdiagram}.
 % et eller andet om state charts - ex. på nogle af de vigtigste events
 Finally, the lifetime of some of the more important objects in the problem domain was described using state charts, see \cref{sec:statechart}.
-Here the lifetime of Approval, Department and Version were described.
+The lifetime of e.g. the Department is that the department is being created and while it exists the department can:
+
+\begin{itemize}
+	\item Add and remove documents.
+	\item Add and remove users.
+	\item Notify users that a new version has been released.
+\end{itemize}
+
+The lifetime of the department ends when it is deleted.
 
 % en meget hurtigt afrundin
 The knowledge gained from analysing the problem domain makes it possible to examine how the actors interact with the system in the application domain in the next chapter.
