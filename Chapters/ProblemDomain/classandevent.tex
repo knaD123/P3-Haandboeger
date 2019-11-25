@@ -1,4 +1,3 @@
-\todo[inline]{Rasmus: Brug italics på alt hvad der før var truetype, men ikke er kode. Klasser i tabellen er bold, ikke italics}
 This chapter covers the problem domain analysis based on data gathered in the initial interviews with Ipsen.
 %, see \cref{sec:firstinterview}.
 The following sections include the selection of selected classes and events, a rundown of the structure between classes, and the description of the behavior patterns through statechart diagrams.
@@ -30,66 +29,66 @@ In the following the classes from \cref{tab:ClassCandidates} are through a syste
 	\hline
 	Classes & Comment\\
 	\hline
-	\texttt{Company} & The companies managed by the system \\
-	\texttt{Handbook} & The newest version of all the documents\\
-	\texttt{Document} & The documents in the handbook\\
-	\texttt{User }& Users with either reader, writer or administrator role\\
-	\texttt{Version} & Document’s version and the validity period\\
-	\texttt{Log} & Descriptions of changes for each version\\
-	\texttt{Responsibility} & Difference user access levels to the handbook\\
-	\texttt{Approval} & Keeps track of who has to approve specific
+	\textbf{Company} & The companies managed by the system \\
+	\textbf{Handbook} & The newest version of all the documents\\
+	\textbf{Document} & The documents in the handbook\\
+	\textbf{User }& Users with either reader, writer or administrator role\\
+	\textbf{Version} & Document’s version and the validity period\\
+	\textbf{Log} & Descriptions of changes for each version\\
+	\textbf{Responsibility} & Difference user access levels to the handbook\\
+	\textbf{Approval} & Keeps track of who has to approve specific
 	versions\\
-	\texttt{TOC} & The table of contents of the documents in the handbook\\
-	\texttt{Notification} & Sends notice to relevant users when a new version is submitted\\
-	\texttt{Read Status} & Keeps track of who has read which document and version\\
-	\texttt{Supplier} & Supplier who has to be approved \\
+	\textbf{TOC} & The table of contents of the documents in the handbook\\
+	\textbf{Notification} & Sends notice to relevant users when a new version is submitted\\
+	\textbf{Read Status} & Keeps track of who has read which document and version\\
+	\textbf{Supplier} & Supplier who has to be approved \\
 	\hline
 \end{tabular}
 \caption{Class candidates}\label{tab:ClassCandidates}
 \end{table}
 
 \todo[inline]{Anja, fix det der qualified så du kan være tilfreds. like omg}
-The \texttt{Company} class is qualified since it keeps track of companies that use the system, which is an important concept to keep track of.
+The \textit{Company} class is qualified since it keeps track of companies that use the system, which is an important concept to keep track of.
 
-The \texttt{Handbook} class is qualified for the reason that it keeps track of the documents and is an important part of the problem domain and system definition.
+The \textit{Handbook} class is qualified for the reason that it keeps track of the documents and is an important part of the problem domain and system definition.
 
-The \texttt{Document} class is qualified because it works as an item for the various versions in an item-descriptor pattern.
+The \textit{Document} class is qualified because it works as an item for the various versions in an item-descriptor pattern.
 
-The \texttt{Version} class is qualified since it encapsulates the version data in the documents, and allows the document to have multiple instances of them.
+The \textit{Version} class is qualified since it encapsulates the version data in the documents, and allows the document to have multiple instances of them.
 
-The \texttt{User} class is qualified because there would be different types of users with different access levels in the system.
+The \textit{User} class is qualified because there would be different types of users with different access levels in the system.
 
-The \texttt{Log} class is not qualified because the class does not contain unique information and the class it self is too simple.
-It is unnecessary to create an independent class for the changelog and therefore it has been converted to an attribute for the \texttt{Version} class.
+The \textit{Log} class is not qualified because the class does not contain unique information and the class it self is too simple.
+It is unnecessary to create an independent class for the changelog and therefore it has been converted to an attribute for the \textit{Version} class.
 
-The \texttt{Responsibility} class is not qualified because the different levels of access and permissions are present in the \texttt{User} class.
+The \textit{Responsibility} class is not qualified because the different levels of access and permissions are present in the \textit{User} class.
 
-The \texttt{Approval} class is qualified since it is vital to substantiate who is has to or already has approved each version and at what date it was approved.
+The \textit{Approval} class is qualified since it is vital to substantiate who is has to or already has approved each version and at what date it was approved.
 
-The \texttt{TOC} class is not qualified since \texttt{TOC} is a property of the \texttt{Handbook} class and does not contain unique information.
-The purpose with \texttt{TOC} is to create an overview of the valid documents in the handbook.
+The \textit{TOC} class is not qualified since \textit{TOC} is a property of the \textit{Handbook} class and does not contain unique information.
+The purpose with \textit{TOC} is to create an overview of the valid documents in the handbook.
 
-The \texttt{Notification} class is not qualified as the notification is more an event rather than a class.
-The functionality in the \texttt{Notification} class is to assign users to specific documents therefore the name is modified to \texttt{Department} instead.
+The \textit{Notification} class is not qualified as the notification is more an event rather than a class.
+The functionality in the \textit{Notification} class is to assign users to specific documents therefore the name is modified to \textit{Department} instead.
 
-The \texttt{Read Status} class is qualified since the system needs to store information regarding which users has read what versions and when.
+The \textit{Read Status} class is qualified since the system needs to store information regarding which users has read what versions and when.
 %Anna: Skal Read status også holde styr på hvornår de har læst det?
 This is useful when the company has to report a total number of employees that have read the current version of the document.
 
-The \texttt{Supplier} class is qualified seeing that the administrator needs to keep a record of all documents related to approval of suppliers.
+The \textit{Supplier} class is qualified seeing that the administrator needs to keep a record of all documents related to approval of suppliers.
 
 Hereby, the Qualified classes are as follows:
 \begin{multicols}{4}
 	\begin{itemize}
-	\item \texttt{Company}
-	\item \texttt{Handbook}
-	\item \texttt{Document}
-	\item \texttt{Version}
-	\item \texttt{User}
-	\item \texttt{Approval}
-	\item \texttt{Department}
-	\item \texttt{Read Status}
-	\item \texttt{Supplier}
+	\item \textit{Company}
+	\item \textit{Handbook}
+	\item \textit{Document}
+	\item \textit{Version}
+	\item \textit{User}
+	\item \textit{Approval}
+	\item \textit{Department}
+	\item \textit{Read Status}
+	\item \textit{Supplier}
 	\end{itemize}
 \end{multicols}
 
@@ -148,46 +147,46 @@ In the rest of the section the generated events in \cref{tab:EventCandidates} wi
 
 \todo[inline]{Rasmus: Der mangler igen forklarende tekst om, hvad der gør eventsene qualified eller ikke qualified. i know}
 
-\textbf{Document added} event is qualified reasoned that a document object must be created first before it has a version object added.
+\textit{Document added} event is qualified reasoned that a document object must be created first before it has a version object added.
 
-\textbf{Document archived} event is qualified because it is an important functionality to archive expired documents for number of years according to ISO 9001 document management requirements.
+\textit{Document archived} event is qualified because it is an important functionality to archive expired documents for number of years according to ISO 9001 document management requirements.
 
-\textbf{Document reactivated} event is qualified since if the system can archive a document, it must also be able to reactivated and make it available in the handbook again.
+\textit{Document reactivated} event is qualified since if the system can archive a document, it must also be able to reactivated and make it available in the handbook again.
 
-\textbf{Document deleted} is qualified for the reason that if an administrator made a mistake and added a wrong document then the delete option should be available.
+\textit{Document deleted} is qualified for the reason that if an administrator made a mistake and added a wrong document then the delete option should be available.
 
-\textbf{Version approved} event are qualified since it is important for the system to register and keep track of when a version is complete within the approval process and whether it should be accessible in the handbook.
+\textit{Version approved} event are qualified since it is important for the system to register and keep track of when a version is complete within the approval process and whether it should be accessible in the handbook.
 
-\textbf{New version released} event is not qualified seeing that it is a duplicate of the \textbf{version approved} event.
+\textit{New version released} event is not qualified seeing that it is a duplicate of the \textit{version approved} event.
 
-\textbf{Version marked as read} event is qualified because it is crucial for the company to register if employees had read specific documents and versions and are up to date with the current standards.
+\textit{Version marked as read} event is qualified because it is crucial for the company to register if employees had read specific documents and versions and are up to date with the current standards.
 
-\textbf{Version archived} event is qualified for the same reason as \textbf{document archived} event.
+\textit{Version archived} event is qualified for the same reason as \textit{document archived} event.
 
-\textbf{User added}, \textbf{user updated} and \textbf{user deleted} events are all qualified as an administrator need to manage company's user list.
+\textit{User added}, \textit{user updated} and \textit{user deleted} events are all qualified as an administrator need to manage company's user list.
 
-\textbf{User archived} event is qualified seeing that it is a requirement that the system still are able to report who had read a specific version. A deactivated user object will only contain user's name while the rest information are erased.
+\textit{User archived} event is qualified seeing that it is a requirement that the system still are able to report who had read a specific version. A deactivated user object will only contain user's name while the rest information are erased.
 \todo[inline]{Anna: Fix alt det her user deleted/archived/removed stuff}
 
-\textbf{User reactivated} event is not qualified, if a company wishes to reemploy a worker then there must create a new user in the system.
+\textit{User reactivated} event is not qualified, if a company wishes to reemploy a worker then there must create a new user in the system.
 
 \todo[inline]{Anna: Forklar bedre hvordan reactivated ikke er kvalificeret}
 
-\textbf{Supplier added}, \textbf{supplier updated},  \textbf{supplier deleted} and \textbf{supplier approved} events are all qualified since suppliers need to be manage by an administrator whether they are approved or when to be reapproved.
+\textit{Supplier added}, \textit{supplier updated},  \textit{supplier deleted} and \textit{supplier approved} events are all qualified since suppliers need to be manage by an administrator whether they are approved or when to be reapproved.
 
-\textbf{Approval requested} event are qualified seeing that it is important part of the system definition that the system must support an approval process.
+\textit{Approval requested} event are qualified seeing that it is important part of the system definition that the system must support an approval process.
 
-\textbf{Approval denied (Version)} event is not qualified as Ipsen does not desire this functionality since approver himself will contact Ipsen directly and afterwards a new approval request is made and the previous approval request will be deleted. \textbf{Approval deleted (Version)} event is therefore qualified.
+\textit{Approval denied (Version)} event is not qualified as Ipsen does not desire this functionality since approver himself will contact Ipsen directly and afterwards a new approval request is made and the previous approval request will be deleted. \textit{Approval deleted (Version)} event is therefore qualified.
 
-\textbf{Approval confirmed} event is not qualified since its purpose is the same as \textbf{version approved} event.
+\textit{Approval confirmed} event is not qualified since its purpose is the same as \textit{version approved} event.
 
-\textbf{Department added} and \textbf{department deleted} events are qualified seeing that it is important for the administrator to keep track of company's current departments.
+\textit{Department added} and \textit{department deleted} events are qualified seeing that it is important for the administrator to keep track of company's current departments.
 
-\textbf{Department's documents updated} and \textbf{department's users updated} events are qualified since it is vital to associate a user to a specific department and to associate documents to the relevant departments.
+\textit{Department's documents updated} and \textit{department's users updated} events are qualified since it is vital to associate a user to a specific department and to associate documents to the relevant departments.
 
-\textbf{Department notified user} event is qualified seeing that the system must be able to send notifications to the correct user from a specific department that a associated document has released a new version.
+\textit{Department notified user} event is qualified seeing that the system must be able to send notifications to the correct user from a specific department that a associated document has released a new version.
 
-\textbf{Document printed} event is not qualified since the problem domain does not include controlling of printed documents.
+\textit{Document printed} event is not qualified since the problem domain does not include controlling of printed documents.
 
 Qualified events:
 \begin{multicols}{2}
