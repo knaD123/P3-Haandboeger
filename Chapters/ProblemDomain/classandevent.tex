@@ -6,7 +6,6 @@ The following sections include the selection of selected classes and events, a r
 The following subsections explore the potential class and event candidates as well as the thought process behind them.
 The generated class and event candidates will be systematically selected based upon their relevance and whether they satisfy the system definition.
 The process of systematically selecting classes and events is from the Object Oriented Design \& Analysis (OOA\&D) method \cite{Rod-Aalborg}.
-\todo[inline]{Rasmus: Tjek om der er refereret til OOAD længere oppe}
 
 \subsection{Classes} \label{sec:Classes}
 According to  \citep[p.~55]{Rod-Aalborg} a class is defined as seen below.
@@ -103,7 +102,12 @@ Once again the questions below help to evaluate an event if those are affirmativ
 	\item Is the event atomic?
 	\item Can the event be identified when it happens?
 \end{itemize}
-\todo[inline]{RASMUS: Forklar hvad de her ting betyder. Tænker et par siders teori om atomets historie eller noget, idk}
+
+The event being instantaneous refers to there not being any timeframe which can be described as "while the event is happening". There is only a before and after.
+
+The event being atomic means that the event is indivisible. It cannot be divided into smaller events.
+
+The event being identifiable refers to it being obvious when it happens. The system will be able to know of the event happening, either due to the event happening within the system, or because it is informed of the event happening by an user.
 
 In the rest of the section the generated events in \cref{tab:EventCandidates} will be reviewed and deemed either qualified or not qualified regarding the systematical selection based on the criteria written above.
 
@@ -144,8 +148,6 @@ In the rest of the section the generated events in \cref{tab:EventCandidates} wi
 	\end{tabular}
 	\caption{Event Candidates}\label{tab:EventCandidates}
 \end{table}
-
-\todo[inline]{Rasmus: Der mangler igen forklarende tekst om, hvad der gør eventsene qualified eller ikke qualified. i know}
 
 \textit{Document added} event is qualified reasoned that a document object must be created first before it has a version object added.
 
