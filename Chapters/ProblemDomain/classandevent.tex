@@ -78,6 +78,7 @@ The purpose with \texttt{TOC} is to create an overview of the valid documents in
 
 The \texttt{Notification} is more an event rather than a class.
 The functionality in the \texttt{Notification} class is to assign users to specific documents therefore the name is modified to \texttt{Department} instead.
+%Anna: Hører den her i virkeligheden ikke til qualified classes?
 
 Hereby, the Qualified classes are as follows:
 \begin{multicols}{4}
@@ -170,11 +171,6 @@ In the rest of the section the generated events in \cref{tab:EventCandidates} wi
 
 \textit{User added}, \textit{user updated} and \textit{user deleted} events are all qualified as an administrator need to manage company's user list.
 
-\textit{User archived} event is qualified seeing that it is a requirement that the system still are able to report who had read a specific version. A deactivated user object will only contain user's name while the rest information are erased.
-\todo[inline]{Anna: Fix alt det her user deleted/archived/removed stuff}
-
-\todo[inline]{Anna: Forklar bedre hvordan reactivated ikke er kvalificeret}
-
 \textit{Supplier added}, \textit{supplier updated},  \textit{supplier deleted} and \textit{supplier approved} events are all qualified since suppliers need to be manage by an administrator whether they are approved or when to be reapproved.
 
 \textit{Approval requested} event are qualified seeing that it is important part of the system definition that the system must support an approval process.
@@ -189,7 +185,13 @@ In the rest of the section the generated events in \cref{tab:EventCandidates} wi
 
 \textit{New version released} event is not qualified seeing that it is a duplicate of the \textit{version approved} event.
 
-\textit{User reactivated} event is not qualified, if a company wishes to reemploy a worker then there must create a new user in the system.
+The reason for the \textit{User deactivated} event was so that the system would always be able to report who has read a specific version, as is the requirements to such a management system. The principle was that a deactivated user object would only contain user's name while the rest information is erased. Instead this will be the effect of the \textit{user deleted} event and thus \textit{user deactivated} is obsolete.
+
+\textit{User reactivated} event is not qualified, since a user cannot be deactivated but is instead deleted. In the rare occasion a company wishes to reemploy a person they have to create a new user in the system again for this person.
+
+\todo[inline]{Anna: Fix alt det her user deleted/archived/removed stuff}
+
+\todo[inline]{Anna: Forklar bedre hvordan reactivated ikke er kvalificeret}
 
 \textit{Approval denied (Version)} event is not qualified as Ipsen does not desire this functionality since approver himself will contact Ipsen directly and afterwards a new approval request is made and the previous approval request will be deleted. \textit{Approval deleted (Version)} event is therefore qualified.
 
@@ -209,7 +211,6 @@ Qualified events:
 	\item Version archived
 	\item User added
 	\item User updated
-	\item User deactivated
 	\item User deleted
 	\item Supplier added
 	\item Supplier updated
@@ -252,8 +253,6 @@ The symbols used in the table is to be understood such that; $+$ is an event tha
 			User added &  & $\star$ &  &  & $+$ &  &  &  & \\
 			\hline
 			User updated &  &  &  &  & $\star$ &  &  &  & \\
-			\hline
-			User deactivated &  &  &  &  & $+$ &  &  &  & \\
 			\hline
 			User deleted &  & $\star$ &  &  & $+$ &  &  &  & \\
 			\hline
