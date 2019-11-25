@@ -100,9 +100,21 @@ In the supplier-approval system a supplier needs to be approved and only one per
 However that one person needs to submit some kind of documentation, that justifies the approval.
 Both systems need the approval for the changes to take effect.
 
-The current version of the class diagram in \cref{fig:ClassDiagram} is a generalization used to have their shared functionality included in the abstract class Approval and the more specific functionalities in the subclasses HandbookApproval and SupplierApproval.
+The current version of the class diagram in \cref{fig:ClassDiagram} does this by including a generalization. The approvals' shared functionality is included in the abstract class Approval and the more specific functionalities in the subclasses HandbookApproval and SupplierApproval.
 Just like in the early version of the class diagram SupplierApproval is aggregated by Version and Version contains a reference to HandbookApproval.
 In the case where a Version object belongs to a SupplierApproval object the relation to HandbookApproval is set to a null reference.
 
 The handbook part of the problem is the clients main concern and therefore the focus of this project.
 In order to understand the problem in its entirety both subproblems are analyzed in this section, but from here on  only the Handbook problem will be analyzed and eventually designed, implemented and tested.
+Therefore the final class diagram looks like in \cref{fig:ClassDiagramNoSupplier}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.95\textwidth]{billeder/classDiagramNoSupplier.jpg}
+	\caption{\textit{Final class diagram of the problem domain excluding the supplier
+	}\label{fig:ClassDiagramNoSupplier}}
+\end{figure}
+
+In this diagram the supplier and the supplier approval are not included.
+As the company class mainly existed to support the administrators access to the supplier system that class and it's relation to the admin role have also been excluded.
+The abstract Approval class still exists to make it possible to implement the supplier system at a later time.
