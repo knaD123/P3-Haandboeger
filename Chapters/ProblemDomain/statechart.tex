@@ -1,27 +1,22 @@
 \section{Statechart diagrams} \label{sec:statechart}
-\todo[inline]{Rasmus: Fix approval/version så det passer med hvad vi laver}
 Statechart diagrams are a useful way to get an overview over the lifetime of objects in the problem domain.
 This section describes the state chart diagram of objects whose behaivour is both interesting and unique to the project.
 
 \subsection{Approval Request}
 The approval request is one of the most central concepts in the application.
 When someone wants to create a new version of a document, they instantiate an approval request, which has a version object attached.
-The change will have to be approved several times before it will actually be released.
-When the change is approved, it will append the version to the document object. When the change is denied, it will simply sit as pending until it is reapproved.
-\todo[inline]{Rasmus: Find ud af hvordan der ikke skal være et reelt deny flow}
+The change will have to be approved by all the users set as "approvers", before it can be added to the handbook.
+When the change is approved, it will append the version to the document object.
+For the sake of simplicity, there is no option to actually deny a proposed version.
+Any issues with the document are meant to be handled outside of the system instead.
 
-% skal deny være en del af statechart eftersom vi har besluttet os at fjerne Approval denied event i en tidligere sektion? Man har ikke mulighed for at lave en Approval denial event, men man kan slette en approval og laver en ny approval
-%Anna: tænker iv i hvert flad ksal have tydeliggjort det ikke er fordi der er mulighed for i systemet at denie noget men den kan sidde som pending, så få tilføjet et ny version og så accepteres? eller slettes for så at der laves et nyt approval objekt til samme dokument?
-% ok george bush
-
-\todo[inline]{Rasmus: Mindre loops}
 \begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
 
 	\node[circle, fill=black,minimum size=3pt] (start) {};
 	\node[round] (await) [below of=start, node distance=1.5cm] {Awaiting approval};
 	\path[->] (start) edge node[right] {Version Uploaded} (await);
-	\path[->] (await) edge [loop below, out=350, in=330, looseness=4] node {Approve} (await);
-	\path[->] (await) edge [loop below, out=180, in=230, looseness=4] node [distance=1cm] {Replace the file} (await);
+	\path[->] (await) edge [loop below, out=350, in=330, looseness=2] node {Approve} (await);
+	\path[->] (await) edge [loop below, out=180, in=230, looseness=2] node [distance=1cm] {Replace the file} (await);
 	\node[round] (approved) [right of=await, node distance=8cm] {New version released};
 	\path[->] (await) edge node[above, yshift=0.2cm] {All reviewers have approved} (approved);
 
@@ -53,6 +48,8 @@ One of the most important functions of the department is the abillity for it to 
 A version is another central concept in the application.
 As mentioned before, the handbook consists of documents, and each document can have multiple versions.
 And thus, after creation, version objects are supposed to be quite immutable once created, as to preserve the history of individual documents.
+Due to the immutable structure of the versions, the actual versions never change.
+On the contrary, by virtue of no longer being the last version in the document, they now count as archived.
 
 \begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
 
@@ -80,7 +77,7 @@ Using the questions mentioned in \cref{sec:Events} Version approved and Departme
 An event table was made in \cref{sec:EventTable} using the classified classes and events, see \cref{fig:eventtable}.
 This was done to give a better overview of what classes were affected by the different events.
 % et eller andet om class diagram
-The qualified classes specified in \cref{sec:Classes} were also used to produce a class diagram to describe the relation between the classes and objects, see \cref{fig:ClassDiagram} in \cref{sec:classdiagram}. 
+The qualified classes specified in \cref{sec:Classes} were also used to produce a class diagram to describe the relation between the classes and objects, see \cref{fig:ClassDiagram} in \cref{sec:classdiagram}.
 % et eller andet om state charts - ex. på nogle af de vigtigste events
 Finally, the lifetime of some of the more important objects in the problem domain was described using state charts, see \cref{sec:statechart}.
 Here the lifetime of Approval, Department and Version were described.

@@ -63,17 +63,17 @@ Both of these deal with archiving and managing the documents a company needs to 
 
 \subsection{Supplier}
 The less complex subproblem is that of managing the suppliers.
-There can be any number of suppliers and each one is aggregated by one Approval.
-Each Approval is then again aggregated by at least one Version, which encapsulates the files needed to document the validity of approving the supplier.
+There can be any number of suppliers, and these suppliers in turn aggregate approvals.
+These approvals are meant to signify a specific period of time that the supplier is approved.
+Each Approval then aggregates at least one Version, which each encapsulates one of the files needed to document the validity of approving the supplier.
 This is a hierarchy pattern where both Company and Version is also included in the hierarchy structure for the handbook.
 These two classes connect the two subproblems.
 
 \subsection{Handbook}
 Where a company can have multiple or no suppliers there can only be one Handbook.
-The Handbook class is aggregated by Company which acts as a handle to access both suppliers and the handbook.
-\todo[inline]{Rasmus: aggregated er brugt forkert. fix it}
+The Handbook is a part of the, Company which acts as a handle to access both suppliers and the handbook. This is a composition relation.
 
-Handbook is aggregated by Document as there are multiple documents in each book, and Document is again aggregated by version, which keeps track of the multiple versions each document has and dates of the period one was valid in the handbook.
+A handbook is an aggregation of Document, as there are multiple documents in each book, and Document is again an aggregation of versions, which keeps track of the multiple versions each document has and dates of the period one was valid in the handbook.
 
 The relation between Document and Version is an item-descriptor pattern.
 The Document class is the descriptor and contains all the important information about the document, including a pointer to the current valid version of said document.
@@ -143,7 +143,7 @@ The approval of the suppliers is not included in the handbook and has no relevan
 	\node(doc2)[process, below=1cm of hand]{Document};
 	\node(ver)[process, below=1cm of doc2]{Version};
 	\node(App)[process, right=1cm of ver]{Approval};
-	
+
 	%linjer
 	\draw[black, ultra thick](title.south west)--(title.south east);
 	\draw[black, ultra thick](title2.south west)--(title2.south east);
