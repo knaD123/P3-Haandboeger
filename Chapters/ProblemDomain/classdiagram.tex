@@ -57,8 +57,9 @@ Both of these deal with archiving and managing the documents a company needs to 
 	\draw[black](doc.east) node[above=0.2cm,right]{1} --(dep.west) node[below=0.2cm,left]{0..*};
 	\draw[black](read.east) node[above=0.2cm,right]{0..*} --(user.west) node[below=0.2cm,left]{1};
 	\draw[black](6.85,-8.14)node[above=0.2cm,right]{1..*}|-(start);
+	\draw[black](handapp.south) node[above=-0.2, left]{0-1}|- (ver.west) node[below=0.2cm,left]{1};
 	\end{tikzpicture}
-	\caption{\textit{Class diagram of the problem domain}\label{fig:ClassDiagram}}
+	\caption{Class diagram of the problem domain}\label{fig:ClassDiagram}
 \end{figure}
 
 \subsection{Supplier}
@@ -153,8 +154,8 @@ The approval of the suppliers is not included in the handbook and has no relevan
 	\draw[{open diamond}-](doc2)--(ver);
 	\draw[black](ver)--(App);
 	\end{tikzpicture}
-	\caption{\textit{Class diagram of the problem domain
-		}\label{fig:SupProblemClassDiagram}}
+	\caption{Class diagram of the problem domain
+		}\label{fig:SupProblemClassDiagram}
 \end{figure}
 
 Early versions of the class diagram modeled the problems like seen in \cref{fig:PseudoClassDiagram}.
@@ -176,9 +177,45 @@ Therefore the final class diagram looks like in \cref{fig:ClassDiagramNoSupplier
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.95\textwidth]{billeder/ClassDiagramNoSupplier.jpg}
-	\caption{\textit{Final class diagram of the problem domain excluding the supplier
-	}\label{fig:ClassDiagramNoSupplier}}
+	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%De enkelte noder i diagrammet
+	\node(hand)[process]{Handbook};
+	\node(doc)[process, below=1cm of hand]{Document};
+	\node(app)[process, left=2cm of hand]{Approval};
+	\node(handapp)[process, below=1cm of app]{Handbook Approval};
+	\node(ver)[process, below=1cm of handapp]{Version};
+	\node(read)[process, below=1cm of doc]{Read Status};
+	\node(dep)[process, right=1.7cm of doc]{Department};
+	\node(user)[process, below=1cm of dep]{User};
+	\node(role)[process, below=0.6cm of user]{Role};
+	\node(write)[process, below=1cm of role]{writer};
+	\node(reader)[process, left=1cm of write]{Reader};
+	\node(admin)[process, right=1cm of write]{Administrator};
+	
+	%Linjer
+	%Ver to doc
+	\draw[{open diamond}-](doc.south) node[below=0.2cm, right]{1} |- (-2.0,-2.7);
+	\draw[black] (-3.75,-3.2) node[above=0.25cm, right]{0..*} |- (-2.0,-2.7);
+	%approval linjer	
+	\draw[arrow](handapp.north)--(app.south);
+	\draw[black](handapp.south)node[above=-0.2cm, left]{0-1}--(ver.north) node[below=-0.2cm, left]{1};
+	%rollemønster
+	\draw[arrow](role.north)--(user.south);
+	\draw[arrow](write.north)--(role.south);
+	\draw[black](reader.north)|-(4.0,-6.0);
+	\draw[black](admin.north)|-(4.0,-6.0);
+	%Handbook & user
+	\draw[black](hand.east)-|(6.0,-3.0);
+	\draw[black](user.east)-|(6.0,-3.0);
+	%nemme linjer
+	\draw[black](doc.east) node[below=0.2cm, right]{1}--(dep.west) node[above=0.2cm, left]{0..*};
+	\draw[black](ver.east) node[below=0.2cm, right]{1}--(read.west) node[above=0.2cm, left]{0..*};
+	\draw[black](read.east) node[below=0.2cm, right]{0..*}--(user.west) node[above=0.2cm, left]{1};
+	\draw[{open diamond}-](hand.south) node[above=-0.2cm, left]{1}--(doc.north)node[below=-0.2cm, right]{0..*};
+	\draw[{open diamond}-](dep.south)node[above=-0.2cm, left]{1}--(user.north)node[below=-0.2cm, right]{1..*};
+	\end{tikzpicture}
+	\caption{Final class diagram of the problem domain excluding the supplier
+	}\label{fig:ClassDiagramNoSupplier}
 \end{figure}
 
 In this diagram the supplier and the supplier approval are not included.
