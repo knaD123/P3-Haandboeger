@@ -13,29 +13,32 @@ The use cases of the system have been identified to be \textit{manage documents,
 An overview of the relationships between the actors and the use cases are shown through the table below. Here it is outline which actors have which responsibilities in relation to the system.
 
 %Anna: Evt fjern de to itemize lister da der står nøjagtigt de samme i tabellen nedenunder.
-\begin{center}
-\begin{tabular}{| m{10em} | m{4.5em} | m{4.5em} | m{4.5em} | m{4.5em} | m{4.em} |}
-	\hline
-	& \textbf{Actors} & & & & \\
-	\hline
-	\textbf{Use cases} & Consultant & Secretary & Manager & Worker & Software \\
-	\hline
-	Manage documents & x & & & & x \\
-	\hline
-	Manage users & & x & & & \\
-	\hline
-	Manage departments & & x & & & x \\
-	\hline
-	Manage suppliers & x & x & x & &\\
-	\hline
-	Approve new docs & & x & x & & \\
-	\hline
-	Update TOC & & & & & x \\
-	\hline
-	Track differences between document versions & x & x & & &\\
-	\hline
-\end{tabular}
-\end{center}
+\begin{table}[H]
+	\begin{center}
+	\begin{tabular}{| m{10em} | c | c | c | c | c |}
+		\hline
+		& \multicolumn{5}{c|}{\textbf{Actors}} \\
+		\hline
+		\textbf{Use cases} & Consultant & Secretary & Manager & Worker & Software \\
+		\hline
+		Manage documents & x & & & & x \\
+		\hline
+		Manage users & & x & & & \\
+		\hline
+		Manage departments & & x & & & x \\
+		\hline
+		Manage suppliers & x & x & x & &\\
+		\hline
+		Approve new docs & & x & x & & \\
+		\hline
+		Update TOC & & & & & x \\
+		\hline
+		Track differences\newline between document\newline versions & x & x & & &\\
+		\hline
+	\end{tabular}
+	\end{center}
+	\caption{ {\color{red}husk at sætte caption og label så den kan referes til} }
+\end{table}
 
 In the rest of the section both the actors and use cases will be elaborated, starting with the actors.
 
