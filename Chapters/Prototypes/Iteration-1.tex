@@ -1,4 +1,73 @@
 \section{First iteration}
-As mentioned by Sharp, Rogers and Preece most projects starts with establishing requirements, which will be reflected in this project with an initial interview where the first requirements will be determined. This is intended to result in a following design process and prototype which can be evaluated with the user in a second interview.
+\subsection{simple timeline}
+The first iteration started with the group getting a short presentation to the software development project through a mediator on Ipsen's behalf.
+Straight after this an initial interview to talk about the requirements was planned.
+Until the time for the interview came, the group looked into existing solutions and idea generating, such that there was an opportunity to discuss unbiased ideas, and through this also get Ipsen to reflect upon her requirements.
+These ideas among others included one with an build-in editor such that everything about the handbooks would be managed in the system.
+Though this was shut down fast since for that to be useful it would need to always keep up to date on how Microsoft's UI for eg. Word would look, since it otherwise would take too long to get used to every time it was necessary to change anything in the handbook.
+The notification system which is one of the requirements stated in this report, was also one of these beforehand generated ideas presented at the first interview. 
+Another idea was to make a Web Interface which would either be locally on the clients server or on the world wide web. This was first shot down, though through discussion it became clear that this was not impossible, since there was better opportunities with the notification system which was turned into a requirement.
 
-% Anja: Jeg kunne ikke lige ellers finde ud af, hvor teksten skulle stå, så jeg satte den ind her
+After the first interview the analysis work started.
+This was mainly done based on elements in the problem domain analysis such as; Requirements, FACTOR, initial class diagram and the event table.
+At this point in time the group also slowly started looking into elements based in the application domain analysis, which were; PACT and the actor table.
+After all this analysis and right before the second interview which closed the first iteration and started the next one,a couple of prototypes were drawn up on paper and then afterwards turned into an interactive prototype, which could be presented at the second interview.
+During this iteration another small interview was held with Ipsen to clear up questions concerning the vocabulary used about the problem domain to make sure the terminology was correct.
+
+The first iteration ended with the second interview where the requirements in form of the FACTOR analysis which had been written out was updated and agreed upon.
+After this a couple of questions was asked clearing up confusion and misunderstandings surrounding the approval system, the role hierarchy and the supplier subsystem.
+
+\subsection{Major differences between first iteration and final analysis}
+%Anna: Kan ikke helt finde ud af om det her afsnit i virkeligheden ikke burde komme i iteration 2 og 3 hvor der diskuteres forskellen fra den tidligere og til denn pågældende iteration. (Dog vil jeg argumentere for at class diagram, supplier og prototyper som minimum skal nævnes her dog måske i mindre grad)
+\subsubsection*{Supplier} 
+The biggest difference from the first iteration and to the final analysis presented in this report is the supplier subsystem.
+The general idea of this was first presented by Ipsen in the initial interview as an impulsive thought. 
+The group was therefor aware of the sub-problem but it quickly became clear through the discussions in the analysis that more information was needed to completely analyze this sub-problem and its part in the problem domain.
+This confusion has consequently affected the rest of the problem domain analysis since it could not play any major role in the first iteration.
+
+\subsubsection*{FACTOR}
+There are two big differences between the final FACTOR analysis and the preliminary one.
+First is that during the first iteration the role hierarchy was turned from three levels into four. 
+In the original FACTOR it was written as follows
+\footnote{Note: The writing style was more detailed in the first FACTOR to make sure the requirements was understood correctly, when the second interview came around.}:
+\newline
+%Anna: HVordan tydeliggøre mman at vi citere noget tidligere skrevet (skrives det i italics eller skal placeringen være anderledes eller er der andre trics?)
+''Different levels of permissions/access rights to the documents within the handbook
+\begin{itemize}
+	\item 
+	0 level:
+	Reading the handbook except secured documents
+	\item 
+	1st level:
+	Reading the whole handbook
+	\item 
+	2nd level:
+	Editing selected documents
+	\item 
+	3rd level:
+	Total access to editing documents and access to archive''
+\end{itemize}
+
+The second difference is how most of the functionality and some of the conditions from the FACTOR analysis has turned into requirements in the MoSCoW presented in \cref{sec:requirementsdefinition}. These are elements such as,
+\begin{itemize}
+	\item From conditions
+	\begin{itemize}
+		\item 
+		''The system needs to handle several different file types \ldots''
+		\item 
+		''The handbook should be printable''
+	\end{itemize}
+	\item From functionality
+	\begin{itemize}
+		\item 
+		''Title and chapter number are linked. If a title is removes the chapter number cannot be used for anything else.''
+		\item 
+		''THere needs to be a Table Of Contents with title, chapter number and date/version number''
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{Class diagram}
+%Anna: Skal nok skrive kommentarer til udviklingen inden for denne, men mangler billeder af de oprindelige klasse diagrammer
+
+\subsection{Prototyping}
+%Anna: Vil meget gerne gennemgå lidt af den udvikling vi havde ift den første prototype udvikling, kræver dog at jeg lige få konverteret nogen ting over til billeder så jeg kan referer dem i appendiks, og nu er det ærligt talt for sent
