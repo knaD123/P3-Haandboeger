@@ -4,7 +4,7 @@ To minimize the amount of critical flaws the criteria \citep[p.~180]{Rod-Aalborg
 The idea is that development will be focused on the very important and important criteria to make sure that all of these work.
 Less effort will be put into the less important, irrelevant or easily fulfilled criteria, making flaws in these areas more likely.
 However, as established they are less important and therefore the flaws will most likely not be critical.
-These priorities can be found in \cref{fig:criteria}.
+These priorities can be found in \cref{fig:criteria} and the reasoning behind the priorities follow below.
 
 
 %\begin{figure}[H]
@@ -56,16 +56,24 @@ It is very important that the system is \textbf{usable}. It is assumed that the 
 
 The user has expressed that whether or not the system is \textbf{secure} is no major concern as the information is not confidential. It has therefore been determined that security is outside this systems area of responsibility and it is prioritized as being irrelevant.
 
-If compared to the existing solution to the problem making an \textbf{efficient} system is easily fulfilled as the existing solution is incredibly inefficient. The exact time it takes is less of a concern to the user.
+If compared to the existing solution to the problem making an \textbf{efficient} system is easily fulfilled as the existing solution is incredibly inefficient. The exact time required is less of a concern to the user.
 
-Whether the system is \textbf{correct}, correct here used in the sense of it fulfils the system definition and meets all the requirements is important. The reasoning behind this not being very important is that there is a long list of requirements and they are not all equally necessary.
+Whether the system is \textbf{correct}, correct here used in the sense of it fulfils the system definition and meets all the requirements, is important. The reasoning behind labeling this as important instead of very important is that there is a long list of requirements and they are not all equally necessary.
 
 It is very important that the system is \textbf{reliable} as it is a massive problem for the user if the system malfunctions and eg. deletes files, assigns wrong version numbers or automatically approves a new version. Should any of these happen it could mean that the company will lose their certification which as described in \cref{sec:standards} is at best a problem for consumer trust and at worst a requirement by law.
 
-Whether the system is \textbf{maintainable} is less important as the user won't be capable of maintaining it anyway.
+Whether the system is \textbf{maintainable} is less important as the user is not capable of maintaining it anyway.
  
 The system needs to be \textbf{testable} in order to verify that it is reliable. Therefore this is important.
 
+According to the \textit{OOA&D} method it is very important that a system is \textbf{flexible}. On the other hand, as the project ends in half a year, and it is unlikely that it will ever be touched upon afterwards this does not take priority and has been classified as irrrelevant. The system is however already developed with the future in mind: The change log which Ipsen has requested is not a requirement uder the current conditions however it is a change which she assumes will happen within the next ten years or so.
 
+It is important that the code is \textbf{comprehensible} as we are seven diffferent people with varying areas of expertise and skill working on the same code simultaneously and we all need to understand it.
+
+As stated before it seems unlikely that this project will be needed after its completion and therefore the reusability is less of a concern. However the system is structured so that components can be reused to implement some of the requirements classified as 'Want to have but won't have this time around'. This is most obvious with the abstract role class which has remained even though it has no purpose in the current layout of the system. As a result this criteria has been defined as less important.
+
+As tablets and mobile phones are not allowed in the production it is irrelevant whether or not the system is \textbf{portable}. Additionally, it is assumed that the vast majority of workers use a windows based operating system.
+
+It is also irrelevant whether or not the system is interoperable as there are no systems it needs to operate with.
 
 To summarize the prioritized criteria are the systems usability and reliability. Less important but still notable are correctness, testability and comprenhensibility. These criteria will therefore be prioritized when designing the components the system is made up of. 
