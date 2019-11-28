@@ -11,11 +11,11 @@ The Model-View-Controller pattern is an architectural pattern that splits the ap
 	\node[draw] (model) {Model};
 	\node[draw] (view) [below of=model, left of=model] {View};
 	\node[draw] (controller) [below of=model, right of=model] {Controller};
-	\draw[->] (model) -- node[left] {Updates} (view);
-	\draw[->] (controller) -- node[right] {Updates} (model);
+	\draw[->] (model.south west) -- node[left] {Updates} (view.north);
+	\draw[->] (controller.north) -- node[right] {Updates} (model.south east);
 	\node[draw] (user) [below of=model, node distance=3.5cm] {User};
-	\draw[->] (view) -- node[left] {Perceives} (user);
-	\draw[->] (user) -- node[right] {Interacts with} (controller);
+	\draw[->] (view.south) -- node[left] {Perceives} (user.north west);
+	\draw[->] (user.north east) -- node[right=0.2cm] {Interacts with} (controller.south);
 	\end{tikzpicture}
 	\caption{The Model-View-Controller design pattern.}
 \end{figure}
