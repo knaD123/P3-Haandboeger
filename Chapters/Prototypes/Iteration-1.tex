@@ -4,70 +4,62 @@ The first iteration started with the group getting a short presentation to the s
 Straight after this an initial interview to talk about the requirements was planned.
 Until the time for the interview came, the group looked into existing solutions and idea generating, such that there was an opportunity to discuss unbiased ideas, and through this also get Ipsen to reflect upon her requirements.
 These ideas among others included one with an build-in editor such that everything about the handbooks would be managed in the system.
-Though this was shut down fast since for that to be useful it would need to always keep up to date on how Microsoft's UI for eg. Word would look, since it otherwise would take too long to get used to every time it was necessary to change anything in the handbook.
+Though this was shut down fast since for that to be useful it would need to always keep up to date on how Microsoft's UI for eg. Word would look, since it otherwise would take too long to get used too every time it was necessary to change anything in the handbook.
 The notification system which is one of the requirements stated in this report, was also one of these beforehand generated ideas presented at the first interview. 
 Another idea was to make a Web Interface which would either be locally on the clients server or on the world wide web. This was first shot down, though through discussion it became clear that this was not impossible, since there was better opportunities with the notification system which was turned into a requirement.
 
 After the first interview the analysis work started.
 This was mainly done based on elements in the problem domain analysis such as; Requirements, FACTOR, initial class diagram and the event table.
 At this point in time the group also slowly started looking into elements based in the application domain analysis, which were; PACT and the actor table.
+During this period another small interview was held with Ipsen to clear up questions concerning the vocabulary used about the problem domain to make sure the terminology was correct.
 After all this analysis and right before the second interview which closed the first iteration and started the next one,a couple of prototypes were drawn up on paper and then afterwards turned into an interactive prototype, which could be presented at the second interview.
-During this iteration another small interview was held with Ipsen to clear up questions concerning the vocabulary used about the problem domain to make sure the terminology was correct.
 
 The first iteration ended with the second interview where the requirements in form of the FACTOR analysis which had been written out was updated and agreed upon.
 After this a couple of questions was asked clearing up confusion and misunderstandings surrounding the approval system, the role hierarchy and the supplier subsystem.
+Lastly, the first final prototype of this iteration was presented.
 
-\subsection{Major differences between first iteration and final analysis}
-%Anna: Kan ikke helt finde ud af om det her afsnit i virkeligheden ikke burde komme i iteration 2 og 3 hvor der diskuteres forskellen fra den tidligere og til denn pågældende iteration. (Dog vil jeg argumentere for at class diagram, supplier og prototyper som minimum skal nævnes her dog måske i mindre grad)
-\subsubsection*{Supplier} 
-The biggest difference from the first iteration and to the final analysis presented in this report is the supplier subsystem.
-The general idea of this was first presented by Ipsen in the initial interview as an impulsive thought. 
+\subsection{Elements to take notice of}
+\subsubsection*{Supplier sub-problem}
+The general idea of the supplier sub-problem was first presented by Ipsen in the initial interview as an impulsive thought. 
 The group was therefor aware of the sub-problem but it quickly became clear through the discussions in the analysis that more information was needed to completely analyze this sub-problem and its part in the problem domain.
-This confusion has consequently affected the rest of the problem domain analysis since it could not play any major role in the first iteration.
-
-\subsubsection*{FACTOR}
-There are two big differences between the final FACTOR analysis and the preliminary one.
-First is that during the first iteration the role hierarchy was turned from three levels into four. 
-In the original FACTOR it was written as follows
-\footnote{Note: The writing style was more detailed in the first FACTOR to make sure the requirements was understood correctly, when the second interview came around.}:
-\newline
-%Anna: HVordan tydeliggøre mman at vi citere noget tidligere skrevet (skrives det i italics eller skal placeringen være anderledes eller er der andre trics?)
-''Different levels of permissions/access rights to the documents within the handbook
-\begin{itemize}
-	\item 
-	0 level:
-	Reading the handbook except secured documents
-	\item 
-	1st level:
-	Reading the whole handbook
-	\item 
-	2nd level:
-	Editing selected documents
-	\item 
-	3rd level:
-	Total access to editing documents and access to archive''
-\end{itemize}
-
-The second difference is how most of the functionality and some of the conditions from the FACTOR analysis has turned into requirements in the MoSCoW presented in \cref{sec:requirementsdefinition}. These are elements such as,
-\begin{itemize}
-	\item From conditions
-	\begin{itemize}
-		\item 
-		''The system needs to handle several different file types \ldots''
-		\item 
-		''The handbook should be printable''
-	\end{itemize}
-	\item From functionality
-	\begin{itemize}
-		\item 
-		''Title and chapter number are linked. If a title is removes the chapter number cannot be used for anything else.''
-		\item 
-		''There needs to be a Table Of Contents with title, chapter number and date/version number''
-	\end{itemize}
-\end{itemize}
+This confusion has consequently affected the rest of the problem domain analysis in this iteration since it could not play any major role  before things has been cleared up.
 
 \subsubsection*{Class diagram}
+During the first iteration the class diagram itself went through multiple developments, even without the supplier system being present.
+In the first development the approval class was not seen as part of the main classes in the problem domain and therefor not present in the diagram.
+Another difference in the first development was how the different roles was only thought of as attributes instead of classes in themselves and therefore were not present either.
+Throughout the first iteration approval turned into a class in its own rights and therefore was cooperated into the diagram.
+The role pattern came forth during this iteration as well though the final form of it went through a couple of evolutions.
+the main discussion about this element was whether or not the reader class was necessary since all users by default was readers. 
+Though it was decided for clarity to keep it.
+%Anna: er ikke sikker på det her er nødvendigt og ikke bare bliver for meget.
+%Another debate was revolved around the writer and why they were necessary. 
+%Though it soon became clear through the second interview with Ipsen that this was not to be changed since there would be more Writers than administrators and it was good the writers did not have total access to the system the same way the administrator has.
+
+\subsubsection*{Prototyping}
+The development of the prototype used in the second interview with Ipsen started out as a drafted version which can be found in \cref{sec:First-sketches,sec:Second-sketches}.
+Based on these sketches an interactive prototype was made. 
+Screenshots of the different interfaces in this prototype can be found in \cref{sec:1prototype}.
+This prototype did not have any of the system required functionality implemented.
+It was used to let Ipsen click around and thereupon create a debate of whether or not the envision of the final system was correct or if something needed to be adjusted.
+
+%Tænker de større konklusioner fra prototype testen her bruges som en del af introen til anden iteration.
+
+
+
+
+%\subsection{Major differences between first iteration and final analysis}
+%Anna: Kan ikke helt finde ud af om det her afsnit i virkeligheden ikke burde komme i iteration 2 og 3 hvor der diskuteres forskellen fra den tidligere og til denn pågældende iteration. (Dog vil jeg argumentere for at class diagram, supplier og prototyper som minimum skal nævnes her dog måske i mindre grad)
+
+%\subsubsection*{Supplier} 
+%The biggest difference from the first iteration and to the final analysis presented in this report is the supplier subsystem.
+%The general idea of this was first presented by Ipsen in the initial interview as an impulsive thought. 
+%The group was therefor aware of the sub-problem but it quickly became clear through the discussions in the analysis that more information was needed to completely analyze this sub-problem and its part in the problem domain.
+%This confusion has consequently affected the rest of the problem domain analysis since it could not play any major role in the first iteration.
+
+
+%\subsubsection*{Class diagram}
 %Anna: Skal nok skrive kommentarer til udviklingen inden for denne, men mangler billeder af de oprindelige klasse diagrammer
 
-\subsection{Prototyping}
+%\subsection{Prototyping}
 %Anna: Vil meget gerne gennemgå lidt af den udvikling vi havde ift den første prototype udvikling, kræver dog at jeg lige få konverteret nogen ting over til billeder så jeg kan referer dem i appendiks, og nu er det ærligt talt for sent
