@@ -1,7 +1,10 @@
 \section{Functions}
 When creating a system it is vital to get an overview of the functions and to determine the complexity of these functions. This is done by analysis of functions, in which the first step is to identify all functions. The result is a list of functions with a related complexity and type. This is taken from chapter 7 in the OOA\&D.\citep[ch.~7]{Rod-Aalborg}
 
+%Taniya: some word is missing in the first sentence 
 To begin the analysis a look at the system definition and use cases is necessary as it creates a template of functions that are ready to be analysed. The next step is then to determine what type each function belong to, this means determining if it is an \textit{update, signal, read or compute function}. The most present type of function present are of the update type. These are described in the OOA\&D as "Update functions are activated by a problem-domain event and result in a change in the model's state."\citep[p.~140]{Rod-Aalborg}
+
+%Taniya: Måske tilføje en kort beskrivelse af update, signal, read or compute
 
 The reason in this is in the nature of the system, as it primarily lies in management of users and documents. This also means that the complexity is mostly simple as the margin for error is rather small in these cases. 
 
@@ -31,3 +34,7 @@ Read status                                 & Simple     & Update
 \caption{Function list}
 \end{table}
 
+
+% Taniya: mener manage documents ikke rigtig er en funktion i sig selv men  der findes flere funktioner som til sammen gør det muligt at manage documents?
+
+% Taniya: Synes at table format skal være den samme som dem i Class and Events afsnit
