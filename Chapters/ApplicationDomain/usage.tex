@@ -1,7 +1,7 @@
 \section{Usage}
 \todo[inline]{Vejleders tidligere kommentar omkring Usage afsnit skal rettes til}
 
-In this section the usage of the system will be analyzed. Who uses and how they use the system will be explored systematically through analyzing who the actors are, and the use cases of the system.
+In this section the usage of the system will be analyzed. Who and how they use the system will be explored systematically through analyzing the actors, and the use cases of the system.
 Both will be analyzed with an abstraction level to be able to see the more broad uses of the system.
 The actors consists of the different user groups who will be utilizing the system and the use cases will describe the different uses the system will potentially have.
 
@@ -10,7 +10,7 @@ It should be noted here that the sofware in this context refers to the software 
 This will outline what responsibilities that the system will eventually have when it is deployed.
 The use cases of the system have been identified to be \textit{manage documents, manage users, manage departments, manage suppliers, approve new documents, read status, update Table of Contents}, and \textit{track differences between document versions}.
 
-An overview of the relationships between the actors and the use cases are shown through the table below. Here it is outline which actors have which responsibilities in relation to the system.
+An overview of the relationships between the actors and the use cases are shown through the table below. Here it is outlined which actors have which responsibilities in relation to the system.
 
 %Anna: Evt fjern de to itemize lister da der står nøjagtigt de samme i tabellen nedenunder.
 %Anna: Snakker virkeligt om consulenter (ikkef ordi vi ikke godt kan) men hvorfor da det jo er meget forskelligt hvilke rettigheder en konsulent vil have?
@@ -40,6 +40,7 @@ An overview of the relationships between the actors and the use cases are shown 
 	\end{center}
 	\caption{ {\color{red}husk at sætte caption og label så den kan referes til} }
 \end{table}
+%Tænker at vi er nødt til at tilføje en use case omkring at læse dokumenter eller noget fordi det ikke rigtigt giver mening at have en aktør der intet kan.
 
 In the rest of the section both the actors and use cases will be elaborated, starting with the actors.
 
@@ -61,43 +62,48 @@ Characteristic: There’s usually only one secretary with intimate knowledge of 
 \\
 Examples: The secretary manages the users by creating a user in the system, edits the user, and eventually archives a user.
 The secretary also creates groups of users who are subscribed to relevant documents within the handbook.
+%Jeg tænker lige at vi skal diskutere hvem sekretæren er for vi har vist forskellige opfattelser -astrid
 
 \textbf{Manager}
 
 Goal: The manager of the firm.
 \\
 % Taniya: only one manager? Måske at det er bedre med "director"?
-Characteristic: There’s only one manager. The manager doesn’t have intimate knowledge of the system and don’t administrate the handbook.
-The manger may change and/or approve documents once in a while.
+Characteristic: There’s only one manager. The manager doesn’t have intimate knowledge of the system and doesn’t administrate the handbook.
+The manager may change and/or approve documents every once in a while.
 \\
-Examples: The manager reads and sometimes reads and/or approves of documents.
+Examples: The manager reads and sometimes approves documents.
 
 \textbf{Worker}
 
 Goal: A person who works within the firm.
 \\
-Characteristic: There are several workers within the firm. They typically doesn’t have administrative rights and don’t write or update the documents within the handbook. There are different kinds of workers with varying jobs and work in different departments.
+Characteristic: There are several workers within the firm. They typically do not have administrative rights and do not write or update the documents within the handbook. There are different kinds of workers with varying jobs and work in different departments.
 \\
 Examples: Whenever a relevant document has been updated it is imperative that the worker has read and understood the new version.
 Sometimes a worker may have the responsibility of approving one or more documents.
 
 \textbf{Software}
 
-Goal: Manages document versions within a handbook and users.
+Goal:
+Manages document versions within a handbook and users.
 \\
-Characteristic: Is a software that can be accessed and used by different users with varying degrees of administrative rights.
+Characteristic: 
+Is a software that can be accessed and used by different users with varying degrees of administrative rights.
 \\
-Examples: Keeps track of document versions; including which documents are active, and which documents are inactive and by extension are archived. When a document has been updated it is possible for the user to log why there are changes and the system is able to highlight exactly where the changes has occurred.%Taniya: er det ikke mens man er i gang med at upload en ny version at man tilføjer en changelog og ikke efterfølgende?
+Examples: 
+Keeps track of document versions; including which documents are active, and which documents are inactive and by extension which are archived. 
+When a document has been updated it is possible for the user to log why there are changes and the system is able to highlight exactly where the changes has occurred.
+%Taniya: er det ikke mens man er i gang med at upload en ny version at man tilføjer en changelog og ikke efterfølgende?
 Whenever a new document has been added the TOC is updated.
 The system manages users with varying degrees of administrative rights of which there are 3 levels.
 
 
 \subsection{Use cases}
 %Anna: evt fjern "use case:" fra hvert punkt i denne subsection
-
+%Astrid: Use cases her virker umiddelbart generelt ikke helt konkrete nok? vi mangler også statechart diagrammer men jeg ved ikke om det er noget vi har tænkt os at gøre noget ved.
 \textbf{Manage documents}
-
-It is desired that a handbook containing several documents and their versions is being managed by a software. This includes a table of contents from which users are able to have an overview of the documents. There are active and inactive documents, where the active documents consists of the newest versions of the documents, and inactive ones are archived. Whenever a document has been updated, the system is responsible for highlighting exactly where the change has occurred. The system also provides the consultant or secretary with the option to write a changelog, where the user can write why there are changes to the document.
+It is desired that a handbook containing several documents and their versions is managed by a software. This includes a table of contents from which users are able to have an overview of the documents. There are active and inactive versions, where the active versions are the newest versions of each document, and inactive ones are archived. Whenever a document has been updated, the system is responsible for highlighting exactly where the change has occurred. The system also provides the consultant or secretary with the option to write a changelog, where the user can write why there are changes to the document.
 
 \textbf{Manage users}
 It is the secretary and software's responsibility to manage users and their administrative rights.
