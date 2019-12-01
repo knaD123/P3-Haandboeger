@@ -66,6 +66,7 @@ The secretary also creates groups of users who are subscribed to relevant docume
 
 Goal: The manager of the firm.
 \\
+% Taniya: only one manager? Måske at det er bedre med "director"?
 Characteristic: There’s only one manager. The manager doesn’t have intimate knowledge of the system and don’t administrate the handbook.
 The manger may change and/or approve documents once in a while.
 \\
@@ -86,7 +87,7 @@ Goal: Manages document versions within a handbook and users.
 \\
 Characteristic: Is a software that can be accessed and used by different users with varying degrees of administrative rights.
 \\
-Examples: Keeps track of document versions; including which documents are active, and which documents are inactive and by extension are archived. When a document has been updated it is possible for the user to log why there are changes and the system is able to highlight exactly where the changes has occurred.
+Examples: Keeps track of document versions; including which documents are active, and which documents are inactive and by extension are archived. When a document has been updated it is possible for the user to log why there are changes and the system is able to highlight exactly where the changes has occurred.%Taniya: er det ikke mens man er i gang med at upload en ny version at man tilføjer en changelog og ikke efterfølgende?
 Whenever a new document has been added the TOC is updated.
 The system manages users with varying degrees of administrative rights of which there are 3 levels.
 
@@ -104,6 +105,7 @@ The secretary updated the system with adding, editing or removing users, while t
 There are three types of users with varying degrees of administrative rights.
 The secretary who has administrative rights within the system keeps tracks of the users and suppliers with their respective administrative rights.
 The secretary is able to create, edit, and archive users.
+%Tidligere oppe står der: The secretary can remove users og til sidst står der archive users. Kan ikke huske hvad vi blev enige om det med at fjerne en bruger
 
 \textbf{Manage departments}
 The secretary manages departments within the system.
@@ -115,11 +117,12 @@ The software is responsible for notifying the departments whenever a document ha
 \textbf{Manage suppliers}
 
 The consultant and secretary manages the suppliers. Help.
+%Suppliers skal vist slet ikke nævnes i usage afsnit? Fordi vi afgrænser os væk fra suppliers i class diagram afsnit?
 
 \textbf{Approve new documents}
 
 Whenever a new version of a document is available, it needs to be approved by one or more persons.
-The user(s) who’s responsible of approving the document(s) could either be the manager, worker, or a 3rd party supplier.
+The user(s) who is responsible of approving the document(s) could either be the manager, worker, or a 3rd party supplier.
 When a document has been approved it is updated within the system, the older document is archived and the TOC is updated.
 
 \textbf{Read status}
@@ -132,6 +135,7 @@ When this is done, they check off a checkbox which indicates to the system and s
 \textbf{Update TOC}
 
 When a new document version is available the TOC is being updated.
+% Opdatering af TOC står også under Approve mew documents. Spørgsmål er bør den have sin egen lille use case.
 
 \textbf{Track versions between documents}
 
