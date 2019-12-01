@@ -1,3 +1,5 @@
+% Henrik: Måske noget introducerende tekst til dette kapitel
+
 \section{PACT analysis}\label{sec:PACT}
 When designing an interactive system it is important to design it with the human in mind as the system is being developed for a specific purpose and context.
 To do this the designers must explore the users who will eventually use the systems and for what purposes they are going to utilize it.
@@ -17,6 +19,7 @@ To help understand and reflect upon the users and their relation to an interacti
 PACT is an acronym for \textit{People, Activities, Context}, and \textit{Technology}.
 This analysis framework is used to analyze the users, such that developers are able to design the system people-centered instead of machine-centered.
 \citep{Benyon}
+% Henrik: Er det nødvendigt at beskrive kort hvad "people-centered og machine-centered er?
 
 The PACT theory presentation and analysis will be written congruently throughout this section. First the specific theory will be presented followed by the analysis.
 
@@ -24,6 +27,7 @@ The PACT theory presentation and analysis will be written congruently throughout
 People differs from each others in many ways.
 This element in the PACT analysis is a way to ponder upon these differences as well as a way to categorize the different users of a system.
 Three differences usually discussed in this part of the analysis are \textit{physical, psychological}, and \textit{social}. \citep{Benyon}
+% Henrik: Der er beskrevet hvad social og physical er - er det med vilje at der ikke er beskrevet hvad der menes med psychological er? :-)
 % Taniya: vi nævner psychological her, men ingen andre steder
 
 Social differences is about how people use a system for different reasons and therefore can have various goals.
@@ -31,21 +35,26 @@ Additionally, there is also a big difference in people expertise levels which af
 This is an important consideration since designing a system for a homogeneous group of people is  distinct from designing one for a heterogeneous group. \citep{Benyon}
 
 Physical differences covers the relevant ways people differs in physical characteristics.
-This could be, differences in perception from the five senses; sight, hearing, touch, smell and taste as well along with age, height or weight. An example of a physical difference could be color blindness, which affects about $8\%$ men and $0.5\%$ women in the world \cite{ColourBlind}.
+This could be, differences in perception from the five senses; sight, hearing, touch, smell and taste as well along with age, height or weight.
+An example of a physical difference could be color blindness, which affects about $8\%$ of men and $0.5\%$ of women in the world \cite{ColourBlind}.
 %\begin{example}
 %As an example, when making an interface it is important to consider color blindness, since it affects about $8\%$ men and $0.5\%$ women in the world \cite{ColourBlind}.
 %\end{example}
 
-In the case described in this report there are four main groups of people that needs to be considered. These are the quality manager, secretary, department heads, and everyday workers.
+In the case described in this report, see \cref{sec:CaseDescription}, there are four main groups of people that needs to be considered.
+These are the quality manager, secretaries, department heads, and everyday workers.
 This is a heterogeneous group with different levels of IT experience ranging from no skills with IT and therefore cautious about it, to the level of everyday office work.
-The group also has different levels of domain expertise ranging from no to expert which needs to be considered.
-The quality chief is a domain expert and therefore has different needs of the system than the everyday worker with no expertise.
+The group also has different levels of domain expertise ranging from novice to expert which needs to be considered.
+The quality manager is a domain expert and therefore has different needs of the system than the everyday worker with no expertise.
 % Taniya: quality chief or quality manager?
+% 	Henrik: Jeg har ændret det til quality manager
+% Henrik: Det er vel en antagelse, at "everyday worker with no expertise"?
 
 Furthermore, issues such as colorblindness, other eye handicap as well as bad memory needs to be considered when designing the system and interface.
 
 \subsection{Activities}\label{PACT-actvities}
-When considering the activities developers or designers should focus on the overall purpose of these. When that is completed the main features can be considered such as described below:
+When considering the activities developers or designers should focus on the overall purpose of these.
+When that's completed the main features can be considered such as described below:
 
 When considering the people using the system, which is explored under \cref{sec:PACT-people}, there are two different activities in relation with the system.
 There is the activities of the secretaries and those of the everyday workers perspectives.
@@ -57,9 +66,13 @@ Whereas the workers ''only'' has to read certain documents.
 
 \textit{Temporal aspects} covers different features in the system as well as a consideration of how the users interaction with the system is done during a day.
 Starting with the considerations of users interactions, one need to consider among other:
-How often is the interactive system used?
-And is the interactions with this system done continuously or interrupted?
-For the temporal aspects in a given system the developers need to consider things such as; time pressures, peaks and , and the response time of a given activity. \citep{Benyon}
+
+\begin{itemize}
+	\item How often is the interactive system used?
+	\item Is the interactions with the system done continuously or interrupted?
+\end{itemize}
+
+For the temporal aspects in a given system the developers need to consider things such as; time pressures, peaks and, and the response time of a given activity. \citep{Benyon}
 
 When doing the activities users may experience interruptions and the system should therefore be simple to use and easy to get back to.
 Being easy to use is a feature most relevant for the everyday workers, as they only occasionally need to read documents and therefore is less in contact with the system.
@@ -95,10 +108,11 @@ First is whether or not the activity in itself is ``safety-critical'' where mist
 Second is the consideration of ``what will happen when mistakes and errors are made?'' which is important for any developer to reflect upon and then design for these circumstances.
 \citep{Benyon}
 
-There are no physical safety issues to consider in relation to the system, though there are serious consequences to consider if the handbook documents don't live up to regulations.
+There are no physical safety issues to consider in relation to the system, though there are serious consequences to consider if the handbook documents do not live up to regulations.
 It is required that there are updated handbook documents and that the archived versions of these documents are stored somewhere.
-If this isn't upheld then the firm could suffer loss of certification, which would result in great loss of revenue.
+If this is not upheld then the firm could suffer loss of certification, which would result in great loss of revenue.
 %Taniya: tænker at der mangler en kilde? der er vel også nogle lovpligtige standarder/regler der skal overholdes ellers får virksomheden en bøde?
+% Henrik: Måske bare henvis til det der er skrevet om ISO/Standarder?
 
 \textit{The nature of the content} is a more technical reflection of which data requirements are needed for the activity as well as what media it requires.
 \citep{Benyon}
@@ -133,8 +147,8 @@ It is also a review of the circumstances under which the activities is done; tim
 
 % Taniya: The organizational context er ikke beskrevet ift. projektets sammenhæng?
 
-The technological aspect is presumably most relevant for the secretary and consultant as they will be doing most of the work in the handbook.
-Both of them would be working on a regular computer which utilizes either the Windows or Mac OS-system.
+The technological aspect is presumably most relevant for the secretary and the quality manager as they will be doing most of the work in the handbook.
+Both of them would be working on a regular computer which utilizes the Windows operating system. % Henrik: Har fjernet "or Mac OS-system."
 %Anna: Hvad tænker folk hænger de to afsnit ovenfor sammen?, giver det mening at afsnittet ovenfor er en organizational context?
 %Taniya: nej, det synes jeg ikke :( forventede at læse om Physical environment, Social context, Organizational context. Føler lidt at The technological aspect kom ud af det blå
 
@@ -145,10 +159,12 @@ Furthermore, it also examines the content, which concerns the data in the system
 Good content is defined as accurate, up to date, relevant and well presented.
 \citep{Benyon}
 
-Since the activities are most often be done in an office environment on a standard PC the input medias are Keyboard and mouse.
-In addition output is presented through a visual screen picture, or for the workers on the factory floor through a printed version of the handbook, or parts of it.
-The contents on the visual screen picture are presented through a Graphical User Interface (GUI).
+Since the activities are most often done in an office environment, on a standard PC, the input medias are keyboard and mouse.
+In addition output is presented through a monitor, or for the workers on the factory floor through a printed version of the handbook, or parts of it.
+The contents on the monitor are presented through a Graphical User Interface (GUI).
 Furthermore, the communication user-to-user is usually done through telephone, while it between devices are done over a Network, such as the internet.
 Lastly, is the communication from the system to a user done through notifications.
 % Taniya: notification som email, sms? snakker vi om hvordan det er nu ? eller snakker vi om systemet vi har tænkt os at lave til dem?
+
+% Det er meget svingende om der er snakke om "secretary" eller "secretaries" igennem hele PACT :-)
 % Technologies: what tools are used now, and how might new developments be used?
