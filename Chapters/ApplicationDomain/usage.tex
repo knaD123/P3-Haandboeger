@@ -13,7 +13,8 @@ It should be noted here that the software in this context refers to the software
 This will outline what responsibilities that the system will eventually have when it is deployed.
 The use cases of the system have been identified to be \textit{manage documents, manage users, manage departments, manage suppliers, approve new documents, read status, update Table of Contents}, and \textit{track differences between document versions}.
 
-An overview of the relationships between the actors and the use cases are shown through the table below, \cref{tab:UseCases}. Here it is outline which actors have which responsibilities in relation to the system.
+An overview of the relationships between the actors and the use cases are shown through the table below, \cref{tab:UseCases}.
+Here it is outline which actors have which responsibilities in relation to the system.
 
 %Anna: Snakker virkeligt om consulenter (ikke fordi vi ikke godt kan) men hvorfor da det jo er meget forskelligt hvilke rettigheder en konsulent vil have?
 \begin{table}[H]
@@ -42,6 +43,7 @@ An overview of the relationships between the actors and the use cases are shown 
 	\end{center}
 	\caption{ {\color{red}husk at sætte caption og label så den kan referes til} }\label{tab:UseCases}
 \end{table}
+%Tænker at vi er nødt til at tilføje en use case omkring at læse dokumenter eller noget fordi det ikke rigtigt giver mening at have en aktør der intet kan.
 
 In the rest of this section both the actors and use cases will be elaborated, starting with the actors.
 
@@ -67,16 +69,20 @@ The secretary has a lot of responsibility of the handbook and users within the s
 Examples: The secretary manages the users by creating a user in the system, edits the user, and eventually deletes a user.
 The secretary also creates groups of users who are subscribed to relevant documents within the handbook.
 %Anna: Sidste del var det ikke et punkt som var mere relevant for wquality manageren end for Pia (eller generelt dem der skriver), Anerkender godt at secretary nok oftest er med til at adde users til departments, men ud over det gør hun vel ikke mere med den del af systemet
+%Jeg tænker lige at vi skal diskutere hvem sekretæren er for vi har vist forskellige opfattelser -astrid
 
 \textbf{Manager}
 \\%Anna: Mener vi department managers eller som taniya påpeger nedenunder direktøren?
 Goal: The manager of the firm.
 \\
+Characteristic: There is only one manager.
+The manager does not have intimate knowledge of the system and do not administrate the handbook.
 % Taniya: only one manager? Måske at det er bedre med "director"?
-Characteristic: There’s only one manager. The manager doesn’t have intimate knowledge of the system and don’t administrate the handbook.
-The manger may change and/or approve documents once in a while.
+Characteristic: There’s only one manager. 
+The manager doesn’t have intimate knowledge of the system and doesn’t administrate the handbook.
+The manager may change and/or approve documents every once in a while.
 \\
-Examples: The manager reads and sometimes reads and/or approves of documents.
+Examples: The manager reads and sometimes approves documents.
 
 \textbf{Worker}
 \\
@@ -93,7 +99,8 @@ Sometimes a worker may have the responsibility of approving one or more document
 \\%Anna: Er vi sikker på vil have denne del med som actor
 Goal: Manages document versions within a handbook and users.
 \\
-Characteristic: Is a software that can be accessed and used by different users with varying degrees of administrative rights.
+Characteristic: 
+Is a software that can be accessed and used by different users with varying degrees of administrative rights.
 \\
 Examples: Keeps track of document versions; including which documents are active, and which are inactive and by extension are archived. 
 When a document has been updated it is possible for the user to log why there are changes and the system is able to highlight exactly where the changes has occurred.
@@ -103,9 +110,9 @@ Whenever a new document has been added the TOC is updated.
 The system manages users with varying degrees of administrative rights of which there are 3 levels.
 
 
-\subsection{Use cases}
+\subsection{Use cases} \label{sec:usecases}
 %Anna: evt fjern "use case:" fra hvert punkt i denne subsection
-
+%Astrid: Use cases her virker umiddelbart generelt ikke helt konkrete nok? vi mangler også statechart diagrammer men jeg ved ikke om det er noget vi har tænkt os at gøre noget ved.
 \textbf{Manage documents}
 \\
 It is desired that a handbook containing several documents and their versions is managed by a software. 
@@ -140,6 +147,7 @@ The software is responsible for notifying the departments whenever a document ha
 \\
 The consultant and secretary manages the suppliers. Help.
 %Suppliers skal vist slet ikke nævnes i usage afsnit? Fordi vi afgrænser os væk fra suppliers i class diagram afsnit?
+%Anja: Tjoh
 
 \textbf{Approve new documents}
 \\
@@ -168,3 +176,6 @@ Both the consultant and secretary are responsible of writing in the handbook and
 It is the consultant's and secretary’s responsibility to write a changelog, if it is required within the firm, and highlight relevant differences between versions.
 %Det er vel ikke deres ansvar, de skal bare sikre det sker, men er vel den der skrivers ansvar
 
+% Henrik: Er det ikke quality manager der er administrator?
+% Henrik: Det er ihvertfald det indtryk jeg har fået igennem rapporten indtil videre
+% Henrik: Der skal generelt henvises til tidligere tekst + er lidt forvirret mht "consultant"
