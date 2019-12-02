@@ -28,6 +28,8 @@ This is to understand how the handbook should be handled as well as to visualize
 	\label{fig:RP-Oversigt}
 \end{figure}
 
+\todo[inline]{Astrid: fiks at denied er udenfor system}
+
 Based on the first interview with Ipsen, the main outlines of the situaton and problem to be solved became clear.
 The rough outline, also shown in \cref{fig:RP-Oversigt} is a document management system for handbooks with three types of users. These being:
 \begin{itemize}
@@ -98,7 +100,7 @@ The target group of the system consists of small firms who needs a cheap documen
 The users mostly have little IT-experience.
 Therefore most of the target groups are also not able to maintain such a system.
 Lastly, there should be a backup of the archive making it easy to revert to the previous system.
-No on at the company is able to maintain the system.
+Noone at the company is able to maintain the system.
 
 \textbf{T - Technology}
 
@@ -109,15 +111,19 @@ Notifications sent over e-mail or sms.
 
 The main objects of the problem domain are \textit{Handbook}, \textit{TOC}, \textit{documents}, \textit{changelog}, and \textit{user}.
 
+\todo[inline]{Rasmus: sørg for at changelog og TOC er forklaret inden}
+
 \textbf{R  - Responsibility}
 
 Management tool to keep track of file versions, this also includes making a changelog if required by the company.
+\todo[inline]{Rasmus gæt dig til hvad hun mener}
 The table of contents should give an overview of all the documents.
 Making sure all new files or versions are approved before being added to the handbook.
 The system has to save older versions in an archive.
 Access should be separated into 3 levels, as stated above in the Functionality section of the criterion.
 Keeping track of documents used in the approval process of suppliers and dates for the approval and re-approvals.
 
+\todo[inline]{fiks titel enten her eller længere oppe}
 \subsection{System definition}\label{sec:systemdefinition}
 In this section the final system definition is described.
 It has been based on the aforementioned FACTOR analysis in \cref{sec:factorcriteria} and rich picture in \cref{sec:richpictures} and the interviews with Ipsen.
