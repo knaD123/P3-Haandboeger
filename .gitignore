@@ -12,4 +12,6 @@
 *.kate-swp
 *.swp
 *.lyx
+*.fdb_latexmk
+*.fls
 master.pdf
