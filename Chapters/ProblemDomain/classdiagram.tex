@@ -163,9 +163,13 @@ Early versions of the class diagram modeled the problems like seen in \cref{fig:
 Here the classes Approval and Document are present in both diagrams, suggesting that their functionalities are too similar to have separate classes. However in the handbook, Document is merely a container for Versions, which include the actual files and those files are needed in supplier-approval. Therefore the two Document classes cannot be merged, but the Document class in supplier-approval can be entirely replaced by the Version class in handbook.
 
 The two Approval classes are more complicated as the approval process varies:
-In the handbook system a version of a document needs to be approved and the writer can specify which people should do so.
-In the supplier-approval system a supplier needs to be approved and only one person is needed to do that.
-\todo[inline]{Taniya: who is that one person?}
+
+\begin{itemize}
+  \item In the handbook system a version of a document needs to be approved and the writer can specify which people should do so.
+  \item In the supplier-approval system a supplier needs to be approved which only demands an approval from one administrator. 
+\end{itemize}
+
+% Tidligere formulering: In the supplier-approval system a supplier needs to be approved and only one person is needed to do that.
 However that one person needs to submit some kind of documentation, that justifies the approval.
 Both systems need the approval for the changes to take effect.
 
