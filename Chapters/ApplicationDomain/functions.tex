@@ -7,7 +7,7 @@ This section is based upon\citep[ch.~7]{Rod-Aalborg}
 
 To commence the analysis, a look at the system definition and use cases is necessary, see \cref{sec:SystemDefinition,sec:usecases}, as it creates a template of functions that are ready to be analysed.
 The next step is then to determine what type each function belong to, this means determining if it is an \textit{update, signal, read} or \textit{compute function}.
-A definition for each of the function types will be given to prevent misunderstandings throughout the rest of the report.
+A definition for each of the function types will be given to prevent misunderstandings throughout the rest of the report. \cite[p.~140]{Rod-Aalborg}
 
 \begin{defn}
 An update function is a a function that is activated by a problem-domain event and result in a change i the model's state
@@ -27,41 +27,52 @@ A compute function is a function that is activated by a need for information in 
 
 % Astrid, jeg har tilføjet et par definationer. Det kan godt være at de skal rettes til (se side 140 i OOA&D) - Henrik
 \todo[inline]{Astrid: Hvad er the characteristics ved de forskellige ovenfor}
-The most present type of function present are of the update type.
-These are described in \citep[p.~140]{Rod-Aalborg}
-as "Update functions are activated by a problem-domain event and result in a change in the model's state."\citep[p.~140]{Rod-Aalborg}
+The most present type of function in the system, as shown in the function table below, are of the update type.
+%These are described in \citep[p.~140]{Rod-Aalborg}
+%as "Update functions are activated by a problem-domain event and result in a change in the model's state."\citep[p.~140]{Rod-Aalborg}
 \todo[inline]{Anna: Citat? Definition? BOTH? Who knows}
 
-The reason in this is in the nature of the system, as it primarily lies in management of users and documents.
-This also means that the complexity is mostly simple as the margin for error is rather small in these cases. This is because of the concreteness of the functions, as each has minimal amount of uncertainty when used.
-
-Only exceptions are "Manage documents", where the complexity is in the validation where overlapping of information is not allowed.
-Furthermore "Track differences between document versions" can be difficult as different file types can be used by the users.
-
-The "Notify user" is of the type signal, a function type that responds to changes inside the system.
-
-"Track differences between document versions" is of the type read as it retrieves information from each document and presents the differences to the user.
-
-This is the resulting table of functions:
 \todo[inline]{Henrik: Vi skal opdatere tabellen, og argumentere hvor vi har dem fra. Cref og analyser}
 \todo[inline]{Anna: Formater tabellen bedre. Men behold de alignede columns, det er så beautiful}
 \begin{table}[H]
 \centering
 \begin{tabular}{lll}
-Function                                    & Complexity & Type    \\
-Manage documents                            & Medium     & Update  \\
-Manage users                                & Simple     & Update  \\
-Manage departments                          & Simple     & Update  \\
-Manage suppliers                            & Simple     & Update  \\
-Approve new suppliers                       & Simple     & Update  \\
-Approve new documents                       & Simple     & Update  \\
-Update TOC                                  & Simple     & Update  \\
-Track differences between~document versions & Medium     & Read    \\
-Notify user                                 & Simple     & Signal  \\
-Read status                                 & Simple     & Update
+Function						& Complexity & Type    \\
+Add document					& Simple     & Update  \\
+Archive document				& Simple     & Update  \\
+Reactivate document				& Simple     & Update  \\  % Henrik: Lidt i tvivl om vi overhovedet gør det her, eller om der bare laves et nyt dokument?
+Delete document					& Simple     & Update  \\
+Add version						& Medium	 & Update  \\
+Approve version					& Simple     & Update  \\
+Mark version as read			& Medium     & Update  \\ % Henrik: I tvivl med den her - HAAALP!
+Archive version					& Simple     & Update  \\
+Add user						& Simple     & Update  \\
+Update user						& Simple     & Update  \\
+Delete user						& Simple     & Update  \\
+Request approval				& Medium     & Update  \\
+Delete approval					& Simple     & Update  \\
+Add department					& Simple     & Update  \\
+Delete department				& Simple	 & Update  \\
+Add user to department			& Simple     & Update  \\
+Remove user from department		& Simple     & Update  \\
+Add document to department		& Simple     & Update  \\
+Remove document from department & Simple     & Update  \\
+Notify user						& Simple	 & Signal  \\
 \end{tabular}
 \caption{Function list}
 \end{table}
+
+The reason in this is in the nature of the system, as it primarily lies in management of users and documents.
+This also means that the complexity is mostly simple as the margin for error is rather small in these cases.
+This is because of the concreteness of the functions, as each has minimal amount of uncertainty when used.
+
+%Only exceptions are "Manage documents", where the complexity is in the validation where overlapping of information is not allowed.
+%Furthermore "Track differences between document versions" can be difficult as different file types can be used by the users.
+
+The "Notify user" is of the type signal, a function type that responds to changes inside the system.
+
+%"Track differences between document versions" is of the type read as it retrieves information from each document and presents the differences to the user.
+
 
 % Taniya: mener manage documents ikke rigtig er en funktion i sig selv men  der findes flere funktioner som til sammen gør det muligt at manage documents?
 
@@ -72,26 +83,5 @@ Read status                                 & Simple     & Update
 
 % Anja: Generelt for afsnittet mangler der nok mere metatekst - f.eks. åbning og slutning
 % Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
-% Henrik: Anja please fix merge conflicts før du pusher :-P
 
-\todo[inline]{Henrik: måske præsenter tabel først og uddyb bagefter}
 \todo[inline]{Anja: Skriv noget metatekst}
