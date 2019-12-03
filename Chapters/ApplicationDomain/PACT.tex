@@ -53,7 +53,7 @@ Furthermore, issues such as colorblindness, other handicaps, as well as bad memo
 
 \subsection{Activities}\label{sec:PACT-actvities}
 \todo[inline]{Andreas: Omformuler ``when considering'' PS: bearing in mind}
-Each actor in the system has a different use of it
+%Each actor in the system has a different use of it
 % Ved ikke om det er mening at den ovenståede sætning skal stå der?
 
 It is important to figure out what activities the system need to support.
@@ -62,8 +62,6 @@ However each one of the groups described in \cref{sec:PACT-people} has a differe
 The quality and department managers need to manage, update and access the handbook, whereas the blue-collar workers only need to access and read certain documents.
 This will be further elaborated in \cref{sec:Actors}.
 The different kinds of purposes an activity can have is explored below.
-
-\todo[inline]{Anna: Tilføj department manager, og hvorfor write eksisterer. Men først når der er flyttet rundt i ting}
 
 \textit{Temporal aspects} covers different features in the system as well as a consideration of how the users' interactions with the system are done during a day.
 Starting with the considerations of user interactions, one need to consider among other:
@@ -75,47 +73,57 @@ Starting with the considerations of user interactions, one need to consider amon
 
 For the temporal aspects in a given system the developers need to consider things such as; time pressures, peaks and, and the response time of a given activity.
 
-\textit{Cooperation} is simply the consideration of whether or not the activity is done in cooperation with others, alone, or a mix hereof, as well as how and when a possible cooperation is needed.
-This is an important consideration since a system which is done in cooperation with others needs to have an awareness of all the users, be able to coordinate it between them and maybe have a communication system implemented as well.
+\textit{Cooperation} is the consideration of whether or not the activity is done in cooperation with others, alone, or a mix hereof, as well as how and when a possible cooperation is needed.
+This is an important consideration since a system which is done in cooperation with others needs to have an awareness of all the users, be able to coordinate between them and possibly have a communication system implemented as well.
 On the other hand if the activities are done completely alone these features are not necessary.
 
 \textit{Complexity} describes the question of how well-defined the activity is.
-Is it a well-defined task which can be done in a simple step-by-step design, or is it a vague task, which would require the users browse around?
+Is it a well-defined task which can be done in a simple step-by-step design, or is it a vague task, which would require the users to browse around?
 
 \textit{Safety Critical} has two sides to it.
 First is whether or not the activity in itself is ``safety-critical'' where mistakes could be reason for injury or serious accidents.
-Second is the consideration of ``what will happen when mistakes and errors are made?'' which is important for any developer to reflect upon and then design for these circumstances.
+Second is the consideration of ``what will happen when mistakes and errors are made?'' which is important for any developer to reflect upon.
+%Anna: fjerenede sidste del af sætningen (nedenfor) synes ikke den virkede nødvendig
+%"and then design for these circumstances."
 
 \textit{The nature of the content} is a more technical reflection of which data requirements are needed for the activity as well as what media it requires.
 
 % Kunne det være en ide at lave en subsubsection ved navnet "Activities of OBHandbook" eller noget da activities del er ret laaaang
+%Anna: Hvis vi har tænkt os at gøre det skal det are gøres ved alle dele for at være konsekvente
+
 In the case of this project in terms of temporal aspects during the activities users may experience interruptions and the system should therefore be simple to use and easy to get back to.
-Being easy to use is a feature most relevant for the blue-collar workers, as they only occasionally need to read documents and therefore are less in contact with the system.
-This makes it necessary to make the system as easily accessible for them as possible.
+
+Being easy to use is a feature especially relevant for the blue-collar workers, as they only occasionally need to read documents and therefore are less in contact with the system.
+%Anna: har udkommenteret sætningen nedenfor følte den fyldte mere end den breagt noget til bordet
+%"This makes it necessary to make the system as easily accessible for them as possible."
 The activities would most often be done during business hours, from 8-16 on weekdays, though may be accessed outside of this time frame as well.
 \todo[inline]{Rasmus: Skriv om notifikiationer}
 % Taniya: kunne måske være en ide at kort nævne administrator at selvom de bliver forstyrret med notifikationer fra systemet så skal admin hurtigt kunne vende tilbage til arbejdsopgaven admin var i gang med.
 %Men stadig nemt kunne se/huske/ finde tilbage til de notifikationer, så de hellere ikke bliver glemt.
 
-The cooperation aspect is mostly relevant for the administrator and writer roles as they are maintaining the handbook documents.
-Here it is necessary to not only write new versions of a document but also make sure that the newest versions are approved.
-Though writing the documents in itself does not require collaboration.
-However, after a document has been written, it needs to be approved by other users.
+The cooperation aspect is mostly relevant for the  quality manager and department heads, or in more general terms the administrator and writer roles as they are maintaining the handbook documents.
+%Anna: Har udkommenteret sætnignen endenfor da det gav afsnittet et bedre flow
+%"Here it is necessary to not only write new versions of a document but also make sure that the newest versions are approved."
+Though writing the documents in itself does not require collaboration after a document has been written, it needs to be approved by other users.
 This is one of the most important collaboration aspects in the system.
-As for the blue-collar worker's activities, there is no cooperation involved as all the blue-collar workers need to read the newest, relevant documents individually.
+As for the blue-collar worker's activities, there is no cooperation involved as all they need is to read the newest, relevant documents individually.
 
-Regarding complexity in this project, the activities are quite well-defined overall.
-For the administrative personnel it is well-defined that whenever a new document has been written, it needs to be approved and then added to the handbook.
-Here the oldest, and now outdated, document is being archived and stored.
-The department manager needs to make sure that the affected everyday blue-collar workers read and understand the new documents.
+Regarding the complexity; the activities are quite well-defined overall.
+The main activities for the administrative personnel is, that whenever a new document has been written, it needs to be approved and then added to the handbook.
+Hereby archiving the the old and now outdated document.
+The department manager needs to make sure that the affected blue-collar workers read and understand the new documents.
+%Til Astrids beskred, så er det vel som sådan ikke department manageren der holder øje, men kvilitets chefen der kan gå til dem og sige du skal lige tage fat i dine medarbejdere?
 
-In relation to safety critical, there are no physical safety issues to consider in relation to the system, though there are serious consequences to consider if the handbook documents do not live up to regulations.
-It is required that there are updated handbook documents and that the archived versions of these documents are stored somewhere.
-If this is not upheld then the firm could suffer loss of certification, see \cref{sec:standards}, which would result in great loss of revenue.
+
+In relation to safety critical aspect, there are no physical safety issues to consider in relation to the system, though there are serious consequences to consider if the handbook documents do not live up to regulations.
+It is required that the handbook dis up to date and that the elder versions of its documents are stored somewhere.
+If this is not upheld the firm could suffer loss of certification, see \cref{sec:standards}, which would result in great loss of revenue.
 
 In terms of the nature of the content, the system should be able to handle Microsoft documents such as Word and Excel as these are the filetypes used to write the documents.
 As Ipsen has mentioned, it is also acceptable that the system accepts PDF files instead, as long as she is able to write the document with her preferred text editing software.
-Furthermore the system should support large quantities of these files as the archived versions of the documents are usually stored indefinitely.
+%Anna: er det noget vi har kommenteret tidligere at hun ar sagt således?
+%Lige nu står det som en selvfølge, er det ikke bedre i stedet for "As Ipsen has mentiond" i stedet for at skrive noget i still med "Although Ipsen has clarified that for it to accept only PDF also is acceptable as long as it is possible to write the documents in one own prefered text editing software"?
+Furthermore the system should support large quantities of these files as the archived versions of the documents would be stored indefinitely.
 
 \subsection{Contexts}
 Activities always occur in a context which will be explored in this section.
