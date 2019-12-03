@@ -229,7 +229,13 @@ Qualified events:
 
 \section{Event table}\label{sec:EventTable}
 The result of the selected qualified events and classes from \cref{sec:Classes,sec:Events} is an event table representing their relations, see \cref{fig:eventtable}.
-The symbols used in the table is to be understood such that; $+$ is an event that can occur up to one time, and $\star$ is an event which can occur multiple times.
+The symbols used in the table is to be understood such that; $+$ is an event that can occur zero or one time, and $\star$ is an event which can occur zero or multiple times.
+
+Looking at the event table below it can be seen that \textit{document added} and \textit{document deleted} both can occur zero or multiple times for \textit{Handbook} and zero or one time for \textit{Document}.
+This is because during the lifetime of a \textit{Handbook} it is possible to add and delete documents to it as many times its desired, but a single \textit{Document} can only be added or deleted once.
+Keep in mind, that it is not possible to trigger the \textit{document deleted} event if the \textit{Handbook} does not contain any documents.
+A less trivial event from the event table could be the \textit{approval requested} event.
+Here it can be seen that this event occurs zero or one time for a \textit{Version} and an \textit{Approval}, but it can occur zero or multiple times for \textit{User} because multiple users can be assigned to approve a new version.
 
 \begin{table}[H]
 	\begin{center}
