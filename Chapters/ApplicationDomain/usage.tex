@@ -1,16 +1,14 @@
 \section{Usage}\label{sec:Usage}
 \todo[inline]{Andreas: Vejleders tidligere kommentar omkring Usage afsnit skal rettes til}
-\todo[inline]{Anja: Stik fingrene i alle use case aktørerne}
-\todo[inline]{Anja: Altså fix ting så det er de rigtige roller og so on and so forth}
 
 In this section the usage of the system will be analyzed.
 Who uses and how they use the system will be explored systematically through analyzing who the actors are, and the use cases of the system.
 The actors consists of the different user groups who will be utilizing the system and the use cases will describe the different uses the system will potentially have.
 
-The actors that have been identified within the case are \textit{consultant, secretary, CEO, department manager, worker}, and \textit{document management software}.
-It should be noted here that the software in this context refers to the software that is under development throughout this project.
-This will outline what responsibilities that the system will eventually have when it is deployed.
-The use cases of the system have been identified to be \textit{manage documents, manage users, manage departments, manage suppliers, approve new documents, read status, update Table of Contents}, and \textit{track differences between document versions}.
+The actors that have been identified within the case are \textit{administrator, writer}, and \textit{reader}.
+%It should be noted here that the software in this context refers to the software that is under development throughout this project.
+%This will outline what responsibilities that the system will eventually have when it is deployed.
+The use cases of the system have been identified to be \textit{manage documents, manage users, manage departments, approve new documents, read status}, and \textit{track differences between document versions}.
 
 An overview of the relationships between the actors and the use cases are shown through the table below, \cref{tab:UseCases}.
 Here it is outline which actors have which responsibilities in relation to the system.
@@ -19,28 +17,27 @@ Here it is outline which actors have which responsibilities in relation to the s
 	\begin{center}
 	\begin{tabular}{| m{10em} | c | c | c | c | c |}
 		\hline
-		& \multicolumn{5}{c|}{\textbf{Actors}} \\
+		& \multicolumn{3}{c|}{\textbf{Actors}} \\
 		\hline
-		\textbf{Use cases} & Consultant & Secretary & Manager & Worker & Software \\
+		\textbf{Use cases} & Administrator  & Writer & Reader \\
 		\hline
-		Manage documents & x & & & & x \\
+		Manage documents & x & & \\
 		\hline
-		Manage users & & x & & & \\
+		Manage users & & x & \\
 		\hline
-		Manage departments & & x & & & x \\
+		Manage departments & & x & \\
 		\hline
-		Manage suppliers & x & x & x & &\\
+		Approve new docs & & x & x \\
 		\hline
-		Approve new docs & & x & x & & \\
+		Read documents & & & \\
 		\hline
-		Update TOC & & & & & x \\
-		\hline
-		Track differences\newline between document\newline versions & x & x & & &\\
+		Track differences\newline between document\newline versions & x & x &\\
 		\hline
 	\end{tabular}
 	\end{center}
 	\caption{ {\color{red}husk at sætte caption og label så den kan referes til} }\label{tab:UseCases}
 \end{table}
+\todo[inline]{Anja og Astrid: Efter actors og use cases er paa plads, saa skal vi lige kigge paa tabellen igen.}
 \todo[inline]{Astrid: Tænker at vi er nødt til at tilføje en use case omkring at læse dokumenter eller noget fordi det ikke rigtigt giver mening at have en aktør der intet kan.}
 
 In the rest of this section both the actors and use cases will be elaborated, starting with the actors.
@@ -49,60 +46,29 @@ In the rest of this section both the actors and use cases will be elaborated, st
 \todo[inline]{Anna: Formater the shizzle}
 \todo[inline]{Anna: Dræb highlightning}
 \todo[inline]{Anna: Knæk din ryg}
-\textbf{Consultant}
-\\
-Goal: A 3rd party person who helps with writing and managing documents.
-\\
-Characteristic: There is only one consultant who has intimate knowledge about the documents and their versions.
-\\
-Examples: One or more times a year a document has to be updated.
-The updated documents gets written, depending on the firm it is logged why the new document is updated.
 
-\textbf{Secretary}
+\textbf{Administrator}
+Goal: Manages document versions, users, and user departments.
 \\
-Goal: An administrative personnel working within the firm who manages documents in the handbook and the users of the system.
+Characteristic: There is at least 1 administrator per handbook who administrates the documents and the users who has access to the handbook.
 \\
-Characteristic: There’s usually only one secretary with intimate knowledge of the handbook, the system, and the firm.
-The secretary has a lot of responsibility of the handbook and users within the system.
-\\
-Examples: The secretary manages the users by creating a user in the system, edits the user, and eventually deletes a user.
-The secretary also creates groups of users who are subscribed to relevant documents within the handbook.
+Examples: The administrator has access to all parts of the system which includes the archive, users, editing users, updating the documents and so on.
 
-\textbf{Bourgeoise}
+\textbf{Writer}
 \\
-Goal: The manager of the firm.
+Goal: Update specific documents in the handbook.
 \\
-Characteristic: There is only one manager.
-The manager does not have intimate knowledge of the system and do not administrate the handbook.
-Characteristic: There’s only one manager.
-The manager doesn’t have intimate knowledge of the system and doesn’t administrate the handbook.
-The manager may change and/or approve documents every once in a while.
+Characteristic: One or more employees who need to update one or more documents in the handbook.
 \\
-Examples: The manager reads and sometimes approves documents.
+Examples: When someone, who is not the administrator, needs to update one or more documents they get temporary writer access rights.
 
-\textbf{Worker}
+\textbf{Reader}
 \\
-Goal: A person who works within the firm.
+Goal: To read and understand documents in the handbook
 \\
-Characteristic: There are several workers within the firm.
-They typically do not have administrative rights and don’t write or update the documents within the handbook.
-There are different kinds of workers with varying jobs and work in different departments.
+Characteristic: There are many readers who have various positions in the firm. Their shared characteristic is that they all need to read parts of the handbook.
 \\
-Examples: Whenever a relevant document has been updated it is imperative that the worker has read and understood the new version.
-Sometimes a worker may have the responsibility of approving one or more documents.
-
-\textbf{Software}
-\\
-Goal: Manages document versions within a handbook and users.
-\\
-Characteristic:
-Is a software that can be accessed and used by different users with varying degrees of administrative rights.
-\\
-Examples: Keeps track of document versions; including which documents are active, and which are inactive and by extension are archived.
-When a document is being updated it is possible for the user to log why there are changes.
-Whenever a new document has been added the TOC is updated.
-The system manages users with varying degrees of administrative rights of which there are 3 levels.
-
+Examples: When a document has been updated all affected readers must read the newest version and understand the difference between the previous and current one.
 
 \subsection{Use cases} \label{sec:usecases}
 \todo[inline]{Taniya: Tegn nogle statecharts, og få Anna til at tikze dem}
