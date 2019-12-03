@@ -1,14 +1,22 @@
-\todo[inline]{Anja: Klar alle metatekster i rapporten}
+
+In this chapter the application domain will be analysed.
+Where the problem domain focused on \textit{what} information the system should process, the application domain focuses on \textit{how} the user will use the system in practice.
+This analysis will start with a PACT analysis where the context of the use of the system will be explored which delves into the people, their activities, contexts and the technologies used.
+Afterwards use cases of the system will be explored followed by functions that need to support these use cases.
+
 \todo[inline]{Rasmus: Replace all instances of Everyday workers with the proletariat}
 
 \section{PACT analysis}\label{sec:PACT}
 \todo[inline]{Andreas: Udskriv machine-centered}
-The theory of this section is based upon Benyon \cite{Benyon} unless anything else is stated.
+To help understand and reflect upon the users and their relation to an interactive system, the framework \textit{PACT} is used.
+PACT is an acronym for \textit{People, Activities, Context}, and \textit{Technology}.
+This analysis framework is used to analyze the users, such that developers are able to design the system human-centered rather than machine-centered.
+The theory of this section is based upon Benyon \cite{Benyon} and the analysis of the project unless anything else is stated.
 
-When designing an interactive system it is important to design it with the human in mind as the system is being developed for a specific purpose and context
-, also known as human-centred design.
+When designing an interactive system it is important to design it with the human in mind as the system is being developed for a specific purpose and context, also known as human-centred design.
 This is versus the machine-centred view where the users are seen as vague, disorganized and have to fit the needs of the machine. In such way the data might have a special format or users might have to act in a certain pattern.
 To design human-centred the designers must explore the users who will eventually use the system and for what purposes they are going to utilize it.
+
 Depending on how well designers have implemented a way to convey their conception of a given system, different users will interpret it differently.
 Their interpretation, being based on individual understanding and knowledge, regulates the users interactions with the system and thereby determines what it really does.
 A model of this concept can be seen in \cref{fig:PACT-SystemImage}.
@@ -20,10 +28,6 @@ A model of this concept can be seen in \cref{fig:PACT-SystemImage}.
 	\label{fig:PACT-SystemImage}
 \end{figure}
 \todo[inline]{Anna: Scan billedet ind i stedet}
-
-To help understand and reflect upon the users and their relation to an interactive system, the framework PACT is used.
-PACT is an acronym for \textit{People, Activities, Context}, and \textit{Technology}.
-This analysis framework is used to analyze the users, such that developers are able to design the system human-centered rather than machine-centered.
 
 The PACT theory presentation and analysis will be written congruently throughout this section.
 First the specific theory will be presented followed by the analysis.
@@ -112,26 +116,38 @@ In relation to safety critical, there are no physical safety issues to consider 
 It is required that there are updated handbook documents and that the archived versions of these documents are stored somewhere.
 If this is not upheld then the firm could suffer loss of certification, see \cref{sec:standards}, which would result in great loss of revenue.
 
-In terms of the nature of the content, it is important that the system is able to handle Microsoft documents such as Word and Excel as these are the filetypes used to write the documents.
+In terms of the nature of the content, the system should be able to handle Microsoft documents such as Word and Excel as these are the filetypes used to write the documents.
+As Ipsen has mentioned, it is also acceptable that the system accepts PDF files instead, as long as she is able to write the document with her preferred text editing software.
 Furthermore the system should support large quantities of these files as the archived versions of the documents are usually stored indefinitely.
-\todo[inline]{Anja: Giv et kærligt håndjob. Vi skal nok ikke prioritere word-dokumenter super meget når vi ikke kan finde ud af dem}
 
 \subsection{Contexts}
-\todo[inline]{Anja: Reflekter væk fra sociale contexts. Drop også Organizational
- Eller lav en bedre analyse? Indsæt dirty joke}
 Activities always occur in a context which will be explored in this section.
 Context can be thought of, as something that surrounds activities as well as a feature which binds them together into a whole.
 Usually when considering this point in PACT the three points: \textit{Physical environment, Social context}, and \textit{Organizational context} are at the main focus.
+The analysis will not touch upon the social context as this is not considered relevant for the system development.
+This is because the system is developed for a business and work context and does not consider the social interactions of the users for maintaining the handbook documents.
 
 The physical environment might cover everything from weather to geographical placement of where the activity is done.
 It is an analysis of the surrounding environment which may have effect on how users perform activities.
 
-In relation to the people in this case there are two main physical contexts to consider.
+There are two main physical contexts to consider.
 For the quality manager and the secretaries an office context is most likely as they handle administrative work.
 For the everyday workers the context could differ dramatically as their functions may differ from each other.
 The main focus here is that the handbook documents should be easily accessible, no matter in which context the workers are located.
 Previous to this development project, the most common way that the handbooks were used by employees were in a paper format, which allowed the use of the documents in circumstances not conductive to electronic equipment.
 It is expected that this practice will continue after the project.
+
+As for the organizational context there are different factors to consider.
+These are Ipsen who acts as a third party quality manager for a firm in relation to maintaining the handbook.
+Then there is the in-house secretary who Ipsen works the closest with.
+There's the CEO who from time to time reads, writes, and approves the handbook documents.
+Lastly there are the everyday workers within the firm whose work and daily tasks vary depending on their positions.
+
+It is because of the structure of the organization that there needs to exist different access rights in the system which are administrator, writer, and reader.
+The administrator role is mainly for the quality manager who is the main person to manage the handbook documents.
+There are actors within the firm, the CEO for example, who occasionally needs to write/update documents in the handbook and need writer access rights.
+All of the workers need to read and understand the specific documents in the handbook that relates to their work.
+These workers need reader rights to access the documents.
 
 \subsection{Technologies}
 \todo[inline]{Henrik: Find nogle nye øjne, og Giv så technologies et kærligt hånd}
