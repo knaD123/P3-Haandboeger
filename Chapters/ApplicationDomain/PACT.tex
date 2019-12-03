@@ -4,8 +4,6 @@ Where the problem domain focused on \textit{what} information the system should 
 This analysis will start with a PACT analysis where the context of the use of the system will be explored which delves into the people, their activities, contexts and the technologies used.
 Afterwards use cases of the system will be explored followed by functions that need to support these use cases.
 
-\todo[inline]{Rasmus: Replace all instances of Everyday workers with the proletariat}
-
 \section{PACT analysis}\label{sec:PACT}
 \todo[inline]{Andreas: Udskriv machine-centered}
 To help understand and reflect upon the users and their relation to an interactive system, the framework \textit{PACT} is used.
@@ -46,11 +44,11 @@ Additionally, there is also a big difference in people's expertise levels which 
 This is an important consideration since designing a system for a homogeneous group of people is  different from designing one for a heterogeneous group.
 
 In the case described in this report, see \cref{sec:CaseDescription}, there are four main groups of people that need to be considered.
-These are the quality manager, secretaries, department heads, and everyday workers.
+These are the quality manager, secretaries, department heads, and blue-collar workers.
 This is a heterogeneous group with IT experience ranging from possibly none to what is required at everyday office work.
-Should a worker have no IT experience it seems reasonable to assume that this worker may be cautoius of it and the design needs to take this into account.
+Should a blue-collar worker have no IT experience it seems reasonable to assume that this blue-collar worker may be cautoius of it and the design needs to take this into account.
 The group also has different levels of domain expertise ranging from novice to expert which needs to be considered.
-The quality manager is a domain expert and therefore has different needs of the system than the everyday worker with no expertise.
+The quality manager is a domain expert and therefore has different needs of the system than the blue-collar worker with no expertise.
 Furthermore, issues such as colorblindness, other handicaps, as well as bad memory needs to be considered when designing the system and interface.
 
 \subsection{Activities}\label{sec:PACT-actvities}
@@ -61,7 +59,7 @@ Each actor in the system has a different use of it
 It is important to figure out what activities the system need to support.
 First and foremost, the analysis of the activities should focus on the overall \textit{purpose} of the activity.
 However each one of the groups described in \cref{sec:PACT-people} has a different goal in using the system.
-The quality and department managers need to manage, update and access the handbook, whereas the workers only need to access and read certain documents.
+The quality and department managers need to manage, update and access the handbook, whereas the blue-collar workers only need to access and read certain documents.
 This will be further elaborated in \cref{sec:Actors}.
 The different kinds of purposes an activity can have is explored below.
 
@@ -92,7 +90,7 @@ Second is the consideration of ``what will happen when mistakes and errors are m
 
 % Kunne det være en ide at lave en subsubsection ved navnet "Activities of OBHandbook" eller noget da activities del er ret laaaang
 In the case of this project in terms of temporal aspects during the activities users may experience interruptions and the system should therefore be simple to use and easy to get back to.
-Being easy to use is a feature most relevant for the everyday workers, as they only occasionally need to read documents and therefore are less in contact with the system.
+Being easy to use is a feature most relevant for the blue-collar workers, as they only occasionally need to read documents and therefore are less in contact with the system.
 This makes it necessary to make the system as easily accessible for them as possible.
 The activities would most often be done during business hours, from 8-16 on weekdays, though may be accessed outside of this time frame as well.
 \todo[inline]{Rasmus: Skriv om notifikiationer}
@@ -104,12 +102,12 @@ Here it is necessary to not only write new versions of a document but also make 
 Though writing the documents in itself does not require collaboration.
 However, after a document has been written, it needs to be approved by other users.
 This is one of the most important collaboration aspects in the system.
-As for the worker's activities, there is no cooperation involved as all the workers need to read the newest, relevant documents individually.
+As for the blue-collar worker's activities, there is no cooperation involved as all the blue-collar workers need to read the newest, relevant documents individually.
 
 Regarding complexity in this project, the activities are quite well-defined overall.
 For the administrative personnel it is well-defined that whenever a new document has been written, it needs to be approved and then added to the handbook.
 Here the oldest, and now outdated, document is being archived and stored.
-The department manager needs to make sure that the affected everyday workers read and understand the new documents.
+The department manager needs to make sure that the affected everyday blue-collar workers read and understand the new documents.
 
 In relation to safety critical, there are no physical safety issues to consider in relation to the system, though there are serious consequences to consider if the handbook documents do not live up to regulations.
 It is required that there are updated handbook documents and that the archived versions of these documents are stored somewhere.
@@ -131,8 +129,8 @@ It is an analysis of the surrounding environment which may have effect on how us
 
 There are two main physical contexts to consider.
 For the quality manager and the secretaries an office context is most likely as they handle administrative work.
-For the everyday workers the context could differ dramatically as their functions may differ from each other.
-The main focus here is that the handbook documents should be easily accessible, no matter in which context the workers are located.
+For the blue-collar workers the context could differ dramatically as their functions may differ from each other.
+The main focus here is that the handbook documents should be easily accessible, no matter in which context the blue-collar workers are located.
 Previous to this development project, the most common way that the handbooks were used by employees were in a paper format, which allowed the use of the documents in circumstances not conductive to electronic equipment.
 It is expected that this practice will continue after the project.
 
@@ -140,13 +138,13 @@ As for the organizational context there are different factors to consider.
 These are Ipsen who acts as a third party quality manager for a firm in relation to maintaining the handbook.
 Then there is the in-house secretary who Ipsen works the closest with.
 There's the CEO who from time to time reads, writes, and approves the handbook documents.
-Lastly there are the everyday workers within the firm whose work and daily tasks vary depending on their positions.
+Lastly there are the blue-collar workers within the firm whose work and daily tasks vary depending on their positions.
 
 It is because of the structure of the organization that there needs to exist different access rights in the system which are administrator, writer, and reader.
 The administrator role is mainly for the quality manager who is the main person to manage the handbook documents.
 There are actors within the firm, the CEO for example, who occasionally needs to write/update documents in the handbook and need writer access rights.
-All of the workers need to read and understand the specific documents in the handbook that relates to their work.
-These workers need reader rights to access the documents.
+All of the blue-collar workers need to read and understand the specific documents in the handbook that relates to their work.
+These blue-collar workers need reader rights to access the documents.
 
 \subsection{Technologies}
 Technologies is the reflection on the medium which interactive system designers work with.
@@ -155,7 +153,7 @@ Furthermore, it also examines the content, which concerns the data in the system
 Good content is defined as accurate, up to date, relevant and well presented.
 
 Since the activities are most often done in an office environment, on a standard PC, the input medias are keyboard and mouse.
-In addition output is presented through a monitor, or for the workers on the factory floor through a printed version of the handbook, or parts of it.
+In addition output is presented through a monitor, or for the blue-collar workers on the factory floor through a printed version of the handbook, or parts of it.
 The content displayed to the user, on the monitor, is presented through a web browser.
 In \cref{sec:conditions} it was mentioned that the majority of the users have limited IT-experience.
 It is therefore important that the content displayed is simple enough to allow the users to easily navigate and use the system.

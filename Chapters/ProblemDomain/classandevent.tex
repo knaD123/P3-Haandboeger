@@ -68,9 +68,8 @@ The \texttt{Supplier} is qualified seeing that the administrator needs to keep a
 
 \textbf{Not qualified classes}
 
-\todo[inline]{Rasmus: hvorfor er log ikke en klasse og hvorfor er det smart}
-The \texttt{Log} does not contain unique information and the class itself is too simple.
-It is unnecessary to create an independent class for the changelog and therefore it has been converted to an attribute for the \texttt{Version} class.
+The changelog simply consists of a text string from version to version.
+Because of this, making it an actual object would be overcomplicating the model, and it has therefore been preserved as an attribute of the \texttt{Version} class.
 
 The \texttt{Responsibility} is not qualified because the different levels of access and permissions are present in the \texttt{User} class.
 
