@@ -2,62 +2,60 @@
 When creating a system it is vital to get an overview of the functions and to determine the complexity thereof.
 This is done by analysis of functions, in which the first step is to identify all functions.
 The result is a list of functions with a related complexity and type.
-This section is based upon\citep[ch.~7]{Rod-Aalborg}
-\todo[inline]{Anna: Ændre the section teksten}
+This section is based on Mathiassen, Munk-Madsen, Nielsen and Stage \citep[ch.~7]{Rod-Aalborg}, unless anything else is stated.
 
 To commence the analysis, a look at the system definition and use cases is necessary, see \cref{sec:SystemDefinition,sec:usecases}, as it creates a template of functions that are ready to be analysed.
 The next step is then to determine what type each function belong to, this means determining if it is an \textit{update, signal, read} or \textit{compute function}.
-A definition for each of the function types will be given to prevent misunderstandings throughout the rest of the report. \cite[p.~140]{Rod-Aalborg}
+A description of each of these the function types can be found in the following item list, \citep[p.~140]{Rod-Aalborg}:
+\begin{itemize}
+	\item 
+	''\textit{Update} functions are  activated by a problem-domain event and result in a change i the model's state.''
+	\item 
+	''\textit{Signal} functions are activated by a change in the model's state and result in a reaction in the context; \ldots''
+	\item
+	''\textit{Read} functions are activated by a need for information in an actor's work task and result in the system displaying relevant parts of the model.''
+	\item
+	''\textit{Compute} function s are activated by a need for information in an actor's work task and consist of a computation involving information provided by the actor or the model; \ldots''
+\end{itemize}
 
-\begin{defn}
-An update function is a a function that is activated by a problem-domain event and result in a change i the model's state
-\end{defn}
-
-\begin{defn}
-A signal function is a function that is activated by a change in the model's state and result in a reaction in the context
-\end{defn}
-
-\begin{defn}
-A read function is a function that is activated by a need for information in an actor's work task and result in the system displaying relevant parts of the model
-\end{defn}
-
-\begin{defn}
-A compute function is a function that is activated by a need for information in an actor's work task and consist of a computation involving information provided by the actor or the model
-\end{defn}
 
 % Astrid, jeg har tilføjet et par definationer. Det kan godt være at de skal rettes til (se side 140 i OOA&D) - Henrik
+%Anna: har rettet dem til da de ikke var definitioner, så har lavet dem som citeret liste
 \todo[inline]{Astrid: Hvad er the characteristics ved de forskellige ovenfor}
 The most present type of function in the system, as shown in the function table below, are of the update type.
 %These are described in \citep[p.~140]{Rod-Aalborg}
 %as "Update functions are activated by a problem-domain event and result in a change in the model's state."\citep[p.~140]{Rod-Aalborg}
-\todo[inline]{Anna: Citat? Definition? BOTH? Who knows}
+
 
 \todo[inline]{Henrik: Vi skal opdatere tabellen, og argumentere hvor vi har dem fra. Cref og analyser}
-\todo[inline]{Anna: Formater tabellen bedre. Men behold de alignede columns, det er så beautiful}
+
 \begin{table}[H]
 \centering
 \begin{tabular}{lll}
-Function						& Complexity & Type    \\
-Add document					& Simple     & Update  \\
-Archive document				& Simple     & Update  \\
-Reactivate document				& Simple     & Update  \\  % Henrik: Lidt i tvivl om vi overhovedet gør det her, eller om der bare laves et nyt dokument?
-Delete document					& Simple     & Update  \\
-Add version						& Medium	 & Update  \\
-Approve version					& Simple     & Update  \\
-Mark version as read			& Medium     & Update  \\ % Henrik: I tvivl med den her - HAAALP!
-Archive version					& Simple     & Update  \\
-Add user						& Simple     & Update  \\
-Update user						& Simple     & Update  \\
-Delete user						& Simple     & Update  \\
-Request approval				& Medium     & Update  \\
-Delete approval					& Simple     & Update  \\
-Add department					& Simple     & Update  \\
-Delete department				& Simple	 & Update  \\
-Add user to department			& Simple     & Update  \\
-Remove user from department		& Simple     & Update  \\
-Add document to department		& Simple     & Update  \\
-Remove document from department & Simple     & Update  \\
-Notify user						& Simple	 & Signal  \\
+	\hline
+	Function						& Complexity & Type    \\
+	\hline
+	Add document					& Simple     & Update  \\
+	Archive document				& Simple     & Update  \\
+	Reactivate document				& Simple     & Update  \\  % Henrik: Lidt i tvivl om vi overhovedet gør det her, eller om der bare laves et nyt dokument?
+	Delete document					& Simple     & Update  \\
+	Add version						& Medium	 & Update  \\
+	Approve version					& Simple     & Update  \\
+	Mark version as read			& Medium     & Update  \\ % Henrik: I tvivl med den her - HAAALP!
+	Archive version					& Simple     & Update  \\
+	Add user						& Simple     & Update  \\
+	Update user						& Simple     & Update  \\
+	Delete user						& Simple     & Update  \\
+	Request approval				& Medium     & Update  \\
+	Delete approval					& Simple     & Update  \\
+	Add department					& Simple     & Update  \\
+	Delete department				& Simple	 & Update  \\
+	Add user to department			& Simple     & Update  \\
+	Remove user from department		& Simple     & Update  \\
+	Add document to department		& Simple     & Update  \\
+	Remove document from department & Simple     & Update  \\
+	Notify user						& Simple	 & Signal  \\
+	\hline
 \end{tabular}
 \caption{Function list}
 \end{table}
