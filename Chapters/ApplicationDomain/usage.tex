@@ -94,19 +94,93 @@ In the rest of this section both the actors and use cases will be elaborated, st
 \todo[inline]{Astrid: Konkretiser use cases}
 \todo[inline]{Andreas: Sikr tiden real quick}
 \todo[inline]{Rasmus: Lav nogle ordentlige aktører. Reader, writer, administrator}
-\textbf{Manage documents}
-\\
-It is desired that a handbook containing several documents and their versions is managed by a software.
-This includes a TOC from which users are able to have an overview of the documents.
-There are active and inactive documents, where the active documents consists of the newest versions of the documents, and inactive ones are archived.
-The system also provides the person adding new versions with the option to write a changelog, where the user can write why there are changes to the document.
 
-\textbf{Manage users}
+
+
+\textbf{Access current handbook}
 \\
-It is the administrator and software's responsibility to manage users and their administrative rights.
-The administrator updates the system by adding, editing or removing users, while the software stores the users and their data in a database.
-There are three types of users with varying degrees of administrative rights.
-The administrator is able to create, edit, and delete users.
+Any actor can access the handbook by going to the website where it is located where they need to log in with username and password.
+They are then redirected to the front page.
+Documents relevant to this specific user are shown first.
+Below all the chapters are visible.
+A user can view the documents in a chapter by clicking unfold on that specific chapter.
+Alternatively they can unfold all chapters by clicking unfold all.
+When they click on a document a preview is shown if the file is a pdf.
+The changelog from last version to current version is shown above the preview.
+Depending on the user's role further actions are available in this view (elaborated in other use cases).
+To exit the view the user clicks outside the box or the x in the corner.
+
+\textbf{Add new document}
+\\
+An \textit{administrator} or \textit{writer} can add a new a document by clicking an upload button on the front page.
+They are then taken to a seperate menu, where they specify the file which they wish to upload.
+This file will serve as the first version of a new document.
+They can select an existing chapter from a drop-down menu or create a new one. 
+They can then either choose an existing ID and title or create a new one.
+If they choose an existing one they do not add a new document but add a new version to the specified document.
+If they do so they may also be propmpted to write a changelog.
+This depends on the system settings.
+In both cases they will be prompted to choose the people who should approve this addition to the handbook.
+After clicking 'Send for Approval' the view returns to the front page.
+
+\textbf{Add new version}
+\\
+An \textit{administrator} or \textit{writer} can add a new version through the flow presented in the 'Add new document' use case.
+Alternatively they can click on a document from the front page.
+The current version of that document is then shown.
+They then click upload and are taken to a seperate menu where they add the file they wish to add, may add a changelog and people to approve the new version.
+They then click 'Send for Approval' and the view returns to the front page.
+
+\textbf{Approve version}
+\\
+When a user has been set as an approver they get an email notification about this.
+Once they log in the document is shown in their relevant documents section.
+They can then click on it to view and approve.
+They can also click approve straight from the front page.
+Once they have approved the document it is updated with a new version.
+The former version is labeled as inactive and can be accessed through the archive.
+
+\textbf{Access archive}
+\\
+The \textit{administrator} can access the archive by clicking on the archive in the sidebar menu.
+The archive looks like the front page:
+All of the chapters and their titles are visible and each has a drop-down menu containing all of the documents.
+When a document is clicked a list of versions, the date they were added to the handbook, the date they were archived, the version number is shown and if one exists, the changelog.
+When they click one version a file preview and download options are shown.
+
+\textbf{Mark document as read}
+\\
+A \textit{reader} can mark that they have read a document by previewing the document and clicking the 'Read' button. 
+Alternatively they can access this button from the front page.
+A popup menu stating that they have read and understood the content of the version will pop up.
+The reader then clicks 'Agree', the popup disappears and the read status has been saved.
+
+\textbf{See who has read a document}
+\\
+The \textit{administrator} can view who has marked a specific document as read by previewing it in the system.
+The information is also accessible through the Read Statuses sidebar option.
+\todo[inline]{mere info om hvordan det her faktisk ser ud}
+
+\textbf{Add user}
+\\
+An \textit{administrator} can add a user to the system.
+This is done by clicking 'User administration' in the sidebar and choosing the 'Add user' button.
+A user needs needs a username, a password and either an email or a phone number.
+Once the administrator has clicked 'Add user' the new user is in the system and the administrator is returned to the User administration view.
+
+\textbf{Edit user}
+\\
+All of the actors can change their own password and contact information in settings.
+The \textit{administrator} can change others' contact information as well through the User management view.
+An administrator can also elect to delete a user.
+They must confirm that they wish to delete this user before the change takes effect.
+
+
+\textbf{Add department}
+\\
+An administrator can access the 
+
+\textbf{Edit department relations to user and document}
 
 \textbf{Manage departments}
 \\
@@ -116,11 +190,6 @@ A department is subscribed to one or more documents which are relevant to the us
 A user can be within one or more departments at once.
 The software is responsible for notifying the departments whenever a document has been updated.
 
-\textbf{Approve new documents}
-\\
-Whenever a new version of a document is available, it needs to be approved by one or more persons.
-The user(s) who is responsible for approving the document(s) could either be the manager, or blue-collar worker.
-When a document has been approved it is updated within the system, the older document is archived and the TOC is updated.
 
 \textbf{Read status}
 \\
