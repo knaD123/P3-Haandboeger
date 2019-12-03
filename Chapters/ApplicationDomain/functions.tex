@@ -5,8 +5,27 @@ The result is a list of functions with a related complexity and type.
 This section is based upon\citep[ch.~7]{Rod-Aalborg}
 \todo[inline]{Anna: Ændre the section teksten}
 
-To commence the analysis, a look at the system definition and use cases is necessary as it creates a template of functions that are ready to be analysed.
+To commence the analysis, a look at the system definition and use cases is necessary, see \cref{sec:SystemDefinition,sec:usecases}, as it creates a template of functions that are ready to be analysed.
 The next step is then to determine what type each function belong to, this means determining if it is an \textit{update, signal, read} or \textit{compute function}.
+A definition for each of the function types will be given to prevent misunderstandings throughout the rest of the report.
+
+\begin{defn}
+An update function is a a function that is activated by a problem-domain event and result in a change i the model's state
+\end{defn}
+
+\begin{defn}
+A signal function is a function that is activated by a change in the model's state and result in a reaction in the context
+\end{defn}
+
+\begin{defn}
+A read function is a function that is activated by a need for information in an actor's work task and result in the system displaying relevant parts of the model
+\end{defn}
+
+\begin{defn}
+A compute function is a function that is activated by a need for information in an actor's work task and consist of a computation involving information provided by the actor or the model
+\end{defn}
+
+% Astrid, jeg har tilføjet et par definationer. Det kan godt være at de skal rettes til (se side 140 i OOA&D) - Henrik
 \todo[inline]{Astrid: Hvad er the characteristics ved de forskellige ovenfor}
 The most present type of function present are of the update type.
 These are described in \citep[p.~140]{Rod-Aalborg}
