@@ -46,6 +46,11 @@ Both of these deal with archiving and managing the documents a company needs to 
 	%linje hanbook & user
 	\draw[black](hand.east) -| (6.7,-5.0);
 	\draw[black](user.east) -| (6.7,-5.0);
+	%Handbook approval og user
+	\draw[black](handapp.west)node[below=0.6cm, right]{1..*} -| (-7.3,-5.0);
+	\draw[black] (-7.3,-5.0) |- (-6,-9.0);
+	\draw[black] (user.south east)node[below=0.2cm, right]{0..*} -| (7.7,-7.0);
+	\draw[black] (-6,-9.0) -| (7.7,-7.0);
 	%rollemønstret
 	\draw[arrow](role.north)--(user.south);
 	\draw[arrow](5.63,-7.7)--(role.south);
@@ -213,6 +218,10 @@ Therefore the final class diagram looks like in \cref{fig:ClassDiagramNoSupplier
 	%Handbook & user
 	\draw[black](hand.east)-|(6.0,-3.0);
 	\draw[black](user.east)-|(6.0,-3.0);
+	%Handbook approvals og user
+	\draw[black](handapp.west)node[below=0.6cm, right]{1..*} -| (-6.0,-7.4);
+	\draw[black] (user.south east)node[below=0.2cm, right]{0..*} -| (8.5,-7.4);
+	\draw[black] (-6.0,-7.4) |- (8.5,-7.4);
 	%nemme linjer
 	\draw[black](doc.east) node[below=0.2cm, right]{1}--(dep.west) node[above=0.2cm, left]{0..*};
 	\draw[black](ver.east) node[below=0.2cm, right]{1}--(read.west) node[above=0.2cm, left]{0..*};
