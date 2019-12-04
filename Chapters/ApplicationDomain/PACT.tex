@@ -1,21 +1,27 @@
 
-In this chapter the application domain will be analysed.
-Where the problem domain focused on \textit{what} information the system should process, the application domain focuses on \textit{how} the user will use the system in practice.
+In this chapter the application domain will be analyzed.
+Where the problem domain, \cref{ch:ProblemDomain}, focused on; what information the system should process, the application domain focuses on; how the user will use the system in practice.
 This analysis will start with a PACT analysis where the context of the use of the system will be explored which delves into the people, their activities, contexts and the technologies used.
 Afterwards use cases of the system will be explored followed by functions that need to support these use cases.
 
 \section{PACT analysis}\label{sec:PACT}
+The theory of this section is based upon Benyon \cite{Benyon} and the analysis made during the project unless anything else is stated.
+
 \todo[inline]{Andreas: Udskriv machine-centered}
+%Anna: Tjek op på om den todo er lavet og evt fjern den hvis det er i orden.
+When developing an interactive system it is important to design it with the users in mind as the system is being developed for a specific purpose and context.
+This is also know as human-centred design.
+On the other hand is the machine-centred design where the users are seen as vague, disorganized and have to fit the needs of the machine. 
+%Anna: Fjernede denne linje, synes ikke den passede ind, og synes det ovenfor fint beskrev det
+%In such way the data might have a special format or users might have to act in a certain pattern.
+To design human-centred the developers must explore the users who will eventually use the system and for what purposes they are going to utilize it.
+
 To help understand and reflect upon the users and their relation to an interactive system, the framework \textit{PACT} is used.
 PACT is an acronym for \textit{People, Activities, Context}, and \textit{Technology}.
-This analysis framework is used to analyze the users, such that developers are able to design the system human-centered rather than machine-centered.
-The theory of this section is based upon Benyon \cite{Benyon} and the analysis of the project unless anything else is stated.
+%Anna: med det tidligere afsnit virker denne linje ligegyldig
+%This analysis framework is used to analyze the users, such that developers are able to design the system human-centered rather than machine-centered.
 
-When designing an interactive system it is important to design it with the human in mind as the system is being developed for a specific purpose and context, also known as human-centred design.
-This is versus the machine-centred view where the users are seen as vague, disorganized and have to fit the needs of the machine. In such way the data might have a special format or users might have to act in a certain pattern.
-To design human-centred the designers must explore the users who will eventually use the system and for what purposes they are going to utilize it.
-
-Depending on how well designers have implemented a way to convey their conception of a given system, different users will interpret it differently.
+Depending on how well developers have implemented a way to convey their conception of a given system, different users will interpret it differently.
 Their interpretation, being based on individual understanding and knowledge, regulates the users interactions with the system and thereby determines what it really does.
 A model of this concept can be seen in \cref{fig:PACT-SystemImage}.
 
@@ -44,9 +50,9 @@ Additionally, there is also a big difference in people's expertise levels which 
 This is an important consideration since designing a system for a homogeneous group of people is  different from designing one for a heterogeneous group.
 
 In the case described in this report, see \cref{sec:CaseDescription}, there are four main groups of people that need to be considered.
-These are the quality manager, secretaries, department heads, and blue-collar workers.
+These are the quality manager, secretary, department heads, and blue-collar workers.
 This is a heterogeneous group with IT experience ranging from possibly none to what is required at everyday office work.
-Should a blue-collar worker have no IT experience it seems reasonable to assume that this blue-collar worker may be cautoius of it and the design needs to take this into account.
+Should a blue-collar worker have no IT experience it seems reasonable to assume that this blue-collar worker may be cautious of it and the design needs to take this into account.
 The group also has different levels of domain expertise ranging from novice to expert which needs to be considered.
 The quality manager is a domain expert and therefore has different needs of the system than the blue-collar worker with no expertise.
 Furthermore, issues such as colorblindness, other handicaps, as well as bad memory needs to be considered when designing the system and interface.
@@ -59,7 +65,7 @@ Furthermore, issues such as colorblindness, other handicaps, as well as bad memo
 It is important to figure out what activities the system need to support.
 First and foremost, the analysis of the activities should focus on the overall \textit{purpose} of the activity.
 However each one of the groups described in \cref{sec:PACT-people} has a different goal in using the system.
-The quality and department managers need to manage, update and access the handbook, whereas the blue-collar workers only need to access and read certain documents.
+The secretary,  quality and department managers need to manage, update and access the handbook, whereas the blue-collar workers only need to access and read certain documents.
 This will be further elaborated in \cref{sec:Actors}.
 The different kinds of purposes an activity can have is explored below.
 
@@ -71,7 +77,7 @@ Starting with the considerations of user interactions, one need to consider amon
 	\item Is the interactions with the system done continuously or interrupted?
 \end{itemize}
 
-For the temporal aspects in a given system the designers need to consider things such as; time pressures, peaks and, and the response time of a given activity.
+For the temporal aspects in a given system the developers need to consider things such as; time pressures, peaks and, and the response time of a given activity.
 
 \textit{Cooperation} is the consideration of whether or not the activity is done in cooperation with others, alone, or a mix hereof, as well as how and when a possible cooperation is needed.
 This is an important consideration since a system which is done in cooperation with others needs to have an awareness of all the users, be able to coordinate between them and possibly have a communication system implemented as well.
@@ -129,14 +135,15 @@ Furthermore the system should support large quantities of these files as the arc
 Activities always occur in a context which will be explored in this section.
 Context can be thought of, as something that surrounds activities as well as a feature which binds them together into a whole.
 Usually when considering this point in PACT the three points: \textit{Physical environment, Social context}, and \textit{Organizational context} are at the main focus.
-The analysis will not touch upon the social context as this is not considered relevant for the system development.
-This is because the system is developed for a business and work context and does not consider the social interactions of the users for maintaining the handbook documents.
+The analysis will not include the social context as this is not considered relevant for the system development.
+%Anna: Synes ikke denne tekst stemmer overens med hvad det egentligt er social contest dækker over, på nogen måde
+%"This is because the system is developed for a business and work context and does not consider the social interactions of the users for maintaining the handbook documents."
 
 The physical environment might cover everything from weather to geographical placement of where the activity is done.
 It is an analysis of the surrounding environment which may have effect on how users perform activities.
 
 There are two main physical contexts to consider.
-For the quality manager and the secretaries an office context is most likely as they handle administrative work.
+For the quality manager and the secretary an office context is most likely as they handle administrative work.
 For the blue-collar workers the context could differ dramatically as their functions may differ from each other.
 The main focus here is that the handbook documents should be easily accessible, no matter in which context the blue-collar workers are located.
 Previous to this development project, the most common way that the handbooks were used by employees were in a paper format, which allowed the use of the documents in circumstances not conductive to electronic equipment.
@@ -155,7 +162,7 @@ All of the blue-collar workers need to read and understand the specific document
 These blue-collar workers need reader rights to access the documents.
 
 \subsection{Technologies}
-Technologies is the reflection on the medium which interactive system designers work with.
+Technologies is the reflection on the medium which interactive system developers work with.
 It covers looking into elements such as what medias and technologies are needed to best get input and present the output, and review the communication between the needed devices.
 Furthermore, it also examines the content, which concerns the data in the system and its form.
 Good content is defined as accurate, up to date, relevant and well presented.
