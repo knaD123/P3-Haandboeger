@@ -42,10 +42,10 @@ This section is based on sharma \cite{Iterative-Toolsqa} , and Sharp, Rogers and
 
 The main principle of the iterative model is to divide the software development into a cycle of ''waterfalls'', it could also be seen as a form of ''multi-waterfalls'' model.
 Instead of focusing on everything through every phase in the waterfall model, the development is done in pieces and at every iteration a little more is added to the product until it is finished.
-The model usually has four basic activities, the formal names may change from the specific models but the idea is the same. 
-Through each iteration the product and requirements are always being redetermined, redefined and further developed through the four main activities and in collaboration with the client or users, until the final solution is reached.
+%The model usually has four basic activities, the formal names may change from the specific models but the idea is the same. 
+Through each iteration the product and requirements are always being redetermined, redefined and further developed through the models activities and in collaboration with the client or users, until the final solution is reached.
 Different iteration models are simplified versions of reality and are not meant to be prescriptive, and depending on the project it is not always possible to go through all of the phases described in these models. 
-Three explicit models will be presented in the \cref{sec:Iterative1,sec:Iterative3}.
+Two explicit models will be presented in the \cref{sec:Iterative1,sec:Iterative3}.
 
 
 \paragraph{The main benefits}
@@ -53,62 +53,35 @@ of working iteratively is the continuous talk with the client and users which yi
 This ongoing communication also makes it easier for catching mistakes and faulty software since only a little part is added at each iteration.
 It is easier as well to clarify misconceptions of the products requirements.
 The repeated correspondence with the client and/or users is likewise the center of the user-centered approach, mentioned in \cref{sec:PACT}, which is of great importance when designing and developing an interactive system.
-%måske få tydeligere frem at det er nemmere at opdage fejlene tidligere
 
 \paragraph{The main disadvantage} of the iteration model is how adding functionality at every stage, may cause problems related to the system architecture since it had not been thought into the design to begin with.
 This may in worst case scenario cause for the whole system to be redesigned at re-implemented.
 Another disadvantage with this model is also one of it strong suits and allures, which is how it can become difficult to manage, and keep track of the development and when a iteration is done and a new one begin since it is ever changing.
 
-\paragraph{Iterative model in design process:}
-%Anna: Evt fjerne paragraph titlen ovenfor, er ikke sikker på om den i virkeligheden gør noget for det hele
-As suggested in the disadvantages one of the allures of this iteration model is its ever changing quality and how it i more of a guideline which conforms to the different periods of the software development.
-This suits the process of designing interaction system which is ''messy'' as the quote below from \citep[p.~156]{DesignerStance} illustrates.
-
-''Remember, design is messy; designers try to understand the mess. They observe to how their products will be used; design is about users and use. They visualize, which is the act of deciding what it is.''
-
-The Iteration proccess and the contentious communication with client and/or users is therefore a more natural way to develop human centered interaction systems.
-
 
 \subsection{The process of designing interaction systems}\label{sec:Iterative1}
 This section is further based upon Benyon \cite{Benyon}, unless anything else is stated.
 
-As mentioned in \cref{sec:iterativModel} there are usually four basic activities, which may be called differently in the different models, even though the basic idea is commonly the same.
-In life cycle model in \cref{fig:LifeCycleModel} these activities are called;
-\textit{establishing requirements, designing alternatives, prototyping,} and \textit{evaluating}. 
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.75\textwidth]{billeder/lifecycle.png}
-	\caption{Life cycle model \citep[p.~332]{InteractionDesign}}\label{fig:LifeCycleModel}
-\end{figure}
-
-To be able to design a system with the user’s needs and wants in mind it is imperative to know the target users and which activities the system needs to support. 
-This is done through establishing requirements where information of the target users is gathered through data gathering and analysis. 
-When the requirements are settled it is possible to design alternatives ideas that meet these suggested requirements. 
-After the alternative design phase is completed a prototype can be developed. 
-The purpose of the prototype is to evaluate with the users whether the criteria has been fulfilled and to present how the system could potentially turn out. 
-Finally, when the prototype is complete it can be measured an evaluated. 
-The evaluation phase determines whether or not the design is usable and/or acceptable and thereby if another design iteration is needed.
-
-%Anna: tænker lidt vi enten bruger teksten ovenfor eller denne her nedenunder, synes det bliver meget dobbelt konfekt at bruge beggge.
-According to Sharp, Rogers and Preece ''Most projects start with establishing requirements'' \citep[p.~333]{InteractionDesign}. It is from this first activity that it’s possible to go into the ‘designing alternatives’ activity from where a prototype in the ‘prototyping’ activity, can be developed which in turn can be evaluated by the users in the ‘evaluating’ activity. From this evaluation the designers can specify new or redefined requirements, or they can go directly to redesign or deem the project done. 
-
-\subsubsection{Another take on the interaction design process}\label{sec:Iterative2}
-In \cref{fig:DEBModel} another model is shown, where it becomes more apparent how it might be difficult to define when an iteration ends and a new one begin since it is possible to start and any point and to move back and forth between the activities seen fit.
+In \cref{fig:DEBModel} it becomes apparent how it might be difficult to define when an iteration ends and a new one begin since it is possible to start at any point and to move back and forth between the activities as seen fit.
+The four basic activities of this model are; \textit{understanding, design, envisionment} and \textit{evaluation}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{billeder/DEBModel.jpg}
 	\caption{Understanding, design, evaluation, envisionment \citep[p.~49]{Benyon}}\label{fig:DEBModel}
 \end{figure}
-
-The four basic activities of this model is instead of those shown above called; \textit{understanding, design, envisionment} and \textit{evaluation}.
-though they correlate a lot with those before. 
-'Understanding' is a broader term for 'establishing requirements' since it also covers topics such as understanding the context of the developed system and the technological landscape.
+'Understanding' is a broad term which covers among other establishing requirements, understanding the context of the developed system and the technological landscape.
+%To be able to design a system with the user’s needs and wants in mind it is imperative to know the target users and which activities the system needs to support. 
+%Therefore, ''Most projects start with establishing requirements'' \citep[p.~333]{InteractionDesign}. 
+%%It is from this first activity that it’s possible to go into the designing process.
 The 'envisionment' activity concerns itself with determining appropriate media in which to render design ideas.
 While the 'design' activity is done through conceptual- and physical design as seen in \cref{fig:DEBModel}.
-These two activities is together comparable to the 'designing alternatives' activity and 'prototyping' activity from \cref{fig:LifeCycleModel}.
-'Evaluation' is the same in both models, it is the center of the process.
+These last two activities combines together to designing alternatives and prototyping.
+'Evaluation' at the center of the model is where understandings and design ideas are confirmed or reevaluated with the client and/or users.
+It is therefore a paramount activity since this is the catalyst for the human-centered development.
+
+
+
 
 \subsection{OOA\&D iteration model}\label{sec:Iterative3}
 This section is based on Mathiassen, Munk-Madsen, Nielsen and Stage \cite{Rod-Aalborg}, unless anything else is stated.
@@ -116,7 +89,7 @@ This section is based on Mathiassen, Munk-Madsen, Nielsen and Stage \cite{Rod-Aa
 In the OOA\&D method the four basic activities are; \textit{Problem-domain analysis, Application-domain analysis, Architectural design} and \textit{Component design}.
 In between these activities  also lies programming and quality assurance.
 The importance of each activity is relative in each iteration and the sequence changes from each development project.
-Further down in this section two different models based on the OOA\&D method is presented.
+%Further down in this section two different models based on the OOA\&D method is presented.
 
 %Anna: er det nødvendigt at skrive et afsnit om sammenligning af de fire aktiviteter?, da det i princippet er modeller til to forskellige ting tænker jeg ikke det er nødvendigt explicit at skrive ind her
 
@@ -142,4 +115,10 @@ The second model, \cref{fig:SUModel2} is on the other hand closer to the stereot
 
 
 \subsection{Using iterative life cycle in the project}
-Throughout the project it is intended to design a system iteratively with a specific user’s needs and wants integrated into the designs and tests. This is the basis of choosing to work with the iterative model to reflect over which activity is being used throughout the stages of the project.
+Throughout the project it is intended to design a system iteratively with a specific user’s needs and wants integrated into the designs and tests. 
+In the following sections each iteration will be presented, with a comparrison to the models.
+The sections will also contain a mention of the most important changes throughout the specific iterations. 
+
+According to Sharp, Rogers and Preece ''Most projects start with establishing requirements'' \citep[p.~333]{InteractionDesign}. 
+It is from this first activity that it’s possible to go into the designing and further analysis.
+As \cref{sec:Iteration1} will reflect this was also the true starting point of the first iteration.
