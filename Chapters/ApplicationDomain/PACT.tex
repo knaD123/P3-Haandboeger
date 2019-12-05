@@ -5,21 +5,15 @@ This analysis will start with a PACT analysis where the context of the use of th
 Afterwards use cases of the system will be explored followed by functions that need to support these use cases.
 
 \section{PACT analysis}\label{sec:PACT}
-f this section is based upon Benyon \cite{Benyon} and the analysis made during the project unless anything else is stated.
+This section is based upon Benyon \cite{Benyon} and the analysis made during the project unless anything else is stated.
 
-\todo[inline]{Andreas: Udskriv machine-centered}
-%Anna: Tjek op på om den todo er lavet og evt fjern den hvis det er i orden.
 When developing an interactive system it is important to design it with the users in mind as the system is being developed for a specific purpose and context.
 This is also know as human-centred design.
 On the other hand is the machine-centred design where the users are seen as vague, disorganized and have to fit the needs of the machine.
-%Anna: Fjernede denne linje, synes ikke den passede ind, og synes det ovenfor fint beskrev det
-%In such way the data might have a special format or users might have to act in a certain pattern.
 To design human-centred the developers must explore the users who will eventually use the system and for what purposes they are going to utilize it.
 
 To help understand and reflect upon the users and their relation to an interactive system, the framework \textit{PACT} is used.
 PACT is an acronym for \textit{People, Activities, Context}, and \textit{Technology}.
-%Anna: med det tidligere afsnit virker denne linje ligegyldig
-%This analysis framework is used to analyze the users, such that developers are able to design the system human-centered rather than machine-centered.
 
 Depending on how well developers have implemented a way to convey their conception of a given system, different users will interpret it differently.
 Their interpretation, being based on individual understanding and knowledge, regulates the users interactions with the system and thereby determines what it really does.
@@ -58,11 +52,7 @@ The quality manager is a domain expert and therefore has different needs of the 
 Furthermore, issues such as colorblindness, other handicaps, as well as bad memory needs to be considered when designing the system and interface.
 
 \subsection{Activities}\label{sec:PACT-actvities}
-\todo[inline]{Andreas: Omformuler ``when considering'' PS: bearing in mind}
-%Each actor in the system has a different use of it
-% Ved ikke om det er mening at den ovenståede sætning skal stå der?
-
-It is important to figure out what activities the system need to support.
+It is important to figure out what activities the system needs to support.
 First and foremost, the analysis of the activities should focus on the overall \textit{purpose} of the activity.
 However each one of the groups described in \cref{sec:PACT-people} has a different goal in using the system.
 The secretary,  quality and department managers need to manage, update and access the handbook, whereas the blue-collar workers only need to access and read certain documents.
@@ -89,26 +79,18 @@ Is it a well-defined task which can be done in a simple step-by-step design, or 
 \textit{Safety Critical} has two sides to it.
 First is whether or not the activity in itself is ``safety-critical'' where mistakes could be reason for injury or serious accidents.
 Second is the consideration of ``what will happen when mistakes and errors are made?'' which is important for any developer to reflect upon.
-%Anna: fjerenede sidste del af sætningen (nedenfor) synes ikke den virkede nødvendig
-%"and then design for these circumstances."
 
 \textit{The nature of the content} is a more technical reflection of which data requirements are needed for the activity as well as what media it requires.
 
 % Kunne det være en ide at lave en subsubsection ved navnet "Activities of OBHandbook" eller noget da activities del er ret laaaang
 %Anna: Hvis vi har tænkt os at gøre det skal det are gøres ved alle dele for at være konsekvente
-
+\todo[inline]{Lav subsection}
 In the case of this project, see \cref{sec:CaseDescription} in terms of temporal aspects during the activities users may experience interruptions and the system should therefore be simple to use and easy to get back to.
 
 Being easy to use is a feature especially relevant for the blue-collar workers, as they only occasionally need to read documents and therefore are less in contact with the system.
-%Anna: har udkommenteret sætningen nedenfor følte den fyldte mere end den breagt noget til bordet
-%"This makes it necessary to make the system as easily accessible for them as possible."
 The activities would most often be done during business hours, from 8-16 on weekdays, though may be accessed outside of this time frame as well.
-% Taniya: kunne måske være en ide at kort nævne administrator at selvom de bliver forstyrret med notifikationer fra systemet så skal admin hurtigt kunne vende tilbage til arbejdsopgaven admin var i gang med.
-%Men stadig nemt kunne se/huske/ finde tilbage til de notifikationer, så de hellere ikke bliver glemt.
 
 The cooperation aspect is mostly relevant for the  quality manager and department heads, or in more general terms the administrator and writer roles as they are maintaining the handbook documents.
-%Anna: Har udkommenteret sætnignen endenfor da det gav afsnittet et bedre flow
-%"Here it is necessary to not only write new versions of a document but also make sure that the newest versions are approved."
 Though writing the documents in itself does not require collaboration after a document has been written, it needs to be approved by other users.
 This is one of the most important collaboration aspects in the system.
 This sort of communication is partly facilitated by notifications. It is important in the design of these notifications that they are non-obtrusive when the user is focusing on something else. But this is achieved mostly by the notifications only being visible in the browser. Designing the notifications such that they are only dismissed when the task they indicate is complete, turns it into a double feature as a to-do list.
@@ -118,8 +100,6 @@ Regarding the complexity; the activities are quite well-defined overall.
 The main activities for the administrative personnel is, that whenever a new document has been written, it needs to be approved and then added to the handbook.
 Hereby archiving the the old and now outdated document.
 The department manager needs to make sure that the affected blue-collar workers read and understand the new documents.
-%Til Astrids beskred, så er det vel som sådan ikke department manageren der holder øje, men kvilitets chefen der kan gå til dem og sige du skal lige tage fat i dine medarbejdere?
-
 
 In relation to safety critical aspect, there are no physical safety issues to consider in relation to the system, though there are serious consequences to consider if the handbook documents do not live up to regulations.
 It is required that the handbook dis up to date and that the elder versions of its documents are stored somewhere.
@@ -127,8 +107,6 @@ If this is not upheld the firm could suffer loss of certification, see \cref{sec
 
 In terms of the nature of the content, the system should be able to handle Microsoft documents such as Word and Excel as these are the filetypes used to write the documents.
 As Ipsen has mentioned, it is also acceptable that the system accepts PDF files instead, as long as she is able to write the document with her preferred text editing software.
-%Anna: er det noget vi har kommenteret tidligere at hun ar sagt således?
-%Lige nu står det som en selvfølge, er det ikke bedre i stedet for "As Ipsen has mentiond" i stedet for at skrive noget i still med "Although Ipsen has clarified that for it to accept only PDF also is acceptable as long as it is possible to write the documents in one own prefered text editing software"?
 Furthermore the system should support large quantities of these files as the archived versions of the documents would be stored indefinitely.
 
 \subsection{Contexts}
@@ -136,8 +114,6 @@ Activities always occur in a context which will be explored in this section.
 Context can be thought of, as something that surrounds activities as well as a feature which binds them together into a whole.
 Usually when considering this point in PACT the three points: \textit{Physical environment, Social context}, and \textit{Organizational context} are at the main focus.
 The analysis will not include the social context as this is not considered relevant for the system development.
-%Anna: Synes ikke denne tekst stemmer overens med hvad det egentligt er social contest dækker over, på nogen måde
-%"This is because the system is developed for a business and work context and does not consider the social interactions of the users for maintaining the handbook documents."
 
 The physical environment might cover everything from weather to geographical placement of where the activity is done.
 It is an analysis of the surrounding environment which may have effect on how users perform activities.

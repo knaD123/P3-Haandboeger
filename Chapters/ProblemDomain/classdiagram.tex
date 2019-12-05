@@ -173,8 +173,7 @@ The two Approval classes are more complicated as the approval process varies:
   \item In the supplier-approval system a supplier needs to be approved which only demands an approval from one administrator. 
 \end{itemize}
 
-% Tidligere formulering: In the supplier-approval system a supplier needs to be approved and only one person is needed to do that.
-However that one person needs to submit some kind of documentation, that justifies the approval.
+However the administrator needs to submit some kind of documentation, that justifies the approval of the supplier.
 Both systems need the approval for the changes to take effect.
 
 The current version of the class diagram in \cref{fig:ClassDiagram} does this by including a generalization. The approvals' shared functionality is included in the abstract class Approval and the more specific functionalities in the subclasses HandbookApproval and SupplierApproval.

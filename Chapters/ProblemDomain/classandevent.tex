@@ -1,5 +1,5 @@
+\todo[inline]{Henrik: Fjern reactivate document}
 This chapter covers the problem domain analysis based on data gathered in the initial interviews with Ipsen.
-%, see \cref{sec:firstinterview}.
 The following sections include the selection of selected classes and events, a rundown of the structure between classes, and the description of the behavior patterns through statechart diagrams.
 
 \section{Classes and events}
@@ -61,7 +61,6 @@ The \texttt{User} is qualified because there would be different types of users w
 The \texttt{Approval} is vital to substantiate who has to or already has approved each version and at what date it was approved.
 
 The \texttt{Read Status} is qualified since there is a need to keep track of which users has read what versions and when.
-%Anna: Skal Read status også holde styr på hvornår de har læst det?
 This is useful when the company has to report a total number of employees that have read the current version of the document.
 
 The \texttt{Supplier} is qualified seeing that the administrator needs to keep a record of all documents related to approval of suppliers.
@@ -78,7 +77,6 @@ The purpose with \texttt{TOC} is to create an overview of the valid documents in
 
 The \texttt{Notification} is more an event rather than a class.
 The functionality in the \texttt{Notification} class is to assign users to specific documents therefore the name is modified to \texttt{Department} instead.
-%Anna: Hører den her i virkeligheden ikke til qualified classes?
 
 Hereby, the Qualified classes are as follows:
 \begin{multicols}{4}
