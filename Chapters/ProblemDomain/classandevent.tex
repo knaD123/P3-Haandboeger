@@ -1,4 +1,4 @@
-\todo[inline]{Henrik: Fjern reactivate document}
+%\todo[inline]{Henrik: Fjern reactivate document}
 This chapter covers the problem domain analysis based on data gathered in the initial interviews with Ipsen.
 The following sections include the selection of selected classes and events, a rundown of the structure between classes, and the description of the behavior patterns through statechart diagrams.
 
@@ -120,7 +120,7 @@ In the rest of the section the generated events in \cref{tab:EventCandidates} wi
 		\hline
 		\textbf{Document added} & A document is created.\\
 		\textbf{Document archived} & A document where version is archived instead of updated.\\
-		\textbf{Document reactivated} & Archived document is to be accessible in the handbook again\\
+		%\textbf{Document reactivated} & Archived document is to be accessible in the handbook again\\
 		\textbf{Document deleted} & Wrong document is created, and is still without version\\
 		\textbf{Version approved}  & When approved it becomes available in the handbook\\
 		\textbf{New version released} &  New version becomes available in the handbook\\
@@ -157,7 +157,7 @@ In the rest of the section the generated events in \cref{tab:EventCandidates} wi
 
 \textit{Document archived} event is qualified because it is an important functionality to archive expired documents for number of years according to ISO 9001 document management requirements.
 
-\textit{Document reactivated} event is qualified since it must also be able to reactivate the document and make it available in the handbook again.
+%\textit{Document reactivated} event is qualified since it must also be able to reactivate the document and make it available in the handbook again.
 
 \textit{Document deleted} is qualified for the reason that if an administrator made a mistake and added a wrong document then the delete option should be available.
 
@@ -198,7 +198,7 @@ Qualified events:
 	\begin{itemize}
 	\item Document added
 	\item Document archived
-	\item Document reactivated
+	%\item Document reactivated
 	\item Document deleted
 	\item Version approved
 	\item Version marked as read
@@ -234,7 +234,7 @@ The symbols used in the table is to be understood such that; $+$ is an event tha
 			\hline
 			Document archived &  & $\star$ & $\star$ &  &  &  &  &  & \\
 			\hline
-			Document reactivated &  & $\star$ & $\star$ &  &  &  &  &  & \\
+			%Document reactivated &  & $\star$ & $\star$ &  &  &  &  &  & \\
 			\hline
 			Document deleted &  & $\star$ & $+$ &  &  &  &  &  & \\
 			\hline
