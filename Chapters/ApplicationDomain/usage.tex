@@ -4,7 +4,7 @@ Who uses and how they use the system will be explored systematically through ana
 The actors consists of the different user groups who will be utilizing the system and the use cases will describe the different uses the system will potentially have.
 
 The actors that have been identified within the case are \textit{administrator, writer}, and \textit{reader}.
-The use cases of the system have been identified to be \textit{manage documents, manage users, manage departments, approve new documents, read status}, and \textit{track differences between document versions}.
+The use cases of the system have been identified to be \textit{Access current handbook, add new file to the system, approve new version or document, access archive, add user, edit user information, user management, mark document as read, view who has read a document}, and \textit{manage departments}.
 
 An overview of the relationships between the actors and the use cases are shown through the table below, \cref{tab:UseCases}.
 Here it is outline which actors have which responsibilities in relation to the system.
@@ -17,32 +17,29 @@ Here it is outline which actors have which responsibilities in relation to the s
 		\hline
 		\textbf{Use cases} & Administrator  & Writer & Reader \\
 		\hline
-		Access current\newline handbook & x & & \\
+		Access current\newline handbook & x & x & x \\
 		\hline
-		Add new file to the\newline system & & x & \\
+		Add new file to the\newline system & x & x & \\
 		\hline
-		Approve new version\newline or document & & x & \\
+		Approve new version\newline or document & x & x & x \\
 		\hline
-		Access archive & & x & x \\
+		Access archive & x & & \\
 		\hline
-		Add user & & & \\
+		Add user & x & & \\
 		\hline
-		Edit user information & & & \\
+		Edit user information & x & x & x\\
 		\hline
-		User management & & & \\
+		User management & x & & \\
 		\hline
-		Mark document as\newline read & & & \\
+		Mark document as\newline read & \textcolor{red}{x?} & x & x \\
 		\hline
-		View who has read a document & & & \\
+		View who has read a document & x & x & \\
 		\hline
-		Manage departments & & & \\
+		Manage departments & x & & \\
 		\hline
 	\end{tabular}
 	\end{center}
-	\caption{ {\color{red}husk at sætte caption og label så den kan referes til} }\label{tab:UseCases}
+	\caption{Actor table for the system}\label{tab:ActorTable}
 \end{table}
-\todo[inline]{Anja og Astrid: Efter actors og use cases er paa plads, saa skal vi lige kigge paa tabellen igen.}
 
 In the rest of this section both the actors and use cases will be elaborated, starting with the actors.
-
-\todo[inline]{Henrik: Henrik: Der skal generelt henvises til tidligere tekst + er lidt forvirret mht consultant}
