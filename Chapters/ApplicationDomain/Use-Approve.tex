@@ -1,0 +1,16 @@
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
+	\node(start)[circle, fill=black,minimum size=3pt]{};
+	\node(main)[predefined, right=2cm of start]{Handbook front\\ page displayed};
+	\node(preview)[predefined, below=1cm of main]{Selected document\\ preview displayed};
+	\node(read)[predefined, right=2cm of preview]{Read status overview\\ pop-up displayd};
+	
+	\node(end)[circle, fill=black,minimum size=3pt, above=1cm of read] {};
+	\draw[fill=white] circle[radius = 7pt, above=2cm of read];
+	
+	
+	\end{tikzpicture}
+	\caption{Approve new version or document}\label{fig:Use-Approve}
+\end{figure}
