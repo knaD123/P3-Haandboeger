@@ -1,16 +1,20 @@
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
-	%[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
-	\node(start)[circle, fill=black,minimum size=3pt]{};
-	\node(main)[predefined, right=2cm of start]{Handbook front\\ page displayed};
-	\node(preview)[predefined, below=1cm of main]{Selected document\\ preview displayed};
-	\node(read)[predefined, right=2cm of preview]{Read status overview\\ pop-up displayd};
-	
-	\node(end)[circle, fill=black,minimum size=3pt, above=1cm of read] {};
-	\draw[fill=white] circle[radius = 7pt, above=2cm of read];
-	
+	%noder i billedet
+	\node(start)[n]{};
+	\node(main)[predefined, right=2.8cm of start]{Handbook front\\ page displayed};
+	\node(preview)[predefined, below=1.5cm of main]{document preview\\ displayed};
+	\node(read)[predefined, right=3.2cm of preview]{Read status overview\\ pop-up displayd};	
+	\node(end)[n, above=1.5cm of read] {};
+	\node(End)[c,fit=(end)] at (end) {};
+	%Pile i billedet
+	\draw[arrow](start.east) -- node [above]{Open\\ OBHandbooks} (main.west);
+	\draw[arrow] (main.south) -- node [left]{Select\\ document}(preview.north);
+	\draw[arrow](preview.east) -- node[below]{Press 'read status\\ overview'} (read.west);
+	\draw[arrow](read.north) -- (End) node[right=0.5cm]{Close};
+	\draw[arrow](read.north west) -- node[above]{Press 'x'\\ to exit}(preview.north east);
 	
 	\end{tikzpicture}
-	\caption{Approve new version or document}\label{fig:Use-Approve}
+	\caption{View who has read a document}\label{fig:Use-ReadStatus}
 \end{figure}

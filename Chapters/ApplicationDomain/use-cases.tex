@@ -105,6 +105,27 @@ Here a button called 'Read Status' is available and by clicking it a pop-up appe
 In the popup everyone connected to the document who has read it and who should have read it is listed by name.
 They exit the popup by clicking outside it or on the x.
 
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%noder i billedet
+	\node(start)[n]{};
+	\node(main)[predefined, right=2.8cm of start]{Handbook front\\ page displayed};
+	\node(preview)[predefined, below=1.5cm of main]{document preview\\ displayed};
+	\node(read)[predefined, right=3.2cm of preview]{Read status overview\\ pop-up displayd};	
+	\node(end)[n, above=1.5cm of read] {};
+	\node(End)[c,fit=(end)] at (end) {};
+	%Pile i billedet
+	\draw[arrow](start.east) -- node [above]{Open\\ OBHandbooks} (main.west);
+	\draw[arrow] (main.south) -- node [left]{Select\\ document}(preview.north);
+	\draw[arrow](preview.east) -- node[below]{Press 'read status\\ overview'} (read.west);
+	\draw[arrow](read.north) -- (End) node[right=0.5cm]{Close};
+	\draw[arrow](read.north west) -- node[above]{Press 'x'\\ to exit}(preview.north east);
+	
+	\end{tikzpicture}
+	\caption{{\color{red}View who has read a document}}\label{fig:Use-ReadStatus}
+\end{figure}
+
 \textbf{Manage departments}
 \\
 An administrator can access 'Manage departments' through the sidebar.

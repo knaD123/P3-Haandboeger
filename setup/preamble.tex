@@ -122,6 +122,23 @@ draw=black, fill=white]
 \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
     minimum height=2em]
 
+\tikzset{
+	n/.style={fill=black,circle, %% node
+		minimum size=3pt},
+	e/.style={fill=black,circle, %% ellipses
+		inner sep=0pt,minimum size=2pt},
+	w/.style={fill=white,draw=white,circle, %% white (omitted) nodes
+		inner sep=0pt,minimum size=4pt},
+	c/.style={ellipse,draw=black,inner sep=1pt}, %% circles 
+	b/.style={decoration={brace,amplitude=10pt},decorate,thick}, %% brace
+	a/.style={postaction={decorate,decoration={
+				markings, mark=at position .5 with 
+				{\arrow[black]{Straight Barb[length=\al]}}
+	}}} %% mid arrow
+} 
+
+
+
 %PGF%
 \usepackage{pgfplots}
 \usepgfplotslibrary{patchplots}
