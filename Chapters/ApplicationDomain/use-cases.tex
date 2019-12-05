@@ -111,7 +111,7 @@ They exit the popup by clicking outside it or on the x.
 	%noder i billedet
 	\node(start)[n]{};
 	\node(main)[predefined, right=2.8cm of start]{Handbook front\\ page displayed};
-	\node(preview)[predefined, below=1.5cm of main]{document preview\\ displayed};
+	\node(preview)[predefined, below=1.5cm of main]{Document preview\\ displayed};
 	\node(read)[predefined, right=3.2cm of preview]{Read status overview\\ pop-up displayd};	
 	\node(end)[n, above=1.5cm of read] {};
 	\node(End)[c,fit=(end)] at (end) {};
@@ -121,9 +121,8 @@ They exit the popup by clicking outside it or on the x.
 	\draw[arrow](preview.east) -- node[below]{Press 'read status\\ overview'} (read.west);
 	\draw[arrow](read.north) -- (End) node[right=0.5cm]{Close};
 	\draw[arrow](read.north west) -- node[above]{Press 'x'\\ to exit}(preview.north east);
-	
-	\end{tikzpicture}
-	\caption{{\color{red}View who has read a document}}\label{fig:Use-ReadStatus}
+\end{tikzpicture}
+	\caption{Statechart diagram for the 'View who has read a document' use case}\label{fig:Use-ReadStatus}
 \end{figure}
 
 \textbf{Manage departments}
