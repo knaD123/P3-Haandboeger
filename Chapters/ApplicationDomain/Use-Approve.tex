@@ -2,19 +2,48 @@
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
 	%noder i billedet
-	\node(start)[n]{};
-	\node(main)[predefined, right=2.8cm of start]{Handbook front\\ page displayed};
-	\node(preview)[predefined, below=1.5cm of main]{document preview\\ displayed};
-	\node(read)[predefined, right=3.2cm of preview]{Read status overview\\ pop-up displayd};	
-	\node(end)[n, above=1.5cm of read] {};
-	\node(End)[c,fit=(end)] at (end) {};
+		\node(start)[n]{};
+		\node(main)[predefined, right=2.8cm of start]{Handbook front\\ page displayed};
+		\node(preview)[predefined, below=1.5cm of main]{document preview\\ displayed};
+		\node(read)[predefined, right=3.2cm of preview]{Read status overview\\ pop-up displayd};	
+		\node(end)[n, above=1.5cm of read] {};
+		\node(End)[c,fit=(end)] at (end) {};
 	%Pile i billedet
-	\draw[arrow](start.east) -- node [above]{Open\\ OBHandbooks} (main.west);
-	\draw[arrow] (main.south) -- node [left]{Select\\ document}(preview.north);
-	\draw[arrow](preview.east) -- node[below]{Press 'read status\\ overview'} (read.west);
-	\draw[arrow](read.north) -- (End) node[right=0.5cm]{Close};
-	\draw[arrow](read.north west) -- node[above]{Press 'x'\\ to exit}(preview.north east);
+		\draw[arrow](start.east) -- node [above]{Open\\ OBHandbooks} (main.west);
+		\draw[arrow] (main.south) -- node [left]{Select\\ document}(preview.north);
+		\draw[arrow](preview.east) -- node[below]{Press 'read status\\ overview'} (read.west);
+		\draw[arrow](read.north) --node[left]{Press 'x'\\ to exit}(End) node[right=0.5cm]{Close};
+		%\draw[arrow](read.north west) -- node[above]{Press 'x'\\ to exit}(preview.north east);
 	
 	\end{tikzpicture}
-	\caption{View who has read a document}\label{fig:Use-ReadStatus}
+	\caption{{\color{red}View who has read a document}}\label{fig:Use-ReadStatus}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+			\node(start)[n]{};
+			\node(main)[predefined, right=2.8cm of start]{Handbook front\\page displayed};
+			\node(new)[predefined, below=1.5cm of main, xshift=-2cm]{Upload new file\\page displayed};
+			\node(preview)[predefined, right=3cm of new]{Document preview\\displayed};
+			\node(doc)[predefined, below=1.5cm of new, xshift=-2cm]{Create new Document\\with first version};
+			\node(ver)[predefined, right=2cm of doc]{Create new version\\to an existing document};
+	
+	\end{tikzpicture}
+	\caption{{\color{red}Add new file to the system -suggestion}}\label{fig:Use-AddDoc}
+\end{figure}
+
+
+
+
+
+
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	
+	
+	\end{tikzpicture}
+	\caption{{\color{red}Cpation tekst}}\label{fig:Use-Whatif}
 \end{figure}
