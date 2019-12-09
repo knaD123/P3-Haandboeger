@@ -103,8 +103,24 @@
 	%Noder i billedet
 	\node(start)[n]{};
 	\node(main)[predefined, right=2.8cm of start]{Main page};
+	\node(dep)[predefined,right=2.8cm of main]{Department\\main page};
+	\node(detail)[predefined, below=1.5cm of main]{Detail view\\of department};
+	\node(add)[predefined, below=1.5cm of dep]{Add name of\\new department};
+	\node(editD)[predefined, below=1.5cm of detail]{Manage documents\\in department page};
+	\node(editU)[predefined, left=2.8cm of editD]{Manage users in\\department page};
+	\node(delete)[predefined, right=2.8cm of editD]{Department deleted};
+	\node(update)[predefined, below=1.5cm of editU, xshift=2cm]{Department updated};
+	\node(end)[n, below=1.5cm of delete] {};
+	\node(End)[c,fit=(end)] at (end) {};	
 	%streger i billedet
+	\draw[arrow](start)--(main);
+	\draw[arrow](main)--(dep);
+	\draw[arrow](dep)--(detail);
+	\draw[arrow](dep)--(add);
+	\draw[arrow](add)--(detail);
+	\draw[arrow](detail)--(End);
 	%loops i billedet
+	
 	
 	
 	\end{tikzpicture}
