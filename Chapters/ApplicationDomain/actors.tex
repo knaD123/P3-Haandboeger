@@ -1,20 +1,45 @@
 \subsection{Actors}\label{sec:Actors}
-%Anna: Vil evt foreslå at man under eksempler også gav eksempler på hvem i firmaet kunne hadve de forskellige roller?
+The actors exist in the application domain and as such are not within the system but interact with it. They are defined as
+\begin{defn}
+An abstraction of users or other systems that interact with the target system. \citep[p.~121]{Rod-Aalborg}
+\end{defn}
+
+MERE META
+
 \todo[inline]{Anja: Kom med eksempler}
 \begin{table}[H]
 	\begin{tabular}{l m{11.3cm}}
 		\hline
 		\multicolumn{2}{c}{\textbf{\textit{Administrator}}}\\
 		\hline
-		\textbf{Goal} &  Manages document versions, users, and user departments. \\
+		\textbf{Goal} &  Manages document versions, users, and departments. There is at least 1 administrator per handbook\\
 		 &  \\
-		\textbf{Characteristic} & There is at least 1 administrator per handbook who administrates the documents and the users who has access to the handbook. \\
-		 &  \\
-		\textbf{Example} & The administrator has access to all parts of the system which includes the archive, users, editing users, updating the documents and so on. \\
+		\textbf{Characteristic} & Someone in the company in an administrative or leader position.\\
+		&  \\
+		\textbf{Example 1}
+		& The quality manager is comfortable using the system. 
+		They are responsible for maintaining and updating the handbook.
+		They write the majority of the documents, approves the rest and has a complete overview of the entire system at all times. \\
+		&  \\
+		\textbf{Example 2}
+		& The secretary rarely uses the system.
+		They have an administrative role in the company and therefore needs complete access to all of the company's systems.
+		They mainly create new users and every now and then search for a specific piece of information.\\
+		&  \\
+		\textbf{Example 3}
+		& The CEO of the company has this role only out of formalities and usually acts like a reader\\
 		\hline
 	\end{tabular}
 \caption{Actor specifiactions for \textit{Administrator}}\label{tab:Actor-admin}
 \end{table}
+
+The roles in the system were described and explained in \cref{sec:user} and it was visualized with \cref{fig:RoleIllustration} how the roles encapsulate each other.
+However based on \cref{tab:ActorTable} it is clear that this is mostly but not entirely true, as the administrator cannot mark a document as read but reader and writer both can.
+
+This is because the administrators have no need for this functionality as none of them work in the production, which can be seen in the examples in \cref{tab:Actor-admin}.
+The quality manager has written or approved the documents and therefore obviously knows what they contain.
+The secretary does not need the actual documents only the administrative access to the system and possibility to help other users.
+The CEO needs to be in the system to approve documents but has no other use of it.
 
 \begin{table}[H]
 	\begin{tabular}{l m{11.3cm}}
@@ -23,13 +48,17 @@
 		\hline
 		\textbf{Goal} & Update specific documents in the handbook. \\
 	 	 &  \\
-		\textbf{Characteristic} &  One or more employees who need to update one or more documents in the handbook. \\
+		\textbf{Characteristic} &  One or more employees who need to update one or more documents in the handbook, but is not allowed all-access to the system. \\
 		 &  \\
-		\textbf{Example} & When someone, who is not the administrator, needs to update one or more documents they get temporary writer access rights.\\
+		\textbf{Example 1} 
+		& A department head updates the documents connected to their own department and sees that everyone in their department has read those documents.\\
 		\hline
 	\end{tabular}
 	\caption{Actor specifiactions for \textit{Writer}}\label{tab:Actor-write}
 \end{table}
+
+The department head knows more about their own department than amybody else, and are both among the first one to know when an update is needed as well as one of the people best equipped to write said update.
+Furthermore, the quality manager cannot write the entire handbook due to its size.
 
 \begin{table}[H]
 	\begin{tabular}{l m{11.3cm}}
@@ -40,8 +69,14 @@
 		 &  \\
 		\textbf{Characteristic} & There are many readers who have various positions in the firm. Their shared characteristic is that they all need to read parts of the handbook. \\
 		 &  \\
-		\textbf{Example} & When a document has been updated all affected readers must read the newest version and understand the difference between the previous and current one. \\
+		\textbf{Example 1}
+		& The production worker who needs to access the book every time 
+		When a document has been updated all affected readers must read the newest version and understand the difference between the previous and current one. \\
+		& vary of technology vs not vary\\
 		\hline
 	\end{tabular}
 	\caption{Actor specifiactions for \textit{Reader}}\label{tab:Actor-read}
 \end{table}
+
+One of the reasons why every role can approve is that the CEO may have a reader role. 
+CEO CAN BE READER NEEDS TO APPROVE
