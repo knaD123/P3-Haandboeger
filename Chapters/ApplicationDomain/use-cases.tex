@@ -183,33 +183,20 @@ They exit the popup by clicking outside it or on the x.
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
 	%noder i billedet
 	\node(start)[n]{};
-<<<<<<< HEAD
 	\node(main)[predefined, right=2.8cm of start]{Handbook front\\ page displayed};
 	\node(preview)[predefined, below=1.5cm of main]{Document preview\\ displayed};
 	\node(read)[predefined, right=3.2cm of preview]{Read status overview\\ pop-up displayd};	
-=======
-	\node(main)[predefined, right=2.8cm of start]{Main page};
-	\node(preview)[predefined, below=1.5cm of main]{Document\\ preview};
-	\node(read)[predefined, right=3.2cm of preview]{Read status\\ overview pop-up};	
->>>>>>> Workflow
 	\node(end)[n, above=1.5cm of read] {};
 	\node(End)[c,fit=(end)] at (end) {};
 	%Pile i billedet
 	\draw[arrow](start.east) -- node [above]{login to\\ OBHandbooks} (main.west);
 	\draw[arrow] (main.south) -- node [left]{Select\\ document}(preview.north);
 	\draw[arrow](preview.east) -- node[below]{Press 'read status\\ overview'} (read.west);
-<<<<<<< HEAD
 	\draw[arrow](read.north) -- (End) node[right=0.5cm]{Close};
 	\draw[arrow](read.north west) -- node[above]{Press 'x'\\ to exit}(preview.north east);
 \end{tikzpicture}
 	\caption{Statechart diagram for the 'View who has read a document' use case}\label{fig:Use-ReadStatus}
-=======
-	\draw[arrow](read.north) --node[left]{Press 'x'\\ to exit}(End) node[right=0.5cm]{};%{Close};
-	%\draw[arrow](read.north west) -- node[above]{Press 'x'\\ to exit}(preview.north east);
-	
-	\end{tikzpicture}
-	\caption{{\color{red}View who has read a document}}\label{fig:Use-ReadStatus}
->>>>>>> Workflow
+
 \end{figure}
 
 \textbf{Manage departments}
