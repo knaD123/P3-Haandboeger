@@ -40,8 +40,7 @@ To exit the view the user clicks outside the box or the x in the corner.
 	\draw[arrow](info.south west)--node[right, xshift=0.5cm]{Valid info}(main.north east);
 	\draw[arrow](main.east)--node[below]{Select\\document}(preview.west);
 	\draw[arrow](preview.east)--(End.west);
-	
-	
+	%Loop arrows
 	\path[arrow] (main) edge [loop below, looseness=7] node[auto] {Unfold a chapter} (main);
 	\path[arrow] (main) edge [loop left, looseness=3] node[auto] {Unfold all\\chapters} (main);
 	\path[arrow] (preview) edge [loop below,looseness=4] node[auto] {Download}(preview);
@@ -183,19 +182,20 @@ They exit the popup by clicking outside it or on the x.
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
 	%noder i billedet
 	\node(start)[n]{};
-	\node(main)[predefined, right=2.8cm of start]{Handbook front\\ page displayed};
-	\node(preview)[predefined, below=1.5cm of main]{Document preview\\ displayed};
-	\node(read)[predefined, right=3.2cm of preview]{Read status overview\\ pop-up displayd};	
+	\node(main)[predefined, right=2.8cm of start]{Main page};
+	\node(preview)[predefined, below=1.5cm of main]{Document\\ preview};
+	\node(read)[predefined, right=3.2cm of preview]{Read status\\ overview pop-up};	
 	\node(end)[n, above=1.5cm of read] {};
 	\node(End)[c,fit=(end)] at (end) {};
 	%Pile i billedet
 	\draw[arrow](start.east) -- node [above]{login to\\ OBHandbooks} (main.west);
 	\draw[arrow] (main.south) -- node [left]{Select\\ document}(preview.north);
 	\draw[arrow](preview.east) -- node[below]{Press 'read status\\ overview'} (read.west);
-	\draw[arrow](read.north) -- (End) node[right=0.5cm]{Close};
-	\draw[arrow](read.north west) -- node[above]{Press 'x'\\ to exit}(preview.north east);
-\end{tikzpicture}
-	\caption{Statechart diagram for the 'View who has read a document' use case}\label{fig:Use-ReadStatus}
+	\draw[arrow](read.north) --node[left]{Press 'x'\\ to exit}(End) node[right=0.5cm]{};%{Close};
+	%\draw[arrow](read.north west) -- node[above]{Press 'x'\\ to exit}(preview.north east);
+	
+	\end{tikzpicture}
+	\caption{{\color{red}View who has read a document}}\label{fig:Use-ReadStatus}
 \end{figure}
 
 \textbf{Manage departments}
@@ -208,3 +208,41 @@ They can then tick them on and off to select which users are connected to the de
 Similarly an 'Edit departments' button exists where they are then redirected to a list of all active documents in the handbook.
 
 Worth noting. The administrator can change a user's name while the user themself can change their user name.
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%Noder i billedet
+	\node(start)[n]{};
+	\node(main)[predefined, right=2.8cm of start]{Main page};
+	\node(dep)[predefined,right=2.8cm of main]{Department\\main page};
+	\node(add)[predefined, below=1.5cm of dep]{Add name of\\new department};
+	\node(detail)[predefined, left=4.5cm of add]{Detail view\\of department};
+	\node(editD)[predefined, below=1.5cm of detail,xshift=1.5cm]{Manage documents\\in department page};
+	\node(editU)[predefined, left=0.5cm of editD]{Manage users in\\department page};
+	\node(delete)[predefined, right=2cm of editD]{Department\\deleted};
+	\node(update)[predefined, below=1.5cm of editU, xshift=2cm]{Department\\updated};
+	\node(end)[n, below=1.9cm of delete] {};
+	\node(End)[c,fit=(end)] at (end) {};	
+	%streger i billedet
+	\draw[arrow](start)--node[above]{Login to\\OBHandbooks}(main);
+	\draw[arrow](main)--node[above]{Go to\\'Departments'}(dep);
+	\draw[arrow](dep)--node[left=0.9cm]{Select a\\department}(detail);
+	\draw[arrow](dep)--node[right]{Add a new\\department}(add);
+	\draw[arrow](add)--node[above]{New department's page}(detail);
+	\draw[arrow](delete)--(End);
+	\draw[arrow](update)--(End);
+	%ud fra detail view
+	\draw[black](detail.south)--(1.65,-3.5);
+	\draw[arrow](1.65,-3.5)-|node[left=1cm, below]{Press 'edit\\documents'}(editD);
+	\draw[arrow](1.65,-3.5)-|node[left=0.9cm, below]{Press 'edit\\users'}(editU);
+	\draw[arrow](1.65,-3.5)-|node[left=1.1cm, below]{Press 'delete\\department'}(delete);
+	%Ned til updated
+	\draw[arrow](1.32,-6.0)--node[right]{Press\\'Apply list'}(update.north);
+	\draw[black](editU)|-(1.32,-6.0);
+	\draw[black](editD)|-(1.32,-6.0);
+	%loops i billedet
+	\path[arrow] (editU) edge [loop left, out=208, in=190, looseness=4] node[below] {Add/remove\\documents} (editU);
+	\path[arrow] (editD) edge [loop right,out=335, in=350, looseness=4] node[below] {Add/remove\\users} (editD);
+	\end{tikzpicture}
+	\caption{{\color{red}Manage departments}}\label{fig:dep}
+\end{figure}
