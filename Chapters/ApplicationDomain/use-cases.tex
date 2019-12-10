@@ -19,35 +19,8 @@ Otherwise they have the option to download the file.
 The changelog from last version to current version is shown above the preview.
 Depending on the user's role further actions are available in this view (elaborated in other use cases).
 To exit the view the user clicks outside the box or the x in the corner.
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
-	%noder i billedet:
-	\node(start)[n]{};
-	\node(login)[predefined, right=2.8cm of start]{Login\\page};
-	\node(main)[predefined, below=1.5cm of login]{Main page};
-	\node(setting)[predefined, right=2.0cm of login]{Settings\\page};
-	\node(info)[predefined, right=2.5cm of setting]{Information\\checked};
-	\node(preview)[predefined, right=2.8cm of main]{Document\\preview};
-	\node(end)[n, right=2.8cm of preview] {};
-	\node(End)[c,fit=(end)] at (end) {};	
-	%linjer i billedet:
-	\draw[arrow](start.east)--node[above]{open\\OBHandbooks}(login.west);
-	\draw[arrow](login.south)--node[left]{Normal\\login}(main.north);
-	\draw[arrow](login.east)--node[above]{First time\\login}(setting.west);
-	\draw[arrow](setting.north east)--node[above]{Fill out\\informations}(info.north west);
-	\draw[arrow](info.west)--node[below]{invalid info}(setting.east);
-	\draw[arrow](info.south west)--node[right, xshift=0.5cm]{Valid info}(main.north east);
-	\draw[arrow](main.east)--node[below]{Select\\document}(preview.west);
-	\draw[arrow](preview.east)--(End.west);
-	%Loop arrows
-	\path[arrow] (main) edge [loop below, looseness=7] node[auto] {Unfold a chapter} (main);
-	\path[arrow] (main) edge [loop left, looseness=3] node[auto] {Unfold all\\chapters} (main);
-	\path[arrow] (preview) edge [loop below,looseness=4] node[auto] {Download}(preview);
-	
-	\end{tikzpicture}
-	\caption{{\color{red}Access current handbook}}\label{fig:Use-access}
-\end{figure}
+
+\input{Chapters/ApplicationDomain/Access-Fig}
 
 \textbf{Add new file to the system}
 \\
@@ -68,49 +41,8 @@ Another way to add a new version to the document is from the preview of a specif
 In this case they are not prompted for chapter, existing ID or title as those are already defined.
 The rest of the flow is the same.
 
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
-	%Noder i billedet
-	\node(start)[n]{};
-	\node(main)[predefined, right=2.8cm of start]{Main page};
-	\node(new)[predefined, below=1.5cm of main, xshift=-2cm]{New file\\upload page};
-	\node(preview)[predefined, right=2.5cm of new]{Document\\ preview};
-	\node(doc)[predefined, below=1.5cm of new, xshift=-2cm]{Create\\new Document};
-	\node(ver)[predefined, right=2cm of doc]{Create\\new version};
-	\node(title)[predefined, below=1.5cm of doc]{Title \& ID\\checked};
-	\node(upload)[predefined, right=2.8cm of title]{Upload\\file};
-	\node(log)[predefined, right=3.5cm of upload]{Changelog\\created};
-	\node(approve)[predefined, above=1.5cm of log]{Approval\\ created};
-	\node(sent)[predefined, above =1.5cm of approve]{Approval request\\sent};
-	\node(end)[n, above=1.5cm of sent] {};
-	\node(End)[c,fit=(end)] at (end) {};
-	%Streger i billedet
-	\draw[arrow](start.east)--node [above]{login to\\ OBHandbooks}(main.west);
-	%Ud fra main page
-	\draw[black](main.south)--(4.01,-0.8);
-	\draw[arrow](4.03,-0.8)-|node[right, yshift=-0.5cm]{Press\\'Upload'}(new.north);
-	\draw[arrow](4.03,-0.8)-|node[left, yshift=-0.5cm]{Select\\document}(preview.north);
-	%ud fra new file
-	\draw[black](new.south)--(2.02,-3.3);
-	\draw[arrow](2.02,-3.3)-|node[right, yshift=-0.5cm]{Add new\\ID}(doc);
-	\draw[arrow](2.02,-3.3)-|node[left, yshift=-0.5cm]{Select\\existing ID}(ver);
-	%Andre pile
-	\draw[arrow](doc.south)--node[right]{Add\\title}(title.north);
-	\draw[arrow](title.east)--node[above]{Select file}(upload.west);
-	\draw[arrow](ver.south)--node[left]{Select\\file}(upload.north);
-	\draw[arrow](preview.south)--node[right]{Press 'Upload\\new version'}(upload.north east);
-	\draw[arrow](upload.east)--node[above]{Add changelog}(log.west);
-	\draw[arrow](log.north)--node[left]{Add\\approvers}(approve.south);
-	\draw[arrow](approve.north)--node[left]{Press ' send\\to approval}(sent.south);
-	\draw[arrow](sent.north)--(End.south);
-	\draw[black](sent.south east)|-(2.5,-8.15);
-	\draw[black](2.5,-8.15)-|(-1.5,-4.0);
-	\draw[arrow](-1.5,-4.0)|-node[above, xshift=1.0cm]{Invalid\\info}(new.west);
-	\draw[arrow](upload.north east)--(approve.south west);
-	\end{tikzpicture}
-	\caption{{\color{red}Add new file to the system -suggestion}}\label{fig:Use-AddDoc}
-\end{figure}
+\input{Chapters/ApplicationDomain/Add-Doc-Fig}
+
 
 \textbf{Approve new version or document}
 \\
@@ -160,6 +92,8 @@ When a user is deleted only the name remains in the database.
 When they delete a user they get a popup asking whether they are sure.
 The user is deleted once they click confirm and the popup disappears.
 
+\input{Chapters/ApplicationDomain/User-Man-Fig}
+
 \textbf{Mark document as read}
 \\
 A \textit{reader} is alerted to a new document they need to read through an email or sms notification.
@@ -177,26 +111,7 @@ Here a button called 'Read Status' is available and by clicking it a pop-up appe
 In the popup everyone connected to the document who has read it and who should have read it is listed by name.
 They exit the popup by clicking outside it or on the x.
 
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
-	%noder i billedet
-	\node(start)[n]{};
-	\node(main)[predefined, right=2.8cm of start]{Main page};
-	\node(preview)[predefined, below=1.5cm of main]{Document\\ preview};
-	\node(read)[predefined, right=3.2cm of preview]{Read status\\ overview pop-up};	
-	\node(end)[n, above=1.5cm of read] {};
-	\node(End)[c,fit=(end)] at (end) {};
-	%Pile i billedet
-	\draw[arrow](start.east) -- node [above]{login to\\ OBHandbooks} (main.west);
-	\draw[arrow] (main.south) -- node [left]{Select\\ document}(preview.north);
-	\draw[arrow](preview.east) -- node[below]{Press 'read status\\ overview'} (read.west);
-	\draw[arrow](read.north) --node[left]{Press 'x'\\ to exit}(End) node[right=0.5cm]{};%{Close};
-	%\draw[arrow](read.north west) -- node[above]{Press 'x'\\ to exit}(preview.north east);
-	
-	\end{tikzpicture}
-	\caption{{\color{red}View who has read a document}}\label{fig:Use-ReadStatus}
-\end{figure}
+\input{Chapters/ApplicationDomain/ReadStatus-Fig}
 
 \textbf{Manage departments}
 \\
@@ -208,41 +123,5 @@ They can then tick them on and off to select which users are connected to the de
 Similarly an 'Edit departments' button exists where they are then redirected to a list of all active documents in the handbook.
 
 Worth noting. The administrator can change a user's name while the user themself can change their user name.
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
-	%Noder i billedet
-	\node(start)[n]{};
-	\node(main)[predefined, right=2.8cm of start]{Main page};
-	\node(dep)[predefined,right=2.8cm of main]{Department\\main page};
-	\node(add)[predefined, below=1.5cm of dep]{Add name of\\new department};
-	\node(detail)[predefined, left=4.5cm of add]{Detail view\\of department};
-	\node(editD)[predefined, below=1.5cm of detail,xshift=1.5cm]{Manage documents\\in department page};
-	\node(editU)[predefined, left=0.5cm of editD]{Manage users in\\department page};
-	\node(delete)[predefined, right=2cm of editD]{Department\\deleted};
-	\node(update)[predefined, below=1.5cm of editU, xshift=2cm]{Department\\updated};
-	\node(end)[n, below=1.9cm of delete] {};
-	\node(End)[c,fit=(end)] at (end) {};	
-	%streger i billedet
-	\draw[arrow](start)--node[above]{Login to\\OBHandbooks}(main);
-	\draw[arrow](main)--node[above]{Go to\\'Departments'}(dep);
-	\draw[arrow](dep)--node[left=0.9cm]{Select a\\department}(detail);
-	\draw[arrow](dep)--node[right]{Add a new\\department}(add);
-	\draw[arrow](add)--node[above]{New department's page}(detail);
-	\draw[arrow](delete)--(End);
-	\draw[arrow](update)--(End);
-	%ud fra detail view
-	\draw[black](detail.south)--(1.65,-3.5);
-	\draw[arrow](1.65,-3.5)-|node[left=1cm, below]{Press 'edit\\documents'}(editD);
-	\draw[arrow](1.65,-3.5)-|node[left=0.9cm, below]{Press 'edit\\users'}(editU);
-	\draw[arrow](1.65,-3.5)-|node[left=1.1cm, below]{Press 'delete\\department'}(delete);
-	%Ned til updated
-	\draw[arrow](1.32,-6.0)--node[right]{Press\\'Apply list'}(update.north);
-	\draw[black](editU)|-(1.32,-6.0);
-	\draw[black](editD)|-(1.32,-6.0);
-	%loops i billedet
-	\path[arrow] (editU) edge [loop left, out=208, in=190, looseness=4] node[below] {Add/remove\\documents} (editU);
-	\path[arrow] (editD) edge [loop right,out=335, in=350, looseness=4] node[below] {Add/remove\\users} (editD);
-	\end{tikzpicture}
-	\caption{{\color{red}Manage departments}}\label{fig:dep}
-\end{figure}
+
+\input{Chapters/ApplicationDomain/Dep-Man-Fig}
