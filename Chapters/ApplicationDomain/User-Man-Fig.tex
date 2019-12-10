@@ -18,7 +18,8 @@
 		\draw[arrow](delete.south)--(End.north);
 		\draw[arrow](update.east)--(End.west);
 		\draw[arrow](edit.east)--node[above]{press 'save'}(update.west);
-		\draw[arrow](edit.north east)--node[left=1.3cm]{select a\\user}(delete.south west);
+		\draw[arrow](edit.north east)--node[right=1.4cm]{Press\\'Delete'}(delete.south west);
+		\draw[arrow](user.south west)--node[left=0.4cm]{Select a\\user}(edit.north);
 	%loop i billedet
 		\path[arrow] (edit) edge [loop left, looseness=3] node[left] {Update\\information} (edit);
 		%Anna: Det er den linje her nedenfor som todo'en omhandler
