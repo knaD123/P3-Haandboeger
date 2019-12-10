@@ -133,7 +133,7 @@
 		\path[arrow] (editU) edge [loop left, out=208, in=190, looseness=4] node[below] {Add/remove\\documents} (editU);
 		\path[arrow] (editD) edge [loop right,out=335, in=350, looseness=4] node[below] {Add/remove\\users} (editD);
 	\end{tikzpicture}
-	\caption{{\color{red}Manage departments}}\label{fig:dep}
+	\caption{{\color{red}Manage departments}}\label{fig:Use-dep}
 \end{figure}
 
 \section{Figure 5}
@@ -141,26 +141,32 @@
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
 	%noder i billedet
-	\node(start)[n]{};
-	\node(main)[predefined, right=2.8cm of start]{Main\\page};
-	\node(user)[predefined,right=2.6cm of main]{User management\\page};
-	\node(delete)[predefined, right=1.8cm of user]{User\\deleted};
-
-	\node(end)[n, below=1.5cm of delete] {};
-	\node(End)[c,fit=(end)] at (end) {};
+		\node(start)[n]{};
+		\node(main)[predefined, right=2.7cm of start]{Main\\page};
+		\node(user)[predefined,right=2.6cm of main]{User management\\page};
+		\node(delete)[predefined, right=1.6cm of user]{User\\deleted};
+		\node(end)[n, below=2cm of delete] {};
+		\node(End)[c,fit=(end)] at (end) {};
 	
-	\node(update)[predefined, left=2.8cm of End]{User updated};
-	\node(edit)[predefined, left=2.8cm of update]{Edit user\\page};	
+		\node(update)[predefined, left=2.8cm of End]{User\\updated};
+		\node(edit)[predefined, left=2.8cm of update]{Edit user\\page};	
 	%streger i billedet
-	\draw[arrow](start)--node[above]{Login to\\OBHandbooks}(main);
-	\draw[arrow](main)--node[above]{Go to 'User\\management'}(user);
-	\draw[arrow](user)--node[above]{Press\\'Delete'}(delete);
+		\draw[arrow](start)--node[above]{Login to\\OBHandbooks}(main);
+		\draw[arrow](main)--node[above]{Go to 'User\\management'}(user);
+		\draw[arrow](user)--node[above]{Press\\'Delete'}(delete);
+		\draw[arrow](delete.south)--(End.north);
+		\draw[arrow](update.east)--(End.west);
+		\draw[arrow](edit.east)--node[above]{press 'save'}(update.west);
+		\draw[arrow](edit.north east)--node[left=1.3cm]{select a\\user}(delete.south west);
 	%loop i billedet
-	
+		\path[arrow] (edit) edge [loop left, looseness=3] node[left] {Update\\information} (edit);
+		%Anna: Det er den linje her nedenfor som todo'en omhandler
+		\path[arrow] (edit) edge [loop below, looseness=4] node[below] {change\\password} (edit);
+		
 	\end{tikzpicture}
-	\caption{{\color{red}Cpation tekst}}\label{fig:Use-Whatif}
+	\caption{{\color{red}User management}}\label{fig:Use-userman}
 \end{figure}
-
+\todo[inline]{Anna tanke: burde man evt bare fjerne den med password hvis vi holder det som på den måde det er i systemet nu, da det hele foregår i samme omgang,og så bare har den der hedder update system}
 
 
 
