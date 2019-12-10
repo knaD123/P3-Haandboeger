@@ -1,15 +1,15 @@
 \subsection{Use cases} \label{sec:usecases}
-\todo[inline]{Anna: Tikz taniyas seje statecharts}
 
-\textbf{Access current handbook}
-\\
-\textit{Any actor} can access the handbook by going to the website where it is located where they need to log in with username and password.
-
-If it is the first time they log in they are automatically led to the settings page.
-Here they need to change their standard password and have the option to update their e-mail address and phone number.
-They are redirected to the front page, when they click confirm.
-If it is not the first time, they are led directly to the front page.
-
+\begin{table}
+\centering
+\begin{tabular}{p{12cm}}
+\hline
+\multicolumn{1}{c}{\textit{\textbf{Access current handbook}}} \\
+\hline
+\textit{Any actor} can access the handbook by going to the website where it is located and logging in with username and password.
+If this is their first login they are redirected to a settings page, where they need to change password and may update e-mail address and phone number.
+When they confirm, they are redirected to the front page.
+If it is not their first login, they are led directly to the front page.
 Documents relevant to this specific user are shown first.
 Below all the chapters are visible.
 A user can view the documents in a chapter by clicking unfold on that specific chapter.
@@ -19,11 +19,18 @@ Otherwise they have the option to download the file.
 The changelog from last version to current version is shown above the preview.
 Depending on the user's role further actions are available in this view (elaborated in other use cases).
 To exit the view the user clicks outside the box or the x in the corner.
-
+\\\hline
+\end{tabular}
+\caption{Use case specification for 'access current handbook'}\label{tab:access-handbook}
+\end{table}
 \input{Chapters/ApplicationDomain/Access-Fig}
 
-\textbf{Add new file to the system}
-\\
+\begin{table}
+\centering
+\begin{tabular}{p{12cm}}
+\hline
+\multicolumn{1}{c}{\textit{\textbf{Add new file to the system}}} \\
+\hline
 An \textit{administrator} or \textit{writer} can add a new a document by clicking an upload button on the front page.
 They are then taken to a seperate menu, where they specify the file which they wish to upload.
 They can select an existing chapter from a drop-down menu or create a new one. 
@@ -32,15 +39,16 @@ If they create a new one the uploaded file becomes the first version of this doc
 If they choose an existing one the uploaded file is added to the document as the newest version.
 Depending on the system settings they may also be prompted to write a changelog for the new version.
 In both cases they will be prompted to choose the people who should approve this addition to the handbook.
-
 After clicking 'Send for Approval' the view returns to the front page and they now have the document in their relevant documents.
 They have the option to delete it until it has been approved.
 After it can only be archived by adding a new version.
-
 Another way to add a new version to the document is from the preview of a specific document.
 In this case they are not prompted for chapter, existing ID or title as those are already defined.
 The rest of the flow is the same.
-
+\\\hline
+\end{tabular}
+\caption{Use case specification for 'add new file to the system'}\label{tab:add-file}
+\end{table}
 \input{Chapters/ApplicationDomain/Add-Doc-Fig}
 
 
