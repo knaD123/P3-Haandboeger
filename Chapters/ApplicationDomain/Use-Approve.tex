@@ -136,26 +136,26 @@
 	\caption{{\color{red}Manage departments}}\label{fig:dep}
 \end{figure}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \section{Figure 5}
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%noder i billedet
+	\node(start)[n]{};
+	\node(main)[predefined, right=2.8cm of start]{Main\\page};
+	\node(user)[predefined,right=2.6cm of main]{User management\\page};
+	\node(delete)[predefined, right=1.8cm of user]{User\\deleted};
+
+	\node(end)[n, below=1.5cm of delete] {};
+	\node(End)[c,fit=(end)] at (end) {};
 	
+	\node(update)[predefined, left=2.8cm of End]{User updated};
+	\node(edit)[predefined, left=2.8cm of update]{Edit user\\page};	
+	%streger i billedet
+	\draw[arrow](start)--node[above]{Login to\\OBHandbooks}(main);
+	\draw[arrow](main)--node[above]{Go to 'User\\management'}(user);
+	\draw[arrow](user)--node[above]{Press\\'Delete'}(delete);
+	%loop i billedet
 	
 	\end{tikzpicture}
 	\caption{{\color{red}Cpation tekst}}\label{fig:Use-Whatif}
@@ -180,6 +180,9 @@
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%noder i billedet
+	%streger i billedet
+	%loop i billedet
 	
 	
 	\end{tikzpicture}
@@ -205,6 +208,9 @@
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%noder i billedet
+	%streger i billedet
+	%loop i billedet
 	
 	
 	\end{tikzpicture}
@@ -230,6 +236,9 @@
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%noder i billedet
+	%streger i billedet
+	%loop i billedet
 	
 	
 	\end{tikzpicture}
@@ -255,6 +264,9 @@
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%noder i billedet
+	%streger i billedet
+	%loop i billedet
 	
 	
 	\end{tikzpicture}
@@ -280,6 +292,9 @@
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%noder i billedet
+	%streger i billedet
+	%loop i billedet
 	
 	
 	\end{tikzpicture}
