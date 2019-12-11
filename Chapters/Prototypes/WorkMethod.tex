@@ -7,7 +7,7 @@ This chapter will first briefly present the ''waterfall model'' and the ''iterat
 Hereafter, the chapter will contain a description of each iteration throughout the project.
 
 
-\section{Waterfall model}
+\section{Waterfall model}\label{sec:WaterfallModel}
 The principle of the waterfall model,\cite{Waterfall-Toolsqa}, is that the software development process is divided into separate phases, which makes it a sequential design process.
 Here the output, in form of documentation, of one phase serves as the input for the next one which means that no phase will start without the previous one being complete.
 This is often illustrated as a downward going flow, see \cref{fig:Waterfall}, which is also the reason for its name.
@@ -41,16 +41,17 @@ Three explicit models will be presented in the \cref{sec:Iterative1,sec:Iterativ
 \paragraph{The main benefits}
 of working iteratively is the continuous talk with the client and users which yields the opportunity to determine and redetermine what their needs truly are rather than just what they believe them to be.
 This ongoing communication also makes it easier for catching mistakes and faulty software since only a little part is added at each iteration.
-It is easier as well to clarify misconceptions of the products requirements.
+It is easier as well to clarify misconceptions of the products requirements.%\cref{sec:requirementsdefinition}.
 The repeated correspondence with the client and users is likewise the center of the human-centered approach, mentioned in \cref{sec:PACT}, which is of great importance when designing and developing an interactive system.
 % Henrik: Maaske henvis til "5.1.2.1 Defining requirements"?
+%Anna svar: Da det afsnit allerede henviser hertil eller ser ud til at være tiltænkt det, vil det så ikke virke underligt at henvise tilbage igen? (Har ingen problem emd at henvise tilbage det er bare mere om det er relevant)
 
-\paragraph{The main disadvantage} of the iteration model is how adding functionality at every stage, may cause problems related to the system architecture since it had not been thought into the design to begin with.
-% Henrik: Maaske henvis ned til "Bug" afsnittet?
+\paragraph{The main disadvantage} of the iteration model is how adding functionality at every stage, may cause problems related to the system architecture since it had not been thought into the design to begin with, see \cref{sec:Bug}.
 This may in worst case scenario cause for the whole system to be redesigned and re-implemented.
 Another disadvantage with this model is also one of it strong suits and allures which is how it can become difficult to manage and keep track of the development, and when a iteration is done and a new one begin since it is ever changing.
 
 % Henrik: Maaske ganske kort om hvordan vi har brugt den iterative model - bare et par linjer :-)
+%Anna svar: Er det ikke det jeg har skrevet i 6.2.3? hvor jeg prøver kort at beskrive vores metode?
 
 \subsection{The process of designing interaction systems}\label{sec:Iterative1}
 In \cref{fig:DEBModel} it becomes apparent how it might be difficult to define when an iteration ends and a new one begins since it is possible to start at any point and to move back and forth between the activities as seen fit.
@@ -63,8 +64,6 @@ The four basic activities of this model are; \textit{understanding, design, envi
 \end{figure}
 'Understanding' is a broad term which covers among other establishing requirements, understanding the context of the developed system and the technological landscape.
 %To be able to design a system with the user’s needs and wants in mind it is imperative to know the target users and which activities the system needs to support. 
-%Therefore, ''Most projects start with establishing requirements'' \citep[p.~333]{InteractionDesign}. 
-%%It is from this first activity that it’s possible to go into the designing process.
 The 'envisionment' activity concerns itself with determining appropriate media in which to render design ideas.
 While the 'design' activity is done through conceptual- and physical design as seen in \cref{fig:DEBModel}.
 These last two activities combines together to designing alternatives and prototyping.
@@ -103,10 +102,12 @@ The second model, \cref{fig:SUModel2} is on the other hand closer to the stereot
 	\end{subfigure}
 	\caption{Model based on the OOA\&D method}\label{fig:SUModels}
 \end{figure}
-\todo[inline]{Lu: specificer hvad vores model er. Vi er nødt til at være meget tydelig med præcis hvilken kombination vi benytter. Benyt figurer og tabeller!!! (evt. for hver sektion)}
+%\todo[inline]{Lu: specificer hvad vores model er. Vi er nødt til at være meget tydelig med præcis hvilken kombination vi benytter. Benyt figurer og tabeller!!! (evt. for hver sektion)}
 
 \subsection{Using iterative life cycle in the project}
 % Henrik: Maaske "Ipsen" i stedet for "specific user's"? :-)
+%Anna svar: Kan personligt bedre li denne formulering, da det ikk ekun er Ipsen men også JBJ men kkun med Ipsen som kontakt person. Dog hvis vi gerne vil have den ændret står der et forslag i det udkommenterede lige nedenfor.
+%Throughout the project it is intended to design a system iteratively with Ipsen's and JBJ's needs and wants integrated into the designs and tests. 
 Throughout the project it is intended to design a system iteratively with a specific user’s needs and wants integrated into the designs and tests. 
 The basic idea of the workflow in this process is a a mix of the models pictured in \cref{fig:SUModels}, where most of the basic activities is considered in each iteration, ending with some new notes, thoughts or models and analysis' as seen in \cref{fig:SUModel2}.
 The elements of the model in \cref{fig:SUModel2} comes forth in the fact that not every basic activity is considered in every iteration. And some of the activities is finished or considered closed before reaching the last iteration.
@@ -115,8 +116,7 @@ As for the main flow in the project it follows the model in \cref{fig:DEBModel}.
 This finally ends the iterations in an interview or usability test, from which the data gathered is used in the next iterative flow.
 
 A clear example of how the system is developed iterativly is furthermore, how the prototype from the end of the first iteration is further developed and added more functionality at each iteration until it is considered finished.
-Hereby the final system is not developed in one go as with the waterfall model,  but instead evolved with each iteration.
-% Henrik: Efter waterfall, masske henvis til waterfall afsnittet
+Hereby the final system is not developed in one go as with the waterfall model, \cref{sec:WaterfallModel},  but instead evolved with each iteration.
 
 In the following sections each iteration will be presented, with a comparison to the aforementioned models.
 The sections will also contain a mention of the most important changes throughout the specific iterations. 
