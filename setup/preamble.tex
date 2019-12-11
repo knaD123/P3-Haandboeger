@@ -163,14 +163,13 @@ innerleftmargin=3pt,innerrightmargin=7pt, innertopmargin=2pt, innerbottommargin=
 \newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=lemcolor]{proposition}[theorem]{Proposition}
 \newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=lemcolor]{corollary}[theorem]{Corollary}
 
-
-
 %\newtheorem{theorem}{Theorem}[section]
 %\newtheorem{lemma}[theorem]{Lemma}
 %\newtheorem{proposition}[theorem]{Proposition}
 %\newtheorem{corollary}[theorem]{Corollary}
 %\newtheorem{case}{Bevis}[theorem]
 %\newtheorem{defn}{Definition}[section]
+\newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=lemcolor]{defn}{Definition}[section]
 
 \renewenvironment{proof}[1][Proof]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
@@ -184,7 +183,7 @@ innerleftmargin=3pt,innerrightmargin=7pt, innertopmargin=2pt, innerbottommargin=
 
 
 \theoremstyle{definition}
-\newmdtheoremenv[style=box,linecolor=theoline,backgroundcolor=lemcolor]{defn}[theorem]{Definition}
+
 
 \newtheorem{eks}[theorem]{Example}
 \surroundwithmdframed[
