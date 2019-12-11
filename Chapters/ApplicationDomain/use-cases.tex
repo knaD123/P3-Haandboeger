@@ -1,34 +1,91 @@
 \subsection{Use cases} \label{sec:usecases}
-The main functionality that every actor needs is accessing the current handbook. The use case is 
+All of the actors have different needs of the system and different accessibility to the system. The various different workflows each of them has is described in ten use cases, which are covered in this section.
 
+<<<<<<< HEAD
 \input{Chapters/ApplicationDomain/use-case-tables/Access-Tab}
 \input{Chapters/ApplicationDomain/use-case-statecharts/Access-Fig}
+=======
+\subsubsection{Access current handbook}
+>>>>>>> master
 
-\input{Chapters/ApplicationDomain/use-case-tables/Add-Doc-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/Add-Doc-Fig}
+The main functionality that every actor needs is access to the current handbook. How they do so is described in \cref{tab:access-handbook} and shown in \cref{fig:access-handbook}.
 
-\input{Chapters/ApplicationDomain/use-case-tables/Approve-Tab}
-%\input{Chapters/ApplicationDomain/use-case-statecharts/Approve-Fig}
+\input{Chapters/ApplicationDomain/UseCaseTables/Access-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Access-Fig}
 
-\input{Chapters/ApplicationDomain/use-case-tables/Archive-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/Archive-Fig}
+There is a fork depending on whether it is the first time a user logs in because when a new user is created, they have a username, a name/ID and a standard password.
+For security reasons this standard password needs to be changed as otherwise anyone could log into the system with only a username.
+The first login is also an account activation through which the password is changed and an e-mail address and phone number may be added.
 
-\input{Chapters/ApplicationDomain/use-case-tables/Add-User-Tab}
-%\input{Chapters/ApplicationDomain/use-case-statecharts/Add-User-Fig}
+As described in \cref{sec:CaseDescription} the current system is excessively complicated and it was therefore included in the system definition, see \cref{factor}, that the new system should ''facilitate an overview of current [...] versions''.
+This is taken care of at the front page.
+The documents relevant to the user are shown first, a feature specifically requested by Ipsen, and below all the chapters are visible providing an overview of the content in the handbook.
+If a more detailed view is necessary it is possible to unfold a single chapter or all of them.
 
-\input{Chapters/ApplicationDomain/use-case-tables/Edit-User-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/Profile-Fig}
 
-\input{Chapters/ApplicationDomain/use-case-tables/User-Man-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/User-Man-Fig}
+\subsubsection{Add new file to the system}
+As described in \cref{sec:classdiagramhandbook} the system consists of both documents and versions where documents are the structural entities enabling the organizational features of the system and versions contain the files and thereby the actual contents of the book.
+Adding versions as additions to an existing documents as well as creating a new document along with a new version is described in \cref{tab:add-file} and shown in \cref{fig:add-file}.
 
-\input{Chapters/ApplicationDomain/use-case-tables/Mark-Read-Tab}
-%\input{Chapters/ApplicationDomain/use-case-statecharts/Mark-Read-Fig}
+\input{Chapters/ApplicationDomain/UseCaseTables/Add-Doc-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Add-Doc-Fig}
 
-\input{Chapters/ApplicationDomain/use-case-tables/Read-Status-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/ReadStatus-Fig}
+Whether a changelog is prompted depends on the system settings. 
+As revealed through
+During the interviews with Ipsen it was added is The changelog
+The people to approve options
+forskel for writer og admin
+delete option
 
-\input{Chapters/ApplicationDomain/use-case-tables/Dep-Man-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/Dep-Man-Fig}
+It is worth noting that it is also possible to add a new document without attaching any file.
+The former design did not offer the option of attaching the file immediately but required that the user first made a new document and then made a version to attach to that document.
+During the first usability test, see \cref{labellist}, this workflow was a source for confusion and therefore it was changed.
+The reason that the empty document remains an option is that it provides the possibility to structure the handbook without necessarily having all of the contents.
+Additionally it also serves to save an ID and title combination as these cannot be reused. 
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Approve-Tab}
+%\input{Chapters/ApplicationDomain/UseCaseStates/Approve-Fig}
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Archive-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Archive-Fig}
+
+As described in ISO the technical requirement is that the documents should be kept usually between three and five years.
+This resulted in a system definition stating that there should be an adjustable archive time.
+However, as described in \cref{labellist}, it was discovered that in practice the files are usually kept indefinitely as deleting the files were too much work.
+Additionally the file integrity is of upmost importance, see \cref{labellist}.
+As space is clearly not a problem, but the prospect of accidentally deleting a file is it was decided that deleting files from the archive is not an option.
+Should somebody accidentally upload the wrong file this should be discovered before the file is approved and added to the handbook as per the approve file use case \cref{labellist}.
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Add-User-Tab}
+%\input{Chapters/ApplicationDomain/UseCaseStates/Add-User-Fig}
+
+In early designs the user was activated through an e-mail address or phone number authentication.
+However as seen in \cref{tab:actor-reader} not all of the system's users have a work related e-mail address or phone number.
+As seen in Actor table not all of the users have a work related e-mail address or phone number.
+Therefore it is not possible for the system to authenticate a user through an e-mail, which was the case in earlier designs.
+Instead the workaround of a standard password was introduced.
+When the administrator creates a user they set their name and username.
+The user themself can always edit their username by going to setting which is modelled in.
+The administrator can also set an e-mail and/or phone number.
+However the administrator does not choose the password for the user and their is no other means through which the user can receive a password.
+This means that there is a timeframe in which anyone could access the archive with only a username.
+This workflow assumes that the user will activate their account immediately after getting it.
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Edit-User-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Profile-Fig}
+
+\input{Chapters/ApplicationDomain/UseCaseTables/User-Man-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/User-Man-Fig}
 
 Worth noting. The administrator can change a user's name while the user themself can change their user name.
+\input{Chapters/ApplicationDomain/UseCaseTables/Mark-Read-Tab}
+%\input{Chapters/ApplicationDomain/UseCaseStates/Mark-Read-Fig}
+
+The only use case administrator cannot do.
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Read-Status-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/ReadStatus-Fig}
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Dep-Man-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Dep-Man-Fig}
+
