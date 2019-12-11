@@ -1,0 +1,38 @@
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%Noder i billedet
+		\node(start)[n]{};
+		\node(main)[predefined, right=2.8cm of start]{Main page};
+		\node(dep)[predefined,right=2.8cm of main]{Department\\main page};
+		\node(add)[predefined, below=1.5cm of dep]{Add name of\\new department};
+		\node(detail)[predefined, left=4.5cm of add]{Detail view\\of department};
+		\node(editD)[predefined, below=1.5cm of detail,xshift=1.5cm]{Manage documents\\in department page};
+		\node(editU)[predefined, left=0.5cm of editD]{Manage users in\\department page};
+		\node(delete)[predefined, right=2cm of editD]{Department\\deleted};
+		\node(update)[predefined, below=1.5cm of editU, xshift=2cm]{Department\\updated};
+		\node(end)[n, below=1.9cm of delete] {};
+		\node(End)[c,fit=(end)] at (end) {};	
+	%streger i billedet
+		\draw[arrow](start)--node[above]{Login to\\OBHandbooks}(main);
+		\draw[arrow](main)--node[above]{Go to\\'Departments'}(dep);
+		\draw[arrow](dep)--node[left=0.9cm]{Select a\\department}(detail);
+		\draw[arrow](dep)--node[right]{Add a new\\department}(add);
+		\draw[arrow](add)--node[above]{New department's page}(detail);
+		\draw[arrow](delete)--(End);
+		\draw[arrow](update)--(End);
+		%ud fra detail view
+		\draw[black](detail.south)--(1.65,-3.5);
+		\draw[arrow](1.65,-3.5)-|node[left=1cm, below]{Press 'edit\\documents'}(editD);
+		\draw[arrow](1.65,-3.5)-|node[left=0.9cm, below]{Press 'edit\\users'}(editU);
+		\draw[arrow](1.65,-3.5)-|node[left=1.1cm, below]{Press 'delete\\department'}(delete);
+		%Ned til updated
+		\draw[arrow](1.32,-6.0)--node[right]{Press\\'Apply list'}(update.north);
+		\draw[black](editU)|-(1.32,-6.0);
+		\draw[black](editD)|-(1.32,-6.0);
+	%loops i billedet
+		\path[arrow] (editU) edge [loop left, out=208, in=190, looseness=4] node[below] {Add/remove\\documents} (editU);
+		\path[arrow] (editD) edge [loop right,out=335, in=350, looseness=4] node[below] {Add/remove\\users} (editD);
+	\end{tikzpicture}
+	\caption{{\color{red}Manage departments}}\label{fig:Use-dep}
+\end{figure}

@@ -101,89 +101,123 @@
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
 	%Noder i billedet
-	\node(start)[n]{};
-	\node(main)[predefined, right=2.8cm of start]{Main page};
+		\node(start)[n]{};
+		\node(main)[predefined, right=2.8cm of start]{Main page};
+		\node(dep)[predefined,right=2.8cm of main]{Department\\main page};
+		\node(add)[predefined, below=1.5cm of dep]{Add name of\\new department};
+		\node(detail)[predefined, left=4.5cm of add]{Detail view\\of department};
+		\node(editD)[predefined, below=1.5cm of detail,xshift=1.5cm]{Manage documents\\in department page};
+		\node(editU)[predefined, left=0.5cm of editD]{Manage users in\\department page};
+		\node(delete)[predefined, right=2cm of editD]{Department\\deleted};
+		\node(update)[predefined, below=1.5cm of editU, xshift=2cm]{Department\\updated};
+		\node(end)[n, below=1.9cm of delete] {};
+		\node(End)[c,fit=(end)] at (end) {};	
 	%streger i billedet
+		\draw[arrow](start)--node[above]{Login to\\OBHandbooks}(main);
+		\draw[arrow](main)--node[above]{Go to\\'Departments'}(dep);
+		\draw[arrow](dep)--node[left=0.9cm]{Select a\\department}(detail);
+		\draw[arrow](dep)--node[right]{Add a new\\department}(add);
+		\draw[arrow](add)--node[above]{New department's page}(detail);
+		\draw[arrow](delete)--(End);
+		\draw[arrow](update)--(End);
+		%ud fra detail view
+		\draw[black](detail.south)--(1.65,-3.5);
+		\draw[arrow](1.65,-3.5)-|node[left=1cm, below]{Press 'edit\\documents'}(editD);
+		\draw[arrow](1.65,-3.5)-|node[left=0.9cm, below]{Press 'edit\\users'}(editU);
+		\draw[arrow](1.65,-3.5)-|node[left=1.1cm, below]{Press 'delete\\department'}(delete);
+		%Ned til updated
+		\draw[arrow](1.32,-6.0)--node[right]{Press\\'Apply list'}(update.north);
+		\draw[black](editU)|-(1.32,-6.0);
+		\draw[black](editD)|-(1.32,-6.0);
 	%loops i billedet
-	
-	
+		\path[arrow] (editU) edge [loop left, out=208, in=190, looseness=4] node[below] {Add/remove\\documents} (editU);
+		\path[arrow] (editD) edge [loop right,out=335, in=350, looseness=4] node[below] {Add/remove\\users} (editD);
 	\end{tikzpicture}
-	\caption{{\color{red}Cpation tekst}}\label{fig:Use-Whatif}
+	\caption{{\color{red}Manage departments}}\label{fig:Use-dep}
 \end{figure}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \section{Figure 5}
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%noder i billedet
+	\node(start)[n]{};
+	\node(main)[predefined, right=2.7cm of start]{Main\\page};
+	\node(user)[predefined,right=2.6cm of main]{User management\\page};
+	\node(delete)[predefined, right=1.6cm of user]{User\\deleted};
+	\node(end)[n, below=2cm of delete] {};
+	\node(End)[c,fit=(end)] at (end) {};
 	
+	\node(update)[predefined, left=2.8cm of End]{User\\updated};
+	\node(edit)[predefined, left=2.8cm of update]{Edit user\\page};	
+	%streger i billedet
+	\draw[arrow](start)--node[above]{Login to\\OBHandbooks}(main);
+	\draw[arrow](main)--node[above]{Go to 'User\\management'}(user);
+	\draw[arrow](user)--node[above]{Press\\'Delete'}(delete);
+	\draw[arrow](delete.south)--(End.north);
+	\draw[arrow](update.east)--(End.west);
+	\draw[arrow](edit.east)--node[above]{press 'save'}(update.west);
+	\draw[arrow](edit.north east)--node[right=1.4cm]{Press\\'Delete'}(delete.south west);
+	\draw[arrow](user.south west)--node[left=0.4cm]{Select a\\user}(edit.north);
+	%loop i billedet
+	\path[arrow] (edit) edge [loop left, looseness=3] node[left] {Change\\information} (edit);
+	%Anna: Det er den linje her nedenfor som todo'en omhandler
+	\path[arrow] (edit) edge [loop below, looseness=4] node[below] {Change\\password} (edit);
 	
 	\end{tikzpicture}
-	\caption{{\color{red}Cpation tekst}}\label{fig:Use-Whatif}
+	\caption{{\color{red}User management}}\label{fig:Use-userman}
 \end{figure}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\todo[inline]{Anna tanke: burde man evt bare fjerne den med password hvis vi holder det som på den måde det er i systemet nu, da det hele foregår i samme omgang,og så bare har den der hedder update system}
 
 \section{Figure 6}
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
-	
-	
+	%noder i billedet
+		\node(start)[n]{};
+		\node(main)[predefined, right=2.7cm of start]{Main page};
+		\node(profile)[predefined, right=1.8cm of main]{User setting\\page};
+		\node(update)[predefined, below=1.5cm of profile]{Profile\\updated};
+		\node(end)[n, left=2.8cm of update] {};
+		\node(End)[c,fit=(end)] at (end) {};	
+	%streger i billedet
+		\draw[arrow](start.east)--node[above]{Login to\\OBHandbooks}(main.west);
+		\draw[arrow] (main.east)--node[above]{Press the\\cogwheel}(profile.west);
+		\draw[arrow] (profile.south)--node[left]{Press\\'save'}(update.north);
+		\draw[arrow] (update.west)--(End.east);
+	%loop i billedet
+		\path[arrow] (profile) edge [loop right, looseness=3]node[auto]{Change\\information} (profile);	
 	\end{tikzpicture}
-	\caption{{\color{red}Cpation tekst}}\label{fig:Use-Whatif}
+	\caption{{\color{red}Edit user information}}\label{fig:Use-profile}
 \end{figure}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \section{Figure 7}
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
-	
+	%noder i billedet
+		\node(start)[n]{};
+		\node(main)[predefined, right=2.7cm of start]{Main page};
+		\node(archive)[predefined, right=1.8cm of main]{Archive page};
+		\node(download)[predefined, below=1.5cm of archive]{Downloaded\\archive};
+		\node(ver)[predefined, left=2.8cm of download]{Version\\page};
+		\node(end)[n, below=0.8cm of ver, xshift=2cm]{};
+		\node(End)[c, fit=(end)] at (end){};
+	%streger i billedet
+		\draw[arrow](start.east)--node[above]{Login to\\OBHandbooks}(main.west);
+		\draw[arrow](main.east)--node[above]{Go to\\'Archive'}(archive.west);
+		\draw[arrow](archive.south)--node[right]{Press\\'Download}(download.north);
+		\draw[arrow](archive.south west)--node[left=0.6cm]{Selct a\\version}(ver.north east);
+		\draw[arrow](5.23,-3.1)--(End.north);
+		\draw[black](ver.south)|-(5.25,-3.1);
+		\draw[black](download.south)|-(5.25,-3.1);
+	%loop i billedet
+		\path[arrow] (archive) edge [loop right, in=355, looseness=3]node[auto]{Unfold\\documents} (archive);
+		\path[arrow] (archive) edge [loop above, in=65, looseness=6]node[auto]{Unfold\\chapters} (archive);
+		\path[arrow] (ver) edge [loop left, looseness=4]node[auto]{Download\\version} (ver);
 	
 	\end{tikzpicture}
-	\caption{{\color{red}Cpation tekst}}\label{fig:Use-Whatif}
+	\caption{{\color{red}Access Archive}}\label{fig:Use-archive}
 \end{figure}
 
 
@@ -205,6 +239,9 @@
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%noder i billedet
+	%streger i billedet
+	%loop i billedet
 	
 	
 	\end{tikzpicture}
@@ -230,6 +267,9 @@
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%noder i billedet
+	%streger i billedet
+	%loop i billedet
 	
 	
 	\end{tikzpicture}
@@ -255,6 +295,9 @@
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%noder i billedet
+	%streger i billedet
+	%loop i billedet
 	
 	
 	\end{tikzpicture}

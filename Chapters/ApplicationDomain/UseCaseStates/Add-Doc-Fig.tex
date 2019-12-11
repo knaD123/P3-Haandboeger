@@ -1,0 +1,43 @@
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%Noder i billedet
+			\node(start)[n]{};
+			\node(main)[predefined, right=2.8cm of start]{Main page};
+			\node(new)[predefined, below=1.5cm of main, xshift=-2cm]{New file\\upload page};
+			\node(preview)[predefined, right=2.5cm of new]{Document\\ preview};
+			\node(doc)[predefined, below=1.5cm of new, xshift=-2cm]{Create\\new Document};
+			\node(ver)[predefined, right=2cm of doc]{Create\\new version};
+			\node(title)[predefined, below=1.5cm of doc]{Title \& ID\\checked};
+			\node(upload)[predefined, right=2.8cm of title]{Upload\\file};
+			\node(log)[predefined, right=3.5cm of upload]{Changelog\\created};
+			\node(approve)[predefined, above=1.5cm of log]{Approval\\ created};
+			\node(sent)[predefined, above =1.5cm of approve]{Approval request\\sent};
+			\node(end)[n, above=1.5cm of sent] {};
+			\node(End)[c,fit=(end)] at (end) {};
+		%Streger i billedet
+			\draw[arrow](start.east)--node [above]{login to\\ OBHandbooks}(main.west);
+			%Ud fra main page
+			\draw[black](main.south)--(4.01,-0.8);
+			\draw[arrow](4.03,-0.8)-|node[right, yshift=-0.5cm]{Press\\'Upload'}(new.north);
+			\draw[arrow](4.03,-0.8)-|node[left, yshift=-0.5cm]{Select\\document}(preview.north);
+			%ud fra new file
+			\draw[black](new.south)--(2.02,-3.3);
+			\draw[arrow](2.02,-3.3)-|node[right, yshift=-0.5cm]{Add new\\ID}(doc);
+			\draw[arrow](2.02,-3.3)-|node[left, yshift=-0.5cm]{Select\\existing ID}(ver);
+			%Andre pile
+			\draw[arrow](doc.south)--node[right]{Add\\title}(title.north);
+			\draw[arrow](title.east)--node[above]{Select file}(upload.west);
+			\draw[arrow](ver.south)--node[left]{Select\\file}(upload.north);
+			\draw[arrow](preview.south)--node[right]{Press 'Upload\\new version'}(upload.north east);
+			\draw[arrow](upload.east)--node[above]{Add changelog}(log.west);
+			\draw[arrow](log.north)--node[left]{Add\\approvers}(approve.south);
+			\draw[arrow](approve.north)--node[left]{Press ' send\\to approval}(sent.south);
+			\draw[arrow](sent.north)--(End.south);
+			\draw[black](sent.south east)|-(2.5,-8.15);
+			\draw[black](2.5,-8.15)-|(-1.5,-4.0);
+			\draw[arrow](-1.5,-4.0)|-node[above, xshift=1.0cm]{Invalid\\info}(new.west);
+			\draw[arrow](upload.north east)--(approve.south west);
+	\end{tikzpicture}
+	\caption{Statechart diagram for 'add new file to the system'}\label{fig:add-file}
+\end{figure}

@@ -1,37 +1,9 @@
 \subsection{Actors}\label{sec:Actors}
 The actors exist in the application domain and as such are not within the system but interact with it. They are defined as
+
 \begin{defn}
 An abstraction of users or other systems that interact with the target system. \citep[p.~121]{Rod-Aalborg}
 \end{defn}
-
-MERE META
-
-\todo[inline]{Anja: Kom med eksempler}
-\begin{table}[H]
-	\begin{tabular}{l m{11.3cm}}
-		\hline
-		\multicolumn{2}{c}{\textbf{\textit{Administrator}}}\\
-		\hline
-		\textbf{Goal} &  Manages document versions, users, and departments. There is at least 1 administrator per handbook\\
-		 &  \\
-		\textbf{Characteristic} & Someone in the company in an administrative or leader position.\\
-		&  \\
-		\textbf{Example 1}
-		& The quality manager is comfortable using the system. 
-		They are responsible for maintaining and updating the handbook.
-		They write the majority of the documents, approves the rest and has a complete overview of the entire system at all times. \\
-		&  \\
-		\textbf{Example 2}
-		& The secretary rarely uses the system.
-		They have an administrative role in the company and therefore needs complete access to all of the company's systems.
-		They mainly create new users and every now and then search for a specific piece of information.\\
-		&  \\
-		\textbf{Example 3}
-		& The CEO of the company has this role only out of formalities and usually acts like a reader\\
-		\hline
-	\end{tabular}
-\caption{Actor specifiactions for \textit{Administrator}}\label{tab:Actor-admin}
-\end{table}
 
 The roles in the system were described and explained in \cref{sec:user} and it was visualized with \cref{fig:RoleIllustration} how the roles encapsulate each other.
 However based on \cref{tab:ActorTable} it is clear that this is mostly but not entirely true, as the administrator cannot mark a document as read but reader and writer both can.
@@ -42,41 +14,108 @@ The secretary does not need the actual documents only the administrative access 
 The CEO needs to be in the system to approve documents but has no other use of it.
 
 \begin{table}[H]
-	\begin{tabular}{l m{11.3cm}}
+	\begin{tabular}{l p{11.3cm}}
+		\hline
+		\multicolumn{2}{c}{\textbf{\textit{Administrator}}}\\
+		\hline
+		
+		\textbf{Goal} &  Manages document versions, users, and departments. There is at least 1 administrator per handbook\\
+		 &  \\
+		 
+		\textbf{Characteristic} & Someone in the company in an administrative or leader position.\\
+		&  \\
+		
+		\textbf{Example 1}
+		& The quality manager is comfortable using the system. 
+		They are responsible for maintaining and updating the handbook.
+		They write the majority of the documents, approves the rest and has a complete overview of the entire system at all times. \\
+		&  \\
+		
+		\textbf{Example 2}
+		& The secretary rarely uses the system.
+		They have an administrative role in the company and therefore needs complete access to all of the company's systems.
+		They mainly create new users and every now and then search for a specific piece of information.\\
+		&  \\
+		
+		\textbf{Example 3}
+		& The CEO of the company has this role only out of formalities and usually acts like a reader\\
+		
+		\hline
+	\end{tabular}
+\caption{Actor specifiactions for \textit{Administrator}}\label{tab:Actor-admin}
+\end{table}
+
+The department head knows more about their own department than anybody else, and are both among the first ones to know when an update is needed as well as one of the people best equipped to write said update.
+Furthermore, the quality manager cannot write the entire handbook due to its size and needs a writer to do some of the heavy lifting.
+However, they also do not wish to grant the level of access to the system that an administrator role gives everytime someone needs a little more functionality than the very limited one the reader role offers.
+This introduces the need for the \textit{writer} actor, as seen in \cref{tab:Actor-write}.
+
+\begin{table}[H]
+	\begin{tabular}{l p{11.3cm}}
 		\hline
 		\multicolumn{2}{c}{\textbf{\textit{Writer}}}\\
 		\hline
+		
 		\textbf{Goal} & Update specific documents in the handbook. \\
 	 	 &  \\
+	 	 
 		\textbf{Characteristic} &  One or more employees who need to update one or more documents in the handbook, but is not allowed all-access to the system. \\
 		 &  \\
+		 
 		\textbf{Example 1} 
 		& A department head updates the documents connected to their own department and sees that everyone in their department has read those documents.\\
+		
 		\hline
 	\end{tabular}
 	\caption{Actor specifiactions for \textit{Writer}}\label{tab:Actor-write}
 \end{table}
 
-The department head knows more about their own department than amybody else, and are both among the first one to know when an update is needed as well as one of the people best equipped to write said update.
-Furthermore, the quality manager cannot write the entire handbook due to its size.
+The everyday worker only needs to read and mark documents as read and therefore that is the only functionality they have.
+They are a very broad group both in terms of willingness to use the system and ability to use the system to its full capacity.
+
+They may be an experienced IT user excited to try out a new system.
+They may also be someone who does not use IT very much in their daily life and as a result is vary of technology in general.
+Or an old worker who has done this job for 30 years and sees no reason to change their workflow.
+They can come from anywhere in the firm and may be one of the higher-ups or someone who is used to office work.
+However they may also be a production worker and not even have a work related e-mail or phone number.
 
 \begin{table}[H]
-	\begin{tabular}{l m{11.3cm}}
+	\begin{tabular}{l p{11.3cm}}
 		\hline
 		\multicolumn{2}{c}{\textbf{\textit{Reader}}}\\
 		\hline
-		\textbf{Goal} & To read and understand documents in the handbook \\
-		 &  \\
-		\textbf{Characteristic} & There are many readers who have various positions in the firm. Their shared characteristic is that they all need to read parts of the handbook. \\
-		 &  \\
+		
+		\textbf{Goal} & To read and understand documents in the handbook. \\
+		&  \\
+		
+		\textbf{Characteristic} & Can come from all levels and areas in the company.
+		Their only shared characteristic is that they all need to read and confirm that they have read certain parts of the handbook.
+		They may not have a work related e-mail or phone number.\\
+		&  \\
+		
 		\textbf{Example 1}
-		& The production worker who needs to access the book every time 
-		When a document has been updated all affected readers must read the newest version and understand the difference between the previous and current one. \\
-		& vary of technology vs not vary\\
+		& The worker who is an experienced IT user and has both e-mail and phone number connected to the system.
+		They check for notifications regularly.\\
+		&  \\
+		\textbf{Example 2}
+		& The worker who is not an experienced IT user and as a result is vary of it. 
+		They only use the system when absolutely necessary and may not see a notification when it comes.
+		They may be vary of the system due to their inexperience with technology.
+		They do not have e-mail nor phone number connected to the system and would likely not see a notification in due time even if they had.\\
+		&  \\
+		
+		\textbf{Example 3}
+		& The production worker who does not have a work related e-mail or phone number. They do not get notifications at all, and rely on the department head to know when an update is out rather than notifications.\\
+		&  \\
+		
+		\textbf{Example 4}
+		& The CEO when they are not an administrator out of formalities only needs the level of access that a regular \textit{reader} has.\\		
+		
 		\hline
 	\end{tabular}
 	\caption{Actor specifiactions for \textit{Reader}}\label{tab:Actor-read}
 \end{table}
 
-One of the reasons why every role can approve is that the CEO may have a reader role. 
-CEO CAN BE READER NEEDS TO APPROVE
+One of the reasons why every role has the right to approve an addition or update to the handbook is that the CEO's main job within the handbook is to do exactly that.
+However they do not need to do anything else in the handbook and therefore needs only the minimum level of access.
+That and there is no need to restrict the functionality to a specific role as the users need to be specifically assigned to approve anything anyway.

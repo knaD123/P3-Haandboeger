@@ -1,210 +1,53 @@
 \subsection{Use cases} \label{sec:usecases}
-\todo[inline]{Anna: Tikz taniyas seje statecharts}
+The main functionality that every actor needs is access to the current handbook. How they do so is described in \cref{tab:access-handbook} and shown in \cref{fig:access-handbook}.
 
-\textbf{Access current handbook}
-\\
-\textit{Any actor} can access the handbook by going to the website where it is located where they need to log in with username and password.
 
-If it is the first time they log in they are automatically led to the settings page.
-Here they need to change their standard password and have the option to update their e-mail address and phone number.
-They are redirected to the front page, when they click confirm.
-If it is not the first time, they are led directly to the front page.
+\input{Chapters/ApplicationDomain/UseCaseTables/Access-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Access-Fig}
 
-Documents relevant to this specific user are shown first.
-Below all the chapters are visible.
-A user can view the documents in a chapter by clicking unfold on that specific chapter.
-Alternatively they can unfold all chapters by clicking unfold all.
-When they click on a document a preview is shown if the file is a pdf.
-Otherwise they have the option to download the file.
-The changelog from last version to current version is shown above the preview.
-Depending on the user's role further actions are available in this view (elaborated in other use cases).
-To exit the view the user clicks outside the box or the x in the corner.
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
-	%noder i billedet:
-	\node(start)[n]{};
-	\node(login)[predefined, right=2.8cm of start]{Login\\page};
-	\node(main)[predefined, below=1.5cm of login]{Main page};
-	\node(setting)[predefined, right=2.0cm of login]{Settings\\page};
-	\node(info)[predefined, right=2.5cm of setting]{Information\\checked};
-	\node(preview)[predefined, right=2.8cm of main]{Document\\preview};
-	\node(end)[n, right=2.8cm of preview] {};
-	\node(End)[c,fit=(end)] at (end) {};	
-	%linjer i billedet:
-	\draw[arrow](start.east)--node[above]{open\\OBHandbooks}(login.west);
-	\draw[arrow](login.south)--node[left]{Normal\\login}(main.north);
-	\draw[arrow](login.east)--node[above]{First time\\login}(setting.west);
-	\draw[arrow](setting.north east)--node[above]{Fill out\\informations}(info.north west);
-	\draw[arrow](info.west)--node[below]{invalid info}(setting.east);
-	\draw[arrow](info.south west)--node[right, xshift=0.5cm]{Valid info}(main.north east);
-	\draw[arrow](main.east)--node[below]{Select\\document}(preview.west);
-	\draw[arrow](preview.east)--(End.west);
-	
-	
-	\path[arrow] (main) edge [loop below, looseness=7] node[auto] {Unfold a chapter} (main);
-	\path[arrow] (main) edge [loop left, looseness=3] node[auto] {Unfold all\\chapters} (main);
-	\path[arrow] (preview) edge [loop below,looseness=4] node[auto] {Download}(preview);
-	
-	\end{tikzpicture}
-	\caption{{\color{red}Access current handbook}}\label{fig:Use-access}
-\end{figure}
+There is a fork depending on whether it is the first time a user logs in because when a new user is created, they have a username, a name/ID and a standard password.
+For security reasons this standard password needs to be changed as otherwise anyone could log into the system with only a username.
+The first login is also an account activation through which the password is changed and an e-mail address and phone number may be added.
 
-\textbf{Add new file to the system}
-\\
-An \textit{administrator} or \textit{writer} can add a new a document by clicking an upload button on the front page.
-They are then taken to a seperate menu, where they specify the file which they wish to upload.
-They can select an existing chapter from a drop-down menu or create a new one. 
-They can then either choose an existing ID and title or create a new one.
-If they create a new one the uploaded file becomes the first version of this document.
-If they choose an existing one the uploaded file is added to the document as the newest version.
-Depending on the system settings they may also be prompted to write a changelog for the new version.
-In both cases they will be prompted to choose the people who should approve this addition to the handbook.
+\input{Chapters/ApplicationDomain/UseCaseTables/Add-Doc-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Add-Doc-Fig}
 
-After clicking 'Send for Approval' the view returns to the front page and they now have the document in their relevant documents.
-They have the option to delete it until it has been approved.
-After it can only be archived by adding a new version.
+\input{Chapters/ApplicationDomain/UseCaseTables/Approve-Tab}
+%\input{Chapters/ApplicationDomain/UseCaseStates/Approve-Fig}
 
-Another way to add a new version to the document is from the preview of a specific document.
-In this case they are not prompted for chapter, existing ID or title as those are already defined.
-The rest of the flow is the same.
+\input{Chapters/ApplicationDomain/UseCaseTables/Archive-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Archive-Fig}
 
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
-	%Noder i billedet
-	\node(start)[n]{};
-	\node(main)[predefined, right=2.8cm of start]{Main page};
-	\node(new)[predefined, below=1.5cm of main, xshift=-2cm]{New file\\upload page};
-	\node(preview)[predefined, right=2.5cm of new]{Document\\ preview};
-	\node(doc)[predefined, below=1.5cm of new, xshift=-2cm]{Create\\new Document};
-	\node(ver)[predefined, right=2cm of doc]{Create\\new version};
-	\node(title)[predefined, below=1.5cm of doc]{Title \& ID\\checked};
-	\node(upload)[predefined, right=2.8cm of title]{Upload\\file};
-	\node(log)[predefined, right=3.5cm of upload]{Changelog\\created};
-	\node(approve)[predefined, above=1.5cm of log]{Approval\\ created};
-	\node(sent)[predefined, above =1.5cm of approve]{Approval request\\sent};
-	\node(end)[n, above=1.5cm of sent] {};
-	\node(End)[c,fit=(end)] at (end) {};
-	%Streger i billedet
-	\draw[arrow](start.east)--node [above]{login to\\ OBHandbooks}(main.west);
-	%Ud fra main page
-	\draw[black](main.south)--(4.01,-0.8);
-	\draw[arrow](4.03,-0.8)-|node[right, yshift=-0.5cm]{Press\\'Upload'}(new.north);
-	\draw[arrow](4.03,-0.8)-|node[left, yshift=-0.5cm]{Select\\document}(preview.north);
-	%ud fra new file
-	\draw[black](new.south)--(2.02,-3.3);
-	\draw[arrow](2.02,-3.3)-|node[right, yshift=-0.5cm]{Add new\\ID}(doc);
-	\draw[arrow](2.02,-3.3)-|node[left, yshift=-0.5cm]{Select\\existing ID}(ver);
-	%Andre pile
-	\draw[arrow](doc.south)--node[right]{Add\\title}(title.north);
-	\draw[arrow](title.east)--node[above]{Select file}(upload.west);
-	\draw[arrow](ver.south)--node[left]{Select\\file}(upload.north);
-	\draw[arrow](preview.south)--node[right]{Press 'Upload\\new version'}(upload.north east);
-	\draw[arrow](upload.east)--node[above]{Add changelog}(log.west);
-	\draw[arrow](log.north)--node[left]{Add\\approvers}(approve.south);
-	\draw[arrow](approve.north)--node[left]{Press ' send\\to approval}(sent.south);
-	\draw[arrow](sent.north)--(End.south);
-	\draw[black](sent.south east)|-(2.5,-8.15);
-	\draw[black](2.5,-8.15)-|(-1.5,-4.0);
-	\draw[arrow](-1.5,-4.0)|-node[above, xshift=1.0cm]{Invalid\\info}(new.west);
-	\draw[arrow](upload.north east)--(approve.south west);
-	\end{tikzpicture}
-	\caption{{\color{red}Add new file to the system -suggestion}}\label{fig:Use-AddDoc}
-\end{figure}
+\input{Chapters/ApplicationDomain/UseCaseTables/Add-User-Tab}
+%\input{Chapters/ApplicationDomain/UseCaseStates/Add-User-Fig}
 
-\textbf{Approve new version or document}
-\\
-\textit{Any user} can be set as an approver to a document.
-When a user has been set as an approver they get an email notification about this.
-Once they log in the document is shown in their relevant documents section.
-They can then click on it to view and approve.
-They can also click approve straight from the front page.
-Once they have approved the document it is updated with a new version.
-The former version is labeled as inactive and can be accessed through the archive.
+In early designs the user was activated through an e-mail address or phone number authentication.
+However as seen in \cref{tab:actor-reader} not all of the system's users have a work related e-mail address or phone number.
+As seen in Actor table not all of the users have a work related e-mail address or phone number.
+Therefore it is not possible for the system to authenticate a user through an e-mail, which was the case in earlier designs.
+Instead the workaround of a standard password was introduced.
+When the administrator creates a user they set their name and username.
+The user themself can always edit their username by going to setting which is modelled in.
+The administrator can also set an e-mail and/or phone number.
+However the administrator does not choose the password for the user and their is no other means through which the user can receive a password.
+This means that there is a timeframe in which anyone could access the archive with only a username.
+This workflow assumes that the user will activate their account immediately after getting it.
 
-\textbf{Access archive}
-\\
-The \textit{administrator} can access the archive by clicking on the archive in the sidebar menu.
-The archive looks like the front page:
-All of the chapters and their titles are visible and each has a drop-down menu containing all of the documents.
-When a document is clicked a list of versions all versions of this document shows along with all the changelogs.
-The administrator accesses a specific version by clicking it.
-If the version is a pdf a preview is shown.
-If not a download option is also available.
+\input{Chapters/ApplicationDomain/UseCaseTables/Edit-User-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Profile-Fig}
 
-\textbf{Add user}
-\\
-An \textit{administrator} can add a new user to the system.
-This is done by clicking 'User administration' in the sidebar and choosing the 'Add user' button.
-A user needs needs a user name and a name.
-A name can either be an actual name or an identification number.
-It is possible to provide contact information in the form of e-mail and/or phone number.
-A standard password is automatically set.
-Once the administrator has clicked 'Add user' the new user is in the system and the administrator is returned to the User administration view.
-
-\textbf{Edit user information}
-\textit{Any actor} can edit their own information by clicking the cogwheel in the right corner.
-They have the option to add, remove or change their e-mail address and phone number.
-They can also change their username and password.
-The changes are applied when they click confirm.
-
-\textbf{User management}
-\\
-The \textit{administrator} can change information about all users in the system.
-They access all the information by clicking 'User management' in the sidebar.
-By clicking a user they access a menu where they can change a user's name, e-mail address and phone number.
-An administrator can also reset a user's password.
-The changes take affect once they click confirm.
-They can delete users both from that menu and the overview.
-When a user is deleted only the name remains in the database.
-When they delete a user they get a popup asking whether they are sure.
-The user is deleted once they click confirm and the popup disappears.
-
-\textbf{Mark document as read}
-\\
-A \textit{reader} is alerted to a new document they need to read through an email or sms notification.
-They access the document by logging into the system and finding the document in their relevant documents.
-Once they have the document open in preview they can mark the document as read by clicking the 'Read' button.
-The reader can also elect to download the document to read it rather than read it in preview.
-Should they do so the 'Read' button is also accesible from the front page.
-A popup menu stating that they have read and understood the content of the version will pop up.
-The reader then clicks 'Agree', the popup disappears and the read status has been saved.
-
-\textbf{View who has read a document}
-\\
-The \textit{administrator} can view a specific document in preview.
-Here a button called 'Read Status' is available and by clicking it a pop-up appears.
-In the popup everyone connected to the document who has read it and who should have read it is listed by name.
-They exit the popup by clicking outside it or on the x.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
-	%noder i billedet
-	\node(start)[n]{};
-	\node(main)[predefined, right=2.8cm of start]{Handbook front\\ page displayed};
-	\node(preview)[predefined, below=1.5cm of main]{Document preview\\ displayed};
-	\node(read)[predefined, right=3.2cm of preview]{Read status overview\\ pop-up displayd};	
-	\node(end)[n, above=1.5cm of read] {};
-	\node(End)[c,fit=(end)] at (end) {};
-	%Pile i billedet
-	\draw[arrow](start.east) -- node [above]{login to\\ OBHandbooks} (main.west);
-	\draw[arrow] (main.south) -- node [left]{Select\\ document}(preview.north);
-	\draw[arrow](preview.east) -- node[below]{Press 'read status\\ overview'} (read.west);
-	\draw[arrow](read.north) -- (End) node[right=0.5cm]{Close};
-	\draw[arrow](read.north west) -- node[above]{Press 'x'\\ to exit}(preview.north east);
-\end{tikzpicture}
-	\caption{Statechart diagram for the 'View who has read a document' use case}\label{fig:Use-ReadStatus}
-\end{figure}
-
-\textbf{Manage departments}
-\\
-An administrator can access 'Manage departments' through the sidebar.
-When they add a new department they need to provide a name and are then returned to the 'Manage department' view.
-They can then click a department to view a list of all connected users sorted by name and a list of all connected documents sorted by number.
-They can click edit user and are redirected to a menu where all the users in the system are listed.
-They can then tick them on and off to select which users are connected to the department.
-Similarly an 'Edit departments' button exists where they are then redirected to a list of all active documents in the handbook.
+\input{Chapters/ApplicationDomain/UseCaseTables/User-Man-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/User-Man-Fig}
 
 Worth noting. The administrator can change a user's name while the user themself can change their user name.
+\input{Chapters/ApplicationDomain/UseCaseTables/Mark-Read-Tab}
+%\input{Chapters/ApplicationDomain/UseCaseStates/Mark-Read-Fig}
+
+The only use case administrator cannot do.
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Read-Status-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/ReadStatus-Fig}
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Dep-Man-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Dep-Man-Fig}
+

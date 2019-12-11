@@ -1,1 +1,50 @@
 \chapter{Discussion}
+THIS IS WORK IN PROGRESS
+
+In this section it will be discussed how the system have been developed and which choices have been made along the way. More so there will be looked at the pro and cons of decisions that appeared, this includes things as the system definition from chapter \cref{problemstatement} and system architecture from chapter \cref{components}.
+
+\subsection{System architecture}
+When choosing the system architecture, Model-View-Controller stood out, but it was potentially possible to use a generic system architecture with success. The primary downside of an architecture that is not web based lies in the distribution of the system and how the system is updated to the latest version. This means the developer and the user have to use third party websites or personally meet to install said update. This also means software problems would take longer time to patch as developers have to meet users or otherwise make contact another way. Furthermore the product would be harder to make available to users on other platforms such as phones.
+
+Although it is not optimal for this case, it is cost free and once implemented, the system should not have to be maintained. And although it is not easy to update, there is no need for internet connection.
+
+On the other side of the spectrum, the Model-View-Controller pattern stood out, because of the ease of use, optimal accessibility and minimum system requirements. A security concern is also real, but password protection was enough for this system.
+
+\subsection{System definition}
+This section will discuss the system definition from \cref{problemstatement}. An in depth look at the system in its current state will then be compared to our final system definition from \cref{problemstatement}.
+
+The system definition requirements were mostly fulfilled as the system is capable of management of documents that is uploaded from a pc. The files that are placed on the server are viewable in the table of contents where each document is also identifiable with a unique id. Each document also has been given a changelog that can be written when pressing to make changes to said document. When documents are updated, older versions are archived.
+
+All the fulfilled requirements are also supported by multi-level access rights, these are separated into three classes, administrator, writer and reader as Ipsen requested. These users are also grouped in different departments that is associated with chosen documents. 
+
+SKRIV NOGET MED NOTIFICATIONER
+
+Although the system has fulfilled most requirements, it is not capable of editing different file types. This was due to most documents stemming from Microsoft Office software, that appeared difficult to solve through the system. A feature with such complexity could in it self be a system.
+
+Furthermore the table of contents that presents all documents are not sortable as originally desired.
+
+In spite of the fact that parts of the system definition are not completed, the system is functional and capable of working in production.
+
+\subsection{Design requirements}
+With the MoSCoW rules the functionalities were placed into different classes of priority, these can be seen in \cref{sec:requirements}. In this section there will be a look into the requirements and their fulfilment in the system.
+
+The design requirements were tailored to the needs of the user. These requirements are mostly complete with the exception of the last to bullet points in \cref{sec:requirementsdefinition}. 
+
+HER SKAL DER VÆRE EN REFERENCE TIL KONKLUSIONEN AF DESIGN AFSNITTET
+
+\subsection{Problem statement}
+In \cref{problemstatement} the problem statement is presented and this section will answer if the definition was complied with. The project had the following statement:
+
+\begin{center}
+\textit{How can a document version management software be designed and developed to support a firm's management of their handbook documents so it is easily manageable by the administrators, and also accessible for readers and writers?}
+\end{center}
+
+
+
+\subsection{Iterative model}
+
+\subsection{GUI}
+
+
+
+\subsection{Implementering af systemet}
