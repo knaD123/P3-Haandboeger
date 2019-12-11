@@ -1,34 +1,53 @@
 \subsection{Use cases} \label{sec:usecases}
-The main functionality that every actor needs is accessing the current handbook. The use case is 
+The main functionality that every actor needs is access to the current handbook. How they do so is described in \cref{tab:access-handbook} and shown in \cref{fig:access-handbook}.
 
-\input{Chapters/ApplicationDomain/use-case-tables/Access-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/Access-Fig}
 
-\input{Chapters/ApplicationDomain/use-case-tables/Add-Doc-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/Add-Doc-Fig}
+\input{Chapters/ApplicationDomain/UseCaseTables/Access-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Access-Fig}
 
-\input{Chapters/ApplicationDomain/use-case-tables/Approve-Tab}
-%\input{Chapters/ApplicationDomain/use-case-statecharts/Approve-Fig}
+There is a fork depending on whether it is the first time a user logs in because when a new user is created, they have a username, a name/ID and a standard password.
+For security reasons this standard password needs to be changed as otherwise anyone could log into the system with only a username.
+The first login is also an account activation through which the password is changed and an e-mail address and phone number may be added.
 
-\input{Chapters/ApplicationDomain/use-case-tables/Archive-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/Archive-Fig}
+\input{Chapters/ApplicationDomain/UseCaseTables/Add-Doc-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Add-Doc-Fig}
 
-\input{Chapters/ApplicationDomain/use-case-tables/Add-User-Tab}
-%\input{Chapters/ApplicationDomain/use-case-statecharts/Add-User-Fig}
+\input{Chapters/ApplicationDomain/UseCaseTables/Approve-Tab}
+%\input{Chapters/ApplicationDomain/UseCaseStates/Approve-Fig}
 
-\input{Chapters/ApplicationDomain/use-case-tables/Edit-User-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/Profile-Fig}
+\input{Chapters/ApplicationDomain/UseCaseTables/Archive-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Archive-Fig}
 
-\input{Chapters/ApplicationDomain/use-case-tables/User-Man-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/User-Man-Fig}
+\input{Chapters/ApplicationDomain/UseCaseTables/Add-User-Tab}
+%\input{Chapters/ApplicationDomain/UseCaseStates/Add-User-Fig}
 
-\input{Chapters/ApplicationDomain/use-case-tables/Mark-Read-Tab}
-%\input{Chapters/ApplicationDomain/use-case-statecharts/Mark-Read-Fig}
+In early designs the user was activated through an e-mail address or phone number authentication.
+However as seen in \cref{tab:actor-reader} not all of the system's users have a work related e-mail address or phone number.
+As seen in Actor table not all of the users have a work related e-mail address or phone number.
+Therefore it is not possible for the system to authenticate a user through an e-mail, which was the case in earlier designs.
+Instead the workaround of a standard password was introduced.
+When the administrator creates a user they set their name and username.
+The user themself can always edit their username by going to setting which is modelled in.
+The administrator can also set an e-mail and/or phone number.
+However the administrator does not choose the password for the user and their is no other means through which the user can receive a password.
+This means that there is a timeframe in which anyone could access the archive with only a username.
+This workflow assumes that the user will activate their account immediately after getting it.
 
-\input{Chapters/ApplicationDomain/use-case-tables/Read-Status-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/ReadStatus-Fig}
+\input{Chapters/ApplicationDomain/UseCaseTables/Edit-User-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Profile-Fig}
 
-\input{Chapters/ApplicationDomain/use-case-tables/Dep-Man-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/Dep-Man-Fig}
+\input{Chapters/ApplicationDomain/UseCaseTables/User-Man-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/User-Man-Fig}
 
 Worth noting. The administrator can change a user's name while the user themself can change their user name.
+\input{Chapters/ApplicationDomain/UseCaseTables/Mark-Read-Tab}
+%\input{Chapters/ApplicationDomain/UseCaseStates/Mark-Read-Fig}
+
+The only use case administrator cannot do.
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Read-Status-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/ReadStatus-Fig}
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Dep-Man-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Dep-Man-Fig}
+
