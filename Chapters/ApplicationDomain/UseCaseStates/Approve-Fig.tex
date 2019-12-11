@@ -1,0 +1,28 @@
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%noder i billedet
+		\node(start)[n]{};
+		\node(main)[predefined, right=2.7cm of start]{Main page};
+		\node(pending)[predefined, right=3.0cm of main]{Pending\\approval page};
+		\node(approve)[predefined, below=1.5cm of pending]{Pending approval\\approved};
+		\node(ver)[predefined, left=2.8cm of approve]{pending approval\\verison page};
+		\node(active)[predefined, below=1.5cm of approve]{Version active\\in handbook};
+		\node(end)[n, left=1.5cm of active]{};
+		\node(End)[c, fit=(end)] at (end){};
+	%streger i billedet
+		\draw[arrow](start.east)--node[above]{Login to\\OBHandbooks}(main.west);
+		\draw[arrow](main.east)--node[above]{Admin:Go to\\Pending approval}(pending.west);
+		\draw[arrow](pending.south)--node[right]{Press\\'Approve'}(approve.north);
+		\draw[arrow](main.south)--node[left]{Writer: go through\\notifications}(ver.north);
+		\draw[arrow](pending.south west)--node[left, yshift=0.28cm]{Select an\\ approval}(ver.north east);
+		\draw[arrow](ver.east)--node[above, xshift=0.45cm]{Press\\'Approve'}(approve.west);
+		\draw[arrow](approve.south)--node[right]{Version approved\\by all approvers}(active.north);
+		\draw[arrow](approve.south west)--node[left]{Admin unilateraly\\approves version}(active.north west);
+		\draw[arrow](active.west)--(End.east);
+		
+	\end{tikzpicture}
+	\caption{{\color{red}Approve new version}}\label{fig:Use-ApproveVer}
+\end{figure}
+\todo[inline]{Anna kommentar: i teksten til pilen main page til pending approval version page hvor der står "Writer: go through\\notifications" stod der oprindegligt "Press notification button", så hvis hellere vil have det, bare ændre det}
+

@@ -220,86 +220,88 @@
 	\caption{{\color{red}Access Archive}}\label{fig:Use-archive}
 \end{figure}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \section{Figure 8}
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
 	%noder i billedet
+		\node(start)[n]{};
+		\node(main)[predefined, right=2.7cm of start]{Main page};
+		\node(user)[predefined, right=2.8cm of main]{User management\\page};
+		\node(create)[predefined, below=1.5cm of user]{Create user\\page};
+		\node(update)[predefined, left=1.5cm of create]{User\\created};
+		\node(end)[n, left=1.5cm of update]{};
+		\node(End)[c, fit=(end)] at (end){};
 	%streger i billedet
+		\draw[arrow](start.east)--node[above]{Login to\\OBHandbooks}(main.west);
+		\draw[arrow](main.east)--node[above]{Go to 'User\\administration'}(user.west);
+		\draw[arrow](user.south)--node[right]{Press\\'Create user'}(create.north);
+		\draw[arrow](create.west)--node[above]{Press\\'save'}(update.east);
+		\draw[arrow](update.west)--(End.east);
 	%loop i billedet
-	
-	
+		\path[arrow](create) edge [loop below, in=255, looseness=4]node[auto]{Add\\information} (create);
+		\path[arrow](create) edge [loop below, out=345, in=320, looseness=3] node[right]{Add\\departments} (create);
+			
 	\end{tikzpicture}
-	\caption{{\color{red}Cpation tekst}}\label{fig:Use-Whatif}
+	\caption{{\color{red}Add user}}\label{fig:Use-AddUser}
 \end{figure}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\todo[inline]{Anna kommenterer: hver opmærksom på at der eksplicit netop i ideen var at man skal kunne tilføje departments under user-creation (hvilket på givne tidpunkt ikkeer implementeret)}
 
 \section{Figure 9}
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
 	%noder i billedet
+		\node(start)[n]{};
+		\node(main)[predefined, right=2.7cm of start]{Main page};
+		\node(pending)[predefined, right=3.0cm of main]{Pending\\approval page};
+		\node(approve)[predefined, below=1.5cm of pending]{Pending approval\\approved};
+		\node(ver)[predefined, left=2.8cm of approve]{pending approval\\verison page};
+		\node(active)[predefined, below=1.5cm of approve]{Version active\\in handbook};
+		\node(end)[n, left=1.5cm of active]{};
+		\node(End)[c, fit=(end)] at (end){};
 	%streger i billedet
-	%loop i billedet
-	
-	
+		\draw[arrow](start.east)--node[above]{Login to\\OBHandbooks}(main.west);
+		\draw[arrow](main.east)--node[above]{Admin:Go to\\Pending approval}(pending.west);
+		\draw[arrow](pending.south)--node[right]{Press\\'Approve'}(approve.north);
+		\draw[arrow](main.south)--node[left]{Writer: go through\\notifications}(ver.north);
+		\draw[arrow](pending.south west)--node[left, yshift=0.28cm]{Select an\\ approval}(ver.north east);
+		\draw[arrow](ver.east)--node[above, xshift=0.45cm]{Press\\'Approve'}(approve.west);
+		\draw[arrow](approve.south)--node[right]{Version approved\\by all approvers}(active.north);
+		\draw[arrow](approve.south west)--node[left]{Admin unilateraly\\approves version}(active.north west);
+		\draw[arrow](active.west)--(End.east);
+		
 	\end{tikzpicture}
-	\caption{{\color{red}Cpation tekst}}\label{fig:Use-Whatif}
+	\caption{{\color{red}Approve new version}}\label{fig:Use-ApproveVer}
 \end{figure}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\todo[inline]{Anna kommentar: i teksten til pilen main page til pending approval version page hvor der står "Writer: go through\\notifications" stod der oprindegligt "Press notification button", så hvis hellere vil have det, bare ændre det}
 
 \section{Figure 10}
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
 	%noder i billedet
+		\node(start)[n]{};
+		\node(main)[predefined, right=2.7cm of start]{Main page};
+		\node(status)[predefined, right=2.8cm of main]{Document\\preview};
+		\node(pop)[predefined, below=1.5cm of status]{Pop-up menu};
+		\node(update)[predefined, left=2.5cm of pop]{Read status\\updated};
+		\node(end)[n, left=1.5cm of update]{};
+		\node(End)[c, fit=(end)]at (end){};
 	%streger i billedet
+		\draw[arrow](start.east)--node[above]{Login to\\OBHandbooks}(main.west);
+		\draw[arrow](main.north east)--node[above]{Go through\\notifications}(status.north west);
+		\draw[arrow](main.east)--node[below]{Select relevant\\document}(status.west);
+		\draw[arrow](status.south)--node[left, yshift=-0.2cm]{Press\\'Read status'}(pop.north);
+		\draw[arrow](pop.west)--node[below]{Press 'Agree'}(update.east);
+		\draw[arrow](update.west)--(End.east);
 	%loop i billedet
+		\path[arrow](pop) edge [loop right, looseness=1]node[right]{Press\\'Cancel'} (status);	
 	
 	
 	\end{tikzpicture}
-	\caption{{\color{red}Cpation tekst}}\label{fig:Use-Whatif}
+	\caption{{\color{red}Mark document as read}}\label{fig:Use-Read}
 \end{figure}
+
+\todo[inline]{Anna kommentarer:Vær opmærksom på jeg har ændret en del pile i diagrammet \\husk kun writer og reader kan det her.\\ Husk som det ser ud i implementationen i dag er det ikke et pop-up vindue}
