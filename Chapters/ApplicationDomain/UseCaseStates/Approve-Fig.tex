@@ -14,7 +14,7 @@
 		\draw[arrow](start.east)--node[above]{Login to\\OBHandbooks}(main.west);
 		\draw[arrow](main.east)--node[above]{Admin:Go to\\Pending approval}(pending.west);
 		\draw[arrow](pending.south)--node[right]{Press\\'Approve'}(approve.north);
-		\draw[arrow](main.south)--node[left]{Writer: go through\\notifications}(ver.north);
+		\draw[arrow](main.south)--node[left]{Press notification button}(ver.north);
 		\draw[arrow](pending.south west)--node[left, yshift=0.28cm]{Select an\\ approval}(ver.north east);
 		\draw[arrow](ver.east)--node[above, xshift=0.45cm]{Press\\'Approve'}(approve.west);
 		\draw[arrow](approve.south)--node[right]{Version approved\\by all approvers}(active.north);
@@ -22,7 +22,6 @@
 		\draw[arrow](active.west)--(End.east);
 		
 	\end{tikzpicture}
-	\caption{{\color{red}Approve new version}}\label{fig:Use-ApproveVer}
+	\caption{Statechart diagram for the use case 'Approve new version'}\label{fig:approve}
 \end{figure}
-\todo[inline]{Anna kommentar: i teksten til pilen main page til pending approval version page hvor der står "Writer: go through\\notifications" stod der oprindegligt "Press notification button", så hvis hellere vil have det, bare ændre det}
 
