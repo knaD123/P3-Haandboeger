@@ -47,7 +47,8 @@ The CEO needs to be in the system to approve documents but has no other use of i
 
 The department head knows more about their own department than anybody else, and are both among the first ones to know when an update is needed as well as one of the people best equipped to write said update.
 Furthermore, the quality manager cannot write the entire handbook due to its size and needs a writer to do some of the heavy lifting.
-However, they also do not wish to grant the level of access to the system that an administrator role gives everytime someone needs a little more functionality than the very limited one the reader role offers.
+%Anna: Er det virkeligt en korrekt påstand vil mene at det ikke er det vi har fra Pia, men nærmere en ting som hun siger kan henne
+However, they also do not wish to grant the level of access to the system that an administrator role yields every time someone needs a bit more functionality than the limited reader role offers.
 This introduces the need for the \textit{writer} actor, as seen in \cref{tab:Actor-write}.
 
 \begin{table}[H]
@@ -70,11 +71,11 @@ This introduces the need for the \textit{writer} actor, as seen in \cref{tab:Act
 	\caption{Actor specifiactions for \textit{Writer}}\label{tab:Actor-write}
 \end{table}
 
-The everyday worker only needs to read and mark documents as read and therefore that is the only functionality they have.
+The everyday worker only needs to read and mark documents as read and therefore it is the only functionality they have.
 They are a very broad group both in terms of willingness to use the system and ability to use the system to its full capacity.
 
 They may be an experienced IT user excited to try out a new system.
-They may also be someone who does not use IT very much in their daily life and as a result is vary of technology in general.
+They may be someone who does not use IT very much in their daily life as well and as a result is vary of technology in general.
 Or an old worker who has done this job for 30 years and sees no reason to change their workflow.
 They can come from anywhere in the firm and may be one of the higher-ups or someone who is used to office work.
 However they may also be a production worker and not even have a work related e-mail or phone number.
@@ -91,6 +92,7 @@ However they may also be a production worker and not even have a work related e-
 		\textbf{Characteristic} & Can come from all levels and areas in the company.
 		Their only shared characteristic is that they all need to read and confirm that they have read certain parts of the handbook.
 		They may not have a work related e-mail or phone number.\\
+		%Anna: Tænker umiddelbart den sidste sæstnign ikke er nødvendig at tilføje
 		&  \\
 		
 		\textbf{Example 1}
@@ -101,11 +103,14 @@ However they may also be a production worker and not even have a work related e-
 		& The worker who is not an experienced IT user and as a result is vary of it. 
 		They only use the system when absolutely necessary and may not see a notification when it comes.
 		They may be vary of the system due to their inexperience with technology.
+		%Anna: Tænker sætningen lige ovenfor kunne være fin at slette
 		They do not have e-mail nor phone number connected to the system and would likely not see a notification in due time even if they had.\\
+		%Anna: Synes også denne sætnign bliver for meget graven i det samme hul så bare slet den
 		&  \\
 		
 		\textbf{Example 3}
-		& The production worker who does not have a work related e-mail or phone number. They do not get notifications at all, and rely on the department head to know when an update is out rather than notifications.\\
+		& The production worker who does not have a work related e-mail or phone number. 
+		They do not get notifications at all, and rely on the department head to know when an update is out rather than notifications.\\
 		&  \\
 		
 		\textbf{Example 4}
@@ -113,9 +118,11 @@ However they may also be a production worker and not even have a work related e-
 		
 		\hline
 	\end{tabular}
-	\caption{Actor specifiactions for \textit{Reader}}\label{tab:Actor-read}
+	\caption{Actor specifiactions for \textit{Reader}}\label{tab:Actor-reader}
 \end{table}
 
 One of the reasons why every role has the right to approve an addition or update to the handbook is that the CEO's main job within the handbook is to do exactly that.
+%Anna: Hvad menes med update to the handbook (for hvis der menes upload er det kun writer og admin)
 However they do not need to do anything else in the handbook and therefore needs only the minimum level of access.
 That and there is no need to restrict the functionality to a specific role as the users need to be specifically assigned to approve anything anyway.
+%Anna: Synes det sidste afsnit her er kringlet skrevet og er ikke sikker på hvad der egentligt menes med det (prøver at blive sagt med det)

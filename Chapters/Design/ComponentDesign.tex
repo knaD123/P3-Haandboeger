@@ -1,9 +1,16 @@
-\section{Component Design}
+\section{Component Design} \label{sec:componentdesign}
+
+In this section the component design theory will be introduced and elaborated.
+This theory will be utilized in the follwing section where the component design for the system will be presented.
+
+\input{Chapters/Design/architecturecomponents}
+
+\subsection{System design}
 
 In relation to the ASP.NET MVC pattern there are immediate similarities to the component design theory in \cref{archicomponents}.
 There can be drawn parallels between the \textit{model} component and the \textit{model} classes in the MVC pattern.
 There can likewise be drawn parallels between the \textit{functionality} component and \textit{controller} classes, and \textit{interface} component and the \textit{view} in the MVC pattern.
-The parallels are listed as seen in the table bellow:
+The parallels are listed as seen in the table below:
 
 \begin{center}
 	\begin{tabular}{| c | c | }
@@ -36,13 +43,41 @@ These are what determine what the actors see and what they can interact with.
 \subsection{Component layers}
 In relation to the theory written in \cref{archicomponents} the components can be designed in layers to describe their responsibilities and relation to each other.
 The components in the MVC pattern with EF Core included can also be designed with the layered architecture in mind.
-To give an overview and understanding of the architecture and design a simple component layer design can be seen in the figure bellow:
+To give an overview and understanding of the architecture and design a simple component layer design can be seen in the figure below:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{billeder/simplecomponents.png}
+	\includegraphics[width=0.7\textwidth]{billeder/simplecomponents.jpeg}
 	\caption{Simple component layer design}
 \end{figure}
+
+
+View, controller, model, and EF Core are thus the main components layers that can be found in the design, each with a well-defined responsibility.
+Ideally the architecture is designed so that the view and model components do not have to interact with each other.
+It is the intention that the controller is the link between these components, which is why it is placed in the middle of the layer components.
+The main function of the controller is to link objects from the model component and data from the EF Core database and make these accessible for the view component.
+
+This will not always be the case as with the ASP.NET Core MVC model is designed so that a view has a corresponding controller.
+For example the document view will have a corresponding document controller.
+The document view will eventually have to borrow objects and data from other models in the system, which means that the view will at times have to bypass the controller component to communicate with the model component.
+
+Subsystems can be explored from the main components, which for example are the interface system and its underlyding technologies that it consists of.
+These are html, css, javascript, and razor.
+The model component has two main parts which are the model classes from the MVC pattern and the EF Core database system.
+These two are defined as seperate components which share similary responsibilities in the model component.
+
+These components their relations with each other, and their underlying subcomponents can be seen in the complex version of the layer design below:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/complexcomponents.jpeg}
+	\caption{Complex component layer design}
+\end{figure}
+
+Ideally the design would have \textit{closed-relaxed} architecture as the components would only be able to access layers adjacent to them.
+In this design the design would be \textit{relaxed} as the controller would have access to both the view and the model components.
+As it is though the design has an \textit{open-relaxed} architecture as the view component occasionally has access to the model component.
+
 
 In the final design there will be several classes included within each of the components.
 Each of the main classes in the model component will have a corresponding controller and view in relation to it.

@@ -1,4 +1,4 @@
-\section{Bugs}
+\section{Bugs}\label{sec:Bug}
 % Hvad er en bug
 There exists a lot of terms to describe that a program is not behaving as intended or crashes, like; \textit{Fault, failure} and \textit{incident}.
 A reason for all these different terms is that e.g. incident might not sound negative enough to be used for very severe or dangerous errors. \cite{SoftwareTesting}
@@ -29,7 +29,9 @@ Other causes to why bugs happens in software are the design and code errors.
 The reasons to why bugs are introduced to the software by the design and code errors are similar to the reasons mentioned above.
 Though, bugs caused by code errors can also happen because of the complexity of the code or poor documentation in the code.
 Many of the bugs caused by code errors can often be traced back to errors in the specification and design. \cite{SoftwareTesting}
-%Anna: evt i en bisætning (eller bare kort sætning) gør klart hvad der ligger i product specifications?
+
+A product specification is a document, if written, that describes the product.
+The specification can be created using data from a lot of different sources e.g. usability tests, see \cref{sec:usabilitytesting}. \cite{SoftwareTesting}
 
 % Pris for at fixe det (side 18)
 Finding bugs early in the development process can reduce the cost of fixing it greatly.
@@ -41,7 +43,7 @@ A development process can be split up into multiple phases:
 	\item Design
 	\item Programming
 	\item Testing
-	\item Release % Ikke sikker paa om denne skal være med
+	\item Release
 \end{itemize}
 
 The cost of fixing bugs increases logarithmic over time.
@@ -62,6 +64,8 @@ There are several reasons why a bug is not being fixed before the software is re
 \end{itemize}
 
 % "It's not a bug, it's a feature"
+One might think, when looking at the last point in the list above, why a bug is not a bug.
+The reason for this can be because of mis-understandings or that the specification changes after the software already have some features implemented. \cite{SoftwareTesting}
 
-
-\textbf{To be continued...}
+It has now been explained why it is important to test software, see \cref{sec:whytesting}, and what bugs are.
+It now time to see what techniques can be used to test software and find potential bugs.

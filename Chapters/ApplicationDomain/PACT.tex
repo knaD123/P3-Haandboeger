@@ -1,16 +1,14 @@
 
 In this chapter the application domain will be analyzed.
 Where the problem domain, \cref{ch:ProblemDomain}, focused on; what information the system should process, the application domain focuses on; how the user will use the system in practice.
-This analysis will start with a PACT analysis where the context of the use of the system will be explored which delves into the people, their activities, contexts and the technologies used.
+This analysis will start with a PACT analysis, \cite{Benyon}, where the context of the use of the system will be explored which delves into the people, their activities, contexts and the technologies used.
 Afterwards use cases of the system will be explored followed by functions that need to support these use cases.
 
 \section{PACT analysis}\label{sec:PACT}
-This section is based upon Benyon \cite{Benyon} and the analysis made during the project unless anything else is stated.
-
 When developing an interactive system it is important to design it with the users in mind as the system is being developed for a specific purpose and context.
 This is also know as human-centred design.
 On the other hand is the machine-centred design where the users are seen as vague, disorganized and have to fit the needs of the machine.
-To design human-centred the developers must explore the users who will eventually use the system and for what purposes they are going to utilize it.
+To design human-centred the developers must explore the users who will eventually use the system and for what purposes they are going to utilize it. \cite{Benyon}
 
 To help understand and reflect upon the users and their relation to an interactive system, the framework \textit{PACT} is used.
 PACT is an acronym for \textit{People, Activities, Context}, and \textit{Technology}.
@@ -43,6 +41,7 @@ Social differences is about how people use a system for different reasons and th
 Additionally, there is also a big difference in people's expertise levels which affects how an interface might be designed.
 This is an important consideration since designing a system for a homogeneous group of people is  different from designing one for a heterogeneous group.
 
+\subsubsection*{People analysis}
 In the case described in this report, see \cref{sec:CaseDescription}, there are four main groups of people that need to be considered.
 These are the quality manager, secretary, department heads, and blue-collar workers.
 This is a heterogeneous group with IT experience ranging from possibly none to what is required at everyday office work.
@@ -82,9 +81,7 @@ Second is the consideration of ``what will happen when mistakes and errors are m
 
 \textit{The nature of the content} is a more technical reflection of which data requirements are needed for the activity as well as what media it requires.
 
-% Kunne det være en ide at lave en subsubsection ved navnet "Activities of OBHandbook" eller noget da activities del er ret laaaang
-%Anna: Hvis vi har tænkt os at gøre det skal det are gøres ved alle dele for at være konsekvente
-\todo[inline]{Lav subsection???}
+\subsubsection*{Activities analysis}
 In the case of this project, see \cref{sec:CaseDescription} in terms of temporal aspects during the activities users may experience interruptions and the system should therefore be simple to use and easy to get back to.
 
 Being easy to use is a feature especially relevant for the blue-collar workers, as they only occasionally need to read documents and therefore are less in contact with the system.
@@ -118,6 +115,7 @@ The analysis will not include the social context as this is not considered relev
 The physical environment might cover everything from weather to geographical placement of where the activity is done.
 It is an analysis of the surrounding environment which may have effect on how users perform activities.
 
+\subsubsection*{Context analysis}
 There are two main physical contexts to consider.
 For the quality manager and the secretary an office context is most likely as they handle administrative work.
 For the blue-collar workers the context could differ dramatically as their functions may differ from each other.
@@ -143,6 +141,7 @@ It covers looking into elements such as what medias and technologies are needed 
 Furthermore, it also examines the content, which concerns the data in the system and its form.
 Good content is defined as accurate, up to date, relevant and well presented.
 
+\subsubsection*{Technology analysis}
 Since the activities are most often done in an office environment, on a standard PC, the input medias are keyboard and mouse.
 In addition output is presented through a monitor, or for the blue-collar workers on the factory floor through a printed version of the handbook, or parts of it.
 The content displayed to the user, on the monitor, is presented through a web browser.

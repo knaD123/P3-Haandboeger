@@ -1,0 +1,86 @@
+\section{Testing techniques} \label{sec:testingtechniques}
+A lot of different techniques can be used to test software.
+This section will focus on two common approaches to test software \textit{black-box testing} and \textit{white-box testing} \cite{SoftwareTesting}.
+It will be explained what their differences are, when to use them and how they are used in this project.
+
+% static and dynamic testing (side 56)
+When doing black-box and white-box testing it is possible to do it staticly or dynamicly, see \cref{defn:statictesting,defn:dynamictesting}.
+
+\begin{defn} \label{defn:statictesting}
+Testing software without running it.
+\end{defn}
+
+\begin{defn} \label{defn:dynamictesting}
+Testing software by running it.
+\end{defn}
+
+% Black-box testing (side 55)
+\subsection{Black-box testing} \label{sec:blackboxtesting}
+Black-box testing is performed without any knowledge of why the software behaves as it does \cite{SoftwareTesting}.
+This means that the person (the tester) that tests the software cannot look at the code.
+The tester is only able to give input to the software and receive output based on the input.
+
+% Static black-box testing (side 56)
+As mentioned in \cref{sec:testingtechniques} black-box testing can be done staticly.
+Static black-box testing is when the tester tests the software without running the software and without access to the code. % Henrik: Hvordan henviser jeg til baade defn og tekst ovenover?
+
+% Product specification (side 57)
+Testing the product specification is considered as static black-box testing.
+The reason for this is that the product specification is a document, see \cref{sec:Bug}, and therefore considered static.
+If the project does not have a product specification there is at least one person in the project group that know what is being build - use this person as a talking product specification. \cite{SoftwareTesting}
+
+The product specification tests is done in two steps:
+
+\begin{itemize}
+	\item High-level review.
+	\item Low-level review.
+\end{itemize}
+
+% Henrik: Dette afsnit skal muligvis omformuleres
+A high-level review is done by examine the product specification for large fundamental problems, oversights and omissions.
+A high-level review of the product specification might seem more like research than actual testing, but having a better understanding of the whys and hows will make it a lot easier to examine the product specification in detail.
+% Teknikker til at lave high-level review (side 57-59)
+There are several techniques that a tester can use to perform a high-level review of the product specification, e.g. pretend to be someone that is going to use the software and examine already existing solutions.
+By examining already existing solutions the tester gets a better understanding of the software. \cite{SoftwareTesting}
+
+When performing a low-level review of the product specification the tester would check if the product specification \textbf{>> opfylder <<} these eight attributes: \cite{SoftwareTesting}
+
+\begin{itemize}
+	\item ''\textbf{Complete.} Is anything missing or forgotten? Is it thorough? Does it include everything necessary to make it stand alone?''
+	\item ''\textbf{Accurate.} Is the proposed solution correct? Does it properly define the goal? Are there any errors?''
+	\item ''\textbf{Precise, Unambiguous, and Clear.} Is the description exact and not vague? Is there a single interpretation? Is it easy to read and understand?''
+	\item ''\textbf{Consistent.} Is the description of the feature written so that it doesn't conflict with itself or other items in the specification?''
+	\item ''\textbf{Relevant.} Is the statement necessary to specify the feature? Is it extra information that should be left out? Is the feature traceable to an original customer need?''
+	\item ''\textbf{Feasible.} Can the feature be implemented with the available personal, tools, and resources within the specified budget and schedule?''
+	\item ''\textbf{Code-free.} Does the specification stick with defining the product and not the underlying software design, architecture, and code?''
+	\item ''\textbf{Testable.} Can the feature be tested? Is enough information provided that a tester could create tests to verify its operation?''
+\end{itemize}
+
+It is also important when performing a low-level review of the product specification to look out for specific keywords and the context that they are used.
+A few keywords that the tester should be looking for could be words like:
+
+\begin{itemize}
+	\item Always
+	\item Certainly
+	\item Sometimes
+	\item Such as
+	\item Cheap
+	\item Skipped
+	\item If.. Then..
+\end{itemize}
+
+% Uddyb listen ovenover (side 61)
+The tester should be looking out for words like those mentioned in the list above because some words might signal that something is certain, or some words might be vague and others might not be testable.
+In the case where the words are too vague or not testable a re-definition is required. \cite{SoftwareTesting}
+
+% Dynamic black-box testing (side 64)
+It was, in \cref{sec:testingtechniques}, also mentioned that black-box tests can be done dynamicly.
+Dynamic black-box testing is where the tester is running the software but do not have access to the code. % Henrik: Hvordan henviser jeg til defn dynamicly og tekst med black-box?
+Here the tester simply enters some input and receives some output based on the input entered. \cite{SoftwareTesting}
+
+% Hvordan har vi brugt det i vores projekt
+A great example of dynamic black-box testing is usability tests, see \cref{sec:usabilitytesting}.
+This is also something that have been done in this project.
+It will be explained in greater detail how the usability test were executed in \cref{sec:usabilitytesting}. % Henrik: Ville "performed" være et bedre ord?
+
+\subsection{White-box testing} \label{sec:whiteboxtesting}

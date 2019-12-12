@@ -1,0 +1,24 @@
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	%noder i billedet
+		\node(start)[n]{};
+		\node(main)[predefined, right=2.7cm of start]{Main page};
+		\node(user)[predefined, right=2.8cm of main]{User management\\page};
+		\node(create)[predefined, below=1.5cm of user]{Create user\\page};
+		\node(update)[predefined, left=1.5cm of create]{User\\created};
+		\node(end)[n, left=1.5cm of update]{};
+		\node(End)[c, fit=(end)] at (end){};
+	%streger i billedet
+		\draw[arrow](start.east)--node[above]{Login to\\OBHandbooks}(main.west);
+		\draw[arrow](main.east)--node[above]{Go to 'User\\administration'}(user.west);
+		\draw[arrow](user.south)--node[right]{Press\\'Create user'}(create.north);
+		\draw[arrow](create.west)--node[above]{Press\\'save'}(update.east);
+		\draw[arrow](update.west)--(End.east);
+	%loop i billedet
+		\path[arrow](create) edge [loop below, in=255, looseness=4]node[auto]{Add\\information} (create);
+		\path[arrow](create) edge [loop below, out=345, in=320, looseness=3] node[right]{Add\\departments} (create);
+			
+	\end{tikzpicture}
+	\caption{Statechart diagram for the use case 'add user'}\label{fig:add-user}
+\end{figure}

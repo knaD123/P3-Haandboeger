@@ -1,34 +1,172 @@
 \subsection{Use cases} \label{sec:usecases}
-The main functionality that every actor needs is accessing the current handbook. The use case is 
+All of the actors have different needs of the system and different accessibility to the system. The various different workflows each of them has is described in ten use cases, which are covered in this section.
 
-\input{Chapters/ApplicationDomain/use-case-tables/Access-tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/Access-Fig}
+\subsubsection{Access current handbook}
+The main functionality that every actor needs is access to the current handbook. How they do so is described in \cref{tab:access-handbook} and shown in \cref{fig:access-handbook}.
 
-\input{Chapters/ApplicationDomain/use-case-tables/Add-Doc-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/Add-Doc-Fig}
+\input{Chapters/ApplicationDomain/UseCaseTables/Access-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Access-Fig}
 
-\input{Chapters/ApplicationDomain/use-case-tables/Approve-Tab}
-%\input{Chapters/ApplicationDomain/use-case-statecharts/Approve-Fig}
+There is a fork depending on whether it is the first time a user logs in because a new user has a username, a name and a standard password.
+For security reasons this standard password needs to be changed as otherwise anyone could log into the system with only a username.
+The first login is also an account activation through which the password is changed and an e-mail address and phone number may be added.
 
-\input{Chapters/ApplicationDomain/use-case-tables/Archive-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/Archive-Fig}
+As described in \cref{sec:CaseDescription} the current system is excessively complicated and it was therefore included in the system definition, see \cref{factor}, that the new system should ''facilitate an overview of current [...] versions''.
+This is taken care of at the front page.
+The documents relevant to the user are shown first, a feature specifically requested by Ipsen, and below all the chapters are visible providing an overview of the content in the handbook.
+If a more detailed view is necessary it is possible to unfold a single chapter or all of them.
 
-\input{Chapters/ApplicationDomain/use-case-tables/Add-User-Tab}
-%\input{Chapters/ApplicationDomain/use-case-statecharts/Add-User-Fig}
 
-\input{Chapters/ApplicationDomain/use-case-tables/Edit-User-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/Profile-Fig}
+\subsubsection{Add new file to the system}
+As described in \cref{sec:classdiagramhandbook} the system consists of both documents and versions where documents are the structural entities enabling the organizational features of the system and versions contain the files and thereby the actual contents of the handbook.
+Adding versions as additions to an existing documents as well as creating a new document along with a version is described in \cref{tab:add-file} and visualized in \cref{fig:add-file}.
 
-\input{Chapters/ApplicationDomain/use-case-tables/User-Man-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/User-Man-Fig}
+\input{Chapters/ApplicationDomain/UseCaseTables/Add-Doc-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Add-Doc-Fig}
 
-\input{Chapters/ApplicationDomain/use-case-tables/Mark-Read-Tab}
-%\input{Chapters/ApplicationDomain/use-case-statecharts/Mark-Read-Fig}
+Whether a changelog is prompted during upload depends on the system settings.
+This is because only some standards require it as explained in \cref{sec:CaseDescription}.
 
-\input{Chapters/ApplicationDomain/use-case-tables/Read-Status-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/ReadStatus-Fig}
+Adding approvers varies slightly depending on the user's role:
+A writer has to add at least one administrator, while an administrator does not have to add anyone at all.
+If the administrator elects not to add anyone they are automatically assigned as the sole approver of the document.
+They still have to approve it but they can do so unilaterally
 
-\input{Chapters/ApplicationDomain/use-case-tables/Dep-Man-Tab}
-\input{Chapters/ApplicationDomain/use-case-statecharts/Dep-Man-Fig}
+It is worth noting that it is also possible to add a new document without attaching any file.
+The former design did not offer the option of attaching the file immediately but required that the user first made a new document and then made a version to attach to that document.
+During the first usability test, see \cref{labellist}, this workflow was a source for confusion and therefore it was changed.
+The reason that the empty document remains an option is that it provides the possibility to structure the handbook without necessarily having all of the contents.
+Additionally it also serves to save an ID and title combination as these cannot be reused. 
 
-Worth noting. The administrator can change a user's name while the user themself can change their user name.
+\subsubsection{Approve new version or document} \label{sec:approve}
+A file is not a part of the handbook before it has been approved.
+Until then only the people assigned as approvers have access to the file and only through the notification horn in the upper right corner or the relevant documents section.
+An administrator can also view all pending approvals.
+This also means that the administrator has two ways of accessing the approvals while the others only have one.
+The approval process is described in \cref{tab:approve} and visualized in \cref{fig:approve}.
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Approve-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Approve-Fig}
+
+If someone were to make a mistake in the process of adding a file to the handbook an approval can be deleted or edited.
+It is assumed that if e.g. a wrong file was uploaded it would be discovered during the approval process and therefore not approved.
+This is also the reason why even if the administrator can approve unilaterally they cannot approve in the same process as they upload:
+They need to rethink whether this is correct.
+Once the document has been approved it is added to the handbook and everyone can access it from the front page.
+
+\subsubsection{Access archive}
+As per the requirements in \cref{sec:CaseDescription} the documents cannot just be deleted when they are no longer needed in the handbook.
+Therefore, when a version or a document becomes obsolete they are archived.
+This may be because a more recent version is available or because the information they contain is no longer needed.
+In the first case the old version is automatically added to the archive as soon as the new one has been approved.
+In the second case an administrator has the power to archive a document without replacing it.
+The archive is rarely accessed and is typically only needed during an audit.
+Because of this only the administrator has access to it - it would only serve as a potential problem if everybody else could access it and accidentally read the wrong version.
+When the administrator accesses the archive they do so through the workflow described in \cref{tab:archive} and visualized in \cref{fig:Use-archive}.
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Archive-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Archive-Fig}
+
+The technical requirement is that the documents should be kept usually between three and five years.
+This resulted in a system definition stating that there should be an adjustable archive time.
+However, as described in \cref{sec:CaseDescription}, it was discovered that in practice the files are usually kept indefinitely as deleting the files were too much work.
+Additionally the file integrity is of upmost importance, see \cref{sec:ISOstandards} and this is also prioritized as Very Important in the design, see \cref{sec:architecturecriteria}.
+As space is clearly not a problem, but the prospect of accidentally deleting a file is it was decided that deleting files from the archive is not an option.
+Should somebody accidentally upload the wrong file this should be discovered before the file is approved and added to the handbook as per the approve file use case, \cref{sec:approve}.
+After a file has been approved it will always be accessible either through the handbook or the archive.
+
+The option to download the entire archive serves both as a way to backup the archive and as a means to revert back to the old system, should the user dislike the way this works.
+The option of easily going back is important in order to convince the users to give a new system a chance.
+
+Viewing the archive is also the only time at which an entire changelog for a document is shown.
+The rarity of this situation is also the reason why it was argued that the changelog does not need its own class, described in \cref{sec:Classes}.
+
+\subsubsection{Add user}
+As the system monitors whether a user has read a document and because this data is a requirement in the standards, every worker in a company needs access to the system in order for it to work properly.
+The administrator adds users through the workflow described in \cref{tab:add-user} and visualized in \cref{fig:add-user}.
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Add-User-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Add-User-Fig}
+
+In early designs the user was activated through an e-mail address or phone number authentication.
+Yet, as seen in \cref{tab:Actor-reader}, not all of the system's users have a work related e-mail address or phone number.
+Instead the workaround of a standard password was introduced:
+When the administrator creates a user they set their name and username and the system automatically gives every new user a standardized password.
+This means that there is a timeframe in which anyone could access the archive with only a username.
+Therefore this workflow assumes that the user will activate their account immediately after getting it.
+This is obviously a security flaw but in order to satisfy the system requirements and make it accessible for all actors coupled with the fact that security has a low priority, see \cref{sec:architecturecriteria}, this workaround was eventually chosen.
+
+During creation the administrator assgins the user both a username and a name.
+The purpose of the username is for the user to log in.
+The purpose of the name is to identify the user.
+Depending on the procedure in the company this may be both their legal name or an identification number.
+
+\subsubsection{Edit user information}
+Both the administrator and the user themself can edit their information, however it differs which information they have access to. The user themself can edit their username, password and contact information. This is described in \cref{tab:edit-user} and visualized in \cref{fig:edit-user}.
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Edit-User-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Profile-Fig}
+
+The only information a user does not have access to is their name or identification as this is used in the read status data.
+This data is used for audits and data integrity is therefore a bigger concern than for the rest of the user's informations.
+
+During the interviews with Ipsen it was determined that it should not be possible for the user to turn off notifications.
+However as not all users have e-mails or phone numbers these are optional to add and the users themselves have access to edit these.
+This means that while the users cannot turn notifications off they can remove their contact information which bears the same result. 
+Other ways to handle this is discussed further in \cref{RememberToEditThisInUseCasesToo}.
+
+\subsubsection{Manage users}
+While every user can edit their own information the administrator also has access to edit other users' information through the 'User management' tab in the sidebar.
+This is described in \cref{tab:user-management} and visualized in \cref{fig:user-management}.
+
+\input{Chapters/ApplicationDomain/UseCaseTables/User-Man-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/User-Man-Fig}
+
+The administrator cannot change the user's username as this is login information. 
+This means that an administrator can change a user's name and a user can change their own username.
+However as there needs to be a way to access the account if the user forgets their own password and they don't necessarily have their contact information listed it is possible for the administrator to reset a user's password.
+
+When a user is deleted their name/identification remains within the system for the sake of the read status data.
+Everything else is removed.
+
+\subsubsection{Mark document as read}
+In order to log when users have read documents they need to inform the system when this has happened.
+This is described in \cref{tab:mark-read} and visualized in \cref{fig:mark-read}.
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Mark-Read-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Read-Fig}
+
+This is the only use case which the administrator cannot do.
+As described in \cref{sec:Actors} this is because none af the actors have any use for this specific functionality and it is not necessary to log their readings.
+
+It is the department head's job to make sure that everyone in their department has read the updated documents.
+In the case where readers do not have any contact information listed, they do not get a notification and it is the department head's responsibility to make them aware of any changes.
+
+The wording of the message ''has read and understood'' was agreed upon with Ipsen following a discussion about how it is not enough to have read the document it must be understood too.
+
+\subsubsection{View who has read a document}
+
+Usually the quality managers and the department heads need to verify that everyone has read the necassary documents.
+They access this information as described in \cref{tab:read-status} and visualized in \cref{fig:read-status}.
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Read-Status-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/ReadStatus-Fig}
+
+In the read status pop-up people are divided into people who have read and who should have read, because only the people who are connected to that document through a department are shown.
+This decision was made so as to not clutter the view with unnecessary information.
+Should a document that is not connected to any department appear the read status will simply show a message stating that it is not connected.
+
+\subsubsection{Manage departments}\label{managedepartments}
+The sole purpose of the departments is to connect users and documents.
+This enables the read status division of people who need to read the document and people who do not as well as selecting the users who need to get notifications when a document is uploaded.
+This is described in \cref{tab:man-dep} and visualized in \cref{fig:man-dep}.
+
+\input{Chapters/ApplicationDomain/UseCaseTables/Dep-Man-Tab}
+\input{Chapters/ApplicationDomain/UseCaseStates/Dep-Man-Fig}
+
+In an earlier design the user was lead directly to a page where they could connect documents and users to the department immediately after creating it.
+However during the second usability test, \cref{secondtest} it was discovered that this only served to confuse the users - it was better to simply add the department to the list and then let the user themself navigate to the desired page.
+
+Should the handbook become overly extensive the approach of just listing every single document might become a problem. In that case it would perhaps be better to mimic the design also used at the front page. The same is true for the users however this system is meant for a small firm which required something simple and cheap as the existing systems were too expensive, as explained in \cref{factor}. Therefore it is assumed that the amount of users will not exceed what can be comfortably displayed on a page.
+
+The design in \cref{design} explains how the functionality is designed to best support these use cases. Moreover they also serve as the basis for the tasks made for the usability test, \cref{secondtest} in order to verify that the system is capable of this.
