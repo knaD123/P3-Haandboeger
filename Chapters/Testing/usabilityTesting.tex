@@ -95,8 +95,6 @@ Ipsen preferred name instead of email address.
 
 In the debriefing session Ipsen mentioned that she was surprised that the application required user to attached a pdf file as she has seen other document version control system has their own file editor.
 However, Ipsen could see the reason behind it and commented that it is a good approach.
-
-
 %Anna: Evt. kommenter at hun i virkeligheden selv havde sagt dette ikke skulle være en del af systemet til at starte med (evt henvis til iteration 1)
 
 Ipsen also remarked that the features' names were clear and understandable. 
@@ -104,7 +102,6 @@ Ipsen also remarked that the features' names were clear and understandable.
 During the test session it had been clarified that administrator must be able to use the administrator right to get an awaiting approval approved without the other approvers had been through it.
 The situations where other approvers either do not get it done, are too slow or are on a vacation could occur. 
 The administrator right will therefore prevent possible bottleneck in the work flow.
-
 %%% Andre kommentarer %%%
 %Afdelingsleder holder styr på hvem der har læst hvad
 %Kom frem til at admin skal kunne bruge sin admin ret til at få det godkendt hvis andre som blev sat til approvals ikke få det gjort (Kunne måske være relevant at kommenterer da det var noget vi tog til efterretning til næste test ) 
@@ -114,7 +111,6 @@ The administrator right will therefore prevent possible bottleneck in the work f
 %en version som er blevet godkendt -- arkveret 
 
 %Admin har en overrolloing hvis folk ikke går ind og godkender. Hvis folk tager for lang tid om det eller hvis folk er på ferie. (Anna: Samme kommentar som du har i starten af de her kommentarer )
-
 
 \subsection{Second usability test}\label{secondtest}
 The second usability test was conducted on Ipsen, Ipsen's husband and their daughter. 
@@ -128,45 +124,121 @@ The department and user management in the application will also be a part of the
 \subsubsection{Results}
 
 The detected usability issues are present and categorize in table 
-\Cref{tab:utest2} which will be clarify afterwards. 
+\Cref{tab:utest2} which will be clarified afterwards. 
 
 \begin{table}[H]
 	\begin{center}
-	\begin{tabular}{| c | m{21em} | c | c | c | c | c |}
+	\begin{tabular}{| c | m{19em} | c | c | c | c | c | c |}
 		\hline
-		Index & \textbf{Identified usability issues} & Critical  & Serious & Cosmetic \\
+		Index & \textbf{Identified usability issues} & Role & Critical & Serious & Cosmetic \\
 		\hline
-		 1 &  &  &  &  \\
+		 1 &  & & & &  \\
 		\hline
-		 2 &  &  &  & \\
+		 2 & & & & & \\
 		\hline
-		 3 &  & & &  \\
+		 3 & & & & & \\
 		\hline
-		4 & &  & & \\
+		4 & &  & & &\\
 		\hline
-		5 & &  &  &  \\
+		5 & &  &  &  &\\
 		\hline
-		6 & &  &  & \\
+		6 & &  &  & &\\
 		\hline
-		7 &  & & &  \\
+		7 &  & & &  &\\
 		\hline
-		8 &  &  &  &  \\
+		8 &  &  &  & & \\
 		\hline
 	\end{tabular}
 	\end{center}
 	\caption{Identified issues for the second usability test}\label{tab:utest2}
 \end{table}
 
+%Skriv her hvordan usability test slet ikke var klar
+The preparation for the second usability test was not done thoroughly because of the time pressure and poor planning. 
+The documents in handbook that test subject need to find according to the task list were not the same in the application. 
+Since the application did not been tested thoroughly to check whether the test subject would be able to complete and ensure no error. 
+
+
 %\begin{itemize}
-%	\item Ipsen does not think that notification button are not visible
-%	\item Confusion regarding upload a new version whether to find the file in the application or the system 
-%	\item Ipse did not know the purpose with the working file 
-%	\item Skal kunne tilføje flere approvers 
-%\end{itemize}
+%\item Ipsen does not think that notification button are not visible
+%\item Confusion regarding upload a new version whether to find the file in the application or the system 
+%\item Ipse did not know the purpose with the working file 
+%\item Skal kunne tilføje flere approvers
+%\item Når filen ikke er en pdf fil burde man kunne download filen fordi det vises ikke i preview.
+ %\item Department det kunne være rart at kunne se dok id når man associate doks
+%\item Ipen er forvirret over upload og download ikoner uden tekst - skal tænke over det. fortrækker en knap med tekst i stedet for med som add og get - så er der ingen tvivl om det 
+%\item ikoner: 
+%\item Hvis Ipsen skulle gå ind og godkende en dok så vil hun gå ind og læse det først (åbne og check om det var den rigtige dokument der blev lagt ind) også godkender det - mangler en download knap og approved knap under Approval - dok preview	
+%\item - Det skal tydeliggjores at man har godkendt en version og venter på at de andre skal godkender dem.  se mockup
+%\item Ipsen ændre Kjelds navn både i name and username- Admin skal ikke have adgang til at ændre i username
+%\item upload icon inde i handbook page er ikke helt den rette tankegang i workflow, det vil passe bedre ind hvis man er inde i documentet og skal til at uoload dok, det er som om man har sprunget et trin over 
+%\item Ipsen foretrækker at kunne se hvad en reader er blevet sat på til at læse og det bruger mangler at læse - kan det jo ske at hun bliver sat forkert på et  document .- kommet frem til at have en liste af de afdelinger en bruger er koblet op på og en liste over alle de dok brugeren mangler at læse på de aktive dok 
+%\item kun admin der må arhciveret et dok fra håndbogen 
+%\item Department heads writer skal have adgang til readstatus %overview. 
+%\item Perspektiveret: bliver enige om at når man laver en %department at man markerer en bruger en som department %heads og det er dem som får notifikationer.  
+% \end{itemize}
 
-%Working file
+%Debriefing: Ipsen vil gerne finde karoline og se hvad hun ikke har læst.
+%Gennem en read status: hvis man kan se at en reader ikke har læst sin ting: 1 uge bliver department alerted og 2 uger bliver admin alerted
+%Ipsen vil gerne kunne tilføje hvorfor admin har slettet en bruger.
+
+%Ipsen har det fint med bare pdf fil og ingen working file. fordi det skal være så simple som muligt 
+
+%Henrik forklarer principet med en ny tilføjet bruger, og hvad aktiveret bruger og email adresse betyder og hvordan processen fungerer 
 
 
+% synes at afdelingsleder skal sørger for at folk har læst. 
+
+% Mangler at teste read status til 
+% approvers til kunne tilføje flere
+% approval id er ikke dok ide  
+% add doc til department: mangler en cancel knap og doc id i listen
+
+
+%Second usability test var dårligt opsat, gruppen var tidspresset og fik ikke gennemgået task list ordenligt. Mismatch mellemndok ID  hvad der er inde i application og task list. Notification del er ikke blevet testet da vi nåede ikke sæt det op.
+%Department er blevet lavet bagefter. 
+%Det med at beder bruger om at rette i en fil uden for system er forvirrende så det skal man undgå og bare beder dem at upload en dummy fil 
+
+%Prefererly pdf skal ændres 
+
+%Ændre brugernavn var ligetil 
+%Ipsen kunne finde changelog nemt.
+
+%Ipsen ønsker at systemet også kan ændre side hoved i selve fil/dokumentet , hvor der står udgave og dato på - når man printe det ud, så kan man se at det er den opdateret version de har der. Forslag: ku man når man upload dokumentet at du i virkelighed send et blank header med pdf format og så bliver det udfyld og også i håndbogen? i dont get that
+
+
+
+%Anders: 
+
+%-Ved ikke hvad read status er 
+%-Astrid guider Anders for meget
+%-Når man skal tilføje flere approvers så, er det ikke intuitive at man skal separert dem med email 
+%-Det er ikke tydeligt kun med ikoner, især  upload og download 
+%-Anders kunne tænke sig at pilen hightlighter de row pilen peger på, så man ikke kommer til at trykke på delete på en forkerte row 
+
+%- Department: add user, der skal stå navn og ikke brugernavn 
+%-Ander nævner at de kunne være rart at se hvem man er logget ind som 
+%- Hvorfor har mette en mulighed for at delete en fil i håndbogen ?
+
+%Tove:
+%Det er godt at høre at alle er forvirret her
+%Errors er en joke her 
+
+%Der mangler en unfold all dok under full handbook 
+
+%Lægger mærke til at layout og farven ikke er det samme som de andre pc? 
+
+%Problemer med at opret en ny dok 
+
+%Godkend dok er ikke tydeligt for tove 
+%Tove ændrer både Kjelds navn og brugernavn
+%Archive ser mærkelig ud?
+
+%Slettet bruger skal ikke være under add user under department 
+
+%Department var meget nemt at forstå
+
+%Udført på den forkerte version af programmet
 
 \subsection{Usability issue that are not a bug}
 
@@ -179,3 +251,4 @@ The detected usability issues are present and categorize in table
 % Objective is the specific action which one try to achieve as a short term plan.
 
 %to gain more insight of the test subject understanding of 
+
