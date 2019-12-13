@@ -1,10 +1,22 @@
 \subsection{ASP.NET Core}
 
-ASP.NET Core is a web framework developed by Microsoft, for developing web applications in the .NET Core framework.
-The framework is quite widely used, which means that there are plenty of modules available for doing many jobs. Besides that, the framework has built-in support for many common features, such as database integration, identity and authorization with multi-factor and external auth, CSS frameworks, and much more.
-It uses the quite popular Model-View-Controller design pattern as a basis for the architecture of the applications developed in it.
+ASP.NET core is a web framework developed by Microsoft for developing web applications in the .NET Core Framework \cite{aspnetcore2}. ASP stands for \textit{Active Server Pages} and offers a variety of application models, one of which being the MVC pattern.
+The framework has built-in support for many common features, such as database integration, identity and authorization with multi-factor and external auth, CSS frameworks.
+
+The reason that this web API is being used is because of the semester's requirement to develop an application using the programming language C\#.
+ASP.NET Core supports, among others, C\# and is able to integrate the language with a web application.
+It uses the Model-View-Controller design pattern as a basis for the architecture of the applications developed in it.
+
+%ASP.NET Core is a web framework developed by Microsoft, for developing web applications in the .NET Core framework.
+%The framework is quite widely used, which means that there are plenty of modules available for doing many jobs. Besides that, the framework has built-in support for many common features, such as database integration, identity and authorization with multi-factor and external auth, CSS frameworks, and much more.
+%It uses the quite popular Model-View-Controller design pattern as a basis for the architecture of the applications developed in it.
+
 \subsubsection{Model-View-Controller design pattern}
-The Model-View-Controller pattern is an architectural pattern that splits the application into three basic components, the model, the view, and the controller. Originally meant for GUI development, the pattern has been adapted into web development, and is used by many of the frameworks in the space.\cite{gangoffour}
+The Model-View-Controller pattern is an architectural pattern that splits the application into three basic components, the model, the view, and the controller. Originally meant for GUI development, the pattern has been adapted into web development, and is used by many of the frameworks in the space. \cite{gangoffour}
+
+The advantages of using the MVC architecture are that it helps with the complexity of the application by dividing its components into three individual components each with its own function and responsibilites.
+These components are \textit{model, view}, and \textit{controller} which will be elaborated below.
+Furthermore the MVC archictecture supports test driven development and also does not use server-based forms which gives the developers full control over the application. \cite{mvcarticle}
 
 \begin{figure}[H]
 \centering
@@ -21,12 +33,22 @@ The Model-View-Controller pattern is an architectural pattern that splits the ap
 	\caption{The Model-View-Controller design pattern.}
 \end{figure}
 
-The basic idea of the pattern is that all of the data managed by the application is encapsulated into the model classes.
-These can then be accessed or subscribed to by the views, which the user sees.
-The user then subsequently interacts with the controller, which in turn updates the model.
-The seperation of concerns allows for a quite flexible architecture, where you can change the view without touching the model or controller, or the controller without changing the view and model.\cite{gangoffour}
+As mentioned the three main components in the architecture are model, view, and controller as shown in the figure above.
+The model component's responsibility is to implement the logic of the data domains \cite{mvcarticle}. In other words it is here the main algorithms reside that which provide the solutions for the main function of the application.
+The responsibility of the view component is to provide an interface for the user and makes it possible for the user to interact with the application.
+The controller component's responsibility is to respond with the user's request and gives a means to make the applications underlying algorithms and logics accessible for the user. \cite{mvcarticle}
+
+The MVC architecture is thusly a three-layered structure where each component is loosely dependent on each other.
+This gives the developers the possibility of developing each component simultaneously.
+This seperation between the component also makes it easier to test the application in the test-driven development approach. \cite{mvcarticle}
+
+%The data managed by the application is encapsulated into the model classes.
+%These can then be accessed or subscribed to by the views, which the user sees.
+%The user then subsequently interacts with the controller, which in turn updates the model.
+%The seperation of concerns allows for a quite flexible architecture, where you can change the view without touching the model or controller, or the controller without changing the view and model.\cite{gangoffour}
+
 \subsection{Entity Framework}
-\todo[inline]{We need to discuss the placement of this section, in regards to the placement of the database chapter.}
+
 Entity Framework is a framework for mapping object-oriented data structures into a relational database, also referred to an object-relational mapping framework, for .NET.\cite{efcore}
 The job of the Entity Framework is translating the objects in memory into SQL statements so that these objects can be stored in a database.
 \begin{figure}[H]
@@ -49,8 +71,10 @@ The support for multiple database systems are provided by the respective databas
 
 \subsection{Web Frontends}
 The languages of UI on the web are HTML, CSS, and Javascript, and each of these three languages have their own respective roles.\cite{nixonweb}
-\subsubsection{HTML}
-HTML is the most important of the three.
+
+\textbf{HTML}
+
+HTML (HyperText Markup Language) is the most important of the three.
 It's a markup language that is used to describe the structure and much of the contents of a webpage.
 \begin{lstlisting}[language=HTML]
 <!DOCTYPE html>
@@ -70,7 +94,9 @@ This gives the webpage a tree structure.
 Two important types of tags are the \texttt{<script>} and \texttt{<style>} tags.
 These allow for embedding CSS and Javascript into the page.
 The CSS allows for different kinds of styling, such as colouring and positioning of tags.
-\subsubsection{CSS}
+
+\textbf{CSS}
+
 CSS is short for Cascading Style Sheets. It allows for defining the style of the document.
 \begin{lstlisting}
 body {
@@ -83,6 +109,8 @@ p {
 \end{lstlisting}
 This stylesheet, for example, colours the background green, and the text in paragraph (\texttt{<p>}) tags blue. The possibilities with CSS are of course far greater than just colours, as the language also allows for positioning elements, changing their visibility, and far more features than can be covered in this project.\cite{nixonweb}
 In working with CSS, we will primarily be working from an existing CSS Framework called Bootstrap. Having Bootstrap, which predefines a lot of web components, greatly eases the development of web applications. While this naturally comes with a tradeoff for customizability, it was concluded that this project did not need any cutting edge UI to achieve its goals.
-\subsubsection{Javascript}
+
+\textbf{JavaScript}
+
 Javascript is a scripting language built for the web.
 Javascript allows for running code on the page, which can interact with the contents of the page, play sounds, send requests in the background, and much more.\cite{nixonweb}
