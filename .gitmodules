@@ -1,0 +1,3 @@
+[submodule "OBHandbooks"]
+	path = OBHandbooks
+	url = git@github.com:rkjar18/OBHandbooks.git
