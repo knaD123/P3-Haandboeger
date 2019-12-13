@@ -1,0 +1,181 @@
+\section{Code examples}
+
+In this section examples of the code will be presented.
+As written in \cref{sec:systemdesign} the system is based on the ASP.NET Core MVC architecture including EF Core.
+How the system utilizes the MVC architecture and the EF Core framework will be shown in the following code examples.
+
+Firstly the MVC implementation is explored with the Document class.
+How the Document object is being treated throughout the system will be presented throught the model, view, and controller components.
+Furthermore it will be shown how the document data will be stored in the database with the repository pattern and EF Core.
+
+\subsection{Model}
+
+\begin{lstlisting}
+[Key]
+public int ID { get; set; } //for the database
+
+public virtual Chapter Chapter { get; set; } //first part of doocument ID
+
+public int ChapterNumber
+{
+	get
+	{
+		return Chapter != null ? Chapter.Number : -1;
+	}
+}
+
+[Range(1, Int32.MaxValue)]
+[Display(Name = "Section")]
+public int SectionNumber { get; set; } //second part of Document ID
+
+[Required]
+public string Title { get; set; } // TODO: Unique title of document
+
+public virtual ICollection<Version> Versions { get; set; } //List of all past versions of the document (the "archive")
+public virtual IEnumerable<DocumentDepartment> DocumentDepartments { get; set; }
+
+public bool Archived { get; set; }
+
+public Document()
+{
+	Archived = false;
+}
+
+\end{lstlisting}
+
+\begin{lstlisting}
+public void AddVersion(Version version)
+{
+	version.ValidFromDate = DateTime.Now;
+	version.Approved = true;
+	Versions.Add(version);
+	int nVersions = Versions.Count;
+	var oldVersion = Versions.ElementAtOrDefault(nVersions - 1);
+
+	if (nVersions >= 2 && oldVersion != null)
+	{
+		oldVersion.ValidUntilDate = DateTime.Now;
+	}
+	foreach (DocumentDepartment dd in DocumentDepartments)
+	{
+		dd.Department.Notify("The document " + Title + " has been updated", "http://localhost:5000/document/" + Chapter.Number.ToString() + "." + SectionNumber.ToString());
+	}
+}
+\end{lstlisting}
+
+\subsection{Controller}
+
+\begin{lstlisting}
+[HttpGet("")]
+[HttpGet("document/")]
+public async Task<IActionResult> Index()
+{
+	var user = await this._userManager.GetUserAsync(HttpContext.User);
+	var documentIndex = new ViewModels.DocumentIndex();
+	foreach (var ud in user.UserDepartments)
+	{
+		foreach (var dd in ud.Department.DocumentDepartments)
+		{
+			if (!dd.Document.Archived) documentIndex.AssignedDocuments.Add(dd.Document);
+		}
+	}
+	List<Document> documentList = await this._documentRepository.ListNonArchivedAsync();
+	foreach (var d in documentIndex.AssignedDocuments)
+	{
+		documentList.Remove(d);
+	}
+
+	foreach (var d in documentList)
+	{
+		if (!documentIndex.UnassignedDocuments.ContainsKey(d.Chapter))
+		documentIndex.UnassignedDocuments[d.Chapter] = new List<Document>();
+		documentIndex.UnassignedDocuments[d.Chapter].Add(d);
+	}
+
+	@ViewData["Title"] = "Table of Contents";
+
+	return View(documentIndex);
+}
+
+
+
+
+\end{lstlisting}
+
+\begin{lstlisting}
+[HttpPost("document/add/")]
+public async Task<IActionResult> Add(Document document,
+	int chapterNumber,
+	IFormFile versionFile,
+	IFormFile workingFile,
+	string requireApprovalCheck,
+	string approvers)
+	{
+		bool requireApproval = (requireApprovalCheck == "on");
+		@ViewData["Title"] = "New document";
+		@ViewBag.Chapters = await _chapterRepository.GetChapters();
+
+		if (ModelState.IsValid)
+		{
+			document = this._documentRepository.ToProxy(document);
+			var chapter = await this._chapterRepository.GetChapter(chapterNumber);
+
+			if (chapter == null)
+			{
+				ModelState.AddModelError(string.Empty, "Problem happend getting the chapter.");
+
+				return View(document);
+			}
+
+			document.Chapter = chapter;
+
+			try
+			{
+				document = await this._documentRepository.AddAsync(document);
+			}
+			catch (DocumentAddException e)
+			{
+				ModelState.AddModelError(string.Empty, e.ModelError);
+				return View(document);
+			}
+			if (versionFile != null)
+			{
+				OBHandbooks.Models.Version version = new OBHandbooks.Models.Version();
+				version.SetDocument(document);
+				version = await this._versionRepository.AddAsync(version);
+
+				version.VersionFile = new HandbookFile(versionFile);
+				if (workingFile != null) version.WorkingFile = new HandbookFile(workingFile);
+
+				if (requireApproval)
+				{
+					HandbookApproval approval = await CreateApproval(
+					approvers,
+					await this._userManager.GetUserAsync(HttpContext.User));
+					approval.DocumentVersion = version;
+					version.DateSubmittedToApproval = DateTime.Now;
+					document.Versions.Add(version);
+					approval.CheckForApproval();
+					await this._approvalRepository.UpdateAsync(approval);
+				}
+				else
+				{
+					document.AddVersion(version);
+				}
+				await this._documentRepository.UpdateAsync(document);
+				await this._versionRepository.UpdateAsync(version);
+			}
+			return RedirectToAction(nameof(Index));
+
+		}
+
+		return View(document);
+}
+
+\end{lstlisting}
+
+\subsection{View}
+
+\subsection{Repositories}
+
+\subsection{EF Core}
