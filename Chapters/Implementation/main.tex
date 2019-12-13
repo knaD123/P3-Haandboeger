@@ -1,1 +1,13 @@
 \chapter{Implementation}
+This chapter will cover the implementation of the system. Introduction introduction, bla bla bla
+\section{Directory structure}
+The project, in it's essence, is divided up into \texttt{OBHandbooks} and \texttt{OBHandbooks.Tests}. Besides these, there are a series of utility shell scripts in the root dir used to restore backups and check the syntax.
+\input{Chapters/Implementation/dirtree}
+As can be seen, the project is split up into Views, Controllers, Models, Infrastructure, and Repositories.
+
+The role of the Models, Views, and Controllers are as in a traditional MVC model.
+
+\section{Repository Pattern}
+In this project the repository pattern was used. It abstracts communication with the database, allowing for easily replacing it if necessary, and mocking it during unit tests.
+
+The reposito
