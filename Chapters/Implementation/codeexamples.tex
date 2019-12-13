@@ -110,66 +110,66 @@ public async Task<IActionResult> Add(Document document,
 	IFormFile workingFile,
 	string requireApprovalCheck,
 	string approvers)
+{
+	bool requireApproval = (requireApprovalCheck == "on");
+	@ViewData["Title"] = "New document";
+	@ViewBag.Chapters = await _chapterRepository.GetChapters();
+
+	if (ModelState.IsValid)
 	{
-		bool requireApproval = (requireApprovalCheck == "on");
-		@ViewData["Title"] = "New document";
-		@ViewBag.Chapters = await _chapterRepository.GetChapters();
+		document = this._documentRepository.ToProxy(document);
+		var chapter = await this._chapterRepository.GetChapter(chapterNumber);
 
-		if (ModelState.IsValid)
+		if (chapter == null)
 		{
-			document = this._documentRepository.ToProxy(document);
-			var chapter = await this._chapterRepository.GetChapter(chapterNumber);
+			ModelState.AddModelError(string.Empty, "Problem happend getting the chapter.");
 
-			if (chapter == null)
-			{
-				ModelState.AddModelError(string.Empty, "Problem happend getting the chapter.");
-
-				return View(document);
-			}
-
-			document.Chapter = chapter;
-
-			try
-			{
-				document = await this._documentRepository.AddAsync(document);
-			}
-			catch (DocumentAddException e)
-			{
-				ModelState.AddModelError(string.Empty, e.ModelError);
-				return View(document);
-			}
-			if (versionFile != null)
-			{
-				OBHandbooks.Models.Version version = new OBHandbooks.Models.Version();
-				version.SetDocument(document);
-				version = await this._versionRepository.AddAsync(version);
-
-				version.VersionFile = new HandbookFile(versionFile);
-				if (workingFile != null) version.WorkingFile = new HandbookFile(workingFile);
-
-				if (requireApproval)
-				{
-					HandbookApproval approval = await CreateApproval(
-					approvers,
-					await this._userManager.GetUserAsync(HttpContext.User));
-					approval.DocumentVersion = version;
-					version.DateSubmittedToApproval = DateTime.Now;
-					document.Versions.Add(version);
-					approval.CheckForApproval();
-					await this._approvalRepository.UpdateAsync(approval);
-				}
-				else
-				{
-					document.AddVersion(version);
-				}
-				await this._documentRepository.UpdateAsync(document);
-				await this._versionRepository.UpdateAsync(version);
-			}
-			return RedirectToAction(nameof(Index));
-
+			return View(document);
 		}
 
-		return View(document);
+		document.Chapter = chapter;
+
+		try
+		{
+			document = await this._documentRepository.AddAsync(document);
+		}
+		catch (DocumentAddException e)
+		{
+			ModelState.AddModelError(string.Empty, e.ModelError);
+			return View(document);
+		}
+		if (versionFile != null)
+		{
+			OBHandbooks.Models.Version version = new OBHandbooks.Models.Version();
+			version.SetDocument(document);
+			version = await this._versionRepository.AddAsync(version);
+
+			version.VersionFile = new HandbookFile(versionFile);
+			if (workingFile != null) version.WorkingFile = new HandbookFile(workingFile);
+
+			if (requireApproval)
+			{
+				HandbookApproval approval = await CreateApproval(
+				approvers,
+				await this._userManager.GetUserAsync(HttpContext.User));
+				approval.DocumentVersion = version;
+				version.DateSubmittedToApproval = DateTime.Now;
+				document.Versions.Add(version);
+				approval.CheckForApproval();
+				await this._approvalRepository.UpdateAsync(approval);
+			}
+			else
+			{
+				document.AddVersion(version);
+			}
+			await this._documentRepository.UpdateAsync(document);
+			await this._versionRepository.UpdateAsync(version);
+		}
+		return RedirectToAction(nameof(Index));
+
+	}
+
+	return View(document);
 }
 
 \end{lstlisting}
