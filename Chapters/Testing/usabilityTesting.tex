@@ -25,17 +25,78 @@ Besides a debriefing session's time frame should also allow for discussion if ne
 Evaluation of the test will proceed as follows; while performing the usability testing the test monitor is taking notes of the possible issues and difficulties that test subject seems to encountered during interacting with the application. 
 To better identify and categorize issues a screen recording with audio is reviewed and to ensure there is no missing observations.
 
-\subsection{First usability test}
-This section will describe the first usability test which was conducted on Ipsen and its results.
+\subsection{First usability test}\label{firsttest}
+Based on the first interview with Ipsen a prototype for administrator role was created to generate a basic interface design from the requested requirements. 
+This high-fidelity prototype consisted mostly of HTML and CSS code with focus on the design without implementation of the functionalities,  see %\Cref{}
 
-\subsubsection{Purpose and objectives of the test}
+\subsubsection*{Purpose and objectives of the first test}
+This usability test's type was an exploratory test with purpose to represent the rough idea of how work flow of the different use cases could be operated in application. 
+Ipsen would be represented for the interfaces where she would be able to navigate through the application.
+This would provide Ipsen an overview of how the potential layout design might work with the functionalities that later would be implemented. 
+The uncertain functionalities that might be useful for Ipsen will also be clarified during walk through of the prototype.
+The test subject would be tested for these use cases below.
+
+\begin{itemize}
+	\item Add new file to the system
+%represent the idea of how the add new document page interface could look like.
+	\item Approval new version or document
+%represent the idea of how approval process will work in the application.
+	\item Access archive
+%represent the idea of how the previous versions are stored in the Archive page and how to find them.
+	\item Add user
+	\item Manage user
+%represent the idea of possible user administration interfaces. 
+	\item Manage departments
+%represent the idea of how the departments could be implemented. 	
+\end{itemize}
+
+\subsubsection*{Result of the first test}
+Ipsen's reaction was mostly positive. 
+She validated the idea of how the department management would be implemented. 
+Ipsen also liked the overview of the user that both show those who are and those who are not associated to a specific department.
+This would be useful if Ipsen possibly forgot to add some users to a department. 
+The same applied to edit associated documents to the department page. 
+
+Upload new version page and its main idea was that Ipsen would be able to marked version as a minor change or major change to notify readers. 
+If the change is minor then readers could wait to read the new version.
+And if it is a major change they need to read it now. 
+Ipsen invalidate this functionality since the reader should not relate it and there is no need for that. 
+The readers had typically have slightly reading skill. 
+Therefore Ipsen prefer that it should be simple. 
+
+Ipsen was satisfied with how accessing the archive work and manage user that was simple and straightforward. 
+
+Ipsen thinked that it would be helpful to be able to search for a word in the documents.
+For instance if a job title had change then she could search which document mention the job title that need to be modified.
+This search functionality wished Ipsen only on the active documents. 
+
+Whether the application is on English or Danish is unimportant. 
+The application would therefore on English. 
+
+Ipsen was overall satisfied with the prototype except the upload new version page that need to be redesign. 
+Afterwards the prototype worked as a starting point for implementation of the application. 
+
+\subsection{Second usability test}\label{secondtest}
+This section will describe the second usability test	of type assessment test which was conducted on Ipsen and its results.
+
+\subsubsection*{Purpose and objectives of the second test}
 The majority requested functionalities for administrator role was implemented in the application at this point. 
 Therefore the first usability test will only tested the administrator role part of the application.
 The interaction between the test subject and the application must be validated to determine usefulness of the implemented functionalities. 
 The purpose of the test is to identify general issues concerning the perception of the handbook application for further improvements of the application design.
 The research questions, the method description and the task list can be found in \Cref{bilag:utestbilag}.
+The use cases below will be tested.
 
-\subsubsection{Results}
+\begin{itemize}
+	\item Access current handbook 
+	\item Add new file to the system
+	\item Approve new version or document
+	\item Access archive 
+	\item Add user 
+	\item Manage departments
+\end{itemize}
+
+\subsubsection*{Results}
 The identified issues discovered during the usability test will be presented and categorized below in \Cref{tab:utest1} with explainations following. 
 
 \begin{table}[H]
@@ -112,66 +173,117 @@ The administrator right will therefore prevent possible bottleneck in the work f
 
 %Admin har en overrolloing hvis folk ikke går ind og godkender. Hvis folk tager for lang tid om det eller hvis folk er på ferie. (Anna: Samme kommentar som du har i starten af de her kommentarer )
 
-\subsection{Second usability test}\label{secondtest}
-The second usability test was conducted on Ipsen, Ipsen's husband and their daughter. 
-The reader, writer and administrator roll were all been tested in the application.
+\subsection{Third usability test}\label{thirdtest}
+The third usability test was conducted on Ipsen right after the second test had finished. 
 
-\subsubsection{Purpose and objectives of the test}
+\subsubsection*{Purpose and objectives of the third test}
+The tests that was conducted before had only focus on the administrator role.
+The purpose of this third test was to validate the idea of how the interfaces for a writer and reader role could possibly look like. 
+The mockups that was represented can be found in  %\Cref{} husk at tilføj det til bilag også. eller skal jeg bare tilføje dem her under ?
+
+\subsubsection*{Results of the third test}
+The major difference of the interface between administrator role from writer and reader role was the sidebar on the left.
+Since writer and reader would not be able to access the most of the functionalities available on the sidebar.
+The sidebar would therefore only appear for administrator. 
+Ipsen agreed on the idea to keep the interface as simple as possible for both writers and readers. 
+
+In the mockup the handbook page consisted of division of relevant document that would be showed first on the top and the full handbook underneath.
+For the reader role the relevant document would consist of those associated documents of the department they belonged to. 
+And for the writer role the documents he had been assigned to approve would appear under the relevant document . 
+Those document should be easy to find as well provide an overview and Ipsen validated the concept.
+
+The idea of implementing a preview when user clicked on the document name was also showed to Ipsen. 
+The user would have an opportunity to see a preview of a document before chosen to display it full screen. 
+This enable the user to better navigate through and still have an overview of the handbook which Ipsen also agreed upon.
+
+An interface change of the sidebar was also represented which applied to every role.
+Beforehand the sidebar only contained informative text which the mockup now had added suitable icons as well. 
+The user had two options with the sidebar.
+Either could the sidebar be folded to only consist of icons or unfold to see both the icons and informative text. 
+Ipsen validated the new sidebar design. 
+
+The last implementation of the application could continue to prepare for the last usability test of type validation test. 
+
+\subsection{Fourth usability test}\label{fourthtest}
+The fourth usability test was conducted on Ipsen, Ipsen's husband and their daughter. 
+The reader, writer and administrator roll were all been tested in the application. 
+
+\subsubsection*{Purpose and objectives of the fourth test}
 The usability issues from the first test has been corrected and ready to be tested to determine whether the new functionalities are improved or not. 
 All the rolls need to be tested as well as the recently added functionality which are required by the system definition. 
-The department and user management in the application will also be a part of the testing. The task list for the second usability test can be found in \Cref{bilag:utestbilag}.
+The department and user management in the application will also be a part of the testing. The task list for the fourth usability test can be found in \Cref{bilag:utestbilag}.
+The use cases that will be tested are listed below.
 
-\subsubsection{Results}
+\begin{itemize}
+	\item Access current handbook (exclude the first time login)
+	\item Add new file to the system
+	\item Approval new version or document
+	\item Access archive 
+	\item Add user 
+	\item Edit user information
+	\item Manage user 
+	\item View who has read a document 
+	\item Manage departments
+\end{itemize}
 
+\subsubsection*{Results of the fourth test}
 The detected usability issues are present and categorize in table 
 \Cref{tab:utest2} which will be clarified afterwards. 
 
 \begin{table}[H]
 	\begin{center}
-	\begin{tabular}{| c | m{19em} | c | c | c | c | c | c |}
+	\begin{tabular}{| c | m{15em} | c | c | c | c | c | c |}
 		\hline
 		Index & \textbf{Identified usability issues} & Role & Critical & Serious & Cosmetic \\
 		\hline
-		 1 &  & & & &  \\
+		 1 & The notification button are not visible & All & & & x \\
 		\hline
-		 2 & & & & & \\
+		 2 & Confusion concerning the working file & Admin, writer & x & & \\
 		\hline
-		 3 & & & & & \\
+		 3 & Confusion how to add more than one approver & Admin, writer & x & & \\
 		\hline
-		4 & &  & & &\\
+		4 & No document ID when adding associate documents to a department & Admin & & & x\\
 		\hline
-		5 & &  &  &  &\\
+		5 &  Confusion about upload and download button & Admin, writer & x &  &\\
 		\hline
-		6 & &  &  & &\\
+		6 & No approve button on awaiting approval document's view & Admin, writer &  & & x\\
 		\hline
-		7 &  & & &  &\\
+		7 & No cancel button when edit department & Admin & & & x\\
 		\hline
-		8 &  &  &  & & \\
+		8 & Deleted user should not appear while edit department & Admin & & & x \\
+		\hline
+		9 & Edit department user list present username & Admin &  & & x \\
+		\hline
+		10 &  &  &  & & \\
 		\hline
 	\end{tabular}
 	\end{center}
-	\caption{Identified issues for the second usability test}\label{tab:utest2}
+	\caption{Identified issues for the fourth usability test}\label{tab:utest2}
 \end{table}
 
 %Skriv her hvordan usability test slet ikke var klar
 The preparation for the second usability test was not done thoroughly because of the time pressure and poor planning. 
-The documents in handbook that test subject need to find according to the task list were not the same in the application. 
-Since the application did not been tested thoroughly to check whether the test subject would be able to complete and ensure no error. 
+The documents in handbook that test subject need to find according to the  described task list were not the same in the application. 
+The application had not been tested thoroughly to check whether the test subject would be able to complete the tasks. 
+Therefore lots of error did appeared during the tests.  
+
 
 
 %\begin{itemize}
 %\item Ipsen does not think that notification button are not visible
-%\item Confusion regarding upload a new version whether to find the file in the application or the system 
+%\item Confusion regarding upload a new version whether to find the file in the application or the system  -
 %\item Ipse did not know the purpose with the working file 
 %\item Skal kunne tilføje flere approvers
-%\item Når filen ikke er en pdf fil burde man kunne download filen fordi det vises ikke i preview.
+%\item Når filen ikke er en pdf fil burde man kunne download filen fordi det vises ikke i preview. - det problem fjerner vi hvis det kun er pdf filer der må uploades?
  %\item Department det kunne være rart at kunne se dok id når man associate doks
 %\item Ipen er forvirret over upload og download ikoner uden tekst - skal tænke over det. fortrækker en knap med tekst i stedet for med som add og get - så er der ingen tvivl om det 
 %\item ikoner: 
 %\item Hvis Ipsen skulle gå ind og godkende en dok så vil hun gå ind og læse det først (åbne og check om det var den rigtige dokument der blev lagt ind) også godkender det - mangler en download knap og approved knap under Approval - dok preview	
-%\item - Det skal tydeliggjores at man har godkendt en version og venter på at de andre skal godkender dem.  se mockup
-%\item Ipsen ændre Kjelds navn både i name and username- Admin skal ikke have adgang til at ændre i username
+%\item - Det skal tydeliggjores at man har godkendt en version og venter på at de andre skal godkender dem. ?
+%\item Ipsen ændre Kjelds navn både i name and username- Admin skal ikke have adgang til at ændre i username ? 
 %\item upload icon inde i handbook page er ikke helt den rette tankegang i workflow, det vil passe bedre ind hvis man er inde i documentet og skal til at uoload dok, det er som om man har sprunget et trin over 
+
+%Debriefing:
 %\item Ipsen foretrækker at kunne se hvad en reader er blevet sat på til at læse og det bruger mangler at læse - kan det jo ske at hun bliver sat forkert på et  document .- kommet frem til at have en liste af de afdelinger en bruger er koblet op på og en liste over alle de dok brugeren mangler at læse på de aktive dok 
 %\item kun admin der må arhciveret et dok fra håndbogen 
 %\item Department heads writer skal have adgang til readstatus %overview. 
@@ -214,17 +326,16 @@ Since the application did not been tested thoroughly to check whether the test s
 %-Astrid guider Anders for meget
 %-Når man skal tilføje flere approvers så, er det ikke intuitive at man skal separert dem med email 
 %-Det er ikke tydeligt kun med ikoner, især  upload og download 
-%-Anders kunne tænke sig at pilen hightlighter de row pilen peger på, så man ikke kommer til at trykke på delete på en forkerte row 
-
-%- Department: add user, der skal stå navn og ikke brugernavn 
-%-Ander nævner at de kunne være rart at se hvem man er logget ind som 
+%-Anders kunne tænke sig at pilen hightlighter de row pilen peger på, så man ikke kommer til at trykke på delete på en forkerte row ?
+%- Department: add user, der skal stå navn og ikke brugernavn ?
+%-Ander nævner at de kunne være rart at se hvem man er logget ind som ?
 %- Hvorfor har mette en mulighed for at delete en fil i håndbogen ?
 
 %Tove:
 %Det er godt at høre at alle er forvirret her
 %Errors er en joke her 
 
-%Der mangler en unfold all dok under full handbook 
+%Der mangler en unfold all dok under full handbook- vi har ikke unfold all chapters ? 
 
 %Lægger mærke til at layout og farven ikke er det samme som de andre pc? 
 
