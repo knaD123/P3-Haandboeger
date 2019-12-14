@@ -1,21 +1,28 @@
-Jan Paredaens et al.\ defines a database system as a collection of programs that run on a computer and that help the user to get information, to update information, to protect information, in general to manage information.\cite{RelationalDatabaseModel}
+Jan Paredaens et al.
+%Anna gerne her sætte kilden lige bag ham?
+defines a database system as a collection of programs that run on a computer and that help the user to get information, to update information, to protect information, in general to manage information.\cite{RelationalDatabaseModel}
+%Anna. er det her et citat for så skal det i citationstegn og skrives præcist hvor
 
 When representing data or information in a database system it would be convenient for the user of the system to represent it as sentences.
-The problem with representing data or information as senteces is that sentences can be ambiguous.
+The problem with representing data or information as sentences is that these can be ambiguous.
 Therefore, different approaches were made:\cite{RelationalDatabaseModel}
+%Anna bruger vi dem alle sammen, for det er lidt det sætningen giver udtryk for når der skrives '.. diferent approaches were made:'
 
 \begin{itemize}
-    \item \textit{network model} where the structure of information is represented by a directed graph.
-    \item \textit{hierarchical model} where the information is represented as a set of trees.
-    \item \textit{relational model} where the information is represented in tables.
+    \item 
+    \textit{Network model} where the structure of information is represented by a directed graph.
+    \item 
+    \textit{Hierarchical model} where the information is represented as a set of trees.
+    \item 
+    \textit{Relational model} where the information is represented in tables.
 \end{itemize}
 
 Relational databases are one of the most popular where, as mentioned above, the data is organized in tables with rows and columns.\cite{OracleWhatIsDatabase}
-The application is using this type of database because of the way that the data, used in the application, is structured (see xx).
+The application discussed in this report is using such a type of database because of the way that the data, used in the application, is structured {\color{red}(see xx)}.
 
 To get a better understanding of how the data is structured in a relational database imagine a system with a lot of users.
-This system might be interested in keeping track of the users \textit{username, password, firstname, lastname, email}.
-In a relational database this information can be represented like this:
+This system might be interested in keeping track of the users \textit{username, password, firstname, lastname} and \textit{email}.
+In a relational database this information can be represented as follows:
 
 \begin{table}[H]
     \centering
@@ -28,22 +35,25 @@ In a relational database this information can be represented like this:
     \caption{Table of users}
 \end{table}
 
-Structuring the users like this makes it easy to add new users to the table because the number of columns does not change, nor the names of the columns.
+Structuring the users like this makes it easy to add new users to the table since the number of columns does not change, nor their names.
 
 The most common way to interact with a database is to use \textit{Structured Query Language} (SQL).
+%Anna: Er kommenteret tidligere men det udskrevne skal op tidligere og så bare bruge forkortelsen her. 
+%Anna: gerne sikre der hvor det nævnes første gang henviser herned til
 SQL (pronounced either \textit{''sequel''} or \textit{''S-Q-L''}) is a database sublanguage that differs from other computer languages because it describes what the computer \textit{should do} rather than \textit{how it should do it}.\cite{SQLIntroduction}
 
 SQL makes it easy to perform CRUD operations on the database.\cite{OracleWhatIsDatabase}
+%Anna: Skriv ud hvad CRUD er og så forkort (hvis ikke brugt før)
 An example of how to use SQL could be someone who wants to retrieve all the users from the user table
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={\color{red}indsæt captiontekst}, label=lstSQL-user1]
 SELECT * FROM USER;
 \end{lstlisting}
 
 % Henrik: Måske uddybe code-snippet?
 Or maybe this person is just interested in retrieving a specific user
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={\color{red}indsæt captiontekst}, label=lstSQL-user2]
 SELECT * FROM USERS WHERE username = "username1";
 \end{lstlisting}
 
@@ -52,4 +62,3 @@ It has now been explained what a database is, how it works and how to interact w
 The next step is, therefore, to see how to design a database.
 
 % Rasmus: Det er blevet et super godt afsnit! Bedste i rapporten indtil videre. Måske lige en rød tråd, og så er vi ved at være i mål.
-

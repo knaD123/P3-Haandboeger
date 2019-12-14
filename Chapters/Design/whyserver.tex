@@ -1,24 +1,45 @@
 \subsection{Web Applications}
 % Ideen her er meget afgrænsning. Rummet af alle arkitekturer bliver afgrænset til noget der bruger netværk, til noget der bruger klient-server, til web
-In this section the application method will be discussed and at the end a specific application method will be chosen.
+In this section the application method will be discussed and at the end a specific application method is chosen.
 
 The requirements in the system definition state that users should be able to work together through the system, independent of geography.
+%Anna: Hvor står det henne???, gerne sætte en reference ind)
 The OOA\&D method designates that in these scenarios, the client-server model should be considered.
 % Røde aalborg, side 202
-%Anna: Er den forkortelse nogensinde blevet skrevet ud inden her?
-In this scenario, at least communication between clients is required. Many of the features in the systemdefinition, such as having multiple users being able to access the same handbook, registering whether the document has been read, and certainty of the version being read being recent, is impossible without some sort of communication between clients. The possible forms of communication are, in broad terms, a decentralised approach and a centralised approach.
+In this scenario, at least communication between clients is required. 
+%Anna: Evt i stedet for at bruge scenario to gange i streg brug "development project" eller bare "project".
+Many of the features in the systemdefinition, such as having multiple users being able to access the same handbook, registering whether the document has been read, and certainty of the version being read being recent, is impossible without some sort of communication between clients.
+%Anna: synes det bliver en meget lang sætning, er det bare mig? 
+The possible forms of communication are, in broad terms, a decentralized approach and a centralized approach.
+%Anna: er det ikke enten eller frem for både og?
 
-It is, however, pretty clear that a centralised approach is ideal. A decentralised system is more difficult to develop and manage. Where democratic systems fit well with a decentralised system, this is far from this application.
-Then what is left is deciding how the client and server applications look, and what the advantages or disadvantages are. The two possibilities are, roughly, a web application, or a desktop application that speaks to a server. While a desktop application is often faster, and has bigger oppurtunities for interacting with the hardware, it is also harder to manage on the users computer and keep the applicatioon updated on each machine, whereas the application logic for a webapp will be constantly updated, as the part of the application that is currently used is downloaded to the users computer as a part of each request. The webapp can be thought of as an additional layer of abstraction that does away with platform specific issues, such as adapting to different operating systems. A disadvantage of webapps is the requirement of there being a server, and the possible loss of the ability to work if it is down. However, since the application already requires a server, this is a smaller problem in this case.
+It is, however, pretty clear that a centralized approach is ideal. 
+A decentralized system is more difficult to develop and manage. 
+%anna: Evt i stedet for difficult bruge complex? (ikke noget jeg har stærke følelser om)
+Where democratic systems fit well with a decentralized system, this is far from this type application.
+%Anna: hvorfor virker det ved democratic systems og ikke her?
+%Anna: Hvorfor er det pretty clear centralized er bedre for det her system (Evt snakke om sikkehed ift firma hemmeligheder (kunne være et forslag))
+Then what is left is to decide how the client and server applications look, and what the advantages or disadvantages are. 
+The two possibilities are roughly; a web application, or a desktop application that speaks to a server. 
+While a desktop application is often faster, and has bigger opportunities for interacting with the hardware, it is also harder to manage on the users computer and keep the application up to date on each machine. 
+Whereas, the application logic for a web-app will be constantly updated, as the part of the application that is currently used is downloaded to the users computer as a part of each request.
+%Anna: Synes denne sætning på en elelr anden måde bliver mere kringlet end nødvendigt (er det bare mig)?
+The web-app can be thought of as an additional layer of abstraction that does away with platform specific issues, such as adapting to different operating systems. 
+A disadvantage of web-apps is the requirement of there being a server, and the possible loss of the ability to work if it is down. 
+However, since the application already requires a server, this is a smaller problem.
 
-The largest disadvantage, and quite possibly one that has not been considered enough in this project, is the learning curve associated with web applications. The web builts on a lot of technologies, CSS, Javascript and HTML, which are absolutely necessary, but can be difficult to learn all at once.
+The largest disadvantage, and quite possibly one that has not been considered enough in this development project, is the learning curve associated with web applications. 
+The web builds on a lot of technologies, CSS, Javascript and HTML, which are absolutely necessary, but can be difficult to learn all at once.
 
 The model we have decided to work with here is that of local presentation.
-As the integrity of the data is incredibly important, all business logic should be centrally administrated, and that way be resillient to user error.
+%Anna: for at fjerne 'we' evt skriv "The model decided upon here is that of loccal presentration"
+As the integrity of the data is incredibly important, all business logic should be centrally administrated, and that way be resilient to user error.
 Choosing a local presentation model allows us to create a web application.
+%Anna: igen for at fjerne 'we' kan der skrives "Choosing a local presentation model allows for the creation of a web application.
 A web application has many advantages, including but not limited to, mature UI, easy cross platform support, and avoiding having to install anything.
-%Anna: Og evt i den diskussion hvor argumenterne fremlægges nævne nogen af alternativerne
 
 A web application is any form of application where the client runs in a web browser.
+%anna: hvilken client snakkes der om lige her?
 This section will take a general overview of how web applications are structured, and what can be done to ensure stability.
+%Anna: Er den sætning lige ovenfor ikke malplaceret det er vel det der lige er blevet gennemgået?
 %Jeg tænker, at vi også skal skrive om hvilke andre platforme og metoder der kunne anvendes til at udforme systemet.
