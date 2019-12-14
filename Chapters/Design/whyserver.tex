@@ -1,6 +1,7 @@
 \subsection{Web Applications}
-\todo[inline]{Alt det her er komponent-delens ansvar. Lad os flytte den}
 % Ideen her er meget afgrænsning. Rummet af alle arkitekturer bliver afgrænset til noget der bruger netværk, til noget der bruger klient-server, til web
+In this section the application method will be discussed and at the end a specific application method will be chosen.
+
 The requirements in the system definition state that users should be able to work together through the system, independent of geography.
 The OOA\&D method designates that in these scenarios, the client-server model should be considered.
 % Røde aalborg, side 202
@@ -8,7 +9,6 @@ The OOA\&D method designates that in these scenarios, the client-server model sh
 In this scenario, at least communication between clients is required. Many of the features in the systemdefinition, such as having multiple users being able to access the same handbook, registering whether the document has been read, and certainty of the version being read being recent, is impossible without some sort of communication between clients. The possible forms of communication are, in broad terms, a decentralised approach and a centralised approach.
 
 It is, however, pretty clear that a centralised approach is ideal. A decentralised system is more difficult to develop and manage. Where democratic systems fit well with a decentralised system, this is far from this application.
-
 Then what is left is deciding how the client and server applications look, and what the advantages or disadvantages are. The two possibilities are, roughly, a web application, or a desktop application that speaks to a server. While a desktop application is often faster, and has bigger oppurtunities for interacting with the hardware, it is also harder to manage on the users computer and keep the applicatioon updated on each machine, whereas the application logic for a webapp will be constantly updated, as the part of the application that is currently used is downloaded to the users computer as a part of each request. The webapp can be thought of as an additional layer of abstraction that does away with platform specific issues, such as adapting to different operating systems. A disadvantage of webapps is the requirement of there being a server, and the possible loss of the ability to work if it is down. However, since the application already requires a server, this is a smaller problem in this case.
 
 The largest disadvantage, and quite possibly one that has not been considered enough in this project, is the learning curve associated with web applications. The web builts on a lot of technologies, CSS, Javascript and HTML, which are absolutely necessary, but can be difficult to learn all at once.
@@ -17,7 +17,6 @@ The model we have decided to work with here is that of local presentation.
 As the integrity of the data is incredibly important, all business logic should be centrally administrated, and that way be resillient to user error.
 Choosing a local presentation model allows us to create a web application.
 A web application has many advantages, including but not limited to, mature UI, easy cross platform support, and avoiding having to install anything.
-\todo[inline]{Vi skal have en rigtig god argumentation for at anvende webapplikationer.}
 %Anna: Og evt i den diskussion hvor argumenterne fremlægges nævne nogen af alternativerne
 
 A web application is any form of application where the client runs in a web browser.
