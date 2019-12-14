@@ -1,8 +1,8 @@
-\section{Repository Pattern}
+\subsubsection{Repository Pattern}
 In this project the repository pattern was used.
 It abstracts communication with the database, allowing for easily replacing it if necessary, and mocking it during unit tests.
 
-An example of a repository pattern is as follows
+An example of the interface to a a repository is as follows
 \lstinputlisting[language={[Sharp]C}]{OBHandbooks/OBHandbooks/Repositories/IApprovalRepository.cs}
 The interface is then in turn implemented by a class which is added to the controllers using dependency injection.
 As an example, the document controller is instantiated with each of the repositories it uses.
