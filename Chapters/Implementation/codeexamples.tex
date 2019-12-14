@@ -1,4 +1,4 @@
-\section{Code examples} 
+\section{Code examples}
 In this section examples of the code will be presented.
 As written in \cref{sec:systemdesign} the system is based on the ASP.NET Core MVC architecture including EF Core.
 How the system utilizes the MVC architecture and the EF Core framework will be shown in the following code examples.
@@ -95,10 +95,6 @@ public async Task<IActionResult> Index()
 
 	return View(documentIndex);
 }
-
-
-
-
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -208,6 +204,10 @@ public async Task<IActionResult> Add(Document document,
 }
 
 \end{lstlisting}
+This is the view that represents a list of assigned documents. This will render to a button, which when clicked expands a list of documetns in the chapter the button represents.
+It's written in the razor templating langugae, which is HTML, but with the added feature of allowing the documents to be dynamic when prefacing a statement with the \texttt{@} character.
+An interesting thing to note is on line 25, where the statement \texttt{@await Html.PartialAsync("_DocumentListBody", @kvp.Value)} is executed.
+This statement asks the razor templating engine to render the body of a list of documetns, with the argument that is the list of documents in the current chapter.
 
 \subsection{Repositories}
 
@@ -230,5 +230,15 @@ public async Task<Document> AddAsync(Document document)
 	return ret.Entity;
 }
 \end{lstlisting}
+This is a method in the \texttt{DocumentRepository}, which allows for adding documents to the database.
+It first performs to checks, to see if the database already contains a document.
+If that is the case, it throws the custom \texttt{DocumentAddException}.
+Otherwise, it adds the document to the database, and returns the tracked database entry.
+The reason that this is important, and that one can't just use the \texttt{Document} object supplied as an argument, is due to the use of lazy-loading proxies in the application.
+Lazy-loading proxies funcion so that when objects have relationships with other object, these are implemented as virtual properties.
 
+\todo[inline]{Skal vi forklare hvad lazy loading betyder, eller er det basic nok til vi kan slippe?}
+
+In the case of the \texttt{AddAsync} method, this means that you can construct a raw \texttt{Document} object, pass it to the method, and then get a proxy object in return.
+This allows for assigning to the virtual members, which is a functionality that is heavily used in the controllers.
 \input{Chapters/Implementation/efcore}
