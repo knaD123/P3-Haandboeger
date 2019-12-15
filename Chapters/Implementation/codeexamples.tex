@@ -81,6 +81,10 @@ When a new version has been added all of the affected department in the system w
 
 \subsection{Controller}
 
+In the code examples below it is shown how a \texttt{HttpGet} and \texttt{HttpPost} methods are implemented in the controller component.
+Firstly it is shown how the document object is arranged so that it can be rendered to the view through the \texttt{HttpGet} method.
+\\
+
 \begin{lstlisting}
 [HttpGet("")]
 [HttpGet("document/")]
@@ -114,6 +118,19 @@ public async Task<IActionResult> Index()
 }
 \end{lstlisting}
 
+The \texttt{HttpGet} method means that the view component retrieves data from the controller.
+
+From line 5 - 13 it is determined which documents that the current user is assigned to.
+This is done by first retrieving the current user, which is defined through \texttt{HttpContext.User}, by finding a match in the list of users found in \texttt{_userManager}.
+Afterwards program sorts through the departments that the user is a part of to find which documents that the user is assigned to.
+This is done through the loop from line 9 - 12.
+
+After the user's assigned documents has been sorted a list of all the non-archived documents will occur in the view.
+This is done through the two loops from line 14 - 25.
+All of the non-archived documents are returned to the view through \texttt{var documentIndex} on line 29.
+
+In the code snippet below it is shown what happens when the user adds a new document or versionto the system through the \texttt{HttpPost} method.
+\\
 \begin{lstlisting}
 [HttpPost("document/add/")]
 public async Task<IActionResult> Add(Document document,
