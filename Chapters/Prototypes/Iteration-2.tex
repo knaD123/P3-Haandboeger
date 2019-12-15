@@ -1,10 +1,10 @@
 \section{Second iteration}
 \subsection{Simple timeline}\label{sec:2Iteration-timeline}
-After the second interview with Ipsen the second iteration started with the evaluation activity from \cref{fig:DEBModel}. 
+After the third interview with Ipsen the second iteration started with the evaluation activity from \cref{fig:DEBModel}. 
 During this activity the data gathered at the interview was reevaluated and used to update the relevant models and analysis' such as the FACTOR model and the class diagram.
 During the interview the first signs of the iterative model being the relevant model to work with became clear.
 Since Ipsen had changed her decision upon how the archive should work.
- During the small interview in iteration 1, it was said that the date search function in the archive would be obsolete.
+ During the small second interview in iteration 1, it was said that the date search function in the archive would be obsolete.
 But when it was a part of the prototype and therefore clearer illustrated it turned into a requirement.
 
 After the evaluation activity an understanding phase started where the first analysis of the functions in the application domain activity was done as well as the development of rich picture analysis in the problem domain activity, \cref{fig:RP-Oversigt,fig:RoleIllustration}.
@@ -23,7 +23,7 @@ At the end of the meeting with Ipsen the designs of the interfaces was presented
 The general idea of the supplier sub-problem was presented by Ipsen in the initial interview in the first iteration as an impulsive thought.
 In the course of the first iteration there was an awareness of the sub-problem but it quickly became clear through the discussions in the analysis that more information was needed to completely analyze it and its role in the problem domain.
 
-At the second interview the supplier sub-problem was discussed through a series of questions prepared beforehand to resolve the needed information.
+At the third interview the supplier sub-problem was discussed through a series of questions prepared beforehand to resolve the needed information.
 Afterwards in the second iteration, the problem domain analysis was as mentioned in \cref{sec:2Iteration-timeline}. 
 This was done especially with the focus on in-cooperating the supplier subproblem.
 This meant changes to the FACTOR analysis and the class diagram.
@@ -52,16 +52,56 @@ In the original FACTOR it was written as follows
 	3rd level:
 	Total access to editing documents and access to archive''
 \end{itemize}
-Though it was concluded from the second interview that only three roles were needed.
+Though it was concluded from the third interview that only three roles were needed.
 These are mentioned in the FACTOR analysis found in \cref{factor}.
 
 The second significant difference is how most of the functionality and some of the conditions from the FACTOR analysis has turned into requirements in the MoSCoW presented in \cref{sec:requirementsdefinition}. 
 These are among other ''The handbook should be printable'' and ''Title and chapter number are linked. If a title is removes the chapter number cannot be used for anything else.'', from the FACTOR analysis draft in iteration 1.
 
 \subsubsection*{Event table}
+The event table went through quite an evolution throughout the second iteration.
+Some of these evolutions will be presented in the following.
 
-\subsubsection*{Prototyping}
+One of the larger discussions about the event table is the 'user deactivated' and 'user reactivated' vs. 'user deleted' points discussed in \cref{sec:Events}.
+During this iteration it was decided to not use deactivated and reactivated since the use case for it would be such a rare case.
+Furthermore, the delete user was discussed and a solution of how to save read status' without to much user information was found.
+The main problem for this and the main reason for this debate, is due to not wanting to save unnecessary information and through this way get in trouble with the general data protection regulation (GDPR).
+Though this is not something that will be gone into any further details with.
 
-%Tænker de større konklusioner fra prototype testen her bruges som en del af introen til anden iteration.
+Another change from first to second iterations how the supplier sub-problem has become a part of the event table.
+As mentioned before the third interview cleared up questions about this sub-problem and it could become part of the system design and analysis.
 
+Further developments to the event table is how the events 'Subscribed to documents' and 'unsubscribed' was reevaluated as the idea of departments got more worked out.
+These events turned into the department block of events in the table found in \cref{fig:eventtable};
+\begin{itemize}
+	\item 
+	Department added
+	\item
+	Department's users updated
+	\item
+	Department's documents updated
+	\item
+	Department deleted
+	\item
+	Department notified user
+\end{itemize} 
 
+Finally the event table was also filled out with the markings connecting the different classes and events and how many times the event occurs.
+
+\subsubsection*{Some conclusions on Prototyping}
+As written in \cref{sec:2Iteration-timeline}, one conclusion from the end of the first iteration, is the need of the date search function in the archive, seen in fig:3-archive.
+The reason for the turn around decision on this point is Ipsen's realization of how it would make audits easier.
+Due to the need sometimes arising, of finding all documents and versions active throughout at given period.
+
+Another conclusion is how the notification system was not meant to be as extensive as first understood. 
+This became clear with the debate on the need for marking if a version included 'minor' or 'major' changes, seen in \cref{fig:3-UploadVer}.
+The result of this debate being no since the company, the system is meant for, is so small that if it were major changes an oral notice would suffice.
+It became further clear when it was decided that it should not be possible to deny approvals, \cref{fig:3-ApproveDenied}, since the client would discuss such things outside the system.
+
+\subsubsection*{Further prototype development}
+At the fourth meeting with Ipsen which ended the second iteration a further developed functional prototype, based on the one from the first third interview was presented in a usability test, \cref{secondtest}.
+The development was done iterativly in accordance with the chosen method in such a way that new functionality was added to the code of the first prototype.
+Screenshots of some of the interfaces in this prototype can be found in \cref{sec:2prototype}.
+
+During the second iteration the beginning of designing a mock-up of the whole system, starting with the reader and writer view, was done. 
+These designs can be found in \cref{sec:Mock}.
