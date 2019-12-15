@@ -11,13 +11,12 @@
 		\node(End)[c, fit=(end)]at (end){};
 	%streger i billedet
 		\draw[arrow](start.east)--node[above]{Login to\\OBHandbooks}(main.west);
-		\draw[arrow](main.north east)--node[above]{Go through\\notifications}(status.north west);
-		\draw[arrow](main.east)--node[below]{Select relevant\\document}(status.west);
+		\draw[arrow](main.14)--node[above]{Go through\\notifications}(status.166);
+		\draw[arrow](main.350)--node[below]{Select relevant\\document}(status.190);
 		\draw[arrow](status.south)--node[left, yshift=-0.2cm]{Press\\'Read status'}(pop.north);
 		\draw[arrow](pop.west)--node[below]{Press 'Agree'}(update.east);
 		\draw[arrow](update.west)--(End.east);
-	%loop i billedet
-		\path[arrow](pop) edge [loop right, looseness=1]node[right]{Press\\'Cancel'} (status);	
+		\draw[arrow](pop.57) -- node[right]{Press\\'Cancel'} (status.295);	
 	
 	
 	\end{tikzpicture}
