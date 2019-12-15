@@ -1,7 +1,7 @@
 \chapter{Discussion}
 In this section it will be discussed how the system have been developed and which choices have been made along the way. More so there will be looked at the pro and cons of decisions that appeared, this includes things as the system definition from \cref{problemstatement} and system architecture from \cref{components}.
 
-\subsection{System definition}
+\section{System definition}
 This section will discuss the system definition from \cref{problemstatement}. An in depth look at the system in its current state will then be compared to our final system definition.
 
 The system is capable of management of documents that is uploaded from a pc. The files that are placed on the server are viewable in the table of contents where each document is also identifiable with a unique id. Each document also has been given a changelog that can be written when pressing to make changes to said document. When documents are updated, older versions are archived. And lastly documents must be approved if it is submitted to the handbook.
@@ -14,15 +14,21 @@ Although the system has fulfilled most requirements, it is not capable of editin
 
 In spite of the fact that parts of the system definition are not completed, the system is functional and capable of working in production. The lacking parts and non-essential as to the core functionality of the system, which means that the system definition requirements are therefore fulfilled to a high degree.
 
-%\subsection{Design requirements}
-%With the MoSCoW rules the functionalities were placed into different classes of priority, these can be seen in \cref{sec:requirements}. In this section there will be a look into the requirements and their fulfilment in the system.
+\section{Design requirements}
+With the MoSCoW rules the functionalities were placed into different classes of priority, these can be seen in \cref{sec:requirements}. In this section there will be a look into the requirements and their fulfilment in the system.
 
-%The design requirements were tailored to the needs of the user. These requirements are mostly complete with the exception of the last to bullet points in \cref{sec:requirementsdefinition}.
-%These were not completed as Ipsens was compared with.
+The design requirements in \cref{sec:requirementsdefinition} were tailored to the needs of the user, these requirements were mostly complete with the exception of a few that will be looked at in this chapter:
 
-%HER SKAL DER VÆRE EN REFERENCE TIL KONKLUSIONEN AF DESIGN AFSNITTET
+\begin{itemize}
+	\item \textit{"It should be easy to switch from an existing system, and back to the existing system"}
+	As the current system stands there is no easy way to implement an existing system. Ipsens current system is a collection of documents of different file types, that have to be converted before it is put into the project system. It might be possible to create a system that can convert file types to pdf, but that was not the focus of this project.
+	\item \textit{"The handbook should be printable"}
+	Unfortunately, the handbook is not printable. MANGLER ÅRSAG. 
+	\item \textit{"Option to sort documents according to different attributes"}
+	This functionality that makes the program more user friendly did not enter the system. The problem could be solved by implementing a sorting algorithm, but unfortunately this functionality was not included in the final product.
+\end{itemize}
 
-\subsection{Problem statement}
+\section{Problem statement}
 In \cref{problemstatement} the problem statement is presented and this section will answer if the definition was complied with. The project had the following statement:
 
 \begin{center}
@@ -33,14 +39,14 @@ The handbook management was developed and designed by conducting several semi-st
 
 The interface was moulded through several iterations, each time changed based on feedback from the interviews and in this way coming closer to the optimal graphical user interface for Ipsen. Taking these facts into consideration the problem statement has been complied with.
 
-\subsection{System architecture}
+\section{System architecture}
 When choosing the system architecture, Model-View-Controller stood out, but it was potentially possible to use a different system architecture with success. The primary downside of an architecture that is not web based lies in the distribution of the system and how the system is updated to the latest version. This means the developer and the user have to use third party websites or personally meet to install said update. This also means software problems would take longer time to patch as developers have to meet users or otherwise make contact another way. Furthermore the product would be harder to make available to users on other platforms such as phones.
 
 Although it is not optimal for this case, it is cost free and once implemented, the system should not have to be maintained. And although it is not easy to update, there is no need for internet connection.
 
 On the other side of the spectrum, the Model-View-Controller pattern stood out, because of the ease of use, optimal accessibility and minimum system requirements. A security concern is also real, but password protection was enough for this system.
 
-\subsection{User rights}
+\section{User rights}
 
 User rights was implemented in the system so users not managing the handbook do not have the power to change, delete or otherwise administrate the system.
 
@@ -48,6 +54,17 @@ This stems from the OOA\&D where the role pattern is described as having role as
 
 Although this implementation does not have the dynamic power of the OOA\&D role pattern, it still provides the desired access rights in the system.
 
-\subsection{Docker vs Backup}
+\section{Docker and Git}
 
-I starten af projektet blev det valgt at køre systemet i docker, dette gjorde at  
+At the beginning of the project, it was chosen to use docker to develop the system, this meant that the program would be identical on each computer, a bit like a virtual machine.
+Docker thus helped by having identical runs of the program, which resulted in easier isolation of problems and thus propelled the project forward at a faster pace. However, this also created problems because "docker" was implemented with mediocre knowledge of the technology, causing minor problems all around. In addition, the startup for docker was also slow, making the time from writing code to seeing the result stretched. It can be said that Docker was smart in the intention of a more stable development, but better knowledge of the technology should be gathered beforehand. 
+
+It can also be said that the version control system git, helps in similar ways. So it would not be necessary to use both systems as it leads to bloated complexity in development. In the project github page, pull requests were also used. Pull requests work by notifying their team members of the changes they have made, which these group members can then assess and allow to move into the program. Looking back, you can say that there was probably enough security in the project via git.
+
+\section{Browser support}
+
+In development Javascript was used for site functionality, more specifically JavaScript was used to make notifications in the program but although JavaScript allowed the site to do so, language support for the Internet Explorer browser is lacking. Although the latest version of Internet Explorer was released several years ago, it was said that users have little IT experience in (SECTION) which means it is very possible that they are actually using this browser. This could have been solved by generating notifications using other tools or simply sending notification when opening the system, since this is what you are looking for notifications.
+
+\subsection{Ajax}
+
+Furhermore, in the system state right now, all text in a completed form will disappear if something is wrong. This could be solved using Ajax, which is a development technique that can store data in a completed form if errors occur on the page, this means it can update parts of a page without reloading a full page. However, the problem was only discovered in the last iteration, so a lack of time was cause for it not to be resolved.
