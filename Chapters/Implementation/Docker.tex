@@ -1,6 +1,25 @@
 \section{Docker}
-The project was developed using docker.
-This allowed for easier management of dependencies, control over resetting databases, and guarantees of identical runtime environments.
-The dockerfile looks as follows
-\lstinputlisting{OBHandbooks/Dockerfile}
+\todo[inline]{Find en eller anden bog om docker, og sæt den som kilde til det hele}
+The project was developed using Docker.
+Docker is a containerization technology.
+Much like virtualization, it allows for having isolated processes, but virtualization goes much further than containerization.
+While a virtual machine simulates an entire machine, a container shares the same kernel as the host system, which is far lighter on resources
 
+
+Using Docker allowed for easier management of dependencies, control over resetting databases, and guarantees of identical runtime environments.
+The Dockerfile looks as follows
+\lstinputlisting{OBHandbooks/Dockerfile}
+This Dockerfile defined how the isolated userspace in which the ASP.NET Core project would run would be set up.
+As can be seen, most of it consists of running commands in the container, until line 13-18 which set some environment variables, copies the code into the container, and builds it.
+
+The Docker image generated from this Docker file was then used in a \texttt{Docker-compose.yml} file, which is used to create deployment structures consisting of multiple containers.
+\lstinputlisting{OBHandbooks/Docker-compose.yml}
+The docker file is developed in the YAML markup language.
+Here, two Docker containers are actually used.
+The first container, defined on line three, uses the image described previously.
+It opens up ports 5000 and 5001 to the host machine, and mounts the current directory in the \texttt{/Handbooks} folder on the container.
+Finally, it defines the command to run inside the container as it is started, and links it to the second container, the database container.
+
+The second container used is way more simple
+It simply uses the standard \texttt{postgres} image, and sets the password to be \texttt{mysecretpassword} via an environment variable.
+This password should naturally not be used in production.
