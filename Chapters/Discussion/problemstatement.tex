@@ -1,0 +1,24 @@
+\section{Problem statement}
+In \cref{problemstatement} the problem statement is presented and this section will answer if the definition was complied with.
+The project had the following statement:
+
+\begin{center}
+\textit{How can a document version management software be designed and developed to support a firm's management of their handbook documents so it is easily manageable by the administrators, and also accessible for readers and writers?}
+\end{center}
+
+The handbook management was developed and designed by conducting several semi-structured interviews with Ipsen.
+These interviews, in conjunction with a look at other handbook management systems, gave a fundamental understanding of what was needed in such system.
+This understanding was then used to develop classes and functions as described in OOA\&D\cite{Rod-Aalborg}.
+
+The interface was moulded through several iterations, each time changed based on feedback from the interviews and in this way coming closer to the optimal graphical user interface for Ipsen.
+section{User rights}
+
+User rights was implemented in the system so users not managing the handbook do not have the power to change, delete or otherwise administrate the system.
+
+This stems from the OOA\&D where the role pattern is described as having role as an abstract class and having other classes inherit from role.
+The way it is implemented does not provide a dynamic role pattern, but if you follow OOA\&D you can use the pattern where each user has an attribute that is activated, that is, each role is a superstructure of underlying roles.
+This would provide a dynamic way of managing roles, where if you could simply change the roles by changing an attribute.
+
+Although this implementation does not have the dynamic power of the OOA\&D role pattern, it still provides the desired access rights in the system.
+
+
