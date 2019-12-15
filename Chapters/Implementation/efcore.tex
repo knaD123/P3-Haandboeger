@@ -1,10 +1,16 @@
 \subsection{Entity Framework Core}
 Entity Framework Core is used to communicate with the database, which on it's own is not object-oriented.
 For more information on EF Core see \cref{sec:efcore}.
-\subsubsection{Postgresql}
+
 Postgresql was chosen as the database for the project.
 The decision was purely based on prior experience with setting up the database.
 Postgresql is often better suited for more advanced applications, [CITATION NEEDED] but as this application mostly used CRUD operations with few to no complicated queries, this was hardly relevant.
+\subsubsection{HandbookContext}
+The \texttt{HandbookContext} was the class that handled communication between the database and the application.
+It subclasses IdentityDbContext, which in turn subclasses a normal DbContext.
+\lstinputlisting[language={[Sharp]C}]{OBHandbooks/OBHandbooks/Infrastructure/HandbookContext.cs}
+It consists of a large amount of properties of the type \texttt{DbSet<MODEL>}, which each represents a collection of entities to be stored in the database. The overwritten \texttt{OnModelCreating} function also supplies extra information about the relationsips in the database, such as unique properties, foreign keys, or delete behaviours. For example, on line 31, it can be seen that when a \texttt{HandbookApproval} is to be deleted, that should also result in any associated \texttt{Version} objects being deleted.
+
 \input{Chapters/Implementation/RepositoryPattern}
 \subsubsection{Database Design}
 \todo[inline]{Andreas: Gør den der ting jeg bad dig om}
