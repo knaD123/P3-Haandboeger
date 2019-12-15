@@ -10,10 +10,10 @@ Here it will be shown in part how a new document is added into the system throug
 
 \subsection{Model}
 
-In the model component it Document object is defined.
+In the model component it \texttt{Document} object is defined.
 As it is primarily the document object that will be highlighted in the code examples, how the document object is presented in the code snippet below:
 \\
-\begin{lstlisting}
+\begin{lstlisting}[caption={Document Model: Document object}, label={lst:doc}]
 [Key]
 public int ID { get; set; } //for the database
 
@@ -54,7 +54,7 @@ This \texttt{display} attribute is used with ASP.NET Core and is used to modify 
 In the code snippet below it is shown the logic of how a new version of a document is added.
 \\
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Document Model: AddVersion}, label={lst:addversion}]
 public void AddVersion(Version version)
 {
 	version.ValidFromDate = DateTime.Now;
@@ -85,7 +85,7 @@ In the code examples below it is shown how a \texttt{HttpGet} and \texttt{HttpPo
 Firstly it is shown how the document object is arranged so that it can be rendered to the view through the \texttt{HttpGet} method.
 \\
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Document Controller: Index}, label={lst:doccontroller}]
 [HttpGet("")]
 [HttpGet("document/")]
 public async Task<IActionResult> Index()
@@ -119,7 +119,7 @@ public async Task<IActionResult> Index()
 \end{lstlisting}
 
 The \texttt{HttpGet} method means that the view component retrieves data from the controller.
-Something to take not of is the \texttt{async Task<IActionResult>} on line 3.
+Something to take note of is the \texttt{async Task<IActionResult>} on line 3.
 The \texttt{Task} class represents a single operation \cite{microsoft}.
 This operation does not return a value and usually executes asynchronously.
 The \texttt{IActionResult} result method ensures that the controller returns a model to the view.
@@ -129,13 +129,13 @@ This is done by first retrieving the current user, which is defined through \tex
 Afterwards program sorts through the departments that the user is a part of to find which documents that the user is assigned to.
 This is done through the loop from line 9 - 12.
 
-After the user's assigned documents has been sorted a list of all the non-archived documents will occur in the view.
+After the user is assigned documents has been sorted a list of all the non-archived documents will occur in the view.
 This is done through the two loops from line 14 - 25.
 All of the non-archived documents are returned to the view through \texttt{var documentIndex} on line 29.
 
 In the code snippet below it is shown what happens when the user adds a new document or versionto the system through the \texttt{HttpPost} method.
 \\
-\begin{lstlisting}
+\begin{lstlisting}[caption={Document Controller: Add}, label={lst:doccontrolleradd}]
 [HttpPost("document/add/")]
 public async Task<IActionResult> Add(Document document,
 	int chapterNumber,
@@ -211,6 +211,7 @@ As the \texttt{HttpGet} method retrieves data from the controller, the \texttt{H
 The information from the view is transfered into the controller method through the parameters shown from line 2 - 7.
 When the document is posted to the controller the \texttt{Add} method ensures that the new document version needs to be approved line 9.
 Afterwards the actual document receives its chapter number on line 16 and is saved into the document repository on line 29 through the \texttt{AddAsync} method.
+A more detailed explanation of the \texttt{AddAsync} method can be seen in \cref{lst:docrepadd}.
 
 The new version of the document is stored into the repository from line 36 - 62.
 Here the new version is saved into the version repository on line 40 with the \texttt{AddAsync} method.
@@ -222,7 +223,9 @@ If the new version does not need an approval, it is simply saved into the reposi
 
 \subsection{View}
 
-\begin{lstlisting}
+In the following code snippet it is shown how the \texttt{view} component utilizes data given from the \texttt{controller} component.
+\\
+\begin{lstlisting}[caption={Document View: Index}, label={lst:docview}]
 @foreach (KeyValuePair<Models.Chapter, List<Models.Document>> kvp in Model.UnassignedDocuments) {
 <button class="btn btn-outline-dark text-left pl-4 mt-1" onclick="listExpand()" style="width: 100%; margin-top: 10px;" type="button" data-toggle="collapse" data-target="#collapseChapter-@kvp.Key.Number" aria-expanded="false" aria-controls="collapseExample">
 <div class="row">
@@ -255,6 +258,7 @@ If the new version does not need an approval, it is simply saved into the reposi
 }
 
 \end{lstlisting}
+
 This is the view that represents a list of assigned documents. This will render to a button, which when clicked expands a list of documetns in the chapter the button represents.
 It's written in the razor templating langugae, which is HTML, but with the added feature of allowing the documents to be dynamic when prefacing a statement with the \texttt{@} character.
 An interesting thing to note is on line 25, where the statement \texttt{@await Html.PartialAsync("_DocumentListBody", @kvp.Value)} is executed.
@@ -262,7 +266,10 @@ This statement asks the razor templating engine to render the body of a list of 
 
 \subsection{Repositories}
 
-\begin{lstlisting}
+In the \texttt{repositories} component the data is processed.
+In the following code snippet it is shown how a document is added to the database.
+\\
+\begin{lstlisting}[caption={Document repository: AddAsync}, label={lst:docrepadd}]
 public async Task<Document> AddAsync(Document document)
 {
 	if (this._dbContext.documents.Where(
