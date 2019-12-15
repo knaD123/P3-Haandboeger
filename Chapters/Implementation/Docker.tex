@@ -13,7 +13,7 @@ This Dockerfile defined how the isolated userspace in which the ASP.NET Core pro
 As can be seen, most of it consists of running commands in the container, until line 13-18 which set some environment variables, copies the code into the container, and builds it.
 
 The Docker image generated from this Docker file was then used in a \texttt{Docker-compose.yml} file, which is used to create deployment structures consisting of multiple containers.
-\lstinputlisting{OBHandbooks/Docker-compose.yml}
+\lstinputlisting{OBHandbooks/docker-compose.yml}
 The docker file is developed in the YAML language.
 Here, two Docker containers are actually used.
 The first container, defined on line three, uses the image described previously.
