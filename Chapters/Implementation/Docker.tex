@@ -14,7 +14,7 @@ As can be seen, most of it consists of running commands in the container, until 
 
 The Docker image generated from this Docker file was then used in a \texttt{Docker-compose.yml} file, which is used to create deployment structures consisting of multiple containers.
 \lstinputlisting{OBHandbooks/Docker-compose.yml}
-The docker file is developed in the YAML markup language.
+The docker file is developed in the YAML language.
 Here, two Docker containers are actually used.
 The first container, defined on line three, uses the image described previously.
 It opens up ports 5000 and 5001 to the host machine, and mounts the current directory in the \texttt{/Handbooks} folder on the container.
