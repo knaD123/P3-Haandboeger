@@ -4,7 +4,8 @@ This section will focus on two common approaches to test software \textit{black-
 It will be explained what their differences are, when to use them and how they are used in this project.
 
 % static and dynamic testing (side 56)
-When doing black-box and white-box testing it is possible to do it staticly or dynamicly, see \cref{defn:statictesting,defn:dynamictesting}.
+When doing black-box and white-box testing it is possible to do it statically or dynamically, see \cref{defn:statictesting,defn:dynamictesting}.
+% Anja: Er det ikke lidt overkill med en cref, naar definitionerne er direkte nedenunder? :P
 
 \begin{defn} \label{defn:statictesting}
 Testing software without running it.
@@ -21,13 +22,14 @@ This means that the person (the tester) that tests the software cannot look at t
 The tester is only able to give input to the software and receive output based on the input.
 
 % Static black-box testing (side 56)
-As mentioned in \cref{sec:testingtechniques} black-box testing can be done staticly.
+As mentioned in \cref{sec:testingtechniques} black-box testing can be done statically.
 Static black-box testing is when the tester tests the software without running the software and without access to the code.
 
 % Product specification (side 57)
 Testing the product specification is considered as static black-box testing.
 The reason for this is that the product specification is a document, see \cref{sec:Bug}, and therefore considered static.
 If the project does not have a product specification there is at least one person in the project group that know what is being build - use this person as a talking product specification. \cite{SoftwareTesting}
+% Anja: Den sidste sætning giver ikke mening for mig.
 
 The product specification tests is done in two steps:
 
@@ -80,7 +82,7 @@ The tester should be looking out for words like those mentioned above since some
 In the case where the words are too vague or not testable a re-definition is required. \cite{SoftwareTesting}
 
 % Dynamic black-box testing (side 64)
-It was, in \cref{sec:testingtechniques}, also mentioned that black-box tests can be done dynamicly.
+It was, in \cref{sec:testingtechniques}, also mentioned that black-box tests can be done dynamically.
 Dynamic black-box testing is where the tester is running the software but do not have access to the code. % Henrik: Hvordan henviser jeg til defn dynamicly og tekst med black-box?
 Here the tester simply enters some input and receives some output based on the input entered. \cite{SoftwareTesting}
 
@@ -92,11 +94,11 @@ It will be explained in greater detail how the usability test were executed in \
 \subsection{White-box testing} \label{sec:whiteboxtesting}
 % Kort om white-box testing
 White-box testing can be thought of as the opposite of black-box testing.
-The reason for this is that, as mentioned in \cref{sec:blackboxtesting}, that black-box testing is performed without access to the code, but when performing white-box testing the tester has access to the code.
-It was mentioned in \cref{sec:testingtechniques} that white-box tests, just like black-box tests, can be performed staticly and dynamicly.
+As mentioned in \cref{sec:blackboxtesting} the black-box testing is performed without access to the code, but when performing white-box testing the opposite is true. 
+It was mentioned in \cref{sec:testingtechniques} that white-box tests, just like black-box tests, can be performed statically and dynamically.
 
 % Static white-box testing (side 92)
-Static white-box tests are performed without running the software, but in contrary to black-box tests, the tester has access to the code. % Henrik: Hvordan, hvis nødvendigt, henviser jeg til baade defn og black-box?
+Static white-box tests are performed without running the software with access to the code. % Henrik: Hvordan, hvis nødvendigt, henviser jeg til baade defn og black-box?
 When performing static white-box tests the tester is reviewing the architecture and the design of the software.
 The tester can also be reviewing the actual code for bugs. \cite{SoftwareTesting} % Henrik: Er det nødvendigt at henvise til "bug" afsnittet her?
 
@@ -119,11 +121,13 @@ The rules can be anything from what to review (e.g. how many lines) to what to c
 This helps the reviewers to know what their role at the review is and, therefore, makes it easier for the reviewers to \textit{prepare} for the review.
 Most of the problems are actually found during the preparation phase and this makes this phase extra important.
 When the review is finished, the review group should make a \textit{report} of results of the review and pass it on the rest of the development team. \cite{SoftwareTesting}
+% Anja: Ovenstaaende tekst er er skidegodt! Ingen kritik her
 
 The project group has, throughout this project, used GitGub \footnote{GitHub is a hosting platform for version control using Git} to perform peer reviews before merging new code into the project. % Henrik: "into the project" skal nok omformuleres
 Every time someone in the project group had created new features, refactored some code, updated the layout etc., the new code had to be approved by other members of the project group before it got merged into the project.
 This was done to prevent introducing potential bugs to the project.
 It also helped to keep other members of the project group up-to-date with the code.
+% Anja: Jeg tænker ift. den ovenstaaende tekst, om det skal flyttes i bunden af sektionen? Her kan der staa refleksioner om, hvordan vi har brugt de der test-teknikker i løbet af projekt-perionen. Det virker bare lidt malplaceret, at vi reflekterer for test midt i al teorien, naar det ikke er blevet gjort andre stedet i white-box og black-box afsnittet.
 
 % Dynamic white-box testing (side 105)
 Dynamic white-box testing is where the tester has access to the code and actually runs the software. % Henrik: Hvordan henviser jeg til defn og white-box testing?

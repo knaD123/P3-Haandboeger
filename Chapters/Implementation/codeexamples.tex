@@ -6,14 +6,18 @@ How the system utilizes the MVC architecture and the EF Core framework will be s
 Firstly the MVC implementation is explored with the Document class.
 How the Document object is being treated throughout the system will be presented throught the model, view, and controller components.
 Furthermore it will be shown how the document data will be stored in the database with the repository pattern and EF Core.
+Here it will be shown in part how a new document is added into the system throughout the components.
 
 \subsection{Model}
 
+In the model component it Document object is defined.
+As it is primarily the document object that will be highlighted in the code examples, how the document object is presented in the code snippet below:
+\\
 \begin{lstlisting}
 [Key]
 public int ID { get; set; } //for the database
 
-public virtual Chapter Chapter { get; set; } //first part of doocument ID
+public virtual Chapter Chapter { get; set; } //first part of document ID
 
 public int ChapterNumber
 {
@@ -39,8 +43,16 @@ public Document()
 {
 	Archived = false;
 }
-
 \end{lstlisting}
+
+The document object includes an ID, chapter, chapter number, section number, section number, versions, and whether or not it has been archived as seen in the code snippet above.
+The \texttt{key} attribute on line 1 specifies that the \texttt{int ID} is a key that the database can use to identify the specific document.
+Likewise the \texttt{Range} attribute specifies that the section number is included in a an \texttt{enumerable} class consisting of integers from 1 to infinity.
+And the \texttt{Display} attribute on line 15 specifies that the section number should be displayed with the name \textit{section}.
+This \texttt{display} attribute is used with ASP.NET Core and is used to modify the text on the screen when a controller is rendered to the view.
+
+In the code snippet below it is shown the logic of how a new version of a document is added.
+\\
 
 \begin{lstlisting}
 public void AddVersion(Version version)
@@ -62,7 +74,16 @@ public void AddVersion(Version version)
 }
 \end{lstlisting}
 
+As is seen on line 3 and 4 when a new version of a document is added it receives a new date from which is it valid and that the \texttt{Approved} bool is set to \texttt{true}.
+On line 5 the new version is added to the list of versions.
+The control sequence from line 9 - 12 ensures that the previous version's date is set to the day that it has been replaced by the new version.
+When a new version has been added all of the affected department in the system will get notified as seen in the loop from line 13 - 16.
+
 \subsection{Controller}
+
+In the code examples below it is shown how a \texttt{HttpGet} and \texttt{HttpPost} methods are implemented in the controller component.
+Firstly it is shown how the document object is arranged so that it can be rendered to the view through the \texttt{HttpGet} method.
+\\
 
 \begin{lstlisting}
 [HttpGet("")]
@@ -97,6 +118,23 @@ public async Task<IActionResult> Index()
 }
 \end{lstlisting}
 
+The \texttt{HttpGet} method means that the view component retrieves data from the controller.
+Something to take not of is the \texttt{async Task<IActionResult>} on line 3.
+The \texttt{Task} class represents a single operation \cite{microsoft}.
+This operation does not return a value and usually executes asynchronously.
+The \texttt{IActionResult} result method ensures that the controller returns a model to the view.
+
+From line 5 - 13 it is determined which documents that the current user is assigned to.
+This is done by first retrieving the current user, which is defined through \texttt{HttpContext.User}, by finding a match in the list of users found in \texttt{_userManager}.
+Afterwards program sorts through the departments that the user is a part of to find which documents that the user is assigned to.
+This is done through the loop from line 9 - 12.
+
+After the user's assigned documents has been sorted a list of all the non-archived documents will occur in the view.
+This is done through the two loops from line 14 - 25.
+All of the non-archived documents are returned to the view through \texttt{var documentIndex} on line 29.
+
+In the code snippet below it is shown what happens when the user adds a new document or versionto the system through the \texttt{HttpPost} method.
+\\
 \begin{lstlisting}
 [HttpPost("document/add/")]
 public async Task<IActionResult> Add(Document document,
@@ -166,8 +204,21 @@ public async Task<IActionResult> Add(Document document,
 
 	return View(document);
 }
-
 \end{lstlisting}
+
+As the \texttt{HttpGet} method retrieves data from the controller, the \texttt{HttpPost} method ensures that new data is submitted into the controller and into the components further down the layers.
+
+The information from the view is transfered into the controller method through the parameters shown from line 2 - 7.
+When the document is posted to the controller the \texttt{Add} method ensures that the new document version needs to be approved line 9.
+Afterwards the actual document receives its chapter number on line 16 and is saved into the document repository on line 29 through the \texttt{AddAsync} method.
+
+The new version of the document is stored into the repository from line 36 - 62.
+Here the new version is saved into the version repository on line 40 with the \texttt{AddAsync} method.
+Notice that the \texttt{_documentRepository.AddAsync} and \texttt{_versionRepository.AddAsync} are similarly named, but saves a document and a version respectively.
+
+The new document version is not yet valid to the readers as it needs to be approved.
+From line 45 - 55 the program creates an approval object or objects where it is determined which users need to approve the new version.
+If the new version does not need an approval, it is simply saved into the repositories on line 60 - 61.
 
 \subsection{View}
 
