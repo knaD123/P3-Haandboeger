@@ -1,0 +1,18 @@
+\section{Backups}
+No production-ready backup system was implemented in using the system.
+During the usability tests, an ad-hoc backup and restore system was used to setup identical environments on multiple machines, which involved dumping the postgresql database in it's entirety, and the entire \texttt{aspnet} container.
+This is an approach which has much room for improvement.
+For example, the \texttt{/var/obhandbooks} directory, which is used for all permament storage of files, such as handbook document versions, is not mounted as a volume, but is just a folder on the container.
+This goes against best docker practices, where everything not in a volume should be immediately replacable.
+Mending this issue would consists of adding a single line to the \texttt{docker-compose.yml} file.
+
+However, using the ad-hoc container backup and restore approach was quite simple.
+While a script for creating the backups was never developed, due to this only having to be done once, restoring from backup was turned into a script.
+Due to this script being used in testing, it also deletes any previous restored backups.
+\lstinputlisting[language=bash]{OBHandbooks/restore.sh}
+What the script does is that it loads from a backup two containers stored in tar files, and turns them into docker images.
+Subsequently, it creates a volume named \texttt{psql_vol}, and fills it with the data in the \texttt{psql.tar} file.
+This volume can then be mounted in the postgresql container used with the app.
+Using this approach, everything was backed up, even user sessions.
+
+Turning the approach into something that is done and tested automatically would, from the experience gathered in the usability testing phase, not be very difficult.
