@@ -12,6 +12,8 @@ Here it will be shown in part how a new document is added into the system throug
 
 In the model component it \texttt{Document} object is defined.
 As it is primarily the document object that will be highlighted in the code examples, how the document object is presented in the code snippet below:
+% Henrik: Synes den sidste sætning er lidt kryptisk?
+% Henrik: Maaske importer code-snippets ligesom Rasmus har gjort? (ikke vigtigt)
 \\
 \begin{lstlisting}[caption={Document Model: Document object}, label={lst:doc}]
 [Key]
@@ -46,10 +48,11 @@ public Document()
 \end{lstlisting}
 
 The document object includes an ID, chapter, chapter number, section number, section number, versions, and whether or not it has been archived as seen in the code snippet above.
-The \texttt{key} attribute on line 1 specifies that the \texttt{int ID} is a key that the database can use to identify the specific document.
-Likewise the \texttt{Range} attribute specifies that the section number is included in a an \texttt{enumerable} class consisting of integers from 1 to infinity.
+The \texttt{key} attribute on line 1 specifies that the \texttt{int ID} is a primary key that the database can use to identify the specific document.
+Likewise, the \texttt{Range} attribute specifies that the section number is included in a an \texttt{Enumerable} class consisting of integers from 1 to the max value of a 32 bit \texttt{Integer}. % Henrik: Jeg har ændret "infinity"
 And the \texttt{Display} attribute on line 15 specifies that the section number should be displayed with the name \textit{section}.
 This \texttt{display} attribute is used with ASP.NET Core and is used to modify the text on the screen when a controller is rendered to the view.
+% Henrik: Det er ikke selve controlleren der bliver rendered
 
 In the code snippet below it is shown the logic of how a new version of a document is added.
 \\
@@ -75,14 +78,16 @@ public void AddVersion(Version version)
 \end{lstlisting}
 
 As is seen on line 3 and 4 when a new version of a document is added it receives a new date from which is it valid and that the \texttt{Approved} bool is set to \texttt{true}.
+% Henrik: Maaske i stedet for "it receives a new date ...", saa skriv "the version's ValidFromDate property is set to the current date"?
 On line 5 the new version is added to the list of versions.
 The control sequence from line 9 - 12 ensures that the previous version's date is set to the day that it has been replaced by the new version.
+% Henrik: Same thing her - Masske "the previous version's ValidUntilDate property is set to ..." 
 When a new version has been added all of the affected department in the system will get notified as seen in the loop from line 13 - 16.
 
 \subsection{Controller}
 
 In the code examples below it is shown how a \texttt{HttpGet} and \texttt{HttpPost} methods are implemented in the controller component.
-Firstly it is shown how the document object is arranged so that it can be rendered to the view through the \texttt{HttpGet} method.
+Firstly it is shown how the document object is arranged so that it can be passed to the view through the \texttt{HttpGet} method.
 \\
 
 \begin{lstlisting}[caption={Document Controller: Index}, label={lst:doccontroller}]
@@ -123,17 +128,23 @@ Something to take note of is the \texttt{async Task<IActionResult>} on line 3.
 The \texttt{Task} class represents a single operation \cite{microsoft}.
 This operation does not return a value and usually executes asynchronously.
 The \texttt{IActionResult} result method ensures that the controller returns a model to the view.
+% Henrik: Jeg er ikke enig mht det der staar om HttpGet og IActionResult
+% HttpGet sørger bare for at denne action method kun kan blive tilgaaet af en GET request
+% IActionResult garanterer ikke at controlleren returns en model til viewet
 
 From line 5 - 13 it is determined which documents that the current user is assigned to.
 This is done by first retrieving the current user, which is defined through \texttt{HttpContext.User}, by finding a match in the list of users found in \texttt{_userManager}.
-Afterwards program sorts through the departments that the user is a part of to find which documents that the user is assigned to.
+Afterwards, the program iterates through the departments that the user is a part of to find which documents that the user is assigned to.
 This is done through the loop from line 9 - 12.
 
 After the user is assigned documents has been sorted a list of all the non-archived documents will occur in the view.
 This is done through the two loops from line 14 - 25.
 All of the non-archived documents are returned to the view through \texttt{var documentIndex} on line 29.
+% Henrik: Synes starten er lidt kryptisk + jeg forstaar ikke hvor det her "sorting" kommer fra?
 
-In the code snippet below it is shown what happens when the user adds a new document or versionto the system through the \texttt{HttpPost} method.
+In the code snippet below it is shown what happens when the user adds a new document or version to the system through the \texttt{HttpPost} method.
+% Henrik: Der bliver ikke tilføjet noget gennem HttpPost method, det sker gennem Add action method
+% HttpPost fortæller bare, at denne action method kun kan tilgaaes med en POST request
 \\
 \begin{lstlisting}[caption={Document Controller: Add}, label={lst:doccontrolleradd}]
 [HttpPost("document/add/")]
@@ -207,10 +218,14 @@ public async Task<IActionResult> Add(Document document,
 \end{lstlisting}
 
 As the \texttt{HttpGet} method retrieves data from the controller, the \texttt{HttpPost} method ensures that new data is submitted into the controller and into the components further down the layers.
+% Henrik: HttpGet modtager ikke noget fra controlleren - se kommentar længere oppe
+% Henrik: HttpPost ensures ikke at data er submitted
 
 The information from the view is transfered into the controller method through the parameters shown from line 2 - 7.
 When the document is posted to the controller the \texttt{Add} method ensures that the new document version needs to be approved line 9.
+% Henrik: Paa linje 9 bliver der bare lavet en variable - true hvis strengen er "on", ellers false
 Afterwards the actual document receives its chapter number on line 16 and is saved into the document repository on line 29 through the \texttt{AddAsync} method.
+% Henrik: Den faar faktisk sit chapter number paa linje 25 - linje 9 henter bare et chapter fra databasen
 A more detailed explanation of the \texttt{AddAsync} method can be seen in \cref{lst:docrepadd}.
 
 The new version of the document is stored into the repository from line 36 - 62.
@@ -260,9 +275,11 @@ In the following code snippet it is shown how the \texttt{view} component utiliz
 \end{lstlisting}
 
 This is the view that represents a list of assigned documents. This will render to a button, which when clicked expands a list of documetns in the chapter the button represents.
-It's written in the razor templating langugae, which is HTML, but with the added feature of allowing the documents to be dynamic when prefacing a statement with the \texttt{@} character.
+It is written in the razor templating langugae, which is HTML, but with the added feature of allowing the documents to be dynamic when prefacing a statement with the \texttt{@} character.
+% Henrik: @ betyder faktisk "her starter noget C# kode", saa tænker at maaske flet ind at razor gør det muligt at skrive C# kode inde i ens HTML?
 An interesting thing to note is on line 25, where the statement \texttt{@await Html.PartialAsync("_DocumentListBody", @kvp.Value)} is executed.
 This statement asks the razor templating engine to render the body of a list of documetns, with the argument that is the list of documents in the current chapter.
+% Henrik: Første argument er navnet paa det view den skal render (filnavn)
 
 \subsection{Repositories}
 
