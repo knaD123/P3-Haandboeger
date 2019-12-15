@@ -119,6 +119,10 @@ public async Task<IActionResult> Index()
 \end{lstlisting}
 
 The \texttt{HttpGet} method means that the view component retrieves data from the controller.
+Something to take not of is the \texttt{async Task<IActionResult>} on line 3.
+The \texttt{Task} class represents a single operation \cite{microsoft}.
+This operation does not return a value and usually executes asynchronously.
+The \texttt{IActionResult} result method ensures that the controller returns a model to the view.
 
 From line 5 - 13 it is determined which documents that the current user is assigned to.
 This is done by first retrieving the current user, which is defined through \texttt{HttpContext.User}, by finding a match in the list of users found in \texttt{_userManager}.
@@ -200,8 +204,21 @@ public async Task<IActionResult> Add(Document document,
 
 	return View(document);
 }
-
 \end{lstlisting}
+
+As the \texttt{HttpGet} method retrieves data from the controller, the \texttt{HttpPost} method ensures that new data is submitted into the controller and into the components further down the layers.
+
+The information from the view is transfered into the controller method through the parameters shown from line 2 - 7.
+When the document is posted to the controller the \texttt{Add} method ensures that the new document version needs to be approved line 9.
+Afterwards the actual document receives its chapter number on line 16 and is saved into the document repository on line 29 through the \texttt{AddAsync} method.
+
+The new version of the document is stored into the repository from line 36 - 62.
+Here the new version is saved into the version repository on line 40 with the \texttt{AddAsync} method.
+Notice that the \texttt{_documentRepository.AddAsync} and \texttt{_versionRepository.AddAsync} are similarly named, but saves a document and a version respectively.
+
+The new document version is not yet valid to the readers as it needs to be approved.
+From line 45 - 55 the program creates an approval object or objects where it is determined which users need to approve the new version.
+If the new version does not need an approval, it is simply saved into the repositories on line 60 - 61.
 
 \subsection{View}
 
