@@ -21,7 +21,7 @@ The questions below help to evaluate a class. The more affirmative the answers a
 	\item Does the class have a suitable and manageable number of events?
 \end{itemize}
 
-In the following the classes from \cref{tab:ClassCandidates} are through a systematic selection deemed qualified or not qualified based on the criteria mentioned above.
+In the following, the classes from \cref{tab:ClassCandidates}, are through a systematic selection deemed qualified or not qualified based on the criteria mentioned above.
 
 \begin{table} [H]
 \begin{tabular}{l l}
@@ -70,12 +70,12 @@ The \texttt{Supplier} is qualified seeing that the administrator needs to keep a
 The changelog simply consists of a text string from version to version.
 Because of this, making it an actual object would be overcomplicating the model, and it has therefore been preserved as an attribute of the \texttt{Version} class.
 
-The \texttt{Responsibility} is not qualified because the different levels of access and permissions are present in the \texttt{User} class.
+The \texttt{Responsibility} is not qualified because the different levels of access and permissions that are present in the \texttt{User} class.
 
 The \texttt{TOC} is a property of the \texttt{Handbook} class and does not contain unique information.
 The purpose with \texttt{TOC} is to create an overview of the valid documents in the handbook.
 
-The \texttt{Notification} is more an event rather than a class.
+The \texttt{Notification} is more an event, see \cref{sec:Events}, rather than a class.
 The functionality in the \texttt{Notification} class is to assign users to specific documents therefore the name is modified to \texttt{Department} instead.
 
 Hereby, the Qualified classes are as follows:
@@ -98,7 +98,7 @@ According to \citep[p.~53]{Rod-Aalborg} is an event defined as,
 \begin{defn}\label{defn:Event}
 An instantaneous incident involving one or more objects.
 \end{defn}
-Once again the questions below help to evaluate an event if those are affirmative \citep[p.~65]{Rod-Aalborg}.
+Once again, the questions below help to evaluate an event if those are affirmative \citep[p.~65]{Rod-Aalborg}.
 \begin{itemize}
 	\item Is the event instantaneous?
 	\item Is the event atomic?
@@ -153,45 +153,48 @@ In the rest of the section the generated events in \cref{tab:EventCandidates} wi
 
 \textbf{Qualified events}
 
-\textit{Document added} event is qualified reasoned that a document object must be created first before it has a version object added.
+The \textit{Document added} event is qualified reasoned that a document object must be created first before it has a version object added.
 
-\textit{Document archived} event is qualified because it is an important functionality to archive expired documents for number of years according to ISO 9001 document management requirements.
+The \textit{Document archived} event is qualified because it is an important functionality to archive expired documents for number of years according to the ISO 9001 document management requirements described in \cref{sec:ISOstandards}.
 
 %\textit{Document reactivated} event is qualified since it must also be able to reactivate the document and make it available in the handbook again.
 
-\textit{Document deleted} is qualified for the reason that if an administrator made a mistake and added a wrong document then the delete option should be available.
+The \textit{Document deleted} is qualified for the reason that if an administrator made a mistake and added a wrong document then the delete option should be available.
 
-\textit{Version approved} event are qualified since it is important for the system to register and keep track of when a version is complete within the approval process and whether it should be accessible in the handbook.
+The \textit{Version approved} event are qualified since it is important for the system to register and keep track of when a version is complete within the approval process and whether it should be accessible in the handbook.
 
-\textit{Version marked as read} event is qualified because it is crucial for the company to register if employees had read specific documents and versions and are up to date with the current standards.
+The \textit{Version marked as read} event is qualified because it is crucial for the company to register if employees had read specific documents and versions and are up to date with the current standards.
 
-\textit{Version archived} event is qualified for the same reason as \textit{document archived} event.
+The \textit{Version archived} event is qualified for the same reason as \textit{document archived} event.
 
-\textit{User added}, \textit{user updated} and \textit{user deleted} events are all qualified as an administrator need to manage company's user list.
+The \textit{User added}, \textit{user updated} and \textit{user deleted} events are all qualified as an administrator need to manage company's user list.
 
-\textit{Supplier added}, \textit{supplier updated},  \textit{supplier deleted} and \textit{supplier approved} events are all qualified since suppliers need to be manage by an administrator whether they are approved or when to be reapproved.
+The \textit{Supplier added}, \textit{supplier updated},  \textit{supplier deleted} and \textit{supplier approved} events are all qualified since suppliers need to be manage by an administrator whether they are approved or when to be reapproved.
 
-\textit{Approval requested} event are qualified seeing that it is important part of the system definition that the system must support an approval process.
+The \textit{Approval requested} event are qualified seeing that it is important part of the system definition that the system must support an approval process.
 
-\textit{Department added} and \textit{department deleted} events are qualified seeing that it is important for the administrator to keep track of company's current departments.
+The \textit{Department added} and \textit{department deleted} events are qualified seeing that it is important for the administrator to keep track of company's current departments.
 
-\textit{Department's documents updated} and \textit{department's users updated} events are qualified since it is vital to associate a user to a specific department and to associate documents to the relevant departments.
+The \textit{Department's documents updated} and \textit{department's users updated} events are qualified since it is vital to associate a user to a specific department and to associate documents to the relevant departments.
 
-\textit{Department notified user} event is qualified seeing that the system must be able to send notifications to the correct user from a specific department that a associated document has released a new version.
+The \textit{Department notified user} event is qualified seeing that the system must be able to send notifications to the correct user from a specific department that a associated document has released a new version.
 
 \textbf{Not qualified events}
 
-\textit{New version released} event is not qualified seeing that it is a duplicate of the \textit{version approved} event.
+The \textit{New version released} event is not qualified seeing that it is a duplicate of the \textit{version approved} event.
 
-The reason for the \textit{User deactivated} event was so that the system would always be able to report who has read a specific version, as is the requirements to such a management system. The principle was that a deactivated user object would only contain user's name while the rest information is erased. Instead this will be the effect of the \textit{user deleted} event and thus \textit{user deactivated} is obsolete.
+The reason for the \textit{User deactivated} event was so that the system would always be able to report who has read a specific version, as is the requirements to such a management system.
+The principle was that a deactivated user object would only contain user's name while the rest information is erased.
+Instead this will be the effect of the \textit{user deleted} event and thus \textit{user deactivated} is obsolete.
 
-\textit{User reactivated} event is not qualified, since a user cannot be deactivated but is instead deleted. In the rare occasion a company wishes to reemploy a person they have to create a new user in the system again for this person.
+The \textit{User reactivated} event is not qualified, since a user cannot be deactivated but is instead deleted. In the rare occasion a company wishes to reemploy a person they have to create a new user in the system again for this person.
 
-\textit{Approval denied (Version)} event is not qualified as Ipsen does not desire this functionality since approver himself will contact Ipsen directly and afterwards a new approval request is made and the previous approval request will be deleted. \textit{Approval deleted (Version)} event is therefore qualified.
+The \textit{Approval denied (Version)} event is not qualified as Ipsen does not desire this functionality since the approver himself will contact Ipsen directly and afterwards a new approval request is made and the previous approval request will be deleted.
+\textit{Approval deleted (Version)} event is therefore qualified.
 
-\textit{Approval confirmed} event is not qualified since its purpose is the same as \textit{version approved} event.
+The \textit{Approval confirmed} event is not qualified since its purpose is the same as \textit{version approved} event.
 
-\textit{Document printed} event is not qualified since the problem domain does not include controlling of printed documents.
+The \textit{Document printed} event is not qualified since the problem domain does not include controlling of printed documents.
 
 Qualified events:
 \begin{multicols}{2}
@@ -221,7 +224,7 @@ Qualified events:
 \end{multicols}
 
 \section{Event table}\label{sec:EventTable}
-\todo[inline]{Tjek op på definitionen skal der markeders for hvem der er påvirket før, under og efter eller kun efter?, hvis ikke finde så ekplicit skriv at den er lavet med udgangspunkt i efter eventet er tricked}
+%\todo[inline]{Tjek op på definitionen skal der markeders for hvem der er påvirket før, under og efter eller kun efter?, hvis ikke finde så ekplicit skriv at den er lavet med udgangspunkt i efter eventet er tricked}
 The result of the selected qualified events and classes from \cref{sec:Classes,sec:Events} is an event table representing their relations, see \cref{fig:eventtable}.
 The symbols used in the table is to be understood such that; $+$ is an event that can occur zero or one time, and $\star$ is an event which can occur zero or multiple times.
 
@@ -278,7 +281,7 @@ The symbols used in the table is to be understood such that; $+$ is an event tha
 \end{table}
 
 Looking at the event table above it can be seen that \textit{document added} and \textit{document deleted} both can occur zero or multiple times for \textit{Handbook} and zero or one time for \textit{Document}.
-This is because during the lifetime of a \textit{Handbook} it is possible to add and delete documents to it as many times its desired, but a single \textit{Document} can only be added or deleted once.
+This is because, during the lifetime of a \textit{Handbook} it is possible to add and delete documents to it as many times its desired, but a single \textit{Document} can only be added or deleted once.
 Keep in mind, that it is not possible to trigger the \textit{document deleted} event if the \textit{Handbook} does not contain any documents.
 A less trivial event from the event table could be the \textit{approval requested} event.
 Here it can be seen that this event occurs zero or one time for a \textit{Version} and an \textit{Approval}, but it can occur zero or multiple times for \textit{User} because multiple users can be assigned to approve a new version.

@@ -8,7 +8,7 @@ When someone wants to create a new version of a document, they instantiate an ap
 The change will have to be approved by all the users set as "approvers", before it can be added to the handbook.
 When the change is approved, it will append the version to the document object.
 For the sake of simplicity, there is no option to actually deny a proposed version.
-Any issues with the document are meant to be handled outside of the system instead.
+Any issues with the document are, as mentioned in \cref{sec:richpictures}, meant to be handled outside of the system instead.
 
 \begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
 
@@ -25,7 +25,7 @@ Any issues with the document are meant to be handled outside of the system inste
 \subsection{Department}
 A department is an organisational unit, used to administrate which users are attached to which documents.
 As such, you can create a department, add users to it, and add documents to it.
-You can also remove both in the same way.
+It is also possible to delete users and document from the department, as long as there are any attached to the department.
 One of the most important functions of the department is the abillity for it to notify all the users which are attached to it of a new version of a document.
 
 \begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=1cm,inner sep=2mm,above right,draw,align=left}]
@@ -69,7 +69,7 @@ The object oriented analysis principles were used throught this chapter to analy
 % et eller andet om qualified classes - ex. på qualified og ikke qualified classes
 Classes like Document and Version were classified as qualified classes using the questions mentioned in \cref{sec:Classes} and classes like TOC and Notification were classified as not qualified classes.
 % et eller andet om qualified events - ex. på qualified og ikke qualified event
-Using the questions mentioned in \cref{sec:Events} Version approved and Department deleted were classified as qualified events whereas an event like Approval denied was classified as a not qualified event.
+Using the questions, mentioned in \cref{sec:Events}, Version approved and Department deleted were classified as qualified events whereas an event like Approval denied was classified as a not qualified event.
 
 % et eller andet om event table
 An event table was made in \cref{sec:EventTable} using the classified classes and events, see \cref{fig:eventtable}.

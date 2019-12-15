@@ -79,7 +79,7 @@ These two classes connect the two subproblems.
 Where a company can have multiple or no suppliers there can only be one Handbook.
 The Handbook is a part of the, Company which acts as a handle to access both suppliers and the handbook. This is a composition relation.
 
-A handbook is an aggregation of Document, as there are multiple documents in each book, and Document is again an aggregation of versions, which keeps track of the multiple versions each document has and dates of the period one was valid in the handbook.
+A handbook is an aggregation of Document, as there are multiple documents in each handbook, and Document is again an aggregation of versions, which keeps track of the multiple versions each document has and dates of the period one was valid in the handbook.
 
 The relation between Document and Version is an item-descriptor pattern.
 The Document class is the descriptor and contains all the important information about the document, including a pointer to the current valid version of said document.
@@ -104,7 +104,7 @@ There are three different types of users in the system, which has been modeled b
 
 The reader can read everything and verify that they have read a version of a document but nothing else.
 Every single user in the system has this level of access and it is therefore unnecessary to include as a seperate class.
-However it is an important group and therefore, for the sake of clarity, it was included as a role in the model nevertheless.
+However, it is an important group and therefore, for the sake of clarity, it was included as a role in the model nevertheless.
 
 The writer has the additional permission of submitting new versions of documents for approval. They can also assign other users to approve these documents, where anyone no matter the role can be assigned.
 
@@ -164,12 +164,14 @@ The approval of the suppliers is not included in the handbook and has no relevan
 \end{figure}
 
 Early versions of the class diagram modeled the problems like seen in \cref{fig:PseudoClassDiagram}.
-Here the classes Approval and Document are present in both diagrams, suggesting that their functionalities are too similar to have separate classes. However in the handbook, Document is merely a container for Versions, which include the actual files and those files are needed in supplier-approval. Therefore the two Document classes cannot be merged, but the Document class in supplier-approval can be entirely replaced by the Version class in handbook.
+Here the classes Approval and Document are present in both diagrams, suggesting that their functionalities are too similar to have separate classes.
+However, in the handbook, Document is merely a container for Versions, which include the actual files and those files are needed in supplier-approval.
+Therefore, the two Document classes cannot be merged, but the Document class in supplier-approval can be entirely replaced by the Version class in handbook.
 
 The two Approval classes are more complicated as the approval process varies:
 
 \begin{itemize}
-  \item In the handbook system a version of a document needs to be approved and the writer can specify which people should do so.
+  \item In the handbook system a version of a document needs to be approved and the author can specify which people should do so.
   \item In the supplier-approval system a supplier needs to be approved which only demands an approval from one administrator. 
 \end{itemize}
 
@@ -182,7 +184,7 @@ In the case where a Version object belongs to a SupplierApproval object the rela
 
 The handbook part of the problem is the clients main concern and therefore the focus of this project.
 In order to understand the problem in its entirety both subproblems are analyzed in this section, but from here on  only the Handbook problem will be analyzed and eventually designed, implemented and tested.
-Therefore the final class diagram looks like in \cref{fig:ClassDiagramNoSupplier}.
+Therefore, the final class diagram looks like in \cref{fig:ClassDiagramNoSupplier}.
 
 \begin{figure}[H]
 	\centering
@@ -231,6 +233,6 @@ Therefore the final class diagram looks like in \cref{fig:ClassDiagramNoSupplier
 	}\label{fig:ClassDiagramNoSupplier}
 \end{figure}
 
-In this diagram the supplier and the supplier approval are not included.
-As the company class mainly existed to support the administrators access to the supplier system that class and it's relation to the admin role have also been excluded.
+In this diagram the Supplier and the SupplierApproval are not included.
+As the company class mainly existed to support the administrators access to the supplier system that class and its relation to the admin role have also been excluded.
 The abstract Approval class still exists to make it possible to implement the supplier system at a later time.
