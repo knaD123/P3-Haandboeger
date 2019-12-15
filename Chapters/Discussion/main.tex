@@ -6,7 +6,7 @@ This section will discuss the system definition from \cref{problemstatement}. An
 
 The system is capable of management of documents that is uploaded from a pc. The files that are placed on the server are viewable in the table of contents where each document is also identifiable with a unique id. Each document also has been given a changelog that can be written when pressing to make changes to said document. When documents are updated, older versions are archived. And lastly documents must be approved if it is submitted to the handbook.
 
-All the fulfilled requirements are also supported by multi-level access rights, these are separated into three classes, administrator, writer and reader as Ipsen requested. These users are also grouped in different departments that is associated with chosen documents. 
+All the fulfilled requirements are also supported by multi-level access rights, these are separated into three classes, administrator, writer and reader as Ipsen requested. These users are also grouped in different departments that is associated with chosen documents.
 
 The handbook system is also complimented with the notification system that sends notifications to users when changes appear, although mail or message notifications are not included in the system.
 
@@ -18,7 +18,7 @@ In spite of the fact that parts of the system definition are not completed, the 
 %With the MoSCoW rules the functionalities were placed into different classes of priority, these can be seen in \cref{sec:requirements}. In this section there will be a look into the requirements and their fulfilment in the system.
 
 %The design requirements were tailored to the needs of the user. These requirements are mostly complete with the exception of the last to bullet points in \cref{sec:requirementsdefinition}.
-%These were not completed as Ipsens was compared with.  
+%These were not completed as Ipsens was compared with.
 
 %HER SKAL DER VÆRE EN REFERENCE TIL KONKLUSIONEN AF DESIGN AFSNITTET
 
@@ -29,7 +29,7 @@ In \cref{problemstatement} the problem statement is presented and this section w
 \textit{How can a document version management software be designed and developed to support a firm's management of their handbook documents so it is easily manageable by the administrators, and also accessible for readers and writers?}
 \end{center}
 
-The handbook management was developed and designed by conducting several semi-structured interviews with Ipsen. These interviews, in conjunction with a look at other handbook management systems, gave a fundamental understanding of what was needed in such system. This understanding was then used to develop classes and functions as described in OOA\&D\cite{Rod-Aalborg}. 
+The handbook management was developed and designed by conducting several semi-structured interviews with Ipsen. These interviews, in conjunction with a look at other handbook management systems, gave a fundamental understanding of what was needed in such system. This understanding was then used to develop classes and functions as described in OOA\&D\cite{Rod-Aalborg}.
 
 The interface was moulded through several iterations, each time changed based on feedback from the interviews and in this way coming closer to the optimal graphical user interface for Ipsen. Taking these facts into consideration the problem statement has been complied with.
 
@@ -44,8 +44,8 @@ On the other side of the spectrum, the Model-View-Controller pattern stood out, 
 
 User rights was implemented in the system so users not managing the handbook do not have the power to change, delete or otherwise administrate the system.
 
-This stems from the OOA\&D where the role pattern is described as having role as an abstract class and having other classes inherit from role. The way it is implemented does not provide a dynamic role pattern, but if you follow OOA\&D you can use the pattern where each user has an attribute that is activated, that is, each role is a superstructure of underlying roles. This would provide a dynamic way of managing roles, where if you could simply change the roles by changing an attribute. 
+This stems from the OOA\&D where the role pattern is described as having role as an abstract class and having other classes inherit from role. The way it is implemented does not provide a dynamic role pattern, but if you follow OOA\&D you can use the pattern where each user has an attribute that is activated, that is, each role is a superstructure of underlying roles. This would provide a dynamic way of managing roles, where if you could simply change the roles by changing an attribute.
 
-Although this implementation does not have the dynamic power of the OOA\&D role pattern, it still provides the desired access rights in the system. 
+Although this implementation does not have the dynamic power of the OOA\&D role pattern, it still provides the desired access rights in the system.
 
 \subsection{Docker vs Backup}

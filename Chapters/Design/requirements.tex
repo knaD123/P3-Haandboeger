@@ -3,40 +3,49 @@
 
 It is important to prioritize a system's requirements after the first draft of a system has been designed.
 This is because there are no guarantees that all of the requirements and design ideas are doable within the time frame of the project.
+%Anna: evt skrive 'a given development project' fremfor 'of the project'
 There is in this project set a hard time limit by Aalborg Univerity.
+%Anna: Vil virkeligt gerne hvis vi fjernede sætningen ovenfor, tænker det står i sætningen over den 
 The information in this chapter is based upon Benyon \cite{Benyon}.
+%Anna: hvis MoSCoW er baseret på den så skriv referencen når MoSCoW nævnes (også ved MVP hvis det også er derfra) Har prøvet at sætte det ind som kommentarer er dog ikke sikker på om det er korrekt at tingeneer taget derfra.
 
-These priorities are set to determine which requirements are absolutely necessary for the system to function, the \textit{minimal viable product} (MVP), and which requirements are simply nice to include.
-The \textit{MoSCoW rules} have been chosen to help prioritize the requirements for this project.
-
+These priorities are set to determine which requirements are absolutely necessary for the system to function, the \textit{minimal viable product} (MVP),
+%\cite{Benyon}, 
+and which requirements are simply nice to include.
+The \textit{MoSCoW rules}
+%\cite{Benyon}
+have been chosen to help prioritize the requirements for this project.
 The MoSCoW rules classifies these priorities into:
 
 \begin{itemize}
     \item \textit{Must have}.
     \item \textit{Should have}.
     \item \textit{Could have}.
-    \item \textit{Want to have but Won’t have this time around}.
+    \item \textit{Want to have but won’t have this time around}.
 \end{itemize}
 
 Must have are the fundamental requirements to include of which the system would not function without.
 Must have also determines the MVP.
 Should have are essential requirements to include if the time frame allowed, but the system could still function without.
 Could have are less important requirements than must have and should have and they would easily be excluded from the system.
-Want to have but Won't have are requirements that can wait until a later point of the development of the system.
+Want to have but Won't have are requirements that can wait until a later point of the system development.
 
 % Henrik: Er dette en okay måde at lave denne definition? DEB-bogen s. 147 øverst
+%Anna: Kna man argumenterer for at den definition skal have en anden kilde da DEB bogenciterer en anden kilde der
 A definition of a requirement is provided to prevent any misunderstandings throughout this chapter.
-Requirements can be divided into two types, \textit{functional} and \textit{non-functional}.
+%anna: evt skrive " For the sake of preventing misunderstandings the definition for requirement used in this report can be found in \cref{defn:Req}} below" (Evt skirve kilden på til sidst (hvi sder bruges den anden end Benyon))
 
-\begin{defn}
+\begin{defn}\label{defn:Req}
     A requirement is something the product must do or a quality that the product must have
 \end{defn}
 
-\begin{defn}
+Requirements can be divided into two types, \textit{functional} \cref{defn:ReqFunc} and \textit{non-functional} \cref{defn:Req-NonFunc}.
+
+\begin{defn}\label{defn:ReqFunc}
     A functional requirement is a requirement that the system must do
 \end{defn}
 
-\begin{defn}
+\begin{defn}\label{defn:Req-NonFunc}
     A non-functional requirement is a quality that the system must have
 \end{defn}
 
@@ -44,9 +53,10 @@ Requirements can be divided into two types, \textit{functional} and \textit{non-
 % Henrik: Noget om hvordan man finder frem til disse "requirements"
 \subsubsection{Defining requirements} \label{sec:requirementsdefinition}
 % vigtigt at finde ud af hvad "the client(s)" ønske, før man sætter "requirements"
-It was in \cref{sec:PACT} mentioned that it is important, when designing an interactive system, to do it with the human in mind.
-Therefore, before defining a project's requirements it is a good idea to figure out what the client wants and needs because it is the client, and not the designer, that is going to use the final system.
-A lot of different techniques can be used when trying to define a project's requirements, e.g.:
+It was in \cref{sec:PACT} mentioned how it is important, when designing an interactive system, to do it with the users in mind.
+Therefore, before defining a project's requirements it is a good idea to figure out the client's wants and needs, since it is the client and not the designer, who is going to use the final system.
+%Anna: istedet for 'it is a good idea' nærmere bruge 'it is essential'
+A lot of different techniques can be used when defining a project's requirements, e.g.:
 
 \begin{itemize}
     \item Interviews
@@ -54,58 +64,96 @@ A lot of different techniques can be used when trying to define a project's requ
     \item Organizing focus groups
 \end{itemize}
 
-These techniques can help the designer to better understand the problems that the client has with the current system, and at the same time, give a better understanding of the requirements for the new system.
-Using these techniques where there designer interacts with other people also provides the designer with a lot of stories that can form the basis for the analysis work. Even though a designer have all these techniques at their disposal, the interview technique, see \cref{sec:interview}, is one of the most effective techniques to find out what the client wants and needs.
+These techniques can help designers to better understand the problems the client has with their current system, and at the same time, give a better understanding of the requirements for the new system.
+Using these techniques where the designer interacts with other people also provides the designer with a lot of stories that can form the basis for the analysis work. 
+%Ana: Af interesse og måske også fordi jeg er lidt forvvirret over fomuleringen men hvilke 'stories'
+%Anna: Kan den dobbelte 'designer' skrives ud af sætningen, synes det er meget at nævne det samme ord så tæt på hinanden i samme sætning
+Even though a designer have all these techniques at their disposal, the interview technique, see \cref{sec:interview}, is one of the most effective techniques to find out what the client wants and needs.
+%Anna: Er det ikke forkert i denne sammenhæng at henvise til den section da den jo ikke går i detaljen med teorien men er konkret hvordan der er gjort i dette projekt?
 
 % det kan være en iterativ process, og det sker ofte at der kommer nye "requirements" fra tid til anden
-The process of defining a project's requirements is an iterative process, see \cref{sec:iterativModel}. This is because new requirements will pop-up throughout the design process.
+The process of defining a project's requirements is an iterative process, see \cref{sec:iterativModel}. 
+This is because new requirements will pop-up throughout the design process.
+%Anna: Evt tilføje "This may happen when the user interacts with the system during tests and it becomes clear misunderstandings of the basic concept has happend. Furthermore, it mayu also happen when the user realises other need's than what was thought necessary of the system to begin with"
 
 % Henrik: Noget om hvordan vi er kommet frem til vores "requirements"
-For this project the interview technique was used to define this project's requirements, see \cref{sec:firstinterview}. This helped defining the prioritization for the follwing requirements:
+For this project the interview technique was used to define this project's requirements, see \cref{sec:firstinterview}. This helped defining the prioritization of the following requirements:
 
 \begin{itemize}
-    \item Must have:
+    \item 
+    Must have:
         \begin{itemize}
-            \item The system should manage versions of handbook documents
-            \item A \textit{Table of Contents} (TOC) with title, ID number, date and version number
-            \item The system should be able to handle PDF files
-            \item Title and ID number are linked
-            \item Once a version has been added to the handbook, it cannot be changed
+            \item 
+            The system should manage versions of handbook documents
+            \item 
+            A \textit{Table of Contents} (TOC) with title, ID number, date and version number
+            \item 
+            The system should be able to handle PDF files
+            \item 
+            Title and ID number are linked
+            \item 
+            Once a version has been added to the handbook, it cannot be changed
         \end{itemize}
-    \item Should have:
+    \item 
+    Should have:
         \begin{itemize}
-			\item Automatic updates of TOC
-            \item A human-written changelog can be included with each version
-            \item Registration when a version has been read by an employee
-            \item The handbook should be printable
-            \item Different levels of permissions/access rights to the documents within the handbook
-            \item Readers and writers only have access to the newest version of a document
-            \item Administrators have access to everything
-            \item It should be possible to group users into departments, and associate them to documents
-            \item It should be easy to switch from an existing system, and back to the existing system
+			\item 
+			Automatic updates of TOC
+            \item 
+            A human-written changelog can be included with each version
+            %Anna: Evt skrive som, "A human-written changelog may be included depending on the company settings"?
+            \item 
+            Registration when a version has been read by an employee
+            %Anna: Evt skrive i stedet for "registration of who among specific employees have read a version"
+            \item 
+            The handbook should be printable
+            %Anna: den her skal diskuteres på et tidspunkt hvad vores definition af printable blev til, altså det med at den i stedet for printable laver til en pdf som brugeren selv derfra kan printe?
+            \item 
+            Different levels of permissions/access rights to the documents within the handbook
+            %Anna: Hvilket ord bruger vi enten persmissions eller access rights (Hælder selv mod access rights)
+            \item 
+            Readers and writers only have access to the newest version of a document
+            \item 
+            Administrators have access to everything
+            %Anna: Evt skrive "Administrators have acces to all features supported by the system"?
+            \item 
+            It should be possible to group users into departments, and associate them to documents.
+            \item 
+            It should be easy to switch from an existing system, and back to the existing system
+            %Anna: Evt skriv " It should be simple to switch from an exsisting system, and back again"
                 \todo[inline]{RASMUS: Tjek om den her formulering passer med FACTOR, omformuler til kvantitativt krav}
-
         \end{itemize}
-    \item Could have:
+    \item 
+    Could have:
         \begin{itemize}
-            \item When a document is updated, a notification should be sent out to the associated departments
-            \item The system should be able to handle documents of different filetypes
-            \item Option to sort documents according to different attributes
-            \item System for approval of new versions of documents
+            \item 
+            When a document is updated, a notification should be sent out to the associated departments.
+            \todo{(Tanke):skal evt diskuteres et sed at ideen er at alle associated får notificatione i systemet og dem med enten mail eller mobil vil yderligere får notifikation den vej rundt}
+            \item 
+            The system should be able to handle documents of different file-types
+            \item 
+            Option to sort documents according to different attributes
+            \item 
+            System for approval of new versions of documents
         \end{itemize}
-    \item Want to have but Won't have this time around:
+    \item 
+    Want to have but Won't have this time around:
         \begin{itemize}
-            \item Highlight differences between current and previous versions
-            \item Approval of suppliers and their documents
+            \item 
+            Highlight differences between current and previous versions.
+            \item 
+            Approval of suppliers and their documents.
         \end{itemize}
 \end{itemize}
+\todo{Vi skal have tilføjet herinde i det rigtige niveau, at systemet skal kunne opdaterer sidehoveder på uploadede filer med hvem der godkender dato og versionsnummer (Ogås når den ikke længere er gældende)}
 
-Here the \textit{must have} priority covers the MVP of the system which is the absolute minimum of what the system should include when the project is done.
-The requirements under this category is placed here as the system would not be functional without them.
+In this report the \textit{must have} priority covers the MVP of the system, which is the absolute minimum of what the system should include when the project is done.
+%Anna: Evt slette fra "which is ..." da det er en gentagelse af noget der er skrevet lige over listen
+The requirements belonging to this category are necessary since the system would not be functional without them.
 The first item under \textit{must have} which is ''The system should manage versions of handbook documents'' is intentionally broad as it is expanded upon in the following four items.
 
-The follwing prioritization \textit{Should have} contains very important requirements that the system must include if Ipsen were to use the solution.
-The reason that these requirements are placed here is because the system is technically able to function as a management software without these requirements.
+The following prioritization \textit{Should have} contains very important requirements that the system must include if Ipsen were to use the solution.
+The reason that these requirements are placed here is because the system is technically able to function as a management software without these specific requirements.
 
-The third and last priorizations \textit{Could have} and \textit{Want to have but Won't have this time around} are the least important requirements in relation to the system.
+The third and the last priorizations \textit{Could have} and \textit{Want to have but won't have this time around} are the least important requirements in relation to the system.
 These items are placed under these priorities as they would be nice to include in the system, but Ipsen does not consider them vital to the solution or her work context.
