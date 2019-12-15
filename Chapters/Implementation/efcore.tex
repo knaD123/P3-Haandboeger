@@ -8,7 +8,7 @@ Postgresql is often better suited for more advanced applications, [CITATION NEED
 \subsubsection{HandbookContext}
 The \texttt{HandbookContext} was the class that handled communication between the database and the application.
 It subclasses IdentityDbContext, which in turn subclasses a normal DbContext.
-\lstinputlisting[caption={HandbookContext}, language={[Sharp]C}]{OBHandbooks/OBHandbooks/Infrastructure/HandbookContext.cs}
+%\lstinputlisting[caption={HandbookContext}, language={[Sharp]C}]{OBHandbooks/OBHandbooks/Infrastructure/HandbookContext.cs}
 It consists of a large amount of properties of the type \texttt{DbSet<MODEL>}, which each represents a collection of entities to be stored in the database. The overwritten \texttt{OnModelCreating} function also supplies extra information about the relationsips in the database, such as unique properties, foreign keys, or delete behaviours. For example, on line 31, it can be seen that when a \texttt{HandbookApproval} is to be deleted, that should also result in any associated \texttt{Version} objects being deleted.
 
 \input{Chapters/Implementation/RepositoryPattern}

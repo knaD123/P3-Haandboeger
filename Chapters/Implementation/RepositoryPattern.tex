@@ -3,8 +3,8 @@ In this project the repository pattern was used.
 It abstracts communication with the database, allowing for easily replacing it if necessary, and mocking it during unit tests.
 
 An example of the interface to a a repository is as follows
-\lstinputlisting[caption={Approval Repository}, language={[Sharp]C}]{OBHandbooks/OBHandbooks/Repositories/IApprovalRepository.cs}
+%\lstinputlisting[caption={Approval Repository}, language={[Sharp]C}]{OBHandbooks/OBHandbooks/Repositories/IApprovalRepository.cs}
 The interface is then in turn implemented by a class which is added to the controllers using dependency injection.
 As an example, the document controller is instantiated with each of the repositories it uses.
-\lstinputlisting[caption={Document controller}, firstline=29, lastline=44, language={[Sharp]{C}}]{OBHandbooks/OBHandbooks/Controllers/DocumentController.cs}
+%\lstinputlisting[caption={Document controller}, firstline=29, lastline=44, language={[Sharp]{C}}]{OBHandbooks/OBHandbooks/Controllers/DocumentController.cs}
 When unit testing the controllers, the Moq framework is used to create mock objects of the interfaces, enabling the tests to focus on the controllers.
