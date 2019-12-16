@@ -74,7 +74,7 @@ The \texttt{Supplier} is qualified seeing that the administrator needs to keep a
 
 The changelog simply consists of a text string from version to version.
 Because of this, making it an actual object would be overcomplicating the model, and it has therefore been preserved as an attribute of the \texttt{Version} class.
-An argument could be made that the class should be qualified if the changelog in its entirety were accessed more often than it is, see \cref{access-archive}.
+An argument could be made that the \texttt{Log} class should be qualified if the changelog in its entirety were accessed more often than it is, see \cref{access-archive}.
 %tilføjet noget saa vi tager hensyn til lus kommentar - astrid
 
 The \texttt{Responsibility} is not qualified because the different levels of access and permissions that are present in the \texttt{User} class.
@@ -129,8 +129,8 @@ Events that has been identified for the project can be seen in the table below:
 		\hline
 		Event & Comment\\
 		\hline
-		\textbf{Document added} & A document is created.\\
-		\textbf{Document archived} & A document where version is archived instead of updated.\\
+		\textbf{Document added} & A document is created\\
+		\textbf{Document archived} & A document where version is archived instead of updated\\
 		%\textbf{Document reactivated} & Archived document is to be accessible in the handbook again\\
 		\textbf{Document deleted} & Wrong document is created, and is still without version\\
 		\textbf{Version approved}  & Version uploaded and awaiting approval\\
@@ -152,6 +152,7 @@ Events that has been identified for the project can be seen in the table below:
 		\textbf{Approval requested} & New version is created and the approval requested is sent\\
 		\textbf{Approval confirmed}
 		& Approval is confirmed by all approvers\\
+		% Taniya: kommer til at tænke på (om det skal med) hvad hedder det event så hvis det kun er 1 bruger som har godkendt, men stadig venter på andre også godkender det?
 		\textbf{Approval denied}
 		& Approval is rejected by an approver\\
 %to ovenover ændret fordi de var forkerte - astrid
@@ -163,7 +164,7 @@ Events that has been identified for the project can be seen in the table below:
 		\textbf{Document printed} & Document is printed\\
 		\hline
 	\end{tabular}
-	\caption{Event Candidates}\label{tab:EventCandidates}
+	\caption{Event candidates}\label{tab:EventCandidates}
 \end{table}
 
 \textbf{Qualified events}
@@ -184,7 +185,7 @@ The \textit{Version archived} event is qualified for the same reason as \textit{
 
 The \textit{User added}, \textit{user updated} and \textit{user deleted} events are all qualified as an administrator needs to manage the company's user list.
 
-The \textit{Supplier added}, \textit{supplier updated},  \textit{supplier deleted} and \textit{supplier approved} events are all qualified since suppliers need to be managed by an administrator whether they are approved or need to be reapproved.
+The \textit{Supplier added}, \textit{supplier updated},  \textit{supplier deleted} and \textit{supplier approved} events are all qualified since suppliers need to be managed by an administrator whether they are approved or need to be re-approved.
 
 The \textit{Approval requested} event is qualified seeing that it is an important part of the system definition that the system must support an approval process.
 
