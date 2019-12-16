@@ -66,6 +66,7 @@ Both of these deal with archiving and managing the documents a company needs to 
 	\end{tikzpicture}
 	\caption{Class diagram of the problem domain}\label{fig:ClassDiagram}
 \end{figure}
+%hvad sker der for underlige sider i diagrammet????
 
 \subsection{Supplier}
 The less complex subproblem is that of managing the suppliers.
@@ -79,7 +80,7 @@ These two classes connect the two subproblems.
 Where a company can have multiple or no suppliers there can only be one Handbook.
 The Handbook is a part of the Company which acts as a handle to access both suppliers and the handbook. This is a composition relation.
 
-A handbook is an aggregation of Document, as there are multiple documents in each handbook, and Document is again an aggregation of versions, which keeps track of the multiple versions each document has and dates of the period one was valid in the handbook.
+A handbook is an aggregation of Document, as there are multiple documents in each handbook, and Document is again an aggregation of versions, which keeps track of the multiple versions each document has and the period in which a version is valid within the handbook.
 
 The relation between Document and Version is an item-descriptor pattern.
 The Document class is the descriptor and contains all the important information about the document, including a pointer to the current valid version of said document.
@@ -92,7 +93,7 @@ Who approved this version and when did that happen?
 Who has read this version of the document?
 As well as the reverse: Who has not?
 Keeping track of the when is important because a new version should not replace the former one before it has been approved.
-Furthermore, for certification purposes it is relevant to know who has read the current version at any given time.
+Furthermore, for certification purposes it is relevant to know who has read the current version at any given time as seen in \cref{sec:ISOstandards}.
 
 Document has a relation to Department.
 This is because the handbook can become quite extensive, but most users only regularly need to access a couple of documents.
@@ -114,7 +115,7 @@ There needs to be at least one administrator per Company.
 
 The pattern functions like a hierarchy where the reader is at the bottom level, the writer at the middle level and the administrator at the top level. This means each role have the same core attributes, but their privileges are greater for each level, increasing from bottom to top.
 This relation is pictured in \cref{fig:RoleIllustration}.
-
+However as seen in \cref{mark-read} it is not entirely correct as there is one use case case which the administrator does not have access to.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{billeder/RP-Roller2.jpg}
@@ -164,8 +165,9 @@ The approval of the suppliers is not included in the handbook and has no relevan
 		}\label{fig:SupProblemClassDiagram}
 \end{figure}
 
-Early versions of the class diagram modeled the problems like seen in \cref{fig:PseudoClassDiagram}.
+Early versions of the class diagram modeled the problems like seen in \cref{fig:SupProblemClassDiagram}.
 % Anja: Hvad refereres der til her? Er det figuren lige ovenfor eller en helt anden figur?
+%astrid: der er nogen der har ændret label uden at ændre reference. det er fikset nu.
 Here the classes Approval and Document are present in both diagrams, suggesting that their functionalities are too similar to have separate classes.
 However, in the handbook, Document is merely a container for Versions, which include the actual files and those files are needed in supplier-approval.
 Therefore, the two Document classes cannot be merged, but the Document class in supplier-approval can be entirely replaced by the Version class in handbook.
@@ -235,7 +237,7 @@ Therefore, the final class diagram looks like in \cref{fig:ClassDiagramNoSupplie
 	\caption{Final class diagram of the problem domain excluding the supplier
 	}\label{fig:ClassDiagramNoSupplier}
 \end{figure}
-
+%jeg bed lige mærke i at klassediagrammet ikke har nogen markering af at approval er abstrakt - astrid
 In this diagram the Supplier and the SupplierApproval are not included.
 As the company class mainly existed to support the administrators access to the supplier system that class and its relation to the admin role have also been excluded.
 The abstract Approval class still exists to make it possible to implement the supplier system at a later time.
