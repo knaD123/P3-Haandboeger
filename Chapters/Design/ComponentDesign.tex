@@ -62,6 +62,7 @@ To give an overview and understanding of the architecture and design a simple co
 
 View, controller, model, and EF Core are thus the main components layers that can be found in the design, each with a well-defined responsibility.
 Ideally the architecture is designed so that the view and model components do not have to interact with each other.
+% Kilde? Det virker lidt suspekt at views og models ikke skal kunne snakke med hinanden
 It is the intention that the controller is the link between these components, which is why it is placed in the middle of the layer components.
 The main function of the controller is to link objects from the model component and data from the EF Core database and make these accessible for the view component.
 

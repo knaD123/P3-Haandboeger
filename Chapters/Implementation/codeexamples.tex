@@ -81,7 +81,7 @@ As is seen on line 3 and 4 when a new version of a document is added it receives
 % Henrik: Maaske i stedet for "it receives a new date ...", saa skriv "the version's ValidFromDate property is set to the current date"?
 On line 5 the new version is added to the list of versions.
 The control sequence from line 9 - 12 ensures that the previous version's date is set to the day that it has been replaced by the new version.
-% Henrik: Same thing her - Masske "the previous version's ValidUntilDate property is set to ..." 
+% Henrik: Same thing her - Masske "the previous version's ValidUntilDate property is set to ..."
 When a new version has been added all of the affected department in the system will get notified as seen in the loop from line 13 - 16.
 
 \subsection{Controller}
@@ -275,11 +275,12 @@ In the following code snippet it is shown how the \texttt{view} component utiliz
 
 \end{lstlisting}
 
-This is the view that represents a list of assigned documents. This will render to a button, which when clicked expands a list of documetns in the chapter the button represents.
+This is the view that represents a list of assigned documents.
+This will render to a button, which when clicked expands a list of documents in the chapter the button represents.
 It is written in the razor templating langugae, which is HTML, but with the added feature of allowing the documents to be dynamic when prefacing a statement with the \texttt{@} character.
 % Henrik: @ betyder faktisk "her starter noget C# kode", saa tænker at maaske flet ind at razor gør det muligt at skrive C# kode inde i ens HTML?
 An interesting thing to note is on line 25, where the statement \texttt{@await Html.PartialAsync("_DocumentListBody", @kvp.Value)} is executed.
-This statement asks the razor templating engine to render the body of a list of documetns, with the argument that is the list of documents in the current chapter.
+This statement asks the razor templating engine to render the body of a list of documents, with the argument that is the list of documents in the current chapter.
 % Henrik: Første argument er navnet paa det view den skal render (filnavn)
 
 \subsection{Repositories}
