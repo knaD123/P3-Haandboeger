@@ -131,6 +131,7 @@ The \texttt{IActionResult} result method ensures that the controller returns a m
 % Henrik: Jeg er ikke enig mht det der staar om HttpGet og IActionResult
 % HttpGet sørger bare for at denne action method kun kan blive tilgaaet af en GET request
 % IActionResult garanterer ikke at controlleren returns en model til viewet
+% IActionResult er en return-type ting, der fortæller at denne action method returnerer et result.
 
 From line 5 - 13 it is determined which documents that the current user is assigned to.
 This is done by first retrieving the current user, which is defined through \texttt{HttpContext.User}, by finding a match in the list of users found in \texttt{_userManager}.

@@ -1,4 +1,3 @@
-
 \input{setup/preamble} %Preamble indlaeses
 
 \raggedbottom %Sørger for at LaTeX ikke "strækker" teksten
@@ -30,12 +29,11 @@
 \mainmatter
 
 
-\include{Chapters/main}
+\subfile{Chapters/main.tex}
 
 %%%% Kilder %%%%
 \begingroup
 	\raggedright
-	%\bibliographystyle{unsrtnat}
 	\bibliography{bibtex/litteraturliste/bibliography}
 	%Litteraturlisten inkluderes
 
