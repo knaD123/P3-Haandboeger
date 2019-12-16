@@ -22,7 +22,7 @@ Both of these deal with archiving and managing the documents a company needs to 
 	\node(dep)[process, right=1.5cm of doc]{Department};
 	\node(role)[process, below=0.6cm of user]{Role};
 	\node(admin)[process, below=1cm of role, xshift=0.5cm]{Administrator};
-	\node(write)[process, left=1cm of admin]{writer};
+	\node(write)[process, left=1cm of admin]{Writer};
 	\node(reader)[process, left=1cm of write]{Reader};
 
 	%linjer til company
@@ -199,7 +199,7 @@ Therefore, the final class diagram looks like in \cref{fig:ClassDiagramNoSupplie
 	\node(dep)[process, right=1.7cm of doc]{Department};
 	\node(user)[process, below=1cm of dep]{User};
 	\node(role)[process, below=0.6cm of user]{Role};
-	\node(write)[process, below=1cm of role]{writer};
+	\node(write)[process, below=1cm of role]{Writer};
 	\node(reader)[process, left=1cm of write]{Reader};
 	\node(admin)[process, right=1cm of write]{Administrator};
 
