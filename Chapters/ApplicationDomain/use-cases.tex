@@ -1,40 +1,43 @@
 \subsection{Use cases} \label{sec:usecases}
-\todo[inline]{Anna: Tjek modellerne og fiks pile}
-\todo[inline]{Er der tradition for to pile samme vej der forbinder samme to punkter?}
-All of the actors have different needs of the system and different accessibility to the system. The various different workflows each of them has is described in ten use cases, which are covered in this section.
+All of the actors have different needs of the system and different accessibility to the system.
+The various different workflows each of them has is described in ten use cases, which are covered in this section.
 
 \subsubsection{Access current handbook}
-The main functionality that every actor needs is access to the current handbook. How they do so is described in \cref{tab:access-handbook} and shown in \cref{fig:access-handbook}.
+The main functionality that every actor needs is access to the current handbook.
+How they do so is described in \cref{tab:access-handbook} and shown in \cref{fig:access-handbook}.
 
 \input{Chapters/ApplicationDomain/UseCaseTables/Access-Tab}
 \input{Chapters/ApplicationDomain/UseCaseStates/Access-Fig}
 
-There is a fork depending on whether it is the first time a user logs in because a new user has a username, a name and a standard password.
-For security reasons this standard password needs to be changed as otherwise anyone could log into the system with only a username.
+There is a fork depending on whether it is the first time a user logs in, because a new user has a username, a name and a standard password.
+For security reasons, this standard password needs to be changed as otherwise anyone could log into the system with only a username.
 The first login is also an account activation through which the password is changed and an e-mail address and phone number may be added.
 
-As described in \cref{sec:CaseDescription} the current system is excessively complicated and it was therefore included in the system definition, see \cref{factor}, that the new system should ''facilitate an overview of current [...] versions''.
+As described in \cref{sec:CaseDescription}, the current system is excessively complicated and it was therefore included in the system definition, see \cref{factor}, that the new system should ''facilitate an overview of current [...] versions''.
 This is taken care of at the front page.
-The documents relevant to the user are shown first, a feature specifically requested by Ipsen, see \cref{sec:requirementsdefinition}, and below all the chapters are visible providing an overview of the content in the handbook.
+The documents relevant to the user are shown first, a feature specifically requested by Ipsen, see \cref{sec:requirementsdefinition}, and below, all the chapters are visible providing an overview of the content in the handbook.
 If a more detailed view is necessary it is possible to unfold a single chapter or all of them.
 
 
 \subsubsection{Add new file to the system}
-As described in \cref{sec:classdiagramhandbook} the system consists of both documents and versions where documents are the structural entities enabling the organizational features of the system and versions contain the files and thereby the actual contents of the handbook.
+As described in \cref{sec:classdiagramhandbook}, the system consists of both documents and versions, where documents are the structural entities enabling the organizational features of the system and versions contain the files and thereby the actual contents of the handbook.
 Adding versions as additions to an existing documents as well as creating a new document along with a version is described in \cref{tab:add-file} and visualized in \cref{fig:add-file}.
 
 \input{Chapters/ApplicationDomain/UseCaseTables/Add-Doc-Tab}
 \input{Chapters/ApplicationDomain/UseCaseStates/Add-Doc-Fig}
 
 Whether a changelog is prompted during upload depends on the system settings.
-This is because only some standards require it as explained in \cref{sec:CaseDescription}.
+This is because only some standards require it, as explained in \cref{sec:CaseDescription}.
 
 Adding approvers varies slightly depending on the user's role:
 A writer has to add at least one administrator, while an administrator does not have to add anyone at all.
-If the administrator elects not to add anyone they are automatically assigned as the sole approver of the document.
-They still have to approve it but they can do so unilaterally
+If the administrator chooses not to add anyone, they are automatically assigned as the sole approver of the document.
+They still have to approve it, but they can do so unilaterally
 
-It is worth noting that it is also possible to add a new document without attaching any file.
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Kommet hertil %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+It is worth noting, that it is also possible to add a new document without attaching any file.
 The former design did not offer the option of attaching the file immediately but required that the user first made a new document and then made a version to attach to that document.
 During the first usability test, see \cref{labellist}, this workflow was a source for confusion and therefore it was changed.
 The reason that the empty document remains an option is that it provides the possibility to structure the handbook without necessarily having all of the contents.
