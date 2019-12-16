@@ -37,7 +37,7 @@ This was also the very reason the Department class was first made, see \cref{sec
 	\node[round, minimum width=3cm] (await) [below of=start, node distance=1.5cm] {Existing};
 	\path[->] (start) edge node[right] {Create} (await);
 	\path[->] (await) edge [loop below] node[auto] {Add/remove user} (await);
-	\path[->] (await) edge [loop below, out=350, in=330, looseness=4] node[auto] {Add/remove Document} (await);
+	\path[->] (await) edge [loop below, out=350, in=330, looseness=4] node[auto] {Add/remove document} (await);
 	\path[->] (await) edge [loop below, out=180, in=230, looseness=4] node[auto] {Notify} (await);
 
 	\draw[fill=white] circle[radius = 7pt, right of=await, node distance=4cm];
