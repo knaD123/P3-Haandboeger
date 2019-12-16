@@ -85,12 +85,13 @@ In the following an overview this analysis will be presented.
 
 \textbf{F - Functionality}
 
-Manage and facilitate an overview of current and earlier versions of assorted files of different types in a handbook, as well as manage files in connection to approval of suppliers.
+Manage and facilitate an overview of current and earlier versions of assorted files of different types in a handbook, as well as manage files in connection to approval of suppliers. % Taniya: er det stadig different types når vi ender med at systemetet kun tager imod pdf filer - eller hvordan bliver det?
 Files in the handbook may have a changelog.
 New files undergoes an approval process before being submitted to the handbook.
 Different levels of permissions for users as well as registration of who has read the individual files.
-Notify specific users when a new version is published.
+Notify specific users when a new version is released.
 It should also be possible to import already existing handbooks to the system.
+%Taniya: 'should' lyder ikke helt præcis ift. hvad systemet skal kunne?
 
 \textbf{A - Application domain}
 
@@ -122,6 +123,7 @@ The technologies used to develop the system will be explained in greater detail 
 The system will be accessible in the users web browser \footnote{Google Chrome, Mozilla Firefox, Microsoft Edge, Internet Explore etc.} on their PC.
 The notifications are sent over e-mail or sms.
 %var der nogen der tjekkede op paa hvorvidt e-mail og sms tæller som en teknologi??? - Astrid
+
 \textbf{O - Objects}
 
 The main objects of the problem domain are \textit{Handbook, Table of Contents (TOC), documents, changelog} and \textit{user}.
@@ -129,12 +131,13 @@ These object will be examined in \cref{sec:Classes}.
 
 \textbf{R  - Responsibility}
 %Omformulerede nedenstaaende - Astrid
+
 Managing file versions.
 Including a changelog for each change, depending on the settings.
 Provide an overview of all the documents through a TOC.
 Making sure all new files or versions are approved before being added to the handbook.
 Saving older versions in an archive.
-Limiting access into 3 levels, as stated above in the Functionality section of the criterion.
+Limiting access into three levels, as stated above in the Functionality section of the criterion.
 Keeping track of documents used in the approval process of suppliers and dates for the approval and re-approvals.
 
 \subsection{Final system definition}\label{sec:systemdefinition}
