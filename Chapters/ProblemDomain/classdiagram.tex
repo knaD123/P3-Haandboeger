@@ -130,10 +130,11 @@ The writer role would typically be assigned to people like the department heads 
 Every single employee should be a user and will by default have a reader role.
 
 \subsection{Approval} \label{Approval}
-The biggest similarities between the handbook and supplier-approval subproblems are the need for archiving documents and the need for approving certain things with different intervals.
+The biggest similarities between the handbook-approval and supplier-approval subproblems are the need for archiving documents and the need for approving certain things with different intervals.
 
 The difference between them is first and foremost that while the company needs both, they do not need each other.
 The approval of the suppliers is not included in the handbook and has no relevance for the majority of the users of the handbook, and what the handbook says is irrelevant to whether a supplier is approved or not.
+% Anja: "what the handbook says" skal nok omformuleres. Jeg ved faktisk ikke, hvad vi skal tage med videre fra sætningen ovenfor.
 
 \begin{figure}[H]
 	\centering
@@ -164,9 +165,11 @@ The approval of the suppliers is not included in the handbook and has no relevan
 \end{figure}
 
 Early versions of the class diagram modeled the problems like seen in \cref{fig:PseudoClassDiagram}.
+% Anja: Hvad refereres der til her? Er det figuren lige ovenfor eller en helt anden figur?
 Here the classes Approval and Document are present in both diagrams, suggesting that their functionalities are too similar to have separate classes.
 However, in the handbook, Document is merely a container for Versions, which include the actual files and those files are needed in supplier-approval.
 Therefore, the two Document classes cannot be merged, but the Document class in supplier-approval can be entirely replaced by the Version class in handbook.
+%Anja: Jeg synes generelt, at paragraffen ovenfor er svært at følge med i.
 
 The two Approval classes are more complicated as the approval process varies:
 
