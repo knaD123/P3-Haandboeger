@@ -29,6 +29,7 @@ These components are \textit{model, view}, and \textit{controller} which will be
 %Anna: evt skrive "These components are as mentioned before \textit{model, view}, and \textit{controller}, see \cref{fig:MVC-components}, which will be elaborated below."
 Furthermore the MVC archictecture supports test driven development and also does not use server-based forms which gives the developers full control over the application. \cite{mvcarticle}
 %Anna: evt værd at påpege vi ikke har lavet test driven development da det kræver vi designede testene før vi skrev de enkelte program dele
+% Henrik: Enig med Anna, men der bliver vist nævnt noget med TDD senere i rapporten
 
 \begin{figure}[H]
 \centering
@@ -44,6 +45,7 @@ Furthermore the MVC archictecture supports test driven development and also does
 	\end{tikzpicture}
 	\caption{The Model-View-Controller design pattern.}\label{fig:MVC-components}
 \end{figure}
+% Henrik: Jeg er maaske ikke helt enig i pilen mellem Model og View, da alt data leveret til Viewet gaar gennem Controller - Maaske jeg bare misforstaar tegningen :-)
 
 As mentioned the three main components in the architecture are model, view, and controller as shown in the figure above.
 %Anna: nu er det tredje eller jerde gang inden for kort tid vi siger disse tre components er det ikke bedre i teksten før billedet at henvise til det billede og så efter billedet gå igang med direkte at snakke om model komponenten (Evt se tidligere kommentar er skrevet ind i forslaget)
@@ -67,6 +69,7 @@ This separation between the components also makes it easier to test the applicat
 Entity Framework is a framework for mapping object-oriented data structures into a relational database, also referred to as an object-relational mapping framework, for .NET.\cite{efcore}
 The job of the Entity Framework is translating the objects in memory into SQL statements so that these objects can be stored in a database.
 %Anna, kunne det give mening at skrive SQL ud og så give forkortelsen bagefter? (har ikke nogen stærk følelse for det)
+% Henrik: SQL bliver nævnt i database afsnittet
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance=1cm, minimum height=0.6cm]
@@ -87,11 +90,13 @@ This context defines the sets of objects to be stored in the database, and also 
 The Entity Framework supports multiple kinds of relational databases, from MariaDB to PostgreSQL.
 The support for multiple database systems are provided by the respective database providers.
 %Anna: er ikke sikker på den sidste sætning er relevant
+% Henrik: Synes det er relevant, da det fortæller at vi ikke er laast fast til én bestemt database
 
 \subsection{Web Frontends} \label{sec:webfrontends}
 The languages of UI (User Interface) on the web are HTML, CSS, and Javascript, and each of these three languages have their own respective roles.\cite{nixonweb}
 %Anna: er UI blevet skrevet ud på noget tidpunkt?
 %Anna: er det virkeligt de eneste prog eller bare de primære?
+% Henrik: HTML, CSS og JavaScript (jQuery) er de eneste vi har brugt
 
 \subsubsection*{HTML}
 
@@ -122,6 +127,7 @@ The CSS allows for different kinds of styling, such as colouring and positioning
 
 CSS (Cascading Style Sheets) allows for defining the style of the document.
 %Anna: Document eller webpage?
+% Henrik: Det hedder document - maaske DOM (Document Object Model), men kan være at jeg blander document og DOM sammen :-)
 \begin{lstlisting}[caption={\color{red}indsæt caption tekst},label=lst:CSS]
 body {
 	background-color: green;
@@ -146,3 +152,4 @@ JavaScript is a scripting language built for the web.
 JavaScript allows for running code on the page, which can interact with the contents of the page, play sounds, send requests in the background, and much more.\cite{nixonweb}
 
 %Anna er der en grund til vi ikke også giver et emsempel her ligesom med CSS og HTML
+% Henrik: Eventuelt brug det JavaScript der er brugt til at ændre pilenes retning (Den nyeste PR)? :-)
