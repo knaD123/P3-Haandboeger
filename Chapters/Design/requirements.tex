@@ -6,6 +6,7 @@ This is because there are no guarantees that all of the requirements and design 
 %Anna: evt skrive 'a given development project' fremfor 'of the project'
 There is in this project set a hard time limit by Aalborg Univerity.
 %Anna: Vil virkeligt gerne hvis vi fjernede sætningen ovenfor, tænker det står i sætningen over den
+% Henrik: Tænker at det der staar i linjen ovenfor er saadan mere generelt, hvor at det med AAU er specifikt rettet mod VORES projekt
 The information in this chapter is based upon Benyon \cite{Benyon}.
 %Anna: hvis MoSCoW er baseret på den så skriv referencen når MoSCoW nævnes (også ved MVP hvis det også er derfra) Har prøvet at sætte det ind som kommentarer er dog ikke sikker på om det er korrekt at tingeneer taget derfra.
 
@@ -31,7 +32,7 @@ Could haves are less important requirements than must haves and should haves and
 Want to have but Won't haves are requirements that can wait until a later point of the system development.
 
 % Henrik: Er dette en okay måde at lave denne definition? DEB-bogen s. 147 øverst
-%Anna: Kna man argumenterer for at den definition skal have en anden kilde da DEB bogenciterer en anden kilde der
+%Anna: Kna man argumenterer for at den definition skal have en anden kilde da DEB bogen citerer en anden kilde der
 A definition of a requirement is provided to prevent any misunderstandings throughout this chapter.
 %anna: evt skrive " For the sake of preventing misunderstandings the definition for requirement used in this report can be found in \cref{defn:Req}} below" (Evt skirve kilden på til sidst (hvi sder bruges den anden end Benyon))
 
@@ -54,8 +55,7 @@ Requirements can be divided into two types, \textit{functional} \cref{defn:ReqFu
 \subsubsection{Defining requirements} \label{sec:requirementsdefinition}
 % vigtigt at finde ud af hvad "the client(s)" ønske, før man sætter "requirements"
 It was in \cref{sec:PACT} mentioned how it is important, when designing an interactive system, to do it with the users in mind.
-Therefore, before defining a project's requirements it is a good idea to figure out the client's wants and needs, since it is the client and not the designer, who is going to use the final system.
-%Anna: istedet for 'it is a good idea' nærmere bruge 'it is essential'
+Therefore, before defining a project's requirements it is essential to figure out the client's wants and needs, since it is the client and not the designer, who is going to use the final system.
 A lot of different techniques can be used when defining a project's requirements, e.g.:
 
 \begin{itemize}
@@ -67,14 +67,17 @@ A lot of different techniques can be used when defining a project's requirements
 These techniques can help designers to better understand the problems the client has with their current system, and at the same time, give a better understanding of the requirements for the new system.
 Using these techniques where the designer interacts with other people also provides the designer with a lot of stories that can form the basis for the analysis work.
 %Ana: Af interesse og måske også fordi jeg er lidt forvvirret over fomuleringen men hvilke 'stories'
+% Henrik: "Stories" er beretninger/fortællinger (hvilket ord der nu passer her) om hvordan et nuværende system bruges - tænker jeg - men det staar i DEB bogen
 %Anna: Kan den dobbelte 'designer' skrives ud af sætningen, synes det er meget at nævne det samme ord så tæt på hinanden i samme sætning
 Even though a designer have all these techniques at their disposal, the interview technique, see \cref{sec:interview}, is one of the most effective techniques to find out what the client wants and needs.
 %Anna: Er det ikke forkert i denne sammenhæng at henvise til den section da den jo ikke går i detaljen med teorien men er konkret hvordan der er gjort i dette projekt?
+% Henrik: Jeg mener ogsaa at der staar noget generelt om interviews i det afsnit - ellers er det bare at slette den henvisning
 
 % det kan være en iterativ process, og det sker ofte at der kommer nye "requirements" fra tid til anden
 The process of defining a project's requirements is an iterative process, see \cref{sec:iterativModel}.
 This is because new requirements will pop-up throughout the design process.
-%Anna: Evt tilføje "This may happen when the user interacts with the system during tests and it becomes clear misunderstandings of the basic concept has happend. Furthermore, it mayu also happen when the user realises other need's than what was thought necessary of the system to begin with"
+%Anna: Evt tilføje "This may happen when the user interacts with the system during tests and it becomes clear misunderstandings of the basic concept has happend. Furthermore, it may also happen when the user realises other needs than what was thought necessary of the system to begin with"
+% Henrik: Ingen stærke følelser her :-)
 
 % Henrik: Noget om hvordan vi er kommet frem til vores "requirements"
 For this project the interview technique was used to define this project's requirements, see \cref{sec:firstinterview}. This helped defining the prioritization of the following requirements:
@@ -97,6 +100,7 @@ For this project the interview technique was used to define this project's requi
     \item
     Should have:
         \begin{itemize}
+			% Henrik: Mht. de her punkter, saa er de bare copy/paste fra vores system defination, og jeg tænker ogsaa at de skal ligne saa meget som muligt - men igen, ingen stærke følelser her :-)
 			\item
 			Automatic updates of TOC
             \item
@@ -149,11 +153,12 @@ For this project the interview technique was used to define this project's requi
 
 In this report the \textit{must have} priority covers the MVP of the system, which is the absolute minimum of what the system should include when the project is done.
 %Anna: Evt slette fra "which is ..." da det er en gentagelse af noget der er skrevet lige over listen
+% Henrik: Saa skal det omformuleres længere oppe, da oppe i toppen ikke nævner at "must have" er vores MVP
 The requirements belonging to this category are necessary since the system would not be functional without them.
 The first item under \textit{must have} which is ''The system should manage versions of handbook documents'' is intentionally broad as it is expanded upon in the following four items.
 
 The following prioritization \textit{Should have} contains very important requirements that the system must include if Ipsen were to use the solution.
 The reason that these requirements are placed here is because the system is technically able to function as a management software without these specific requirements.
 
-The third and the last priorizations \textit{Could have} and \textit{Want to have but won't have this time around} are the least important requirements in relation to the system.
+The third and the last priorizations \textit{Could have} and \textit{Want to have but Won't have this time around} are the least important requirements in relation to the system.
 These items are placed under these priorities as they would be nice to include in the system, but Ipsen does not consider them vital to the solution or her work context.
