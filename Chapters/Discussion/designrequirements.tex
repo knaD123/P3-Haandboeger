@@ -1,20 +1,86 @@
 \section{Design requirements}\label{sec:disdesignrequirements}
-With the MoSCoW rules the functionalities were placed into different classes of priority, these can be seen in \cref{sec:requirements}.
+With the MoSCoW rules \cref{sec:requirements} the functionalities were placed into different classes of priority.
 In this section there will be a look into the requirements and their fulfilment in the system.
 
-The design requirements in \cref{sec:requirementsdefinition} were tailored to the needs of the user, these requirements were mostly complete with the exception of a few that will be looked at in this chapter:
+The current implementation fulfills the \textit{MVC} which consists of the \textit{must have} priority.
+These consist of:
 
 \begin{itemize}
-	\item \textit{"It should be easy to switch from an existing system, and back to the existing system"}
-	As the current system stands there is no easy way to implement an existing system.
-Ipsens current system is a collection of documents of different file types, that have to be converted before it is put into the project system.
-It might be possible to create a system that can convert file types to pdf, but that was not the focus of this project.
-	\item \textit{"The handbook should be printable"}
-	Unfortunately, the handbook is not printable.
-MANGLER ÅRSAG.
-	\item \textit{"Option to sort documents according to different attributes"}
-	This functionality that makes the program more user friendly did not enter the system.
-The problem could be solved by implementing a sorting algorithm, but unfortunately this functionality was not included in the final product.
+	\item 
+	The system should manage versions of handbook documents
+	\item 
+    A \textit{Table of Contents} (TOC) with title, ID number, date and version number
+    \item 
+    The system should be able to handle PDF files
+    \item 
+    Title and ID number are linked
+    \item 
+    Once a version has been added to the handbook, it cannot be changed
 \end{itemize}
+
+These requirements fulfils the first requirement in the items which is \textit{The system should manage versions of handbook documents}.
+
+In the \textit{should have} portion all of the requirements have been fulfilled.
+this includes 
+
+\begin{itemize}
+	\item 
+	Automatic updates of TOC
+    \item 
+	A human-written changelog can be included with each version
+	\item 
+    Registration when a version has been read by an employee
+    \item 
+    The handbook should be printable
+    \item 
+   	Different levels of permissions/access rights to the documents within the handbook
+    \item 
+    Readers and writers only have access to the newest version of a document
+    \item 
+    Administrators have access to everything
+   	\item 
+    It should be possible to group users into departments, and associate them to documents.
+    \item 
+    It should be easy to switch from an existing system, and back to the existing system
+\end{itemize}
+
+Though there could occur a problem with the last requirement in the \textit{should have} requirement.
+The phrasing of the requirement is up for interpretation as there could be several ways to make it easier for users to switch to and from the existing system.
+This requirement would work better as a question posed to the project group in the design phases as this could lead to a reflection of what the users do currently and how to make the transition easier.
+As it is the requirement remains vague, and the project group has decided to interpret it as that Ipsen and secretaries should easily be able to transfer current handbook document files to the system.
+
+In relation to the \textit{could have} requirements only one have been fulfilled.
+The requirements are as follows:
+
+ \begin{itemize}
+ 	\item 
+    When a document is updated, a notification should be sent out to the associated departments.
+	\item 
+    The system should be able to handle documents of different file-types
+    \item 
+    Option to sort documents according to different attributes
+    \item 
+    System for approval of new versions of documents
+\end{itemize}
+
+Here the last requirement has been implemented into the system, as the administrator is able to choose who should approve a new version of a document.
+
+As for the overall implementation all of the \textit{must have} and \textit{should have} requirements has been implemented into the system.
+As the MVC has been fulfilled and extra features are included the system can be considered a success according to the priorities being placed in the MoSCoW requirements.
+
+%The design requirements in \cref{sec:requirementsdefinition} were tailored to the needs of the user, these requirements were mostly complete with the exception of a few that will be looked at in this chapter:
+
+%\begin{itemize}
+%	\item \textit{"It should be easy to switch from an existing system, and back to the existing system"}
+%	As the current system stands there is no easy way to implement an existing system.
+%Ipsens current system is a collection of documents of different file types, that have to be converted before it is put into the project system.
+%It might be possible to create a system that can convert file types to pdf, but that was not the focus of this project.
+%	\item \textit{"The handbook should be printable"}
+%	Unfortunately, the handbook is not printable.
+%MANGLER ÅRSAG.
+%	\item \textit{"Option to sort documents according to different attributes"}
+%	This functionality that makes the program more user friendly did not enter the system.
+%The problem could be solved by implementing a sorting algorithm, but unfortunately this functionality was not included in the final product.
+%\end{itemize}
 
 
