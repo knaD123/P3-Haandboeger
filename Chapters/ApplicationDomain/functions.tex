@@ -7,6 +7,7 @@ This section is based on Mathiassen, Munk-Madsen, Nielsen and Stage \citep[ch.~7
 To commence the analysis, a look at the system definition and use cases is necessary, see \cref{sec:SystemDefinition,sec:usecases}, as it creates a template of functions that are ready to be analysed.
 The next step is then to determine what type each function belong to, this means determining if it is an \textit{update, signal, read} or \textit{compute function}.
 A description of each of these the function types can be found in the following item list, \citep[p.~140]{Rod-Aalborg}:
+
 \begin{itemize}
 	\item 
 	''\textit{Update} functions are  activated by a problem-domain event and result in a change in the model's state.''
@@ -15,12 +16,15 @@ A description of each of these the function types can be found in the following 
 	\item
 	''\textit{Read} functions are activated by a need for information in an actor's work task and result in the system displaying relevant parts of the model.''
 	\item
-	''\textit{Compute} function s are activated by a need for information in an actor's work task and consist of a computation involving information provided by the actor or the model; \ldots''
+	''\textit{Compute} functions are activated by a need for information in an actor's work task and consist of a computation involving information provided by the actor or the model; \ldots''
 \end{itemize}
 
-The most present type of function in the system, as shown in the function table below, are of the update type.
+The functions in this project, shown in the function table below, are identical to the qualified events in \cref{sec:Events}.
+This is because that update functions should express the system's classes and events.
+Therefore, the most present type of function in this system are of the update type.
+% De andre typer kommer fra use cases - side 143 i SU bogen
 
-\todo[inline]{Henrik: Vi skal opdatere tabellen, og argumentere hvor vi har dem fra. Cref og analyser}
+%\todo[inline]{Henrik: Vi skal opdatere tabellen, og argumentere hvor vi har dem fra. Cref og analyser}
 
 \begin{table}[H]
 \centering

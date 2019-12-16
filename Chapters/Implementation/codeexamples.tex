@@ -53,9 +53,7 @@ The document object includes an ID, chapter, chapter number, section number, sec
 The \texttt{key} attribute on line 1 specifies that the \texttt{int ID} is a primary key that the database can use to identify the specific document.
 Likewise, the \texttt{Range} attribute specifies that the section number is included in a an \texttt{Enumerable} class consisting of integers from 1 to the max value of a 32 bit \texttt{Integer}.
 And the \texttt{Display} attribute on line 15 specifies that the section number should be displayed with the name \textit{section}.
-This \texttt{display} attribute is used with ASP.NET Core and is used to modify the text on the screen when information from the controller is transfered to the view.
-% Henrik: Det er ikke selve controlleren der bliver rendered
-% Anja: Har omformuleret.
+This \texttt{display} attribute is used with ASP.NET Core and is used to modify the text when the model is used in a view.
 
 In the code snippet below it is shown the logic of how a new version of a document is added.
 \\
