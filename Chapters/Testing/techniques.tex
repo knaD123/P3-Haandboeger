@@ -22,6 +22,7 @@ This means that the person (the tester) that tests the software cannot look at t
 The tester is only able to give input to the software and receive output based on the input.
 
 % Static black-box testing (side 56)
+\subsubsection{Static black-box testing}
 As mentioned in \cref{sec:testingtechniques} black-box testing can be done statically.
 Static black-box testing is when the tester tests the software without running the software and without access to the code.
 
@@ -82,6 +83,7 @@ The tester should be looking out for words like those mentioned above since some
 In the case where the words are too vague or not testable a re-definition is required. \cite{SoftwareTesting}
 
 % Dynamic black-box testing (side 64)
+\subsubsection{Dynamic black-box testing}
 It was, in \cref{sec:testingtechniques}, also mentioned that black-box tests can be done dynamically.
 Dynamic black-box testing is where the tester is running the software but do not have access to the code. % Henrik: Hvordan henviser jeg til defn dynamicly og tekst med black-box?
 Here the tester simply enters some input and receives some output based on the input entered. \cite{SoftwareTesting}
@@ -98,6 +100,7 @@ As mentioned in \cref{sec:blackboxtesting} the black-box testing is performed wi
 It was mentioned in \cref{sec:testingtechniques} that white-box tests, just like black-box tests, can be performed statically and dynamically.
 
 % Static white-box testing (side 92)
+\subsubsection{Static white-box testing}
 Static white-box tests are performed without running the software with access to the code. % Henrik: Hvordan, hvis nødvendigt, henviser jeg til baade defn og black-box?
 When performing static white-box tests the tester is reviewing the architecture and the design of the software.
 The tester can also be reviewing the actual code for bugs. \cite{SoftwareTesting} % Henrik: Er det nødvendigt at henvise til "bug" afsnittet her?
@@ -130,6 +133,7 @@ It also helped to keep other members of the project group up-to-date with the co
 % Anja: Jeg tænker ift. den ovenstaaende tekst, om det skal flyttes i bunden af sektionen? Her kan der staa refleksioner om, hvordan vi har brugt de der test-teknikker i løbet af projekt-perionen. Det virker bare lidt malplaceret, at vi reflekterer for test midt i al teorien, naar det ikke er blevet gjort andre stedet i white-box og black-box afsnittet.
 
 % Dynamic white-box testing (side 105)
+\subsubsection{Dynamic white-box testing}
 Dynamic white-box testing is where the tester has access to the code and actually runs the software. % Henrik: Hvordan henviser jeg til defn og white-box testing?
 When performing dynamic white-box testing the tester decides what to test and what not to test by inspecting the code.
 The tester can test individual functionalities of the software and the software as a complete program. \cite{SoftwareTesting}
@@ -143,7 +147,7 @@ When creating unit tests it usually a good idea to, not just create tests that s
 Unit testing has been used to test the different functionalities of the software created during this project.
 Below are a few examples of how the unit tests were created to test the different functionalities in this project:
 
-%\lstinputlisting[firstline=64, lastline=81, language={[Sharp]{C}}]{OBHandbooks/OBHandbooks.Tests/DocumentRepositoryTests.cs}
+\lstinputlisting[firstline=64, lastline=81, language={[Sharp]{C}}]{OBHandbooks/OBHandbooks.Tests/DocumentRepositoryTests.cs}
 
 The unit tests follow the three A's, \textit{Arrange, Act, Assert}.
 In the example above, a \texttt{Document} is being created in the arrange phase, line 67 to 73.
@@ -153,7 +157,7 @@ In the assert phase it is asserted that the database only contains a single \tex
 Another example of how to perform unit tests.
 This time it is tested if software fails when it should fail.
 
-%\lstinputlisting[firstline=83, lastline=97, language={[Sharp]{C}}]{OBHandbooks/OBHandbooks.Tests/DocumentRepositoryTests.cs}
+\lstinputlisting[firstline=83, lastline=97, language={[Sharp]{C}}]{OBHandbooks/OBHandbooks.Tests/DocumentRepositoryTests.cs}
 
 This test is testing if the software throws a \texttt{DbUpdateException} if a \texttt{Document} with a non-unique title is being added to the database.
 A \texttt{Document} is created and added to the database in the arrange phase on line 86 to 92.

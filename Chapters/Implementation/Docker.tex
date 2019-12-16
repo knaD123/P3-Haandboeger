@@ -8,12 +8,12 @@ While a virtual machine simulates an entire machine, a container shares the same
 
 Using Docker allowed for easier management of dependencies, control over resetting databases, and guarantees of identical runtime environments.
 The Dockerfile looks as follows
-%\lstinputlisting{OBHandbooks/Dockerfile}
+\lstinputlisting{OBHandbooks/Dockerfile}
 This Dockerfile defined how the isolated userspace in which the ASP.NET Core project would run would be set up.
 As can be seen, most of it consists of running commands in the container, until line 13-18 which set some environment variables, copies the code into the container, and builds it.
 
 The Docker image generated from this Docker file was then used in a \texttt{Docker-compose.yml} file, which is used to create deployment structures consisting of multiple containers.
-%\lstinputlisting{OBHandbooks/docker-compose.yml}
+\lstinputlisting{OBHandbooks/docker-compose.yml}
 The docker file is developed in the YAML language.
 Here, two Docker containers are actually used.
 The first container, defined on line three, uses the image described previously.
