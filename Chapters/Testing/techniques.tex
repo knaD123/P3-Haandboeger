@@ -143,7 +143,7 @@ When creating unit tests it usually a good idea to, not just create tests that s
 Unit testing has been used to test the different functionalities of the software created during this project.
 Below are a few examples of how the unit tests were created to test the different functionalities in this project:
 
-%\lstinputlisting[firstline=64, lastline=81, language={[Sharp]{C}}]{OBHandbooks/OBHandbooks.Tests/DocumentRepositoryTests.cs}
+\lstinputlisting[firstline=64, lastline=81, language={[Sharp]{C}}]{OBHandbooks/OBHandbooks.Tests/DocumentRepositoryTests.cs}
 
 The unit tests follow the three A's, \textit{Arrange, Act, Assert}.
 In the example above, a \texttt{Document} is being created in the arrange phase, line 67 to 73.
@@ -153,7 +153,7 @@ In the assert phase it is asserted that the database only contains a single \tex
 Another example of how to perform unit tests.
 This time it is tested if software fails when it should fail.
 
-%\lstinputlisting[firstline=83, lastline=97, language={[Sharp]{C}}]{OBHandbooks/OBHandbooks.Tests/DocumentRepositoryTests.cs}
+\lstinputlisting[firstline=83, lastline=97, language={[Sharp]{C}}]{OBHandbooks/OBHandbooks.Tests/DocumentRepositoryTests.cs}
 
 This test is testing if the software throws a \texttt{DbUpdateException} if a \texttt{Document} with a non-unique title is being added to the database.
 A \texttt{Document} is created and added to the database in the arrange phase on line 86 to 92.
