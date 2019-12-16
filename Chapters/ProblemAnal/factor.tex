@@ -4,26 +4,26 @@ This is to attain requirements that the future solution needs to include to upho
 The system definition will eventually lead to the problem statement, which will guide the rest of the project.
 
 Before the system definition is being written, the problems and context will be analyzed through a \textit{rich picture} in \cref{sec:richpictures} and the \textit{FACTOR} criteria in \cref{sec:factorcriteria} \citep{Rod-Aalborg}.
-The rich picture aims to describe the situation in which a handbook is being used, which the system will support.
+The rich picture aims to describe the situation in which a handbook is being used.
+%, which the system will support. -Anna har udkommenteret
 Through the context of this project, the FACTOR critera is being utilized to give an understanding of what system Ipsen needs and in which context the system is used.
 
 A system definition seeks to define which problem the system should solve.
-The definition is: \citep[p.~24]{Rod-Aalborg}
+According to  \citep[p.~24]{Rod-Aalborg} it is defined as,
 
 \begin{defn}
-''A concise description of a computerized system expressed in natural language''
+A concise description of a computerized system expressed in natural language
 \end{defn}
 %skal der være citationstegn omkring en definition? Og mangler vi ikke en reference??
+%Anna: Har prøvet at rette det til på en anden måde
 
 This means that the system definition aims to describe what the system should do, but also in which context is should be used, as the system is going to be ''implemented both technically and socially'' \citep[p.~23]{Rod-Aalborg}.
 The system is going to solve a problem that exists in a specific context, it is therefore important to understand this context.
 
-This chapter is unless otherwise described based upon \cite{Rod-Aalborg} or the project's own analysis and data.
-
 \subsection{Rich picture} \label{sec:richpictures}
 
-To understand the situation further a \textit{rich picture} has been made, see \cref{fig:RP-Oversigt}. A rich picture is an ''informal drawing that presents the illustrator's understanding of a situation'' \citep[~p. 26]{Rod-Aalborg}.
-This is to understand how the handbook should be handled as well as to visualize the different types of users and their behavior.
+To understand the context further a \textit{rich picture} has been made, see \cref{fig:RP-Oversigt}. A rich picture is an ''informal drawing that presents the illustrator's understanding of a situation'' \citep[~p. 26]{Rod-Aalborg}.
+This is therefore used to understand how the handbook should be handled as well as to visualize the different types of users and their behavior.
 
 \begin{figure}[H]
 	\centering
@@ -33,31 +33,34 @@ This is to understand how the handbook should be handled as well as to visualize
 	\label{fig:RP-Oversigt}
 \end{figure}
 
-Based on the first interview with Ipsen, the main outlines of the situaton and problem to be solved became clear.
-The rough outline, also shown in \cref{fig:RP-Oversigt}, is a document management system for handbooks with three types of users. These being:
+Based on the first interview with Ipsen, the main outlines of the context and problem to be solved became clear.
+The rough outline, also shown in \cref{fig:RP-Oversigt}, is a document management system for handbooks with three types of users. 
+These being:
 \begin{itemize}
 	\item
-		\textit{Reader} who needs access to the newest version of the handbook, being managed, at location.
+		\textit{Reader;} who needs access to the newest version of the handbook, being managed, at location.
 	\item
-		\textit{Writer} who has the same rights as ''reader''.
-		This user type also needs permission to add new versions to the handbook.
+		\textit{Writer;} who has the same rights as ''reader''.
+		This user type needs further permission to add new versions to the handbook.
 	\item
-		\textit{Administrator} who has the same rights as ''writer'' and ''reader''.
-		This user type also have access to the archived versions of the handbook, and is furthermore in charge of managing the other users and assigning them to the different departments.
+		\textit{Administrator;} who has the same rights as ''writer'' and ''reader''.
+		This user type additionally have access to the archived versions of the handbook, and is in charge of managing the other users and assigning them to the different departments as well.
 \end{itemize}
+
 When either ''writer'' or ''administrator'' uploads a new version, this goes through an approval process.
 If it is denied, the actors usually talks over the phone, and when it is approved the handbook gets updated with the new version.
 Whenever a new version of a document has been approved and released, all of the affected employees, called readers in the rich picture, need to read it.
 A department head typically in the writer role has the responsibility of keeping track of whether the affected employees has read the newest document.
 
-It is worth noting, that the case where the approval for a new version is denied is the only part of the workflow presented in the rich picture that is not included in the system.
+It is worth noting, that the case where the approval for a new version is denied is the only part of the workflow presented in the rich picture that would be done outside a given system made.
+%Anna: vil gerne have fjernet sætningen nedenfor (synes ikke den gør noget for afsnittet)
 This decision was made based upon conversations with Ipsen.
 
 \subsection{FACTOR criteria} \label{sec:factorcriteria}
 The FACTOR criterion consists of six elements and can be used to help with the system definition development or describing an existing system.
 In this context FACTOR is being used for the former option, which is to help facilitate the system definition development.
 FACTOR is an abbreviation of \textit{Functionality}, \textit{Application domain}, \textit{Conditions}, \textit{Technology}, \textit{Objects} and \textit{Responsibility}.
-These are defined as follows \citep[p.~40]{Rod-Aalborg}:
+These are defined as follows, \citep[p.~40]{Rod-Aalborg}:
 \begin{itemize}
 	\item
 		''Functionality:
@@ -80,10 +83,15 @@ These are defined as follows \citep[p.~40]{Rod-Aalborg}:
 \end{itemize}
 
 \subsubsection{FACTOR analysis}\label{factor}
+%Anna: Burde vi evt få lidt mere teks ind i de her afsnit. Det er skrevet meget som punktform
+
+%Anna: Kan dt være det her afsnit skal sidestilles med FACTOR-criteria fremfor at være et underafsnit deraf
 Based on the requirements specified by Ipsen, see \cref{sec:requirements}, the FACTOR criterions have been analyzed.
 In the following an overview this analysis will be presented.
+%Anna- skal vi ikke fjerne sætningen ovenfor (da requirements af udviklet på baggrund af requirements og ikke omvendt)
+%Anna: kan vi evt bare fjerne hele afsnittet
 
-\textbf{F - Functionality}
+\noindent\textbf{F - Functionality}
 
 Manage and facilitate an overview of current and earlier versions of assorted files of different types in a handbook, as well as manage files in connection to approval of suppliers. % Taniya: er det stadig different types når vi ender med at systemetet kun tager imod pdf filer - eller hvordan bliver det?
 Files in the handbook may have a changelog.
@@ -93,7 +101,7 @@ Notify specific users when a new version is released.
 It should also be possible to import already existing handbooks to the system.
 %Taniya: 'should' lyder ikke helt præcis ift. hvad systemet skal kunne?
 
-\textbf{A - Application domain}
+\noindent\textbf{A - Application domain}
 
 Mainly secretaries and the quality manager will administrate the system.
 All employees of the organization will have access to the system to read documents and print the handbook.
@@ -101,21 +109,14 @@ The managing directors will, usually, have partial access to the system, such th
 %a) hvem er managing director??? b) hvis CEO som antaget  er det her forkert forslag: ændr managing director til department head
 They will, occasionally, also take part in the approval process of new versions that they themselves have not made.
 
-\textbf{C - Conditions} \label{sec:conditions}
+\noindent\textbf{C - Conditions} \label{sec:conditions}
 
-<<<<<<< HEAD
 The target group of the system is a small company that needs a cheap document managing solution.
-The users mostly have little IT-experience and noone at the company is able to maintain the system.
-Lastly, there should be a backup of the archive making it easy to revert to the previous system.
-=======
-The target group of the system consists of small to medium firms who needs a cheap document managing solution.
 The users mostly have little IT-experience.
 Therefore, most of the target groups are also not able to maintain such a system.
-Lastly, there should be a backup of the archive making it easy to revert to the previous system.
-No one at the company is able to maintain the system.
->>>>>>> ffefc88c215ff0284dad024654818f9f429fdae8
+Lastly, there should be a backup of the archive making it easy to revert back to the previous system.
 
-\textbf{T - Technology}
+\noindent\textbf{T - Technology}
 
 The system will be developed in C\# using the web framework ASP.NET Core.
 Other technologies such as HTML, CSS and JavaScript/jQuery will also be used to develop the system.
@@ -124,9 +125,9 @@ The system will be accessible in the users web browser \footnote{Google Chrome, 
 The notifications are sent over e-mail or sms.
 %var der nogen der tjekkede op paa hvorvidt e-mail og sms tæller som en teknologi??? - Astrid
 
-\textbf{O - Objects}
+\noindent\textbf{O - Objects}
 
-The main objects of the problem domain are \textit{Handbook, Table of Contents (TOC), documents, changelog} and \textit{user}.
+The main objects of the problem domain are \textit{Handbook, Table of contents (TOC), documents, changelog} and \textit{user}.
 These object will be examined in \cref{sec:Classes}.
 
 \textbf{R  - Responsibility}
@@ -142,22 +143,22 @@ Keeping track of documents used in the approval process of suppliers and dates f
 
 \subsection{Final system definition}\label{sec:systemdefinition}
 In this section the final system definition is described.
-It is based on the aforementioned FACTOR analysis in \cref{sec:factorcriteria} and rich picture in \cref{sec:richpictures} and the interviews with Ipsen.
+It is based on the aforementioned rich picture in \cref{fig:RP-Oversigt}, FACTOR analysis in \cref{factor} and the interviews with Ipsen.
 
 The system manages files, of different types, in a handbook presented in a updated TOC.
 Here each file is uniquely identifiable with ID, title, date of approval, possible end date, and version number.
 The identification numbers are individually reserved for a specific title once taken.
 Earlier versions of the files are archived, but can only be viewed by the administrator and are not editable.
 It is possible to sort the files in the handbook by different attributes.
-The system supports a changelog for every file and version in the handbook.
+Furthermore, the system supports a changelog for every file in the handbook.
 
 The system needs three different levels of access rights to the files within the managed handbook, also shown in \cref{fig:RP-Oversigt}.
 First level grants access to reading the newest version of the handbook.
-Second level further grants rights to add new files or versions to the handbook.
+Second level further grants rights to add new files to the handbook.
 The last level is an administrative level, being in full control of the system.
-Users with administrative privileges can assign other users to departments and determine which documents are associated with those departments.
+Users with administrative privileges can assign others to departments and determine which documents are associated with those departments.
 The system sends notifications to users of specific departments when relevant changes or versions are uploaded into the system.
-Moreover, the system also registers that specific users have read specific files and versions.
+Moreover, the system also registers that specific users have read specific document versions.
 Reading access to the handbook for any of the levels is possible at any relevant location.
 
 The system supports an approval of suppliers process where a supplier is linked with the relevant documents and a notification is sent to the administrator when supplier documents needs to be updated.
