@@ -9,13 +9,13 @@
 		\node(info)[predefined, right=2.5cm of setting]{Information\\checked};
 		\node(preview)[predefined, right=2.8cm of main]{Document\\preview};
 		\node(end)[n, right=2.8cm of preview] {};
-		\node(End)[c,fit=(end)] at (end) {};	
+		\node(End)[c,fit=(end)] at (end) {};
 	%linjer i billedet:
-		\draw[arrow](start.east)--node[above]{open\\OBHandbooks}(login.west);
+		\draw[arrow](start.east)--node[above]{Open\\OBHandbooks}(login.west);
 		\draw[arrow](login.south)--node[left]{Normal\\login}(main.north);
 		\draw[arrow](login.east)--node[above]{First time\\login}(setting.west);
 		\draw[arrow](setting.14)--node[above]{Fill out\\information}(info.170);
-		\draw[arrow](info.west)--node[below]{invalid info}(setting.east);
+		\draw[arrow](info.west)--node[below]{Invalid info}(setting.east);
 		\draw[arrow](info.south west)--node[right, xshift=0.5cm]{Valid info}(main.north east);
 		\draw[arrow](main.east)--node[below]{Select\\document}(preview.west);
 		\draw[arrow](preview.east)--(End.west);
@@ -23,7 +23,7 @@
 		\path[arrow] (main) edge [loop below, looseness=7] node[auto] {Unfold a chapter} (main);
 		\path[arrow] (main) edge [loop left, looseness=3] node[auto] {Unfold all\\chapters} (main);
 		\path[arrow] (preview) edge [loop below,looseness=4] node[auto] {Download}(preview);
-	
+
 	\end{tikzpicture}
 	\caption{Statechart diagram for the use case 'access current handbook'}\label{fig:access-handbook}
 \end{figure}

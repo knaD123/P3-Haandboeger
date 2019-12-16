@@ -6,7 +6,7 @@
 		\node(main)[predefined, right=2.7cm of start]{Main page};
 		\node(pending)[predefined, right=3.0cm of main]{Pending\\approval page};
 		\node(approve)[predefined, below=1.5cm of pending]{Pending approval\\approved};
-		\node(ver)[predefined, left=2.8cm of approve]{pending approval\\verison page};
+		\node(ver)[predefined, left=2.8cm of approve]{Pending approval\\version page};
 		\node(active)[predefined, below=1.5cm of approve]{Version active\\in handbook};
 		\node(end)[n, left=1.5cm of active]{};
 		\node(End)[c, fit=(end)] at (end){};
@@ -20,7 +20,7 @@
 		\draw[arrow](approve.south)--node[right]{Version approved\\by all approvers}(active.north);
 		\draw[arrow](approve.235)--node[left]{Admin unilateraly\\approves version}(active.125);
 		\draw[arrow](active.west)--(End.east);
-		
+
 	\end{tikzpicture}
 	\caption{Statechart diagram for the use case 'Approve new version'}\label{fig:approve}
 \end{figure}

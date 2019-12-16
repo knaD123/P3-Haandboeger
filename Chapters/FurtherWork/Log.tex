@@ -1,0 +1,9 @@
+\documentclass[../../master.tex]{subfiles}
+\begin{document}
+\section{System log}
+Previously mentioned is the issue of administrators in effect being able to take over a users account, with no way to tell that this has happened.
+
+In an ideal change, there would be an append-only system log, visible to all system administrators, into which any actions performed in the system would be appended.
+Thus, if any malevolent changes to the systems were performed, such as a hostile takeover of an user account, the other administrators would be able to see this.
+Or possibly, to extend the features even more, it could be possible to revert the entire system to a previous state, perhaps using a command pattern for changes to the application state.
+\end{document}
