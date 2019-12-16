@@ -1,17 +1,18 @@
 %\todo[inline]{Henrik: Fjern reactivate document}
 This chapter covers the problem domain analysis based on data gathered in the initial interviews with Ipsen.
-The following sections include the selection of selected classes and events, a rundown of the structure between classes, and the description of the behavior patterns through statechart diagrams.
+The following sections include the selection of classes and events, a rundown of the structure between classes, and the description of the behavioral patterns through statechart diagrams.
 
 \section{Classes and events}\label{sec:ClassEvent}
 The following subsections explore the potential class and event candidates as well as the thought process behind them.
 The generated class and event candidates will be systematically selected based upon their relevance and whether they satisfy the system definition.
-The process of systematically selecting classes and events is from the Object Oriented Design \& Analysis (OOA\&D) method, \cite{Rod-Aalborg}.
+The process of systematically selecting classes and events is from the Object Oriented Design \& Analysis (OOA\&D) method \cite{Rod-Aalborg}.
 
 \subsection{Classes} \label{sec:Classes}
 According to  \citep[p.~55]{Rod-Aalborg} a class is defined as seen below.
 \begin{defn}\label{defn:class}
 	A description of a collection of objects sharing structure, behavioral pattern, and attributes.
 \end{defn}
+%jeg troede vi var enige om at have afskaffet denne form for citering? - astrid
 
 The questions below help to evaluate a class. The more affirmative the answers are the more likely it is that a class is the correct representation. \citep[p.~62]{Rod-Aalborg}
 \begin{itemize}
@@ -34,27 +35,31 @@ In the following, the classes from \cref{tab:ClassCandidates}, are through a sys
 	\texttt{User }& Users with either reader, writer or administrator role\\
 	\texttt{Version} & Document’s version and the validity period\\
 	\texttt{Log} & Descriptions of changes for each version\\
-	\texttt{Responsibility} & Difference user access levels to the handbook\\
+	\texttt{Responsibility} & Different user access levels to the handbook\\
 	\texttt{Approval} & Keeps track of who has to approve specific
 	versions\\
-	\textbf{TOC} & The table of contents of the documents in the handbook\\
-	\textbf{Notification} & Sends notice to relevant users when a new version is submitted\\
-	\textbf{Read Status} & Keeps track of who has read which document and version\\
-	\textbf{Supplier} & Supplier who has to be approved \\
+	\texttt{TOC} & The table of contents of the documents in the handbook\\
+	\texttt{Notification} & Sends notice to relevant users when a new version is submitted\\
+	\texttt{Read Status} & Keeps track of who has read which document and version\\
+	\texttt{Supplier} & Supplier who has to be approved \\
 	\hline
 \end{tabular}
 \caption{Class candidates}\label{tab:ClassCandidates}
 \end{table}
+%sidste fire kandidater var skrevet med fed. jeg saa ingen grund dertil og lavede det om - astrid
 
 \textbf{Qualified classes}
 
 The \texttt{Company} keeps track of companies that use the system, which is an important concept to keep track of.
+%æhhh vi har ikke mere end et enkelt firma???
 
 The \texttt{Handbook} keeps track of the documents and is an important part of the problem domain and system definition.
 
-The \texttt{Document} works as an item for the various versions in an item-descriptor pattern.
+The \texttt{Document} works as a descriptor for the various versions in an item-descriptor pattern.
+%der stod item før nu staar der descriptor - astrid
 
 The \texttt{Version} encapsulates the version data in the documents, and allows the document to have multiple instances of them.
+They are the items og the item-descriptor pattern.
 
 The \texttt{User} is qualified because there would be different types of users with different access levels in the system.
 
@@ -69,6 +74,8 @@ The \texttt{Supplier} is qualified seeing that the administrator needs to keep a
 
 The changelog simply consists of a text string from version to version.
 Because of this, making it an actual object would be overcomplicating the model, and it has therefore been preserved as an attribute of the \texttt{Version} class.
+An argument could be made that the class should be qualified if the changelog in its entirety were accessed more often than it is, see \cref{access-archive}.
+%tilføjet noget saa vi tager hensyn til lus kommentar - astrid
 
 The \texttt{Responsibility} is not qualified because the different levels of access and permissions that are present in the \texttt{User} class.
 
@@ -107,9 +114,11 @@ Once again, the questions below help to evaluate an event if those are affirmati
 
 The event being instantaneous refers to there not being any timeframe which can be described as "while the event is happening". 
 There is only a before and after.
+
 The event being atomic means that the event is indivisible. 
 It cannot be divided into smaller events.
 The event being identifiable refers to it being obvious when it happens. The system will be able to know of the event happening, either due to the event happening within the system, or because it is informed of the event happening by an user.
+%det her er en fucking smuk forklaring - astrid
 
 In the rest of the section the generated events in \cref{tab:EventCandidates} will be reviewed and deemed either qualified or not qualified regarding the systematical selection based on the criteria written above.
 
@@ -124,9 +133,11 @@ Events that has been identified for the project can be seen in the table below:
 		\textbf{Document archived} & A document where version is archived instead of updated.\\
 		%\textbf{Document reactivated} & Archived document is to be accessible in the handbook again\\
 		\textbf{Document deleted} & Wrong document is created, and is still without version\\
-		\textbf{Version approved}  & When approved it becomes available in the handbook\\
+		\textbf{Version approved}  & Version uploaded and awaiting approval\\
+%omformulering ovenover: begrundelse: jeg forstod det ikke -astrid
 		\textbf{New version released} &  New version becomes available in the handbook\\
-		\textbf{Version archived} & When newer approved version is added to handbook\\
+		\textbf{Version archived} & Versions valid date has passed\\
+%omformulering ovenover: begrundelse: jeg forstod det ikke -astrid
 		\textbf{Version marked \newline as read} & User has verified that the newest version has been read\\
 		\textbf{User added} & An administrator created a user\\
 		\textbf{User updated} & An administrator or user updated the user's information\\
@@ -136,15 +147,17 @@ Events that has been identified for the project can be seen in the table below:
 		\textbf{Supplier added} & New supplier has been registered\\
 		\textbf{Supplier updated} & Supplier's information has been updated\\
 		\textbf{Supplier deleted} & Supplier has been removed from the system\\
-		\textbf{Supplier approved} & Supplier's document has been approved\\
+		\textbf{Supplier approved} & Approval documents for supplier have been attached\\
+%omformulering ovenover: begrundelse: jeg forstod det ikke -astrid
 		\textbf{Approval requested} & New version is created and the approval requested is sent\\
 		\textbf{Approval confirmed}
-		& Approval is confirmed by one approver\\
+		& Approval is confirmed by all approvers\\
 		\textbf{Approval denied}
-		& Approval is rejected by every approver\\
+		& Approval is rejected by an approver\\
+%to ovenover ændret fordi de var forkerte - astrid
 		\textbf{Department added} & Department is created\\
 		\textbf{Department deleted} & Department is removed from system\\
-		\textbf{Department's users\newline updated} & Associating  a user to or removing form a department\\
+		\textbf{Department's users\newline updated} & Associating  a user to or removing from a department\\
 		\textbf{Department's\newline documents updated} & Associating a document to or removing from a department.\\
 		\textbf{Department notified\newline user} & Associated user received a notification of new version released\\
 		\textbf{Document printed} & Document is printed\\
@@ -155,27 +168,28 @@ Events that has been identified for the project can be seen in the table below:
 
 \textbf{Qualified events}
 
-The \textit{Document added} event is qualified reasoned that a document object must be created first before it has a version object added.
+The \textit{Document added} event is qualified as a document object must be created first before it has a version object added.
 
-The \textit{Document archived} event is qualified because it is an important functionality to archive expired documents for number of years according to the ISO 9001 document management requirements described in \cref{sec:ISOstandards}.
+The \textit{Document archived} event is qualified because it is an important functionality to archive expired documents for a number of years according to the ISO 9001 document management requirements described in \cref{sec:ISOstandards}.
 
 %\textit{Document reactivated} event is qualified since it must also be able to reactivate the document and make it available in the handbook again.
-
+%astrid: hvorfor ikke beholde denne her event i rapporten og  bare diskvalificere den fremfor at kvalificere den
 The \textit{Document deleted} is qualified for the reason that if an administrator made a mistake and added a wrong document then the delete option should be available.
 
-The \textit{Version approved} event are qualified since it is important for the system to register and keep track of when a version is complete within the approval process and whether it should be accessible in the handbook.
+The \textit{Version approved} event is qualified since it is important for the system to register and keep track of when a version is through the approval process and whether it should be accessible in the handbook.
 
-The \textit{Version marked as read} event is qualified because it is crucial for the company to register if employees had read specific documents and versions and are up to date with the current standards.
+The \textit{Version marked as read} event is qualified because it is crucial for the company to register if employees have read specific documents and versions and are up to date with the current standards.
 
 The \textit{Version archived} event is qualified for the same reason as \textit{document archived} event.
 
-The \textit{User added}, \textit{user updated} and \textit{user deleted} events are all qualified as an administrator need to manage company's user list.
+The \textit{User added}, \textit{user updated} and \textit{user deleted} events are all qualified as an administrator needs to manage the company's user list.
 
-The \textit{Supplier added}, \textit{supplier updated},  \textit{supplier deleted} and \textit{supplier approved} events are all qualified since suppliers need to be manage by an administrator whether they are approved or when to be reapproved.
+The \textit{Supplier added}, \textit{supplier updated},  \textit{supplier deleted} and \textit{supplier approved} events are all qualified since suppliers need to be managed by an administrator whether they are approved or need to be reapproved.
 
-The \textit{Approval requested} event are qualified seeing that it is important part of the system definition that the system must support an approval process.
+The \textit{Approval requested} event is qualified seeing that it is an important part of the system definition that the system must support an approval process.
 
 The \textit{Department added} and \textit{department deleted} events are qualified seeing that it is important for the administrator to keep track of company's current departments.
+%føler lidt at argumentationen halter her - astrid
 
 The \textit{Department's documents updated} and \textit{department's users updated} events are qualified since it is vital to associate a user to a specific department and to associate documents to the relevant departments.
 
@@ -191,8 +205,7 @@ Instead this will be the effect of the \textit{user deleted} event and thus \tex
 
 The \textit{User reactivated} event is not qualified, since a user cannot be deactivated but is instead deleted. In the rare occasion a company wishes to reemploy a person they have to create a new user in the system again for this person.
 
-The \textit{Approval denied (Version)} event is not qualified as Ipsen does not desire this functionality since the approver himself will contact Ipsen directly and afterwards a new approval request is made and the previous approval request will be deleted.
-\textit{Approval deleted (Version)} event is therefore qualified.
+The \textit{Approval denied (Version)} event is not qualified as Ipsen does not desire this functionality since the approver themself will contact Ipsen directly and afterwards a new approval request is made and the previous approval request will be deleted.
 
 The \textit{Approval confirmed} event is not qualified since its purpose is the same as \textit{version approved} event.
 
@@ -224,11 +237,14 @@ Qualified events:
 	\item Department notified user
 	\end{itemize}
 \end{multicols}
+\todo[inline]{under smukkeseringen s tjek lige at "overskrift" er p samme side som events}
 
 \section{Event table}\label{sec:EventTable}
 %\todo[inline]{Tjek op på definitionen skal der markeders for hvem der er påvirket før, under og efter eller kun efter?, hvis ikke finde så ekplicit skriv at den er lavet med udgangspunkt i efter eventet er tricked}
 The result of the selected qualified events and classes from \cref{sec:Classes,sec:Events} is an event table representing their relations, see \cref{fig:eventtable}.
 The symbols used in the table is to be understood such that; $+$ is an event that can occur zero or one time, and $\star$ is an event which can occur zero or multiple times.
+A class is associated to an event if the event affects the class.
+A class is not associated with an event if the class is the cause of or otherwise triggers the event.
 
 \begin{table}[H]
 	\begin{center}
@@ -283,9 +299,10 @@ The symbols used in the table is to be understood such that; $+$ is an event tha
 \end{table}
 
 Looking at the event table above it can be seen that \textit{document added} and \textit{document deleted} both can occur zero or multiple times for \textit{Handbook} and zero or one time for \textit{Document}.
-This is because, during the lifetime of a \textit{Handbook} it is possible to add and delete documents to it as many times its desired, but a single \textit{Document} can only be added or deleted once.
+This is because, during the lifetime of a \textit{Handbook} it is possible to add and delete documents to it as many times as desired, but a single \textit{Document} can only be added or deleted once.
 Keep in mind, that it is not possible to trigger the \textit{document deleted} event if the \textit{Handbook} does not contain any documents.
 A less trivial event from the event table could be the \textit{approval requested} event.
 Here it can be seen that this event occurs zero or one time for a \textit{Version} and an \textit{Approval}, but it can occur zero or multiple times for \textit{User} because multiple users can be assigned to approve a new version.
 
-This event table is useful in the designing of the system, as it displays all the events that the system needs to keep track of, and what objects should be included in each event. It will influence the actual implementation later in the process.
+This event table is useful when designing the system, as it displays all the events that the system needs to keep track of, and what objects should be included in each event.
+It will influence the actual implementation later in the process.
