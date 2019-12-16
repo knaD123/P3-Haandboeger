@@ -5,12 +5,12 @@ It is important to prioritize a system's requirements after the first draft of a
 This is because there are no guarantees that all of the requirements and design ideas are doable within the time frame of the project.
 %Anna: evt skrive 'a given development project' fremfor 'of the project'
 There is in this project set a hard time limit by Aalborg Univerity.
-%Anna: Vil virkeligt gerne hvis vi fjernede sætningen ovenfor, tænker det står i sætningen over den 
+%Anna: Vil virkeligt gerne hvis vi fjernede sætningen ovenfor, tænker det står i sætningen over den
 The information in this chapter is based upon Benyon \cite{Benyon}.
 %Anna: hvis MoSCoW er baseret på den så skriv referencen når MoSCoW nævnes (også ved MVP hvis det også er derfra) Har prøvet at sætte det ind som kommentarer er dog ikke sikker på om det er korrekt at tingeneer taget derfra.
 
 These priorities are set to determine which requirements are absolutely necessary for the system to function, the \textit{minimal viable product} (MVP),
-%\cite{Benyon}, 
+%\cite{Benyon},
 and which requirements are simply nice to include.
 The \textit{MoSCoW rules}
 %\cite{Benyon}
@@ -24,11 +24,11 @@ The MoSCoW rules classifies these priorities into:
     \item \textit{Want to have but won’t have this time around}.
 \end{itemize}
 
-Must have are the fundamental requirements to include of which the system would not function without.
-Must have also determines the MVP.
-Should have are essential requirements to include if the time frame allowed, but the system could still function without.
-Could have are less important requirements than must have and should have and they would easily be excluded from the system.
-Want to have but Won't have are requirements that can wait until a later point of the system development.
+Must haves are the fundamental requirements to include of which the system would not function without.
+Must haves also determines the MVP.
+Should haves are essential requirements to include if the time frame allowed, but the system could still function without.
+Could haves are less important requirements than must haves and should haves and they would easily be excluded from the system.
+Want to have but Won't haves are requirements that can wait until a later point of the system development.
 
 % Henrik: Er dette en okay måde at lave denne definition? DEB-bogen s. 147 øverst
 %Anna: Kna man argumenterer for at den definition skal have en anden kilde da DEB bogenciterer en anden kilde der
@@ -65,14 +65,14 @@ A lot of different techniques can be used when defining a project's requirements
 \end{itemize}
 
 These techniques can help designers to better understand the problems the client has with their current system, and at the same time, give a better understanding of the requirements for the new system.
-Using these techniques where the designer interacts with other people also provides the designer with a lot of stories that can form the basis for the analysis work. 
+Using these techniques where the designer interacts with other people also provides the designer with a lot of stories that can form the basis for the analysis work.
 %Ana: Af interesse og måske også fordi jeg er lidt forvvirret over fomuleringen men hvilke 'stories'
 %Anna: Kan den dobbelte 'designer' skrives ud af sætningen, synes det er meget at nævne det samme ord så tæt på hinanden i samme sætning
 Even though a designer have all these techniques at their disposal, the interview technique, see \cref{sec:interview}, is one of the most effective techniques to find out what the client wants and needs.
 %Anna: Er det ikke forkert i denne sammenhæng at henvise til den section da den jo ikke går i detaljen med teorien men er konkret hvordan der er gjort i dette projekt?
 
 % det kan være en iterativ process, og det sker ofte at der kommer nye "requirements" fra tid til anden
-The process of defining a project's requirements is an iterative process, see \cref{sec:iterativModel}. 
+The process of defining a project's requirements is an iterative process, see \cref{sec:iterativModel}.
 This is because new requirements will pop-up throughout the design process.
 %Anna: Evt tilføje "This may happen when the user interacts with the system during tests and it becomes clear misunderstandings of the basic concept has happend. Furthermore, it mayu also happen when the user realises other need's than what was thought necessary of the system to begin with"
 
@@ -80,68 +80,68 @@ This is because new requirements will pop-up throughout the design process.
 For this project the interview technique was used to define this project's requirements, see \cref{sec:firstinterview}. This helped defining the prioritization of the following requirements:
 
 \begin{itemize}
-    \item 
+    \item
     Must have:
         \begin{itemize}
-            \item 
+            \item
             The system should manage versions of handbook documents
-            \item 
+            \item
             A \textit{Table of Contents} (TOC) with title, ID number, date and version number
-            \item 
+            \item
             The system should be able to handle PDF files
-            \item 
+            \item
             Title and ID number are linked
-            \item 
+            \item
             Once a version has been added to the handbook, it cannot be changed
         \end{itemize}
-    \item 
+    \item
     Should have:
         \begin{itemize}
-			\item 
+			\item
 			Automatic updates of TOC
-            \item 
+            \item
             A human-written changelog can be included with each version
             %Anna: Evt skrive som, "A human-written changelog may be included depending on the company settings"?
-            \item 
+            \item
             Registration when a version has been read by an employee
             %Anna: Evt skrive i stedet for "registration of who among specific employees have read a version"
-            \item 
+            \item
             The handbook should be printable
             %Anna: den her skal diskuteres på et tidspunkt hvad vores definition af printable blev til, altså det med at den i stedet for printable laver til en pdf som brugeren selv derfra kan printe?
-            \item 
+            \item
             Different levels of permissions/access rights to the documents within the handbook
             %Anna: Hvilket ord bruger vi enten persmissions eller access rights (Hælder selv mod access rights)
-            \item 
+            \item
             Readers and writers only have access to the newest version of a document
-            \item 
+            \item
             Administrators have access to everything
             %Anna: Evt skrive "Administrators have acces to all features supported by the system"?
-            \item 
+            \item
             It should be possible to group users into departments, and associate them to documents.
-            \item 
+            \item
             It should be easy to switch from an existing system, and back to the existing system
             %Anna: Evt skriv " It should be simple to switch from an exsisting system, and back again"
                 \todo[inline]{RASMUS: Tjek om den her formulering passer med FACTOR, omformuler til kvantitativt krav}
         \end{itemize}
-    \item 
+    \item
     Could have:
         \begin{itemize}
-            \item 
+            \item
             When a document is updated, a notification should be sent out to the associated departments.
             \todo{(Tanke):skal evt diskuteres et sed at ideen er at alle associated får notificatione i systemet og dem med enten mail eller mobil vil yderligere får notifikation den vej rundt}
-            \item 
+            \item
             The system should be able to handle documents of different file-types
-            \item 
+            \item
             Option to sort documents according to different attributes
-            \item 
+            \item
             System for approval of new versions of documents
         \end{itemize}
-    \item 
+    \item
     Want to have but Won't have this time around:
         \begin{itemize}
-            \item 
+            \item
             Highlight differences between current and previous versions.
-            \item 
+            \item
             Approval of suppliers and their documents.
         \end{itemize}
 \end{itemize}
