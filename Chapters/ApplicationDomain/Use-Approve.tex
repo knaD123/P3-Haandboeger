@@ -6,7 +6,7 @@
 		\node(start)[n]{};
 		\node(main)[predefined, right=2.8cm of start]{Main page};
 		\node(preview)[predefined, below=1.5cm of main]{Document\\ preview};
-		\node(read)[predefined, right=3.2cm of preview]{Read status\\ overview pop-up};	
+		\node(read)[predefined, right=3.2cm of preview]{Read status\\ overview pop-up};
 		\node(end)[n, above=1.5cm of read] {};
 		\node(End)[c,fit=(end)] at (end) {};
 	%Pile i billedet
@@ -15,7 +15,7 @@
 		\draw[arrow](preview.east) -- node[below]{Press 'read status\\ overview'} (read.west);
 		\draw[arrow](read.north) --node[left]{Press 'x'\\ to exit}(End) node[right=0.5cm]{};%{Close};
 		%\draw[arrow](read.north west) -- node[above]{Press 'x'\\ to exit}(preview.north east);
-	
+
 	\end{tikzpicture}
 	\caption{{\color{red}View who has read a document}}\label{fig:Use-ReadStatus}
 \end{figure}
@@ -39,7 +39,7 @@
 			\node(end)[n, above=1.5cm of sent] {};
 			\node(End)[c,fit=(end)] at (end) {};
 		%Streger i billedet
-			\draw[arrow](start.east)--node [above]{login to\\ OBHandbooks}(main.west);
+			\draw[arrow](start.east)--node [above]{Login to\\ OBHandbooks}(main.west);
 			%Ud fra main page
 			\draw[black](main.south)--(4.01,-0.8);
 			\draw[arrow](4.03,-0.8)-|node[right, yshift=-0.5cm]{Press\\'Upload'}(new.north);
@@ -77,9 +77,9 @@
 		\node(info)[predefined, right=2.5cm of setting]{Information\\checked};
 		\node(preview)[predefined, right=2.8cm of main]{Document\\preview};
 		\node(end)[n, right=2.8cm of preview] {};
-		\node(End)[c,fit=(end)] at (end) {};	
+		\node(End)[c,fit=(end)] at (end) {};
 	%linjer i billedet:
-		\draw[arrow](start.east)--node[above]{open\\OBHandbooks}(login.west);
+		\draw[arrow](start.east)--node[above]{Open\\OBHandbooks}(login.west);
 		\draw[arrow](login.south)--node[left]{Normal\\login}(main.north);
 		\draw[arrow](login.east)--node[above]{First time\\login}(setting.west);
 		\draw[arrow](setting.north east)--node[above]{Fill out\\informations}(info.north west);
@@ -91,7 +91,7 @@
 		\path[arrow] (main) edge [loop below, looseness=7] node[auto] {Unfold a chapter} (main);
 		\path[arrow] (main) edge [loop left, looseness=3] node[auto] {Unfold all\\chapters} (main);
 		\path[arrow] (preview) edge [loop below,looseness=4] node[auto] {Download}(preview);
-	
+
 	\end{tikzpicture}
 	\caption{{\color{red}Access current handbook}}\label{fig:Use-access}
 \end{figure}
@@ -111,7 +111,7 @@
 		\node(delete)[predefined, right=2cm of editD]{Department\\deleted};
 		\node(update)[predefined, below=1.5cm of editU, xshift=2cm]{Department\\updated};
 		\node(end)[n, below=1.9cm of delete] {};
-		\node(End)[c,fit=(end)] at (end) {};	
+		\node(End)[c,fit=(end)] at (end) {};
 	%streger i billedet
 		\draw[arrow](start)--node[above]{Login to\\OBHandbooks}(main);
 		\draw[arrow](main)--node[above]{Go to\\'Departments'}(dep);
@@ -147,9 +147,9 @@
 	\node(delete)[predefined, right=1.6cm of user]{User\\deleted};
 	\node(end)[n, below=2cm of delete] {};
 	\node(End)[c,fit=(end)] at (end) {};
-	
+
 	\node(update)[predefined, left=2.8cm of End]{User\\updated};
-	\node(edit)[predefined, left=2.8cm of update]{Edit user\\page};	
+	\node(edit)[predefined, left=2.8cm of update]{Edit user\\page};
 	%streger i billedet
 	\draw[arrow](start)--node[above]{Login to\\OBHandbooks}(main);
 	\draw[arrow](main)--node[above]{Go to 'User\\management'}(user);
@@ -163,7 +163,7 @@
 	\path[arrow] (edit) edge [loop left, looseness=3] node[left] {Change\\information} (edit);
 	%Anna: Det er den linje her nedenfor som todo'en omhandler
 	\path[arrow] (edit) edge [loop below, looseness=4] node[below] {Change\\password} (edit);
-	
+
 	\end{tikzpicture}
 	\caption{{\color{red}User management}}\label{fig:Use-userman}
 \end{figure}
@@ -179,14 +179,14 @@
 		\node(profile)[predefined, right=1.8cm of main]{User setting\\page};
 		\node(update)[predefined, below=1.5cm of profile]{Profile\\updated};
 		\node(end)[n, left=2.8cm of update] {};
-		\node(End)[c,fit=(end)] at (end) {};	
+		\node(End)[c,fit=(end)] at (end) {};
 	%streger i billedet
 		\draw[arrow](start.east)--node[above]{Login to\\OBHandbooks}(main.west);
 		\draw[arrow] (main.east)--node[above]{Press the\\cogwheel}(profile.west);
 		\draw[arrow] (profile.south)--node[left]{Press\\'save'}(update.north);
 		\draw[arrow] (update.west)--(End.east);
 	%loop i billedet
-		\path[arrow] (profile) edge [loop right, looseness=3]node[auto]{Change\\information} (profile);	
+		\path[arrow] (profile) edge [loop right, looseness=3]node[auto]{Change\\information} (profile);
 	\end{tikzpicture}
 	\caption{{\color{red}Edit user information}}\label{fig:Use-profile}
 \end{figure}
@@ -215,7 +215,7 @@
 		\path[arrow] (archive) edge [loop right, in=355, looseness=3]node[auto]{Unfold\\documents} (archive);
 		\path[arrow] (archive) edge [loop above, in=65, looseness=6]node[auto]{Unfold\\chapters} (archive);
 		\path[arrow] (ver) edge [loop left, looseness=4]node[auto]{Download\\version} (ver);
-	
+
 	\end{tikzpicture}
 	\caption{{\color{red}Access Archive}}\label{fig:Use-archive}
 \end{figure}
@@ -241,7 +241,7 @@
 	%loop i billedet
 		\path[arrow](create) edge [loop below, in=255, looseness=4]node[auto]{Add\\information} (create);
 		\path[arrow](create) edge [loop below, out=345, in=320, looseness=3] node[right]{Add\\departments} (create);
-			
+
 	\end{tikzpicture}
 	\caption{{\color{red}Add user}}\label{fig:Use-AddUser}
 \end{figure}
@@ -271,7 +271,7 @@
 		\draw[arrow](approve.south)--node[right]{Version approved\\by all approvers}(active.north);
 		\draw[arrow](approve.south west)--node[left]{Admin unilateraly\\approves version}(active.north west);
 		\draw[arrow](active.west)--(End.east);
-		
+
 	\end{tikzpicture}
 	\caption{{\color{red}Approve new version}}\label{fig:Use-ApproveVer}
 \end{figure}
@@ -297,9 +297,9 @@
 		\draw[arrow](pop.west)--node[below]{Press 'Agree'}(update.east);
 		\draw[arrow](update.west)--(End.east);
 	%loop i billedet
-		\path[arrow](pop) edge [loop right, looseness=1]node[right]{Press\\'Cancel'} (status);	
-	
-	
+		\path[arrow](pop) edge [loop right, looseness=1]node[right]{Press\\'Cancel'} (status);
+
+
 	\end{tikzpicture}
 	\caption{{\color{red}Mark document as read}}\label{fig:Use-Read}
 \end{figure}
