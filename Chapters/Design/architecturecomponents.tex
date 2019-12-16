@@ -1,5 +1,4 @@
-\subsection{Component design theory} \label{archicomponents}
-%The following section is based on Mathiassen, Munk-Madsen, Nielsen and Stage \cite{Rod-Aalborg}.
+\subsection{Component design theory} \label{sec:archicomponents}
 The component design \cite{Rod-Aalborg} is the structural view of the system concerns, where the each of the components are being viewed in relation to their specifications and responsibilities within the system.
 A component is defined, \citep[p.~192]{Rod-Aalborg}, as.
 \begin{defn}\label{defn:component}
@@ -7,13 +6,11 @@ A component is defined, \citep[p.~192]{Rod-Aalborg}, as.
 \end{defn}
 
 These components when combined will make up the component architecture which defines the system structure, \citep[p.~192]{Rod-Aalborg}, see the following definition. 
-%\cref{defn:Structure}.
 \begin{defn}\label{defn:Structure}
 	A system structure is composed of interconnected components. 
 \end{defn}
 
 \subsubsection*{The Layered Architecture Pattern}
-%\textbf{The Layered Architecture Pattern}
 
 The layered architecture design means that the components are designed in layers such that the components are above or below each other.
 Here each layer or component describes its responsibilities and which other components it can access.
@@ -26,7 +23,7 @@ The layered architecture can be distinguished between open and closed, strict an
 \begin{center}
 	\begin{tabular}{| c | c |}
 		\hline
-		Closed-Stric & Open-Strict \\
+		Closed-Strict & Open-Strict \\
 		\hline
 		Closed-relaxed & Open-Relaxed \\
 		\hline
@@ -39,7 +36,6 @@ A \textit{strict} archicture is only able to access components that are either a
 Whereas, the \textit{relaxed} architecture is able to access components from both directions.
 
 \subsubsection*{Interface, function, and model components}
-%\textbf{Interface, function, and model components}
 
 When designing the component architecture there can usually be defined \textit{interface, function}, and \textit{model} components.
 Each of these have their own role and responsibilty within the system.

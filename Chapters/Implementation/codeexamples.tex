@@ -11,8 +11,10 @@ Here it will be shown in part how a new document is added into the system throug
 \subsection{Model}
 
 In the model component it \texttt{Document} object is defined.
-As it is primarily the document object that will be highlighted in the code examples, how the document object is presented in the code snippet below:
+It is primarily the document object that will be highlighted in the code examples.
+How the document object is presented is shown in the code snippet below:
 % Henrik: Synes den sidste sætning er lidt kryptisk?
+% Anja: Har omformuleret
 % Henrik: Maaske importer code-snippets ligesom Rasmus har gjort? (ikke vigtigt)
 \\
 \begin{lstlisting}[caption={Document Model: Document object}, label={lst:doc}]
@@ -49,7 +51,7 @@ public Document()
 
 The document object includes an ID, chapter, chapter number, section number, section number, versions, and whether or not it has been archived as seen in the code snippet above.
 The \texttt{key} attribute on line 1 specifies that the \texttt{int ID} is a primary key that the database can use to identify the specific document.
-Likewise, the \texttt{Range} attribute specifies that the section number is included in a an \texttt{Enumerable} class consisting of integers from 1 to the max value of a 32 bit \texttt{Integer}. % Henrik: Jeg har ændret "infinity"
+Likewise, the \texttt{Range} attribute specifies that the section number is included in a an \texttt{Enumerable} class consisting of integers from 1 to the max value of a 32 bit \texttt{Integer}.
 And the \texttt{Display} attribute on line 15 specifies that the section number should be displayed with the name \textit{section}.
 This \texttt{display} attribute is used with ASP.NET Core and is used to modify the text when the model is used in a view.
 
@@ -76,10 +78,10 @@ public void AddVersion(Version version)
 }
 \end{lstlisting}
 
-As is seen on line 3 and 4 when a new version of a document is added it receives a new date from which is it valid and that the \texttt{Approved} bool is set to \texttt{true}.
+As is seen on line 3 and 4 when a new version of a document is added the version's ValidFromDate is set to the current date and the \texttt{Approved} bool is set to \texttt{true}.
 % Henrik: Maaske i stedet for "it receives a new date ...", saa skriv "the version's ValidFromDate property is set to the current date"?
 On line 5 the new version is added to the list of versions.
-The control sequence from line 9 - 12 ensures that the previous version's date is set to the day that it has been replaced by the new version.
+The control sequence from line 9 - 12 ensures that the previous version's ValidUntilDate is set to the current date.
 % Henrik: Same thing her - Masske "the previous version's ValidUntilDate property is set to ..."
 When a new version has been added all of the affected department in the system will get notified as seen in the loop from line 13 - 16.
 
@@ -122,11 +124,12 @@ public async Task<IActionResult> Index()
 }
 \end{lstlisting}
 
-The \texttt{HttpGet} method means that the view component retrieves data from the controller.
+The \texttt{HttpGet} method means that the method only can accept \texttt{Get} requests.
 Something to take note of is the \texttt{async Task<IActionResult>} on line 3.
 The \texttt{Task} class represents a single operation \cite{microsoft}.
 This operation does not return a value and usually executes asynchronously.
-The \texttt{IActionResult} result method ensures that the controller returns a model to the view.
+The \texttt{IActionResult} method means that it returns a result.
+%The \texttt{IActionResult} result method ensures that the controller returns a model to the view.
 % Henrik: Jeg er ikke enig mht det der staar om HttpGet og IActionResult
 % HttpGet sørger bare for at denne action method kun kan blive tilgaaet af en GET request
 % IActionResult garanterer ikke at controlleren returns en model til viewet
@@ -142,7 +145,7 @@ This is done through the two loops from line 14 - 25.
 All of the non-archived documents are returned to the view through \texttt{var documentIndex} on line 29.
 % Henrik: Synes starten er lidt kryptisk + jeg forstaar ikke hvor det her "sorting" kommer fra?
 
-In the code snippet below it is shown what happens when the user adds a new document or version to the system through the \texttt{HttpPost} method.
+In the code snippet below it is shown what happens when the user adds a new document or version to the system through the \texttt{Add} method.
 % Henrik: Der bliver ikke tilføjet noget gennem HttpPost method, det sker gennem Add action method
 % HttpPost fortæller bare, at denne action method kun kan tilgaaes med en POST request
 \\
@@ -217,9 +220,7 @@ public async Task<IActionResult> Add(Document document,
 }
 \end{lstlisting}
 
-As the \texttt{HttpGet} method retrieves data from the controller, the \texttt{HttpPost} method ensures that new data is submitted into the controller and into the components further down the layers.
-% Henrik: HttpGet modtager ikke noget fra controlleren - se kommentar længere oppe
-% Henrik: HttpPost ensures ikke at data er submitted
+The \texttt{HttpPost} method ensures that it can only receive \texttt{Post} requests.
 
 The information from the view is transfered into the controller method through the parameters shown from line 2 - 7.
 When the document is posted to the controller the \texttt{Add} method ensures that the new document version needs to be approved line 9.
