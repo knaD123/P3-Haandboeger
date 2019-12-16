@@ -77,7 +77,7 @@ These two classes connect the two subproblems.
 
 \subsection{Handbook}\label{sec:classdiagramhandbook}
 Where a company can have multiple or no suppliers there can only be one Handbook.
-The Handbook is a part of the, Company which acts as a handle to access both suppliers and the handbook. This is a composition relation.
+The Handbook is a part of the Company which acts as a handle to access both suppliers and the handbook. This is a composition relation.
 
 A handbook is an aggregation of Document, as there are multiple documents in each handbook, and Document is again an aggregation of versions, which keeps track of the multiple versions each document has and dates of the period one was valid in the handbook.
 
@@ -172,7 +172,7 @@ The two Approval classes are more complicated as the approval process varies:
 
 \begin{itemize}
   \item In the handbook system a version of a document needs to be approved and the author can specify which people should do so.
-  \item In the supplier-approval system a supplier needs to be approved which only demands an approval from one administrator. 
+  \item In the supplier-approval system a supplier needs to be approved which only demands an approval from one administrator.
 \end{itemize}
 
 However the administrator needs to submit some kind of documentation, that justifies the approval of the supplier.
@@ -202,12 +202,12 @@ Therefore, the final class diagram looks like in \cref{fig:ClassDiagramNoSupplie
 	\node(write)[process, below=1cm of role]{writer};
 	\node(reader)[process, left=1cm of write]{Reader};
 	\node(admin)[process, right=1cm of write]{Administrator};
-	
+
 	%Linjer
 	%Ver to doc
 	\draw[{open diamond}-](doc.south) node[below=0.2cm, right]{1} |- (-2.0,-2.7);
 	\draw[black] (-3.75,-3.2) node[above=0.25cm, right]{0..*} |- (-2.0,-2.7);
-	%approval linjer	
+	%approval linjer
 	\draw[arrow](handapp.north)--(app.south);
 	\draw[black](handapp.south)node[above=-0.2cm, left]{0-1}--(ver.north) node[below=-0.2cm, left]{1};
 	%rollemønster
