@@ -9,7 +9,7 @@ But when it was a part of the prototype and therefore clearer illustrated it tur
 
 After the evaluation activity an understanding phase started where the first analysis of the functions in the application domain activity was done as well as the development of rich picture analysis in the problem domain activity, \cref{fig:RP-Oversigt,fig:RoleIllustration}.
 Hereafter, the architectural design was reevaluated from the first rough ideas in iteration 1, and the development of component design started.
-leading the workflow into a mix of the understanding and design activities. 
+Leading the workflow into a mix of the understanding and design activities. 
 See \cref{fig:DEBModel,fig:SUModels}.
 
 During this iteration a design process concerning the interface design began, using a mix of envisionment and design activities from \cref{fig:DEBModel}.
@@ -25,6 +25,7 @@ In the course of the first iteration there was an awareness of the sub-problem b
 
 At the third interview the supplier sub-problem was discussed through a series of questions prepared beforehand to resolve the needed information.
 Afterwards in the second iteration, the problem domain analysis was as mentioned in \cref{sec:2Iteration-timeline}. 
+% Taniya: was mentioned and . . . ? føler at der mangler noget her? 
 This was done especially with the focus on in-cooperating the supplier subproblem.
 This meant changes to the FACTOR analysis and the class diagram.
 As for the class diagram the introduction of the supplier and later the refinement of the approval classes led to the final draft seen in \cref{fig:ClassDiagram}.
@@ -32,7 +33,8 @@ As for the class diagram the introduction of the supplier and later the refineme
 \subsubsection*{FACTOR}
 In addition to the supplier subproblem mentioned above the FACTOR analysis went through two significant changes during the second iteration.
 
-The first change is the role hierarchy which was turned from four levels into four. 
+The first change is the role hierarchy which was turned from four levels into four.
+% Taniya:  four levels into four?
 During the first iteration it had become unclear whether or not a fourth level was needed in the role hierarchy.
 In the original FACTOR it was written as follows
 \footnote{Note: The writing style was more detailed in the first FACTOR to make sure the requirements was understood correctly, when the second interview came around.}:
@@ -56,7 +58,7 @@ Though it was concluded from the third interview that only three roles were need
 These are mentioned in the FACTOR analysis found in \cref{factor}.
 
 The second significant difference is how most of the functionality and some of the conditions from the FACTOR analysis has turned into requirements in the MoSCoW presented in \cref{sec:requirementsdefinition}. 
-These are among other ''The handbook should be printable'' and ''Title and chapter number are linked. If a title is removes the chapter number cannot be used for anything else.'', from the FACTOR analysis draft in iteration 1.
+These are among other ''The handbook should be printable'' and ''Title and chapter number are linked. If a title is removed the chapter number cannot be used for anything else.'', from the FACTOR analysis draft in iteration 1.
 
 \subsubsection*{Event table}
 The event table went through quite an evolution throughout the second iteration.
@@ -71,7 +73,7 @@ Though this is not something that will be gone into any further details with.
 Another change from first to second iterations how the supplier sub-problem has become a part of the event table.
 As mentioned before the third interview cleared up questions about this sub-problem and it could become part of the system design and analysis.
 
-Further developments to the event table is how the events 'Subscribed to documents' and 'unsubscribed' was reevaluated as the idea of departments got more worked out.
+Further developments to the event table is how the events 'subscribed to documents' and 'unsubscribed' was reevaluated as the idea of departments got more worked out.
 These events turned into the department block of events in the table found in \cref{fig:eventtable};
 \begin{itemize}
 	\item 
@@ -86,7 +88,8 @@ These events turned into the department block of events in the table found in \c
 	Department notified user
 \end{itemize} 
 
-Finally the event table was also filled out with the markings connecting the different classes and events and how many times the event occurs.
+Finally, the event table was also filled out with the markings connecting the different classes and events and how many times the event occurs.
+%Taniya: how many times the event could occur? istedet for måske? det lyder som om vi skriver præcis hvor mange gange events vil ske?
 
 \subsubsection*{Some conclusions on last prototype}
 As written in \cref{sec:2Iteration-timeline}, one conclusion from the end of the first iteration, is the need of the date search function in the archive, seen in fig:3-archive.
