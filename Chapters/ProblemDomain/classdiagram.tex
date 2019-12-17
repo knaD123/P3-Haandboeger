@@ -1,8 +1,9 @@
 \section{Class diagram} \label{sec:classdiagram}
-The qualified classes from \cref{sec:Classes} are ordered in relation to each other in a class diagram, the purpose of which is ``to describe structural relations between classes and objects'' \citep[p.~71]{Rod-Aalborg}.
+%Anna: skulle klasserne ikke markeres med italic????
+The qualified classes from \cref{sec:Classes} are ordered in relation to each other in a class diagram, the purpose of which is ''to describe structural relations between classes and objects'' \citep[p.~71]{Rod-Aalborg}.
 
 The class diagram in \cref{fig:ClassDiagram} shows the structure between the classes in the problem domain.
-The two main problems modeled in this diagram are the handbook and the suppliers.
+The two main sub problems modeled in this diagram are the handbook and the suppliers.
 Both of these deal with archiving and managing the documents a company needs to get their certifications.
 
 \begin{figure}[H]
@@ -49,7 +50,7 @@ Both of these deal with archiving and managing the documents a company needs to 
 	%Handbook approval og user
 	\draw[black](handapp.west)node[below=0.6cm, right]{1..*} -| (-7.3,-5.0);
 	\draw[black] (-7.3,-5.0) |- (-6,-9.0);
-	\draw[black] (user.south east)node[below=0.2cm, right]{0..*} -| (7.7,-7.0);
+	\draw[black] (user.340)node[below=0.2cm, right]{0..*} -| (7.7,-7.0);
 	\draw[black] (-6,-9.0) -| (7.7,-7.0);
 	%rollemønstret
 	\draw[arrow](role.north)--(user.south);
@@ -62,17 +63,21 @@ Both of these deal with archiving and managing the documents a company needs to 
 	\draw[black](doc.east) node[above=0.2cm,right]{1} --(dep.west) node[below=0.2cm,left]{0..*};
 	\draw[black](read.east) node[above=0.2cm,right]{0..*} --(user.west) node[below=0.2cm,left]{1};
 	\draw[black](6.85,-8.14)node[above=0.2cm,right]{1..*}|-(start);
-	\draw[black](handapp.south) node[above=-0.2, left]{0-1}|- (ver.west) node[below=0.2cm,left]{1};
+	\draw[black](handapp.south) node[above=-0.2, right]{0-1}|- (ver.west) node[below=0.2cm,left]{1};
 	\end{tikzpicture}
 	\caption{Class diagram of the problem domain}\label{fig:ClassDiagram}
 \end{figure}
 %hvad sker der for underlige sider i diagrammet????
+%Anna: Hvad menes der med kommentaren ovenfor
 
 \subsection{Supplier}
 The less complex subproblem is that of managing the suppliers.
+%Anna: Hvorfor er den mindre complex (Skal bare have en hurtig verbal forklaring)
 There can be any number of suppliers, and these suppliers in turn aggregate approvals.
 These approvals are meant to signify a specific period of time that the supplier is approved.
-Each Approval then aggregates at least one Version, which each encapsulates one of the files needed to document the validity of approving the supplier.
+%Aggregerer de approvals eller er de aggregeret af
+An Approval then aggregates at least one Version, which each encapsulates one of the files needed to document the validity of approving the supplier.
+%Anna: Igen samme spørgsmål
 This is a hierarchy pattern where both Company and Version is also included in the hierarchy structure for the handbook.
 These two classes connect the two subproblems.
 
@@ -80,7 +85,9 @@ These two classes connect the two subproblems.
 Where a company can have multiple or no suppliers there can only be one Handbook.
 The Handbook is a part of the Company which acts as a handle to access both suppliers and the handbook. This is a composition relation.
 
-A handbook is an aggregation of Document, as there are multiple documents in each handbook, and Document is again an aggregation of versions, which keeps track of the multiple versions each document has and the period in which a version is valid within the handbook.
+A handbook is an aggregation of Document, as there are multiple documents in each handbook.
+%Anna Er det igen ikke aggregeret af, er det det rigtige måde at bruge fagtermet på
+Document is then again an aggregation of versions, which keeps track of the multiple versions each document has and the period in which a version is valid within the handbook.
 
 The relation between Document and Version is an item-descriptor pattern.
 The Document class is the descriptor and contains all the important information about the document, including a pointer to the current valid version of said document.
@@ -88,10 +95,12 @@ Version is an item as it encapsulates the actual file with the current version o
 This is modeled so because of the need to keep track of earlier versions as well.
 
 Version has two relational patterns, one to the Approval class and one to the Read Status class.
+%anna vel handbook approval class?
 Both classes exist because of the need to keep the information about when an event happened and which users were involved.
 Who approved this version and when did that happen?
 Who has read this version of the document?
 As well as the reverse: Who has not?
+%Anna: evt tilføje "of those that need to"
 Keeping track of the when is important because a new version should not replace the former one before it has been approved.
 Furthermore, for certification purposes it is relevant to know who has read the current version at any given time as seen in \cref{sec:ISOstandards}.
 
@@ -111,11 +120,13 @@ The writer has the additional permission of submitting new versions of documents
 
 The administrator has all access to the system.
 This includes making completely new documents, managing who gets notifications for which documents through the Department class, adding and removing users and accessing the archive.
-There needs to be at least one administrator per Company.
+There needs to be at least one administrator in the Company.
 
 The pattern functions like a hierarchy where the reader is at the bottom level, the writer at the middle level and the administrator at the top level. This means each role have the same core attributes, but their privileges are greater for each level, increasing from bottom to top.
 This relation is pictured in \cref{fig:RoleIllustration}.
-However as seen in \cref{mark-read} it is not entirely correct as there is one use case case which the administrator does not have access to.
+However as seen in \cref{mark-read} it is not entirely correct as there is one use case which the administrator does not have access to.
+%Anna: Hvilken case er det?
+%Anna: Referencen virker ikke, er den korrekt skrevet ind (hvad henvises der til?)
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{billeder/RP-Roller2.jpg}
@@ -127,15 +138,19 @@ It is expected that there will be between two and three administrators in the sy
 The company's quality manager should be an administrator and will be the person most accustomed to the system.
 Additionally the secretaries will need the same level of access to do their job, but they likely won't spend as much time working with the system.
 The CEO of the company could also be an administrator but depending on their involvement they could also be a writer or even reader.
-The writer role would typically be assigned to people like the department heads as they are the experts on how their own departments work.
+The writer role would typically be assigned to department heads as they are the experts on how their own departments work.
 Every single employee should be a user and will by default have a reader role.
+%Anna: Bare et spørgsmål hvis man opretter en bruger kan man gøre det uden at angive rolle og så er de pr. automatic reader?
 
 \subsection{Approval} \label{Approval}
-The biggest similarities between the handbook-approval and supplier-approval subproblems are the need for archiving documents and the need for approving certain things with different intervals.
+The biggest similarities between the handbook-approval and supplier-approval are the need for archiving documents and the need for approving certain things with different intervals.
+%Hvad har approval med archiving at gøre?
 
 The difference between them is first and foremost that while the company needs both, they do not need each other.
-The approval of the suppliers is not included in the handbook and has no relevance for the majority of the users of the handbook, and what the handbook says is irrelevant to whether a supplier is approved or not.
+The approval of the suppliers is not included in the handbook and has no relevance for the majority of the users of the handbook.
+Furthermore, the handbook  has no effect on whether a supplier is approved or not.
 % Anja: "what the handbook says" skal nok omformuleres. Jeg ved faktisk ikke, hvad vi skal tage med videre fra sætningen ovenfor.
+%Anna: Har prøvet at omskrive den lidt
 
 \begin{figure}[H]
 	\centering
@@ -143,53 +158,55 @@ The approval of the suppliers is not included in the handbook and has no relevan
 	%De venstre noder
 	\node(supp)[process]{Supplier};
 	\node(title)[simple, above=0.5cm of supp]{Supplier-Approval\\Subproblem};
-	\node(app)[process, below=1cm of supp]{Approval};
-	\node(doc)[process, below=1cm of app]{Document};
+	\node(app)[process, below=0.5cm of supp]{Approval};
+	\node(doc)[process, below=0.5cm of app]{Document};
 	%De højre noder
 	\node(title2)[simple, right=2cm of title]{Handbook\\ Subproblem};
 	\node(hand)[process, below=0.5cm of title2]{Handbook};
-	\node(doc2)[process, below=1cm of hand]{Document};
-	\node(ver)[process, below=1cm of doc2]{Version};
-	\node(App)[process, right=1cm of ver]{Approval};
+	\node(doc2)[process, below=0.5cm of hand]{Document};
+	\node(ver)[process, below=0.5cm of doc2]{Version};
+	\node(App)[process, right=0.5cm of ver]{Approval};
 
 	%linjer
-	\draw[black, ultra thick](title.south west)--(title.south east);
-	\draw[black, ultra thick](title2.south west)--(title2.south east);
+	\draw[black, thick](title.south west)--(title.south east);
+	\draw[black, thick](title2.south west)--(title2.south east);
 	\draw[{open diamond}-](supp)--(app);
 	\draw[{open diamond}-](app)--(doc);
 	\draw[{open diamond}-](hand)--(doc2);
 	\draw[{open diamond}-](doc2)--(ver);
 	\draw[black](ver)--(App);
 	\end{tikzpicture}
-	\caption{Class diagram of the problem domain
-		}\label{fig:SupProblemClassDiagram}
+	\caption{{\color{red}Class diagram of the problem domain}}\label{fig:SupProblemClassDiagram}
 \end{figure}
 
-Early versions of the class diagram modeled the problems like seen in \cref{fig:SupProblemClassDiagram}.
+Early versions of the class diagram modeled the problems like seen in \cref{fig:SupProblemClassDiagram}. 
 % Anja: Hvad refereres der til her? Er det figuren lige ovenfor eller en helt anden figur?
 %astrid: der er nogen der har ændret label uden at ændre reference. det er fikset nu.
+%anna: Så spørger jeg igen for synes stadig ikke de her labels passer sammen og firgur teksten gør slet ikke
 Here the classes Approval and Document are present in both diagrams, suggesting that their functionalities are too similar to have separate classes.
 However, in the handbook, Document is merely a container for Versions, which include the actual files and those files are needed in supplier-approval.
 Therefore, the two Document classes cannot be merged, but the Document class in supplier-approval can be entirely replaced by the Version class in handbook.
 %Anja: Jeg synes generelt, at paragraffen ovenfor er svært at følge med i.
 
 The two Approval classes are more complicated as the approval process varies:
-
 \begin{itemize}
   \item In the handbook system a version of a document needs to be approved and the author can specify which people should do so.
   \item In the supplier-approval system a supplier needs to be approved which only demands an approval from one administrator.
 \end{itemize}
+%Anna: pointen med at have dem adskilt er jo at handbook er folk der skal godkende en version hvor supplier er versioner der skal bruges for en godkendelse. så synes ikke itemize listen er god.
 
 However the administrator needs to submit some kind of documentation, that justifies the approval of the supplier.
 Both systems need the approval for the changes to take effect.
 
-The current version of the class diagram in \cref{fig:ClassDiagram} does this by including a generalization. The approvals' shared functionality is included in the abstract class Approval and the more specific functionalities in the subclasses HandbookApproval and SupplierApproval.
+The current version of the class diagram in \cref{fig:ClassDiagram} does this by including a generalization. The approvals' shared functionality is included in the abstract class Approval and the more specific functionalities are included in the subclasses HandbookApproval and SupplierApproval.
 Just like in the early version of the class diagram SupplierApproval is aggregated by Version and Version contains a reference to HandbookApproval.
+%Anna. Tænker det er meget at påstå early version. Kan vi evt bare slette sætningen ovenfor
 In the case where a Version object belongs to a SupplierApproval object the relation to HandbookApproval is set to a null reference.
 
+
 The handbook part of the problem is the clients main concern and therefore the focus of this project.
-In order to understand the problem in its entirety both subproblems are analyzed in this section, but from here on  only the Handbook problem will be analyzed and eventually designed, implemented and tested.
-Therefore, the final class diagram looks like in \cref{fig:ClassDiagramNoSupplier}.
+In order to understand the problem domain in its entirety both subproblems were analyzed in this section, but from here on  only the Handbook problem will be analyzed and eventually designed, implemented and tested.
+Therefore, the final class diagram is as seen in \cref{fig:ClassDiagramNoSupplier}.
 
 \begin{figure}[H]
 	\centering
@@ -225,7 +242,7 @@ Therefore, the final class diagram looks like in \cref{fig:ClassDiagramNoSupplie
 	\draw[black](user.east)-|(6.0,-3.0);
 	%Handbook approvals og user
 	\draw[black](handapp.west)node[below=0.6cm, right]{1..*} -| (-6.0,-7.4);
-	\draw[black] (user.south east)node[below=0.2cm, right]{0..*} -| (8.5,-7.4);
+	\draw[black] (user.340)node[below=0.2cm, right]{0..*} -| (8.5,-7.4);
 	\draw[black] (-6.0,-7.4) |- (8.5,-7.4);
 	%nemme linjer
 	\draw[black](doc.east) node[below=0.2cm, right]{1}--(dep.west) node[above=0.2cm, left]{0..*};
@@ -241,3 +258,4 @@ Therefore, the final class diagram looks like in \cref{fig:ClassDiagramNoSupplie
 In this diagram the Supplier and the SupplierApproval are not included.
 As the company class mainly existed to support the administrators access to the supplier system that class and its relation to the admin role have also been excluded.
 The abstract Approval class still exists to make it possible to implement the supplier system at a later time.
+%Anna: ved ikke om det er værd at noterer at det for senere implementering havde været relevant at beholde company klassen til at holde styr på tignene og databasen?
