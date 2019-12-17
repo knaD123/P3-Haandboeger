@@ -5,17 +5,14 @@ The system definition will eventually lead to the problem statement, which will 
 
 Before the system definition is being written, the problems and context will be analyzed through a \textit{rich picture} in \cref{sec:richpictures} and the \textit{FACTOR} criteria in \cref{sec:factorcriteria} \citep{Rod-Aalborg}.
 The rich picture aims to describe the situation in which a handbook is being used.
-%, which the system will support. -Anna har udkommenteret
 Through the context of this project, the FACTOR critera is being utilized to give an understanding of what system Ipsen needs and in which context the system is used.
 
 A system definition seeks to define which problem the system should solve.
 According to  \citep[p.~24]{Rod-Aalborg} it is defined as,
 
 \begin{defn}
-A concise description of a computerized system expressed in natural language
+	A system definition is a concise description of a computerized system expressed in natural language
 \end{defn}
-%skal der være citationstegn omkring en definition? Og mangler vi ikke en reference??
-%Anna: Har prøvet at rette det til på en anden måde
 
 This means that the system definition aims to describe what the system should do, but also in which context is should be used, as the system is going to be ''implemented both technically and socially'' \citep[p.~23]{Rod-Aalborg}.
 The system is going to solve a problem that exists in a specific context, it is therefore important to understand this context.
@@ -53,8 +50,6 @@ Whenever a new version of a document has been approved and released, all of the 
 A department head typically in the writer role has the responsibility of keeping track of whether the affected employees has read the newest document.
 
 It is worth noting, that the case where the approval for a new version is denied is the only part of the workflow presented in the rich picture that would be done outside a given system made.
-%Anna: vil gerne have fjernet sætningen nedenfor (synes ikke den gør noget for afsnittet)
-This decision was made based upon conversations with Ipsen.
 
 \subsection{FACTOR criteria} \label{sec:factorcriteria}
 The FACTOR criterion consists of six elements and can be used to help with the system definition development or describing an existing system.
@@ -82,31 +77,23 @@ These are defined as follows, \citep[p.~40]{Rod-Aalborg}:
 		The system’s overall responsibility in relation to its context.''
 \end{itemize}
 
-\subsubsection{FACTOR analysis}\label{factor}
-%Anna: Burde vi evt få lidt mere teks ind i de her afsnit. Det er skrevet meget som punktform
-
-%Anna: Kan dt være det her afsnit skal sidestilles med FACTOR-criteria fremfor at være et underafsnit deraf
-Based on the requirements specified by Ipsen, see \cref{sec:requirements}, the FACTOR criterions have been analyzed.
-In the following an overview this analysis will be presented.
-%Anna- skal vi ikke fjerne sætningen ovenfor (da requirements af udviklet på baggrund af requirements og ikke omvendt)
-%Anna: kan vi evt bare fjerne hele afsnittet
+\subsection{FACTOR analysis}\label{factor}
 
 \noindent\textbf{F - Functionality}
+\todo[inline]{Anna: Fix titler}
 
-Manage and facilitate an overview of current and earlier versions of assorted files of different types in a handbook, as well as manage files in connection to approval of suppliers. % Taniya: er det stadig different types når vi ender med at systemetet kun tager imod pdf filer - eller hvordan bliver det?
+Manage and facilitate an overview of current and earlier versions of assorted files of different types in a handbook, as well as manage files in connection to approval of suppliers.
 Files in the handbook may have a changelog.
 New files undergoes an approval process before being submitted to the handbook.
 Different levels of permissions for users as well as registration of who has read the individual files.
 Notify specific users when a new version is released.
 It should also be possible to import already existing handbooks to the system.
-%Taniya: 'should' lyder ikke helt præcis ift. hvad systemet skal kunne?
 
 \noindent\textbf{A - Application domain}
 
 Mainly secretaries and the quality manager will administrate the system.
 All employees of the organization will have access to the system to read documents and print the handbook.
-The managing directors will, usually, have partial access to the system, such that they can add new versions.
-%a) hvem er managing director??? b) hvis CEO som antaget  er det her forkert forslag: ændr managing director til department head
+The department heads will, usually, have partial access to the system, such that they can add new versions.
 They will, occasionally, also take part in the approval process of new versions that they themselves have not made.
 
 \noindent\textbf{C - Conditions} \label{sec:conditions}
@@ -123,15 +110,13 @@ Other technologies such as HTML, CSS and JavaScript/jQuery will also be used to 
 The technologies used to develop the system will be explained in greater detail in \cref{sec:aspnetcore,sec:webfrontends}.
 The system will be accessible in the users web browser \footnote{Google Chrome, Mozilla Firefox, Microsoft Edge, Internet Explore etc.} on their PC.
 The notifications are sent over e-mail or sms.
-%var der nogen der tjekkede op paa hvorvidt e-mail og sms tæller som en teknologi??? - Astrid
 
 \noindent\textbf{O - Objects}
 
 The main objects of the problem domain are \textit{Handbook, Table of contents (TOC), documents, changelog} and \textit{user}.
 These object will be examined in \cref{sec:Classes}.
 
-\textbf{R  - Responsibility}
-%Omformulerede nedenstaaende - Astrid
+\noindent\textbf{R  - Responsibility}
 
 Managing file versions.
 Including a changelog for each change, depending on the settings.
