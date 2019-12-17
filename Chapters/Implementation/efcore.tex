@@ -1,5 +1,5 @@
 \subsection{Entity Framework Core}
-EF Core is used to communicate with the database, which on it's own is not object-oriented.
+EF Core is used to communicate with the database, which on its own is not object-oriented.
 For more information on EF Core see \cref{sec:efcore}.
 
 Postgresql was chosen as the database for this development project.
@@ -11,6 +11,7 @@ The \texttt{HandbookContext} is the class that handled communication between the
 It subclasses IdentityDbContext, which in turn subclasses a normal DbContext.
 \lstinputlisting[caption={HandbookContext}, language={[Sharp]C}]{OBHandbooks/OBHandbooks/Infrastructure/HandbookContext.cs}
 %Anna: igen grundet listings længden kunne det give mening at ligge den i appendiks?
+%Taniya: meget kort forklaring til en meg meg lang listing. Anyways, hvad er modelBuilder for noget?
 It consists of a large amount of properties of the type \texttt{DbSet<MODEL>}, which each represents a collection of entities to be stored in the database. 
 The overwritten \texttt{OnModelCreating} function also supplies extra information about the relationships in the database, such as unique properties, foreign keys, or delete behaviours. For example, on line 31, it can be seen that when a \texttt{HandbookApproval} is to be deleted it should also result in any associated \texttt{Version} objects being deleted.
 
