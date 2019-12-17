@@ -1,3 +1,6 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GENERELT: Synes dette kapitel skal gennemgaaes GRUNDIGT sammen, da det virker til at der er en DEL forvirring
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Code examples}\label{sec:codeexamples}
 In this section examples of the code will be presented.
 As written in \cref{sec:systemdesign} the system is based on the ASP.NET Core MVC architecture including EF Core.
@@ -5,6 +8,7 @@ How the system utilizes the MVC architecture and the EF Core framework will be s
 
 First, the MVC implementation is explored with the \texttt{Document} class.
 How the \texttt{Document} object is being treated throughout the system will be explored through the model, view, and controller components.
+% Henrik: Tvivlsspørgsmaal - er model, view, controller med lille eller stort?
 Furthermore it will be shown how the document data will be stored in the database with the repository pattern and EF Core.
 Here it will be shown in part how a new document is added into the system through the different components.
 
@@ -14,8 +18,6 @@ In the model component the \texttt{Document} object is defined.
 It is primarily the document object that will be highlighted in the code examples.
 How the document object is presented is shown in the code snippet below:
 %Taniya: synes at vi enten skal kalde det code snippet eller listing
-% Henrik: Synes den sidste sætning er lidt kryptisk?
-% Anja: Har omformuleret
 % Henrik: Maaske importer code-snippets ligesom Rasmus har gjort? (ikke vigtigt)
 \\
 \begin{lstlisting}[caption={Document Model: Document object}, label={lst:doc}]
@@ -53,12 +55,12 @@ public Document()
 %Taniya: måske fjern TODO kommentar i listning?
 %Taniya: Logikken i linje 10? 
 
-
 The document object includes an ID, chapter, chapter number, section number, versions, and whether or not it has been archived as seen in the code snippet above, \cref{lst:doc}.
-The \texttt{key} attribute on line 1 specifies that the \texttt{int ID} is a primary key that the database can use to identify the specific document.
+% Henrik: Tvivlsspørgsmaal, igen - bør vi maaske skrive navne paa properties som de staar i koden? :-)
+The \texttt{Key} attribute on line 1 specifies that the \texttt{int ID} is a primary key that the database can use to identify the specific document.
 Likewise, the \texttt{Range} attribute specifies that the section number is included in a an \texttt{Enumerable} class consisting of integers from 1 to the max value of a 32 bit \texttt{Integer}.
 And the \texttt{Display} attribute on line 15 specifies that the section number should be displayed with the name \textit{section}.
-This \texttt{display} attribute is used with ASP.NET Core and is used to modify the text when the model is used in a view.
+This \texttt{Display} attribute is used with ASP.NET Core and is used to modify the text when the model displayed in a view.
 %Taniya: måske også forklar noget med hvorfor vi bruger virtual Chapter Chapter og  IEnumerable<DocumentDepartment> DocumentDepartments? 
 
 In the code snippet below, \cref{lst:addversion}, it is shown the logic of how a new version of a document is added.
@@ -84,7 +86,7 @@ public void AddVersion(Version version)
 }
 \end{lstlisting}
 
-When a new version of a document is added the version's ValidFromDate is set to the current date and the \texttt{Approved} bool is set to \texttt{true} as seen on line 3 and 4.
+When a new version of a document is added the version's \texttt{ValidFromDate} is set to the current date and the \texttt{Approved} bool is set to \texttt{true} as seen on line 3 and 4.
 % Henrik: Maaske i stedet for "it receives a new date ...", saa skriv "the version's ValidFromDate property is set to the current date"?
 On line 5 the new version is added to the list of versions.
 The control sequence from line 9 - 12 ensures that the previous version's ValidUntilDate is set to the current date.
@@ -132,10 +134,11 @@ public async Task<IActionResult> Index()
 }
 \end{lstlisting}
 
-The \texttt{HttpGet} method means that the method only can accept \texttt{Get} requests.
+The \texttt{HttpGet} method means that the method only can accessed by a \texttt{GET} requests.
 Something to take note of in \cref{lst:doccontroller} is the \texttt{async Task<IActionResult>} on line 3.
 The \texttt{Task} class represents a single operation \cite{microsoft}.
 This operation does not return a value and usually executes asynchronously.
+% Henrik: Mener faktisk at Task ALTID er async - men kan tage fejl :-)
 The \texttt{IActionResult} method means that it returns a result.
 % Taniya: return hva for noget result?
 %The \texttt{IActionResult} result method ensures that the controller returns a model to the view.
@@ -231,7 +234,7 @@ public async Task<IActionResult> Add(Document document,
 \end{lstlisting}
 %Anna: Evt sætte denne specifikke listing i appendiks? (er emget lang for meget lidt der fås ud af den)
 
-The \texttt{HttpPost} method ensures that it can only receive \texttt{Post} requests.
+The \texttt{HttpPost} method ensures that it can only be accessed by a \texttt{POST} requests.
 
 %Taniya: måske forklar hvaf IFormfile er for noget?
 The information from the view is transfered into the controller method through the parameters shown from line 2-7.
@@ -289,7 +292,7 @@ In \cref{lst:docview} it is shown how the \texttt{view} component utilizes data 
 
 \cref{lst:docview} is the view that represents a list of assigned documents.
 This will render to a button, which when clicked expands a list of documents in a given chapter.
-It is written in the razor templating langugae, which is HTML with the added feature of allowing the documents to be dynamic when prefacing a statement with the \texttt{@} character.
+It is written in the razor templating language, which is HTML with the added feature of allowing the documents to be dynamic when prefacing a statement with the \texttt{@} character.
 % Henrik: @ betyder faktisk "her starter noget C# kode", saa tænker at maaske flet ind at razor gør det muligt at skrive C# kode inde i ens HTML?
 %Anna: vi skal i hvert fald være præcise så kunne være en ide
 An interesting thing to note is line 25, where the statement \texttt{@await Html.PartialAsync("_DocumentListBody", @kvp.Value)} is executed.
@@ -328,13 +331,15 @@ This is a method in the \texttt{DocumentRepository}, which allows for adding doc
 It first performs two checks, to see if the database already contains a document.
 If that is the case, it throws the custom \texttt{DocumentAddException}.
 Otherwise, it adds the document to the database, and returns the tracked database entry.
-The reason why this is important, and that one can't just use the \texttt{Document} object supplied as an argument, is due to the use of lazy-loading proxies in the application.
+The reason why this is important, and that one cannot just use the \texttt{Document} object supplied as an argument, is due to the use of lazy-loading proxies in the application.
 Lazy-loading proxies funcions in such a way that when objects have relationships with other objects, these are implemented as virtual properties.
 % Taniya: menes der function (funcion)?  Og hvilke linje er det vi taler om ? 
+% Henrik: Taniya, igen - bare fix stavefejl :-P
 
 \todo[inline]{Skal vi forklare hvad lazy loading betyder, eller er det basic nok til vi kan slippe?}
 %Anna: tænker i hvert fald det er fint at have lidt om det
 % Taniya: må gerne forklar det kort, hvis muligt
+\todo[inline]{Tanke: Har vi noget om hvad async er for noget, og er det noget vi eventuelt skal have med? Eller gider vi lave ny tekst saa tæt paa aflevering?}
 
 In the case of the \texttt{AddAsync} method, this means that you can construct a raw \texttt{Document} object, pass it to the method, and then get a proxy object in return.
 This allows for assigning to the virtual members, which is a functionality that is heavily used in the controllers.
