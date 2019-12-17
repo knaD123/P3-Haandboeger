@@ -13,12 +13,8 @@ Here it will be shown in part how a new document is added into the system throug
 
 In the model component the \texttt{Document} object is defined.
 It is primarily the document object that will be highlighted in the code examples.
-<<<<<<< HEAD
-How the document object is presented is shown in the code snippet below:
 %Taniya: synes at vi enten skal kalde det code snippet eller listing
-=======
 How the document object is presented is shown in \cref{lst:doc} below:
->>>>>>> Workflow
 % Henrik: Synes den sidste sætning er lidt kryptisk?
 % Anja: Har omformuleret
 %Anna: har omformuleret det lidt igen.
@@ -56,21 +52,9 @@ public Document()
 }
 \end{lstlisting}
 
-<<<<<<< HEAD
 %Taniya: måske fjern TODO kommentar i listning?
 %Taniya: Logikken i linje 10? 
 
-
-The document object includes an ID, chapter, chapter number, section number, versions, and whether or not it has been archived as seen in the code snippet above, \cref{lst:doc}.
-The \texttt{key} attribute on line 1 specifies that the \texttt{int ID} is a primary key that the database can use to identify the specific document.
-Likewise, the \texttt{Range} attribute specifies that the section number is included in a an \texttt{Enumerable} class consisting of integers from 1 to the max value of a 32 bit \texttt{Integer}.
-And the \texttt{Display} attribute on line 15 specifies that the section number should be displayed with the name \textit{section}.
-This \texttt{display} attribute is used with ASP.NET Core and is used to modify the text when the model is used in a view.
-%Taniya: måske også forklar noget med hvorfor vi bruger virtual Chapter Chapter og  IEnumerable<DocumentDepartment> DocumentDepartments? 
-
-In the code snippet below, \cref{lst:addversion}, it is shown the logic of how a new version of a document is added.
-\\
-=======
 The document object includes an ID, chapter, chapter number, section number, 
 %section number, (Anna har udkommenteret det her antog det var en fejl)
 versions, and whether or not it has been archived as seen in the code snippet above.
@@ -80,7 +64,6 @@ The \texttt{Display} attribute on line 15 specifies that the section number shou
 This \texttt{display} attribute is used with ASP.NET Core and to modify the text when the model is used in a view.
 
 In the \cref{lst:addversion} it is shown the logic of how a new version of a document is added.
->>>>>>> Workflow
 
 \begin{lstlisting}[caption={Document Model: AddVersion}, label={lst:addversion}]
 public void AddVersion(Version version)
@@ -103,19 +86,11 @@ public void AddVersion(Version version)
 \end{lstlisting}
 
 When a new version of a document is added the version's ValidFromDate is set to the current date and the \texttt{Approved} bool is set to \texttt{true} as seen on line 3 and 4.
-% Henrik: Maaske i stedet for "it receives a new date ...", saa skriv "the version's ValidFromDate property is set to the current date"?
 On line 5 the new version is added to the list of versions.
-<<<<<<< HEAD
-The control sequence from line 9 - 12 ensures that the previous version's ValidUntilDate is set to the current date.
-% Taniya: kan vi skrive The Selection Control Structure (fagterm) istedet for The control sequence?
-% Henrik: Same thing her - Masske "the previous version's ValidUntilDate property is set to ..."
-When a new version has been added all of the affected department in the system will get notified as seen in the loop from line 13 - 16.
-%Taniya: Iteration Control Structure - foreach loop 
-=======
+The selection control sequence from line 9 - 12 ensures that the previous version's ValidUntilDate is set to the current date.
 Furthermore, the control sequence from line 9-12 ensures that the previous version's ValidUntilDate is set to the current date.
-% Henrik: Same thing her - Masske "the previous version's ValidUntilDate property is set to ..."
+
 When a new version has been added all of the affected departments in the system will get notified as seen in the loop from line 13 - 16.
->>>>>>> Workflow
 
 \subsection{Controller}
 
@@ -161,10 +136,6 @@ The \texttt{Task} class represents a single operation \cite{microsoft}.
 This operation does not return a value and usually executes asynchronously.
 The \texttt{IActionResult} method means that it returns a result.
 %The \texttt{IActionResult} result method ensures that the controller returns a model to the view.
-% Henrik: Jeg er ikke enig mht det der staar om HttpGet og IActionResult
-% HttpGet sørger bare for at denne action method kun kan blive tilgaaet af en GET request
-% IActionResult garanterer ikke at controlleren returns en model til viewet
-% IActionResult er en return-type ting, der fortæller at denne action method returnerer et result.
 
 From line 5-13 it is determined which documents that the current user is assigned to.
 This is done by first retrieving the current user, which is defined through \texttt{HttpContext.User}, by finding a match in the list of users found in \texttt{_userManager}.
@@ -173,13 +144,13 @@ This is done through the loop on line 9 - 12.
 
 After the user is assigned documents has been sorted a list of all the non-archived documents will occur in the view.
 %Anna: er forirreet over hvad der står og fåortstå det ikke rigtigt
+% Anja: Du er ikke den eneste. Jeg forstaar det heller ikke.
 This is done through the two loops from line 14 - 25.
 All of the non-archived documents are returned to the view through \texttt{var documentIndex} on line 29.
 % Henrik: Synes starten er lidt kryptisk + jeg forstaar ikke hvor det her "sorting" kommer fra?
+% Anja: Tjah, det gør jeg heller ikke xD
 
 In \cref{lst:doccontrolleradd} it is shown what happens when the user adds a new document or version to the system through the \texttt{Add} method.
-% Henrik: Der bliver ikke tilføjet noget gennem HttpPost method, det sker gennem Add action method
-% HttpPost fortæller bare, at denne action method kun kan tilgaaes med en POST request
 \\
 \begin{lstlisting}[caption={Document Controller: Add}, label={lst:doccontrolleradd}]
 [HttpPost("document/add/")]
@@ -252,6 +223,7 @@ public async Task<IActionResult> Add(Document document,
 }
 \end{lstlisting}
 %Anna: Evt sætte denne specifikke listing i appendiks? (er emget lang for meget lidt der fås ud af den)
+% Anja: Jeg synes, at det vil virke underligt
 
 The \texttt{HttpPost} method ensures that it can only receive \texttt{Post} requests.
 
@@ -276,7 +248,7 @@ In \cref{lst:docview} it is shown how the \texttt{view} component utilizes data 
 
 \begin{lstlisting}[caption={Document View: Index}, label={lst:docview}]
 @foreach (KeyValuePair<Models.Chapter, List<Models.Document>> kvp in Model.UnassignedDocuments) {
-<button class="btn btn-outline-dark text-left pl-4 mt-1" onclick="listExpand()" style="width: 100%; margin-top: 10px;" type="button" data-toggle="collapse" data-target="#collapseChapter-@kvp.Key.Number" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-outline-dark text-left pl-4 mt-1" onclick="listExpand()" style="width: 100\%; margin-top: 10px;" type="button" data-toggle="collapse" data-target="#collapseChapter-@kvp.Key.Number" aria-expanded="false" aria-controls="collapseExample">
 <div class="row">
 	@kvp.Key.Number | @kvp.Key.Name
 	<i class="fas fa-chevron-down ml-auto mr-4 arrow-toggle"></i>
