@@ -1,3 +1,5 @@
+\documentclass[../../master.tex]{subfiles}
+\begin{document}
 \subsection{Criteria}\label{sec:architecturecriteria}
 A good software system is one that meets its requirements and has no major weaknesses \citep[p.~179]{Rod-Aalborg}.
 This system's requirements are listed and prioritized in \cref{sec:requirements} and the efforts put into avoiding weaknesses are laid out in this section.
@@ -10,7 +12,6 @@ Less effort will be put into the 'Less important', 'Irrelevant' or 'Easily fulfi
 However, as established, they are less important and therefore the flaws will, most likely, not be critical.
 These priorities can be found in \cref{fig:criteria} and the reasoning behind them follows below.
 
-\todo[inline]{Rasmus: Tjek at security er irellevatn}
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{|l|c|c|c|c|c|}
@@ -55,9 +56,7 @@ Moreover, this system is developed specifically for that one specific user and i
 %Anna (fortsat): Er princippet ikke at det skal være usable fordi det skal være lige til at konvertere til (skal ikke bruges til på at sætte sig ind i det nye system, mere end højest nødvendigt) og fordi flere af brugerne netop kan opleves at have limited experience?
 
 Ipsen has expressed that whether or not the system is \textbf{secure} is no major concern as the information is not confidential.
-%Anna: Confidential er helt sikkert et forkert ord at bruge, da det jo netop er grunden til vi ikke bare kan tage billeder af hvad som helst fra den sidste brugertest og hvorfor vi ikke fik hele håndbogen.
-% Henrik (svar til Anna): Pia sagde selv paa et tidspunkt, at deres information/data ikke var super duper top-secret :-)
-It has therefore been determined that security is outside this systems area of responsibility and it is hereby prioritized as being irrelevant.
+In the use case envisioned with the user, the program is only accessible inside a secured network, and it has therefore been determined that security is outside this systems area of responsibility and then irrelevant.
 
 \todo[inline]{Astrid: Sammenlign med det system der er i brug lige nu i stedet for existing solutions afsnittet}
 Comparing the existing solutions, examined in \cref{chap:existing}, to the case described in this report of making an \textbf{efficient} system is easily fulfilled as the existing solution is incredibly inefficient, due to all the work they had to do manually.
@@ -91,3 +90,4 @@ It is also irrelevant whether or not the system is \textbf{interoperable} as the
 To summarize the top prioritized criteria are the systems usability and reliability.
 Less important but still notable are correctness, testability and comprenhensibility.
 These criteria will therefore be in focus when designing the components the system is made up of.
+\end{document}
