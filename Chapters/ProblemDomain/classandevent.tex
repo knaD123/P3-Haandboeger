@@ -25,7 +25,8 @@ In the following, the classes from \cref{tab:ClassCandidates} are deemed qualifi
 
 \begin{table} [H]
 	\centering
-\begin{tabular}{l l}
+	B
+\begin{tabular}{l 
 	\hline
 	Classes & Comment\\
 	\hline
@@ -127,7 +128,7 @@ In the rest of the section the generated events in \cref{tab:EventCandidates} wi
 		\hline
 		\textbf{Document added} & A document is created\\
 		\textbf{Document archived} & A document where version is archived instead of updated\\
-		\textbf{Document reactivated} & Archived document is to be accessible in the handbook again\\
+		\textbf{Document reactivated} & Archived document is made accessible in the handbook again\\
 		\textbf{Document deleted} & Wrong document is created, and is still without version\\
 		\textbf{Version approved} & A version has been marked as approved\\
 		\textbf{New version released} &  New version becomes available in the handbook\\
@@ -162,7 +163,7 @@ The \textit{Document added} event is qualified due to the creation of a document
 
 The \textit{Document archived} event is qualified because it is an important functionality to archive expired documents for a number of years according to the ISO 9001 document management requirements described in \cref{sec:ISOstandards}.
 
-\textit{Document reactivated} event is qualified since it must also be able to reactivate the document and make it available in the handbook again.
+\textit{Document reactivated} event is qualified since it must also be able to reactivate the document and make it available in the handbook again in the case where a document and ID combination should become relevant again.
 
 The \textit{Document deleted} is qualified for the reason that if an administrator made a mistake and added a wrong document then the delete option should be available.
 

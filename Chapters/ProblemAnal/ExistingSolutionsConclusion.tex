@@ -1,4 +1,4 @@
-\subsection{Summary}
+\subsection{Evaluation}
 To compare the different systems the \cref{tab:Exsisting} below is made to show which features are present in which system.
 The features will be evaluated are those requested by Ipsen, \cref{sec:requirements}.
 
@@ -8,9 +8,11 @@ The features will be evaluated are those requested by Ipsen, \cref{sec:requireme
 			\hline
 			& BlissBook  & D4-Handbooks & Dropbox & Google \newline Drive \\
 			\hline
+			Collaborative editing & \checkmark & & & \checkmark \\
+			\hline
 			Managing different versions of documents & \checkmark &  &  & \checkmark \\
 			\hline
-			table of contents & \checkmark & \checkmark  & & \\
+			Table of contents & \checkmark & \checkmark  & & \\
 			\hline
 			Automatically updating the table of contents & \checkmark & \checkmark  &  & \\
 			\hline
@@ -24,14 +26,27 @@ The features will be evaluated are those requested by Ipsen, \cref{sec:requireme
 			\hline
 			Documents from external \newline sources &  &  & \checkmark & \checkmark \\
 			\hline
-			Title and chapter numbers \newline reserved forever &  &  &  & \\
+			Online use & \checkmark &  \checkmark & \checkmark  & \checkmark \\
+			\hline
+			Offline use & & \checkmark & \checkmark & \checkmark \\
+			\hline
+			Users receive notifications when relevant documents are updated & & \checkmark & & \\
 			\hline
 		\end{tabular}
 		\caption{Feature comparison table}\label{tab:Exsisting}
 	\end{center}
 \end{table}
 
-Looking at this table we can answer the questions asked in the introduction to this \cref{chap:existing}.
+The features seen in \cref{tab:Exsisting} contains ideas that can be used in the project's context.
+Looking at the table above we can answer the questions asked in the introduction to this \cref{chap:existing}.
+In the following sections they will be evaluated systematically on whether or not they can be used.
+
+\textit{Collaborative editing} is not a necessary feature in this context.
+This is because that there is, usually, only one person writing/updating the handbook documents according to Ipsen.
+% Anja: Jeg er ikke heelt sikker paa om det jeg skriver ovenfor er rigtigt. Someone, confirm or deny.
+
+\textit{Managing different version of documents} is an especially useful feature to take into consideration.
+This is essentially the feature that Ipsen needs for her workflow.
 
 \todo[inline]{Anja: Ideerne skal struktureres}
 \subsubsection*{Which ideas lay the groundwork for the system?}
@@ -39,29 +54,70 @@ Looking at this table we can answer the questions asked in the introduction to t
 The features that are going to lay the groundwork for the system developed in this project, are; access control and digital signatures that BlissBook provides, see \cref{sec:blissbook}, the possible offline use, to edit documents offline, provided by D4Handbooks, see \cref{sec:d4handbooks}, and the file history feature provided by Google drive and DropBox, see \cref{sec:DropDrive}.
 This is because, those features are very simliar to those requested by Ipsen, see \cref{sec:requirements}.
 
-\subsubsection*{Do the ideas seem useful? Why?}
+\textit{Table of contents} and \textit{automatically updating the table of contents} are also a good ideas to include.
+Table of contents is important to include as this could ensure that Ipsen is able to have an overview of the documents.
+Updating the table of contents automatically is equally a good idea as this would help the overview as the documents and their versions get updated.
 
-Blissbooks and D4Handbooks are both based on the idea that document management is tedious and could be done easier.
-However, Blissbooks is angled more towards an HR-department while D4Handbooks is made specifically for QMS.
-This is exactly the purpose for which Ipsen intends to use the system, in that sense the ideas are useful.
-Furthermore, while many of the functionalities both of these systems offer to facilitate the goal of making document management easier mirror Ipsen's requirements they are also lacking in features.
-Both of them have implemented rich text editors to retain full control over the text entered. 
-This also enables Blissbooks to accurately highlight differences between versions, a feature that Ipsen has requested.
-Though as mentioned in \cref{sec:1-simpleTime} the build in editor is in no way wanted by Ipsen.
+\textit{Including a changelog} is another useful idea as Ipsen has stated that, depending on the firm, a changelog between two different versions is preferred.
+This changelog should state what specifically has changed between the previous version and the current.
 
-Dropbox and Google Drive are both first and foremost cloud storage and secondly file sharing. 
-While these are both features that Ipsen could benefit from they are not her primary concern and the actual document management would work same as it currently does.
+\textit{Permissions levels} is likewise a good idea as an average employee at the firm would only have to read certain documents whereas Ipsen's work, among other things, entails to manage the handbook documents.
+Here the permission levels could ensure that the average employee is \textit{only} able to read documents while Ipsen would have full control of the management.
 
-\subsubsection*{Will the ideas work in your context? Why?}
+\textit{Highlighting differences} is potentially also a good idea in relation to the changelog as this could further ensure an overview of changes.
+Here the specific differences of the new version would be highlighted in relation to the previous.
 
-Some of the ways that Blissbook and D4Handbooks have implemented the features could be useful, particularly the registration of read statuses and notifications.
-The rich text editor serves its purpose in both of those systems, however, it would not work in this context.
-Ipsen has a backlog of many handbooks that would need to be imported and has stated that this specific feature would only serve as a nuisance since they would need to learn how to write in a new program.
+\textit{Documents from external sources} is especially a good idea as Ipsen has stated that she would like to update documents with her preferred text editing software.
+This feature would ensure that Ipsen could continually do that.
+Furthermore this would be a good idea if an existing handbook document archive had to be imported into the system.
 
-It is necessary to be able to use the files they already have.
-This is one feature that especially dropbox does handle very well but as stated before it does not bring any interesting ideas in terms of document management.
+\textit{Online use} \& \textit{offline use} both seem useful with different advantages and disadvantages for both.
+Online use could ensure that all the documents were synchronized across different computers.
+Offline use does not rely on working internet and it is not possible for other users to overwrite documents wrongfully and therefore minimizes risks when collaborating.
+Whether online, offline, or both will be used will be determined at a later state in the development.
 
-\subsubsection*{Can the ideas be adapted to your system? How?}
-\todo[inline]{Henrik: Der skal staa noget om how}
+\textit{Users receive notifications when relevant documents are updated} is also a good idea as not all employees in a firm need to read all documents.
+Depending on which department they work in it could potentially vary which part of the handbook they need to read and be updated on.
 
-The useful ones absolutely can, and should too.
+As the identified features has been evaluated the useful ideas are:
+\begin{itemize}
+	\item Managing different version of documents
+	\item Table of contents
+	\item Automatally updating the table of contents
+	\item Register when a document has been read
+	\item Including a changelog
+	\item Permission levels
+	\item Highlighting differences
+	\item Documents from external sources
+	\item Users retreive notifications when relevant documents are updated
+\end{itemize}
+
+%\subsubsection*{Which ideas lay the groundwork for the system?}
+%\todo[inline]{Henrik: Konkluder pa de andre afsnit her}
+%
+%\subsubsection*{Do the ideas seem useful? Why?}
+%
+%Blissbooks and D4Handbooks are both based on the idea that document management is tedious and could be done easier.
+%However, Blissbooks is angled more towards an HR-department while D4Handbooks is made specifically for QMS.
+%This is exactly the purpose for which Ipsen intends to use the system, in that sense the ideas are useful.
+%Furthermore, while many of the functionalities both of these systems offer to facilitate the goal of making document management easier mirror Ipsen's requirements they are also lacking in features.
+%Both of them have implemented rich text editors to retain full control over the text entered. 
+%This also enables Blissbooks to accurately highlight differences between versions, a feature that Ipsen has requested.
+%Though as mentioned in \cref{sec:1-simpleTime} the build in editor is in no way wanted by Ipsen.
+%
+%Dropbox and Google Drive are both first and foremost cloud storage and secondly file sharing. 
+%While these are both features that Ipsen could benefit from they are not her primary concern and the actual document management would work same as it currently does.
+%
+%\subsubsection*{Will the ideas work in your context? Why?}
+%
+%Some of the ways that Blissbook and D4Handbooks have implemented the features could be useful, particularly the registration of read statuses and notifications.
+%The rich text editor serves its purpose in both of those systems, however, it would not work in this context.
+%Ipsen has a backlog of many handbooks that would need to be imported and has stated that this specific feature would only serve as a nuisance since they would need to learn how to write in a new program.
+%
+%It is necessary to be able to use the files they already have.
+%This is one feature that especially dropbox does handle very well but as stated before it does not bring any interesting ideas in terms of document management.
+%
+%\subsubsection*{Can the ideas be adapted to your system? How?}
+%\todo[inline]{Henrik: Der skal staa noget om how}
+%
+%The useful ones absolutely can, and should too.

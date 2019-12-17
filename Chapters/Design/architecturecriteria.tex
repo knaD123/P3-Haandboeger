@@ -7,9 +7,9 @@ This system's requirements are listed and prioritized in \cref{sec:requirements}
 Due to the conditions this system is developed under, see \cref{factor}, flaws are to be expected.
 To minimize the amount of critical flaws the \textit{criteria} \citep[p.~180]{Rod-Aalborg} upon which the system will be judged have been prioritized.
 The idea is that development will be focused on the 'very important' and 'Important' criterias to make sure that all of these work.
-Less effort will be put into the 'Less important', 'Irrelevant' or 'Easily fulfilled' criterias, making flaws in these areas more likely.
-\todo[inline]{Astrid: Lav en ny sætning til easily fulfilled}
+Less effort will be put into the 'Less important' and 'Irrelevant' criteria, making flaws in these areas more likely.
 However, as established, they are less important and therefore the flaws will, most likely, not be critical.
+Similarly, 'Easily fulfilled' will have less of a focus, but as the requirements are easily fulfilled critical flaws are not very likely.
 These priorities can be found in \cref{fig:criteria} and the reasoning behind them follows below.
 
 \begin{table}[H]
@@ -55,8 +55,7 @@ While the administrator or writer role will use the system more often, they too 
 Ipsen has expressed that whether or not the system is \textbf{secure} is no major concern as the information is not confidential.
 In the use case envisioned with the user, the program is only accessible inside a secured network, and it has therefore been determined that security is outside this systems area of responsibility and then irrelevant.
 
-\todo[inline]{Astrid: Sammenlign med det system der er i brug lige nu i stedet for existing solutions afsnittet}
-Comparing the existing solutions, examined in \cref{chap:existing}, to the case described in this report of making an \textbf{efficient} system is easily fulfilled as the existing solution is incredibly inefficient, due to all the work they had to do manually.
+As the existing workflow is incredibly inefficient due to the amount of manual work it requires and no matter how inefficient the new system is it is very unlikely that it should be less \textbf{efficient}. Therefore this criterion is determined as easily fulfilled.
 
 The \textbf{correct} criteria from \cref{fig:criteria} covers whether or not the system fulfills the system definition, that was specified in \cref{sec:systemdefinition}, and meets all the requirements, see \cref{sec:requirements}.
 The reasoning for labeling 'correct' as important instead of very important is because of the long list of requirements where not all elements are equally important.
@@ -69,7 +68,7 @@ Whether the system is \textbf{maintainable} is less important as it is assumed t
 The system needs to be \textbf{testable} in order to verify that it is reliable.
 Therefore this is important.
 
-According to the \textit{OOA\&D} method \citep[p.~182]{Rod-Aalborg}, it is very important that a system is \textbf{flexible}.
+According to the OOA\&D method \citep[p.~182]{Rod-Aalborg}, it is very important that a system is \textbf{flexible}.
 On the ohter hand, as the project will only be developed for half a year, this does not take priority and has been classifield as irrelevant.
 The system is, however already developed with some future elements in mind: The changelog, which Ipsen has requested, is not a requirement under the current conditions, however it is a change which she assumes will happen within the next ten years or so, as stated in \cref{sec:CaseDescription}.
 
