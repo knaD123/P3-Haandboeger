@@ -1,13 +1,15 @@
 \section{Testing techniques} \label{sec:testingtechniques}
 A lot of different techniques can be used to test software.
-This section will focus on two common approaches to test software \textit{black-box testing} and \textit{white-box testing} \cite{SoftwareTesting}.
+This section will focus on two common approaches; \textit{black-box testing} and \textit{white-box testing} \cite{SoftwareTesting}.
 It will be explained what their differences are, when to use them and how they are used in this project.
 
 % static and dynamic testing (side 56)
-When doing black-box and white-box testing it is possible to do it statically or dynamically, see \cref{defn:statictesting,defn:dynamictesting}.
+When doing black-box and white-box testing it is possible to do it either statically \cref{defn:statictesting} or dynamically\cref{defn:dynamictesting}.
 % Anja: Er det ikke lidt overkill med en cref, naar definitionerne er direkte nedenunder? :P
+%Anna: Har rykket lidt rundt på det så det tydliggøres hvilken hører til hvilken definition
 
 % Rasmus: Defininioterne burde måske nævne hvad det er de definerer? Kan ikke huske latex-koden for det
+%Anna: Har ingen ide om hvilken kode du snakker om
 \begin{defn} \label{defn:statictesting}
 Testing software without running it.
 \end{defn}
@@ -19,8 +21,8 @@ Testing software by running it.
 % Black-box testing (side 55)
 \subsection{Black-box testing} \label{sec:blackboxtesting}
 Black-box testing is performed without any knowledge of why the software behaves as it does \cite{SoftwareTesting}.
-This means that the person (the tester) that tests the software cannot look at the code.
-The tester is only able to give input to the software and receive output based on the input.
+This means that the person (the tester) that tests the software cannot look at the code itself.
+The tester is therefore only able to give input to the software and receive output based on the input.
 
 % Static black-box testing (side 56)
 \subsubsection{Static black-box testing}
@@ -33,14 +35,14 @@ The reason for this is that the product specification is a document, see \cref{s
 If the project does not have a product specification there is at least one person in the project group that know what is being build - use this person as a talking product specification. \cite{SoftwareTesting}
 % Anja: Den sidste sætning giver ikke mening for mig.
 
-The product specification tests is done in two steps:
-
+The product specification tests are done in two steps:
 \begin{itemize}
 	\item High-level review.
 	\item Low-level review.
 \end{itemize}
 
 % Henrik: Dette afsnit skal muligvis omformuleres
+%Anna: tænker ikke det er nødvendigt at omformulerer
 A high-level review is done by examining the product specification for large fundamental problems, oversights and omissions.
 This is done to better understand the 'whys' and 'hows' and thereby make it easier to examine the product specification in detail.
 Consequently, this type of review of the product specification might seem more like research than actual testing.
@@ -48,8 +50,7 @@ Consequently, this type of review of the product specification might seem more l
 There are several techniques that a tester can use to perform a high-level review of the product specification, e.g. pretend to be someone that is going to use the software or examine already existing solutions.
 By examining already existing solutions the tester gets a better understanding of the specific type of software. \cite{SoftwareTesting}
 
-Existing solutions were examined in this project, before the coding phase started.
-This was explained in \cref{chap:existing}.
+Existing solutions were examined in this project, before the coding phase started, see \cref{chap:existing}.
 
 When performing a low-level review of the product specification the tester would compare if the elements in the product specification each accomplishes these eight attributes: \cite{SoftwareTesting}
 
@@ -75,24 +76,28 @@ Some of these keywords are:
 	\item Such as
 	\item Cheap
 	\item Skipped
-	\item If.. Then..
+	\item If\ldots Then\ldots
 \end{itemize}
 \end{multicols}
 
 % Uddyb listen ovenover (side 61)
 The tester should be looking out for words like those mentioned above since some words might signal that something is certain, or some words might be vague and others again might not be testable.
 In the case where the words are too vague or not testable a re-definition is required. \cite{SoftwareTesting}
+%Anna: Bare for at høre er det noget vi rentfaktisk bruger? (Ellers kan det være en af de ting vi skal overveje at være opmærksom på til eksamen)
 
 % Dynamic black-box testing (side 64)
 \subsubsection{Dynamic black-box testing}
 It was, in \cref{sec:testingtechniques}, also mentioned that black-box tests can be done dynamically.
-Dynamic black-box testing is where the tester is running the software but do not have access to the code. % Henrik: Hvordan henviser jeg til defn dynamicly og tekst med black-box?
+Dynamic black-box testing is where the tester is running the software but do not have access to the code. 
+% Henrik: Hvordan henviser jeg til defn dynamicly og tekst med black-box?
 Here the tester simply enters some input and receives some output based on the input entered. \cite{SoftwareTesting}
 
 % Hvordan har vi brugt det i vores projekt
 A great example of dynamic black-box testing is usability tests, see \cref{sec:usabilitytesting}.
 This is also something that have been done in this project.
 It will be explained in greater detail how the usability test were executed in \cref{sec:usabilitytesting}.
+%Anna: slet de to sidste linjer og i stedet skriv:
+%"In that section it will be further explained how the usability test were executed in this development project" 
 
 \subsection{White-box testing} \label{sec:whiteboxtesting}
 % Kort om white-box testing
@@ -102,9 +107,12 @@ It was mentioned in \cref{sec:testingtechniques} that white-box tests, just like
 
 % Static white-box testing (side 92)
 \subsubsection{Static white-box testing} \label{staticwhitebox}
-Static white-box tests are performed without running the software with access to the code. % Henrik: Hvordan, hvis nødvendigt, henviser jeg til baade defn og black-box?
+Static white-box tests are performed without running the software with access to the code. 
+% Henrik: Hvordan, hvis nødvendigt, henviser jeg til baade defn og white-box?
 When performing static white-box tests the tester is reviewing the architecture and the design of the software.
-The tester can also be reviewing the actual code for bugs. \cite{SoftwareTesting} % Henrik: Er det nødvendigt at henvise til "bug" afsnittet her?
+The tester can also be reviewing the actual code for bugs. \cite{SoftwareTesting} 
+% Henrik: Er det nødvendigt at henvise til "bug" afsnittet her?
+%Anna: tænker det vil være fint med en henvisning for at kæde alt sammen
 
 % Reviews (side 92-94)
 White-box testing is performed by doing reviews.
@@ -118,25 +126,33 @@ The reviewers should: \cite{SoftwareTesting}
 	\item Write a report.
 \end{itemize}
 
-When trying to \textit{identify problems} with the software the reviewers should not just identity what is wrong with the code and the design of the software, they should also try to identify if something is missing.
-While identifying problems, the reviewers should not criticise those who have created the problematic code or design but instead direct potential criticism at the code or design itself.
+When trying to \textit{identify problems} with the software the reviewers should not just identity what is wrong with the code and the design of the software but also try to identify if something is missing.
+While identifying problems, the reviewers should not criticize those who have created the problematic code or design but instead direct potential criticism at the code or design itself.
 It is important to set some \textit{rules} for the review before the actual review.
-The rules can be anything from what to review (e.g. how many lines) to what to comment on.
+The rules can be anything from what to review e.g. how many lines to what to comment on.
 This helps the reviewers to know what their role at the review is and, therefore, makes it easier for the reviewers to \textit{prepare} for the review.
-Most of the problems are actually found during the preparation phase and this makes this phase extra important.
+Most of the problems are actually found during the preparation phase which makes this phase extra important.
 When the review is finished, the review group should make a \textit{report} of results of the review and pass it on the rest of the development team. \cite{SoftwareTesting}
 % Anja: Ovenstaaende tekst er er skidegodt! Ingen kritik her
 
-The project group has, throughout this project, used GitHub \footnote{GitHub is a hosting platform for version control using Git} to perform peer reviews before merging new code into the project. % Henrik: "into the project" skal nok omformuleres
-Every time someone in the project group had created new features, refactored some code, updated the layout etc., the new code had to be approved by other members of the project group before it got merged into the project.
+Throughout this project GitHub \footnote{GitHub is a hosting platform for version control using Git} was used to perform peer reviews before merging new code into the software. 
+% Henrik: "into the project" skal nok omformuleres
+%Anna: har prøvet at omformulerer lidt
+Every time someone 
+%in the project group (Anna har udkommenteret)
+had created new features, refactored some code, updated the layout etc., the new code had to be approved 
+%by other members of the project group 
+before it got merged into the project.
 This was done to prevent introducing potential bugs to the project.
 It also helped to keep other members of the project group up-to-date with the code.
+%Anna: vil gerne slette linjen ovenfor, mest af alt fordi jeg ikke lige kan se en smart måde at fjerne gruppen fra den.
 
 % Dynamic white-box testing (side 105)
 \subsubsection{Dynamic white-box testing}
-Dynamic white-box testing is where the tester has access to the code and actually runs the software. % Henrik: Hvordan henviser jeg til defn og white-box testing?
+Dynamic white-box testing is where the tester has access to the code and actually runs the software. 
+% Henrik: Hvordan henviser jeg til defn og white-box testing?
 When performing dynamic white-box testing the tester decides what to test and what not to test by inspecting the code.
-The tester can test individual functionalities of the software and the software as a complete program. \cite{SoftwareTesting}
+The tester can test individual functionalities of the software or the software as a complete program. \cite{SoftwareTesting}
 
 % Unit testing (side 109)
 Testing individual functionalities, or units, are called \textit{unt testing}.
@@ -148,6 +164,7 @@ Unit testing has been used to test the different functionalities of the software
 Below are a few examples of how the unit tests were created to test the different functionalities in this project:
 
 \lstinputlisting[firstline=64, lastline=81, language={[Sharp]{C}}]{OBHandbooks/OBHandbooks.Tests/DocumentRepositoryTests.cs}
+%Anna: kan vi sat en caption tekst på og så en labe (som så referereres til i næste afsnit?)?
 
 The unit tests follow the three A's, \textit{Arrange, Act, Assert}.
 In the example above, a \texttt{Document} is being created in the arrange phase, line 67 to 73.
@@ -155,6 +172,7 @@ It is then added to the database in the act phase on line 76 to 77.
 In the assert phase it is asserted that the database only contains a single \texttt{Document}, line 79 to 80.
 
 Another example of how to perform unit tests.
+%Igen vil gerne have en reference in i slutningen af den sætning hvis det kan lade sig gøre (skal i så fald også en caption tekst på listingen)
 This time it is tested if software fails when it should fail.
 
 \lstinputlisting[firstline=83, lastline=97, language={[Sharp]{C}}]{OBHandbooks/OBHandbooks.Tests/DocumentRepositoryTests.cs}
@@ -163,6 +181,5 @@ This test is testing if the software throws a \texttt{DbUpdateException} if a \t
 A \texttt{Document} is created and added to the database in the arrange phase on line 86 to 92.
 In this test the act and assert phases are combined, line 95 to 96, because it is asserted that a \texttt{DbUpdateException} is thrown if a \texttt{Document} with a non-unique title is added to the database.
 
-
 Now it should be clear what black-box and white-box testing are and how it was used in this project.
-In the next section usability testing will be explained; what it is, how it was executed and what features were tested.
+In the next section usability testing will be explained; what it is, how it was executed and which features were tested.
