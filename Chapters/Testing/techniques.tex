@@ -149,6 +149,7 @@ This was done to prevent introducing potential bugs to the project.
 It also helped to keep other members of the project group up-to-date with the code.
 %Anna: vil gerne slette linjen ovenfor, mest af alt fordi jeg ikke lige kan se en smart måde at fjerne gruppen fra den.
 % Henrik: Tænker det er relevant for at forklare hvordan vi har PRØVET at holde alle up-to-date med koden? :-)
+%Taniya: måske også nævn noget kort med at der er også blevet lavet at git også tjekker for syntax, intent halløj osv før det bliver merge til master
 
 % Dynamic white-box testing (side 105)
 \subsubsection{Dynamic white-box testing}
@@ -158,7 +159,7 @@ When performing dynamic white-box testing the tester decides what to test and wh
 The tester can test individual functionalities of the software or the software as a complete program. \cite{SoftwareTesting}
 
 % Unit testing (side 109)
-Testing individual functionalities, or units, are called \textit{unt testing}.
+Testing individual functionalities, or units, are called \textit{unit testing}.
 Unit testing is a great way to find and fix low-level bugs.
 The reason for this is that, if a unit test fails, the bug must be in that unit.
 When creating unit tests it usually a good idea to, not just create tests that shows the tested functionality works, but also test that the software fails when it should fail. \cite{SoftwareTesting}
@@ -171,6 +172,7 @@ Below are a few examples of how the unit tests were created to test the differen
 
 The unit tests follow the three A's, \textit{Arrange, Act, Assert}.
 In the example above, a \texttt{Document} is being created in the arrange phase, line 67 to 73.
+%Taniya: nummerering på linjer passer ikke ift. listing?
 It is then added to the database in the act phase on line 76 to 77.
 In the assert phase it is asserted that the database only contains a single \texttt{Document}, line 79 to 80.
 
