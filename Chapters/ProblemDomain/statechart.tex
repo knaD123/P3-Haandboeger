@@ -8,8 +8,7 @@ When someone wants to create a new version of a document, they instantiate an ap
 The change will have to be approved by all the users set as ''approvers'', before it can be added to the handbook.
 When the change is approved, it will append the version to the document object.
 For the sake of simplicity, there is no option to actually deny a proposed version.
-Any issues with the document are, as mentioned in \cref{sec:richpictures}, meant to be handled outside of the system instead.
-%mangler mulighed for delete
+Any issues with the document are, as mentioned in \cref{sec:richpictures}, meant to be handled outside of the system instead. If it is decided that a proposed version is unsalvagable, it can be deleted.
 
 \begin{figure}[H]
 	\centering
@@ -25,6 +24,8 @@ Any issues with the document are, as mentioned in \cref{sec:richpictures}, meant
 
 \end{tikzpicture}
 \end{figure}
+\todo[inline]{Anna: gør en ende paa det her. Delete til end fra awaiting}
+\todo[inline]{Anna: Lav slutstadier rigtigt. Alle slutstadier skal have en ende-prik.}
 
 \subsection{Department}
 A department is an organizational unit, used to administrate which users are attached to which documents.
@@ -32,8 +33,6 @@ As such, you can create a department, add users to it, and add documents to it a
 It is also possible to delete users and documents from the department, as long as there are any attached to the department.
 One of the most important functions of the department is the abillity for it to notify all the attached users of a new version of a document.
 This was also the reason the Department class was first decided upon, see \cref{sec:Classes}
-%tilføjet sætning ovenover -astrid
-%Anna lavede en tilføjelse
 
 \begin{figure}[H]
 	\centering
@@ -55,12 +54,9 @@ en Notify er ikke helt god -astrid
 
 \subsection{Version}
 A version is another central concept in the application.
-%Anna: snakker i det der skal implementeres elle rproblem domain
 As mentioned before, the handbook consists of documents, and each document can have multiple versions.
 And thus, after creation, version objects are supposed to be quite immutable once created, as to preserve the history of individual documents.
 Due to the immutable structure of the versions, the actual versions never change.
-On the contrary, by virtue of no longer being the last version in the document, they now count as archived.
-%Anna: det er ligesom om der mangler noget imellem de to sidste sætninger
 
 \begin{figure}[H]
 	\centering
@@ -77,36 +73,4 @@ On the contrary, by virtue of no longer being the last version in the document, 
 
 \end{tikzpicture}
 \end{figure}
-%re: Jan der siger at et objekts slutstadie er det stadie hvor det ikke længere kan paaføres eller udføre hændelser burde archived saa ikke være versions slutstadie???
-
-\section{Scope of the problem domain}
-%Anna: På baggrund af det her afsnit tænker jeg egetnligt voi lige så godt kan slette den, synes ikke der kommer noget ud af det
-
-% et eller andet om OOA&D er blevet brugt
-The OOA\&D principles were used throughout this chapter to analyze the different classes and events in the problem domain.
-% et eller andet om qualified classes - ex. på qualified og ikke qualified classes
-Classes like Document and Version were classified as qualified classes using the questions mentioned in \cref{sec:Classes} and classes like TOC and Notification were classified as not qualified classes.
-% et eller andet om qualified events - ex. på qualified og ikke qualified event
-Using the questions, mentioned in \cref{sec:Events}, Version approved and Department deleted were classified as qualified events whereas an event like Approval denied was classified as a not qualified event.
-%lidt svært ved at forstaa pointen med det her afsnit??? -astrid (fuck hvor er jeg glad for at jeg ikke hedder aase)
-
-% et eller andet om event table
-An event table was made in \cref{sec:EventTable} using the classified classes and events, see \cref{fig:eventtable}.
-This gave a better overview of what classes were affected by the different events.
-% et eller andet om class diagram
-The qualified classes specified in \cref{sec:Classes} were also used to produce a class diagram.
-The class diagram describes the relation between the classes and objects, see \cref{fig:ClassDiagram} in \cref{sec:classdiagram}.
-% et eller andet om state charts - ex. på nogle af de vigtigste events
-Finally, the lifetime of some of the more important objects in the problem domain was described using state charts, see \cref{sec:statechart}.
-The lifetime of e.g. the Department is that the department is being created and while it exists the department can:
-
-\begin{itemize}
-	\item Add and remove documents.
-	\item Add and remove users.
-	\item Notify users that a new version has been released.
-\end{itemize}
-
-The lifetime of the department ends when it is deleted.
-
-% en meget hurtigt afrunding
-The knowledge gained from analysing the problem domain makes it possible to examine how the actors interact with the system in the application domain in the next chapter.
+\todo[inline]{Anna: Stadiet "Archived" skal være en ende-cirkel tekst archive}

@@ -3,8 +3,6 @@ When creating a system it is vital to get an overview of the functions and to de
 This is done by an nalysis of functions, in which the first step is to identify all functions.
 The result is a list of functions with a related complexity and type.
 This section is based on Mathiassen, Munk-Madsen, Nielsen and Stage \citep[ch.~7]{Rod-Aalborg}.
-%, unless anything else is stated.
-%anything else is not stated. unnecessary - astrid
 
 To commence the analysis, a look at the system definition and use cases is necessary, see \cref{sec:SystemDefinition,sec:usecases}, as it creates a template of functions that are ready to be analysed.
 The next step is then to determine what type each function belong to, this means determining if it is an \textit{update, signal, read} or \textit{compute function}.
@@ -22,10 +20,7 @@ A description of each of these function types can be found in the following item
 \end{itemize}
 
 The functions in this project, shown in the function table below, are identical to the qualified events in \cref{sec:Events}.
-%This is because that update functions should express the system's classes and events.
-%der er noget helt galt med denne her sætning -astrid
-
-%\todo[inline]{Henrik: Vi skal opdatere tabellen, og argumentere hvor vi har dem fra. Cref og analyser}
+This is because update functions should reflect the system's classes and events.
 
 \begin{table}[H]
 \centering
@@ -58,14 +53,8 @@ The functions in this project, shown in the function table below, are identical 
 \end{table}
 
 The most present type of function in this system is the update type.
-% De andre typer kommer fra use cases - side 143 i SU bogen
 The reason for this is in the nature of the system, as it primarily lies in management of users and documents.
 This also means that the complexity is mostly simple as the margin for error is rather small in these cases.
 This is because of the concreteness of the functions, as each has minimal amount of uncertainty when used.
 
-%Only exceptions are "Manage documents", where the complexity is in the validation where overlapping of information is not allowed.
-%Furthermore "Track differences between document versions" can be difficult as different file types can be used by the users.
-
 The "Notify user" is of the type signal, a function type that responds to changes inside the system.
-
-%"Track differences between document versions" is of the type read as it retrieves information from each document and presents the differences to the user.

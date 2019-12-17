@@ -1,43 +1,30 @@
-%mangler noget meta her - astrid
 \subsection{Web Applications}
-In this section the application method will be discussed and at the end a specific application method is chosen.
-%virker underligt at sige at en specifik metode vil blive valgt r vi ikke præsenterer andet end det der bliver valgt-astrid
-
 The requirements in the system definition (see \cref{sec:systemdefinition}) state that users should be able to work together through the system, independent of geography.
 The OOA\&D method designates that in these scenarios, the client-server model should be considered. \citep[p.~202]{Rod-Aalborg}
-%vil vove at paastaa at fra her (1/2) - astrid
-In this project, at least communication between clients is required.
-Many of the features in the system definition, such as:
+
+Communication between clients is required for features such as:
 \begin{itemize}
 \item Having multiple users being able to access the same handbook
 \item Registering whether the document has been read
 \item Being certain you have the newest version
 \end{itemize}
-are impossible without some sort of communication between clients.
-%til her er ligegyldigt da vi netop har konstateret med en reference til systemdefinition at kommunikation er vigtigt og saa er det her bare dobbeltkonfekt (2/2) - astrid
 
-%sætning nedenunder stod før som sidste sætning i afsnit ovenover - astrid
 The possible forms of communication are, in broad terms, a decentralized approach or a centralized approach.
 It is, however, pretty clear that a centralized approach is ideal.
 A decentralized system is more complex to develop and manage, and this project, presents tangible benefit.
-%synes argumentatation og forklaring er ret ikke-eksisterende her - astrid
 
-What is left is to decide how the client and server applications look, and what the advantages or disadvantages are.
-%advantages og disadvantages for... hvad??? ... helt præcis? - astrid
+What is left to decide is what sort of technology is used to implement the client-server architecture.
 The two possibilities are roughly; a web application, or a desktop application that speaks to a server.
-%hvordan har det her noget med look at gøre??? - astrid
 While a desktop application is often faster, and has bigger opportunities for interacting with the hardware, it is also harder to manage on the users computer and keep the application up to date on each machine.
 Whereas, the application logic for a web-app will be constantly updated, as the part of the application that is currently used is downloaded to the users computer as a part of each request.
 The web-app can be thought of as an additional layer of abstraction that does away with platform specific issues, such as adapting to different operating systems.
 A disadvantage of web-apps is the requirement of there being a server, and the possible loss of the ability to work if it is down.
-%tænker en god opdeling ske kunne være karakteristik for de to typer og forklaring af hvorfor vi har valgt som vi har bagefter - astrid
 However, since the application already requires a server, this is a smaller problem.
-%var det maaske her man burde have nævnt de fem forskellige typer af client server? virker som om at vi skøjter rundt om det uden nogensinde at nævne det - astrid
 
 The largest disadvantage, and quite possibly one that has not been considered enough in this development project, is the learning curve associated with web applications.
-The web builds on a lot of technologies, CSS, Javascript and HTML, which are absolutely necessary, but can be difficult to learn all at once.
-% synes lidt der mangler en forklaring af konsekvenser heraf / hvorfor det er relevant - astrid
-The model decided upon here is that of loccal presentration.
+The web builds on a lot of technologies, CSS, Javascript and HTML, which are absolutely necessary, but can be difficult to learn all at once, which will increase development time.
+
+The model decided upon here is that of local presentation \citep[p.~202]{Rod-Aalborg}.
 As the integrity of the data is incredibly important, all business logic should be centrally administrated, and that way be resilient to user error.
 Choosing a local presentation model allows for creating a web application.
 A web application has many advantages, including but not limited to, mature UI, easy cross platform support, and avoiding having to install anything.

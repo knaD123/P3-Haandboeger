@@ -1,7 +1,6 @@
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
-	%noder i billedet
 		\node(start)[n]{};
 		\node(main)[predefined, right=2.7cm of start]{Main page};
 		\node(status)[predefined, right=2.8cm of main]{Document\\preview};
@@ -9,7 +8,6 @@
 		\node(update)[predefined, left=2.5cm of pop]{Read status\\updated};
 		\node(end)[n, left=1.5cm of update]{};
 		\node(End)[c, fit=(end)]at (end){};
-	%streger i billedet
 		\draw[arrow](start.east)--node[above]{Login to\\OBHandbooks}(main.west);
 		\draw[arrow](main.14)--node[above]{Go through\\notifications}(status.166);
 		\draw[arrow](main.350)--node[below]{Select relevant\\document}(status.190);

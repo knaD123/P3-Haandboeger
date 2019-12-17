@@ -1,8 +1,6 @@
 \section{Component Design} \label{sec:componentdesign}
 
 In this section the component design theory will be introduced and elaborated.
-This theory will be utilized in the following section where the component design for the system will be presented.
-%Anna: evt fjerne sætningen ovenfor da det virker til at være en gentagelse af den første
 
 \input{Chapters/Design/architecturecomponents}
 
@@ -29,17 +27,12 @@ The possible parallels are listed in the table below.
 \end{table}
 
 As written in the component design theory in \cref{sec:archicomponents} the model components should seek to solve the problem of the problem domain.
-%Anna: enten henvis til specifikke definition hvis sådan en eksisterer ellers henvis til afsnittet.
-%Anna: Mener vi virkeligt "problem og the problem domain"
 The model component in the MVC pattern is likewise going to contain the classes and objects that seeks to solve the problem domain through meeting the requirements written in {\color{red}section xx}.
 The model component in the implementation is among other classes going to contain \textit{documents, users, departments, versions, approvals} and \textit{read statuses}.
 The arguments for including these classes can be seen in \cref{sec:classdiagram}.
 The database in form of EF Core is also included in the model component as this in part also seeks to solve the problem domain.
-%Anna: Vi hrar endnu ikke introdyuceret denne forkortelse i brødteksten(EF core)
 
-As written in the component design theory the responsibilty of the functionality is to provide the actor a means to access the model component.
-%Anna: Henvis til afsnitet
-%Anja: Der er blevet henvist i paragraffen ovenfor. Det begynder at blive overkill
+As written in the component design theory, \cref{sec:componentdesign}, the responsibilty of the functionality is to provide the actor a means to access the model component.
 The controller component in the MVC pattern does this by communicating between the model component and the view component.
 The controllers retrieves data from the database and both methods and objects from the models.
 Hereafter,it links these to the view.
@@ -51,8 +44,7 @@ These are what determines what the actors sees and what they can interact with.
 \subsection{Component layers}
 In relation to the theory written in \cref{archicomponents} the components can be designed in layers to describe their responsibilities and relation to each other.
 The components in the MVC pattern with EF Core included can also be designed with the layered architecture in mind.
-To give an overview and understanding of the architecture and design a simple component layer design can be seen in the figure below:
-%Anna: synes den sidste sætning bliver en smule kringlet
+To give an overview and understanding of the architecture and design, a simple component layer design can be seen in the figure below:
 
 \begin{figure}[H]
 	\centering
@@ -61,14 +53,9 @@ To give an overview and understanding of the architecture and design a simple co
 \end{figure}
 
 View, controller, model, and EF Core are thus the main components layers that can be found in the design, each with a well-defined responsibility.
-Ideally the architecture is designed so that the view and model components do not have to interact with each other.
-% Kilde? Det virker lidt suspekt at views og models ikke skal kunne snakke med hinanden
-% Anja: Virkelig? Tjah, saa tænker jeg slet sætningen ovenfor, da den er trukket ud af min røv
 It is the intention that the controller is the link between these components, which is why it is placed in the middle of the layer components.
 The main function of the controller is to link objects from the model component and data from the EF Core database and make these accessible for the view component.
 
-%Anna: vil vove at påstå der ikke birde være et afsnit her
-% Anja: Jeg vil paastaa det modsatte
 This will not always be the case as the ASP.NET Core MVC model is designed so that a view has a corresponding controller.
 For example the document view will have a corresponding document controller.
 The document view will eventually have to borrow objects and data from other models in the system, which means that the view will at times have to bypass the controller component to communicate with the model component.
@@ -84,13 +71,12 @@ These components their relations with each other, and their underlying sub compo
 	\includegraphics[width=1\textwidth]{billeder/complexcomponents.jpeg}
 	\caption{Complex component layer design}
 \end{figure}
+\todo[inline]{Anja: Fix din pil fra Javascript til model. Den skal pege p controlleren, da alle requests er gennem cotnrolleren}
 
+\todo[inline]{Rasmus: Lav det so det er rigtigt}
 Ideally the design would have \textit{closed-relaxed} architecture as the components would only be able to access layers adjacent to them.
 In this design the design would be \textit{relaxed} as the controller would have access to both the view and the model components.
 As it is though the design has an \textit{open-relaxed} architecture as the view component occasionally has access to the model component.
-%Anna: Kan godt tænkes de to sidste sætninger trænger til en omskrivning
-% Anja: Tjoh
-% Henrik: Tænker at det er forkert med pil fra JavaScript til Model
 
 In the final design there will be several classes included within each of the components.
 Each of the main classes in the model component will have a corresponding controller and view in relation to it.

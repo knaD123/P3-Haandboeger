@@ -1,5 +1,5 @@
 \subsection{Use cases} \label{sec:usecases}
-\todo[inline]{Er det dokumentet brugerne til sat som approver til, eller er det den nye version?}
+\todo[inline]{Astrid: Ret so that approvers are always associated with versions}
 All of the actors have different needs of the system and different accessibility to the system.
 The various different workflows each of them has is described in ten use cases, which are covered in this section.
 
@@ -11,12 +11,10 @@ How they do so is described in \cref{tab:access-handbook} and shown in \cref{fig
 \input{Chapters/ApplicationDomain/UseCaseStates/Access-Fig}
 
 There is a fork depending on whether it is the first time a user logs in, because a new user has a username, a name and a standard password.
-%Anna: "there is a fork", den sætning forvirrer mig
 For security reasons the standard password needs to be changed as otherwise anyone could log into the system with only a username.
 The first login is also an account activation through which the password is changed and an e-mail address and phone number may be added.
 
-As described in \cref{sec:CaseDescription}, the current system is excessively complicated and it was therefore included in the system definition, see \cref{factor}, that the new system should ''facilitate an overview of current [...] versions''.
-%Anna: hendes system var ikke complicated men high maintance
+As described in \cref{sec:CaseDescription}, the current system is difficult to maintain and it was therefore included in the system definition, see \cref{factor}, that the new system should ''facilitate an overview of current [...] versions''.
 This is taken care of at the front page.
 The documents relevant to the user are shown first, \cref{sec:requirementsdefinition}, a feature specifically requested by Ipsen.
 Below the relevant documents all the chapters are visible providing an overview of the content in the handbook.
@@ -30,7 +28,6 @@ Adding versions as additions to an existing documents as well as creating a new 
 \input{Chapters/ApplicationDomain/UseCaseTables/Add-Doc-Tab}
 \input{Chapters/ApplicationDomain/UseCaseStates/Add-Doc-Fig}
 
-%Anja: Jeg synes, det er et forking smukt state-chart! Tjah. Det er de andre ogsaa, men specielt det her!
 Whether a changelog is prompted during upload depends on the system settings.
 This is because only some standards require it, as explained in \cref{sec:CaseDescription}.
 
@@ -77,7 +74,7 @@ When the administrator accesses the archive they do so through the workflow desc
 The technical requirement is that the documents should be kept at least three years, as mentioned in \cref{sec:CaseDescription}.
 This resulted in a system definition stating that there should be an adjustable archive time.
 However, as described in \cref{sec:CaseDescription}, it was discovered that in practice the files are usually kept indefinitely as deleting the files were too much work.
-Additionally, the file integrity is of upmost importance, see \cref{sec:ISOstandards} and this is also prioritized as \textit{Very Important} in the design, see \cref{sec:architecturecriteria}.
+Additionally, the file integrity is of upmost importance, see \cref{sec:ISOstandards} and this is also prioritized as \textit{Very important} in the design, see \cref{sec:architecturecriteria}.
 As space is clearly not a problem, but the prospect of accidentally deleting a file is, it was decided that deleting files from the archive is not an option.
 Should somebody accidentally upload the wrong file, this should be discovered before the file is approved and added to the handbook as per the approve file use case, \cref{sec:approve}.
 After a file has been approved it will always be accessible either through the handbook or the archive.
@@ -99,8 +96,8 @@ In early designs, the user was activated through an e-mail address or phone numb
 Yet, as seen in \cref{tab:Actor-reader}, not all of the system's users have a work related e-mail address or phone number.
 Instead, the workaround of a standard password was introduced.
 When the administrator creates a user they set their name and username and the system automatically gives every new user a standardized password.
-This means that there is a timeframe in which anyone could access the archive with only a username. % Henrik: Jeg er maaske ikke helt enig i det med "timeframe"
-Therefore, this workflow assumes that the user will activate their account immediately after getting it. % Henrik: Same thing here
+This means that there is a time frame in which anyone could access the handbook with only a username.\footnote{For example, the attacker could, if they know that John Smith just got hired by the company, set up a bot that tries to activate the accounts jsmith, johnsmith, and such. However, in this project security is not considered important, as the program is assumed to be running on a local network only accessible by trusted users.}
+Therefore, this workflow assumes that the user will activate their account immediately after getting it.
 This is obviously a security flaw, but in order to satisfy the system requirements, mentioned in \cref{sec:requirements}, and make it accessible for all actors, coupled with the fact that security has a low priority, see \cref{sec:architecturecriteria}, this workaround was eventually chosen.
 
 During creation, the administrator assigns the user both a username and a name.
@@ -116,8 +113,7 @@ This is described in \cref{tab:edit-user} and visualized in \cref{fig:edit-user}
 \input{Chapters/ApplicationDomain/UseCaseTables/Edit-User-Tab}
 \input{Chapters/ApplicationDomain/UseCaseStates/Profile-Fig}
 
-\todo[inline]{De har vel adgang til det, de kan bare ikke ændre det?}
-The only information a user does not have access to is their name, or identification, as this is used in the read status data.
+The only information a user does not have permission to change is their name as this is used in the read status data.
 This data is used for audits and data integrity is therefore a bigger concern than for the rest of the user's informations.
 
 During the interviews with Ipsen, it was determined that it should not be possible for the user to turn off notifications.
@@ -147,8 +143,7 @@ This is described in \cref{tab:mark-read} and visualized in \cref{fig:mark-read}
 \input{Chapters/ApplicationDomain/UseCaseStates/Read-Fig}
 
 This is the only use case which the administrator cannot do.
-As described in \cref{sec:Actors}, this is because none af the actors have any use for this specific functionality and it is not necessary to log their readings.
-% Henrik: Skulle der have staaet "... none of the administrators have any ..."?
+As described in \cref{sec:Actors}, this is because none af the administrators have any use for this specific functionality and it is not necessary to log their readings.
 
 It is the department head's job to make sure that everyone in their department have read the updated documents.
 In the case where readers do not have any contact information listed, they do not get a notification and it is the department head's responsibility to make them aware of any changes.

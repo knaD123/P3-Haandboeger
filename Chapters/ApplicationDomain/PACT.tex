@@ -11,8 +11,6 @@ To design human-centred, the developers must explore the users who will eventual
 
 To help understand and reflect upon the users and their relation to an interactive system, the framework \textit{PACT} \cite{Benyon} is used.
 PACT is an acronym for \textit{People, Activities, Context}, and \textit{Technology}.
-%burde kilden ikke sættes ind lige omkring her?
-%Anna: Lu snakkede om at vil have kilden første gang metoden nævnes og det skre i introen
 
 Depending on how well developers have implemented a way to convey their conception of a given system, different users will interpret it differently.
 Their interpretation, being based on individual understanding and knowledge, regulates the users interactions with the system and thereby determines what it really does.
@@ -28,7 +26,6 @@ A model of this concept can be seen in \cref{fig:PACT-SystemImage}.
 The PACT theory presentation and analysis will be written congruently throughout this section.
 First the specific theory will be presented followed by the analysis.
 
-%tænker generelt at teorisektionerne godt kunne være noget mere kompakte men ikke sikker paa om vi har tid ti det - astrid
 \subsection{People}\label{sec:PACT-people}
 People differ from each other in many ways.
 This element in the PACT analysis is a way to ponder upon these differences as well as a way to categorize the different users of a system.
@@ -50,8 +47,7 @@ This is a heterogeneous group with IT experience ranging from possibly none to w
 Should a blue-collar worker have no IT experience, it seems reasonable to assume that, this blue-collar worker may be cautious of it and the design needs to take this into account.
 The group also has different levels of domain expertise ranging from novice to expert, which needs to be considered.
 The quality manager is a domain expert and, therefore, has different needs of the system than the blue-collar worker with no expertise.
-Furthermore, issues such as colorblindness, and other handicaps, as well as bad memory needs to be considered when designing the system and interface.
-%Anna hvilke andre handicaps kunne vi snakke om i det her specifikke tilfælde (bliver vi garanteret spurgt om til eksamen hvis vi ikke noterer det)
+Furthermore, issues such as colorblindness and bad memory needs to be considered when designing the system and interface.
 
 \subsection{Activities}\label{sec:PACT-actvities}
 It is important to figure out what activities the system needs to support.
@@ -86,7 +82,6 @@ Second is the consideration of ``what will happen when mistakes and errors are m
 
 \subsubsection*{Activities analysis}
 A temporal aspect in this project is that users may experience interruptions and the system should therefore be simple to use and easy to get back to, see \cref{sec:CaseDescription}.
-%In the case of this development project, see \cref{sec:CaseDescription}, in terms of temporal aspects during the activities, users may experience interruptions and the system should therefore be simple to use and easy to get back to.
 
 Being easy to use is a feature especially relevant for the blue-collar workers, as they only occasionally need to read documents and therefore are less in contact with the system.
 The activities would most often be done during business hours, from 8-16 on weekdays, though may be accessed outside of this time frame as well.
@@ -95,17 +90,14 @@ The cooperation aspect is mostly relevant for the  quality manager and departmen
 Writing the documents in itself does not require collaboration, but after a document has been written, it needs to be approved by other users and this is one of the most important collaboration aspects in the system.
 This sort of communication is partly facilitated by notifications. 
 It is important in the design of these notifications that they are non-obtrusive when the user is focusing on something else. 
-But this is achieved mostly by the notifications only being visible in the browser. 
-%vi har i systemdefinitionen skrevet at de skal have en mail eller sms - det stemmer ikke helt overens med kun at have dem tilgængelige i browser - astrid
+But this is achieved mostly by the notifications only being visible in the browser, or email/sms, which it is assumed that the user can disable when they want to focus. 
 Designing the notifications such that they are only dismissed when the task they indicate is complete, turns them into a to-do list as well.
 As for the blue-collar worker's activities, there is no cooperation involved, as all they need, is to read the newest, relevant documents individually.
 
 Regarding the complexity; the activities are quite well-defined overall.
 The main activity for the administrative personnel is, that whenever a new document has been written, it needs to be approved and then added to the handbook.
-Hereby archiving the the old and now outdated document.
-The department manager needs to make sure that the affected blue-collar workers read and understand the new documents.
-%Er det rigtigt brug af documents vs versions - Anna
-%in context of den definition der bev smidt i iso ja - astrid
+Hereby archiving the the old and now outdated documents.
+The department manager needs to make sure that the affected blue-collar workers read and understand the new document versions.
 
 In relation to safety critical aspect, there are no physical safety issues to consider in relation to the system, though there are serious consequences to consider if the documents in the handbook do not live up to regulations, as mentioned in \cref{sec:ISOstandards}.
 It is required that the handbook is up to date and that the older versions of its documents are stored.
@@ -113,7 +105,6 @@ If this is not upheld the firm could suffer loss of certification, see \cref{sec
 
 In terms of the nature of the content, the system should be able to handle Microsoft documents such as Word and Excel as these are the file types used to write the documents.
 As Ipsen has mentioned, it is also acceptable that the system accepts PDF files instead, as long as she is able to write the document with her preferred text editing software.
-%Anna: Vil bare noterer det er godt vi får det frem her
 Furthermore, the system should support large quantities of these files as the archived versions of the documents would be stored indefinitely.
 
 \subsection{Contexts}\label{sec:pactcontext}
@@ -133,27 +124,17 @@ The main focus here, is that the handbook documents should be easily accessible,
 Previous to this development project, the most common way that the handbooks were used by employees were in a paper format, which allowed the use of the documents in circumstances not conductive to electronic equipment.
 It is expected that this practice will continue despite whatever system may be implemented to manage the files.
 This is because most devices, e.g. phones or tablets, are not allowed in the production due to the safety risk they pose.
-%omformulering ovenover og tilføjet sætning - astrid
 
 As for the organizational context, there are different factors to consider.
 These are Ipsen, who acts as a third party quality manager for a firm in relation to maintaining the handbook.
-%Then there is the in-house secretary, who Ipsen works the closest with.
-%vil vove at paastaa at det her er direkte forkert. forslag: bare slet
-There is the CEO, who from time to time reads, %writes, 
-and approves the handbook documents.
-%Anna secifikt for den her case med JBJ så skriver han ikke dokumenter
+There is the CEO, who from time to time reads and approves the handbook documents.
 Lastly, there are the blue-collar workers within the firm whose work and daily tasks vary depending on their positions.
 
 It is because of the structure, of the organization, that there needs to exist different access rights in the system, which are administrator, writer, and reader.
 The administrator role is mainly for the quality manager, who is the main person to manage the handbook documents.
-There are actors within the firm
-%, the CEO for example,
-who occasionally need to write/update documents in the handbook and need writer access rights.
-%Anna: Igen lige i denne case vil jeg påstå det er department heads vi vil bruge og ikke CEO
-%er dog ikke sikker  at jbj er stor nok til overhovedet at have department heads som saadaan?? - astrid
+There are actors within the firm, such as department heads, who occasionally need to write/update documents in the handbook and need writer access rights.
 All of the blue-collar workers need to read and understand the specific documents in the handbook, that relates to their work.
 These blue-collar workers will typically have reader rights to access the documents.
-%omformulering ovenover -astrid
 \subsection{Technologies}
 Technologies is the reflection on the medium which interactive system developers work with.
 It covers looking into elements such as what medias and technologies are needed to best get input and present the output, and review the communication between the needed devices.
@@ -164,8 +145,7 @@ Good content is defined as accurate, up to date, relevant and well presented.
 Since the activities are most often done in an office environment, on a standard PC, the input medias are keyboard and mouse.
 In addition, output is presented through a monitor or, for the blue-collar workers on the factory floor, through a printed version of the handbook, or parts of it.
 The content displayed on the monitor to the user is presented through a web browser.
-In \cref{sec:conditions}, it was mentioned that the majority of the users have limited IT-experience.
-%Anna er det ikke forkert reference, skal der ikke bare henvises til people analysen?
+In \cref{sec:PACT-people}, it was mentioned that the majority of the users have limited IT-experience.
 It is therefore important that the content displayed is simple enough to allow the users to easily navigate and use the system.
 
 Furthermore, the user-to-user communication is usually done through telephone or emails, while it between devices is done over a network, such as the internet.

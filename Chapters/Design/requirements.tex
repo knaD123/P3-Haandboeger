@@ -1,19 +1,11 @@
 \subsection{MoSCoW rules}\label{sec:requirements}
 It is important to prioritize a system's requirements after the first draft of a system has been designed.
-This is because there are no guarantees that all of the requirements and design ideas are doable within the time frame of the project.
-%Anna: evt skrive 'a given development project' fremfor 'of the project'
-There is in this project set a hard time limit by Aalborg Univerity.
-%Anna: Vil virkeligt gerne hvis vi fjernede sætningen ovenfor, tænker det står i sætningen over den
-% Henrik: Tænker at det der staar i linjen ovenfor er saadan mere generelt, hvor at det med AAU er specifikt rettet mod VORES projekt
-%Anja: Jeg er enig med Anna. CUT
+This is because there are no guarantees that all of the requirements and design ideas are doable within the time frame of a given project.
 The information in this chapter is based upon Benyon \cite{Benyon}.
-%Anna: hvis MoSCoW er baseret på den så skriv referencen når MoSCoW nævnes (også ved MVP hvis det også er derfra) Har prøvet at sætte det ind som kommentarer er dog ikke sikker på om det er korrekt at tingeneer taget derfra.
 
 These priorities are set to determine which requirements are absolutely necessary for the system to function, the \textit{minimal viable product} (MVP),
-%\cite{Benyon},
 and which requirements are simply nice to include.
 The \textit{MoSCoW rules}
-%\cite{Benyon}
 have been chosen to help prioritize the requirements for this project.
 The MoSCoW rules classifies these priorities into:
 
@@ -30,34 +22,15 @@ Should haves are essential requirements to include if the time frame allowed, bu
 Could haves are less important requirements than must haves and should haves and they would easily be excluded from the system.
 Want to have but Won't haves are requirements that can wait until a later point of the system development.
 
-% Henrik: Er dette en okay måde at lave denne definition? DEB-bogen s. 147 øverst
-%Anna: Kna man argumenterer for at den definition skal have en anden kilde da DEB bogen citerer en anden kilde der
-A definition of a requirement is provided to prevent any misunderstandings throughout this chapter.
-%anna: evt skrive " For the sake of preventing misunderstandings the definition for requirement used in this report can be found in \cref{defn:Req}} below" (Evt skirve kilden på til sidst (hvi sder bruges den anden end Benyon))
+For the sake of preventing misunderstandings the definition for requirement used in this report \citep[p.~147]{Benyon} can be found in \cref{defn:Req} below.
 
 \begin{defn}\label{defn:Req}
     A requirement is something the product must do or a quality that the product must have
 \end{defn}
 
-Requirements can be divided into two types, \textit{functional} \cref{defn:ReqFunc} and \textit{non-functional} \cref{defn:Req-NonFunc}.
-
-\begin{defn}\label{defn:ReqFunc}
-    A functional requirement is a requirement that the system must do
-\end{defn}
-
-\begin{defn}\label{defn:Req-NonFunc}
-    A non-functional requirement is a quality that the system must have
-\end{defn}
-%Der skal staa noget om, hvad forskellen mellem function og non-functional requirements er
-% Henrik: Noget om hvordan man finder frem til disse "requirements"
-%virker lidt underligt at vi introducerer begreberne men aldrig bruger dem - astrid
-
 \subsubsection{Defining requirements} \label{sec:requirementsdefinition}
-% vigtigt at finde ud af hvad "the client(s)" ønske, før man sætter "requirements"
 It was in \cref{sec:PACT} mentioned how it is important, when designing an interactive system, to do it with the users in mind.
-Therefore, before defining a project's requirements it is essential to figure out the client's wants and needs%, since it is the client and not the designer, who is going to use the final system.
-.
-%vil vove at paastaa at sidste halvdel af sætning ovenover allerede er dækket med sætning over det
+Therefore, before defining a project's requirements it is essential to figure out the client's wants and needs.
 A lot of different techniques can be used when defining a project's requirements, e.g.:
 
 \begin{itemize}
@@ -67,26 +40,17 @@ A lot of different techniques can be used when defining a project's requirements
 \end{itemize}
 
 These techniques can help designers to better understand the problems the client has with their current system, and at the same time, give a better understanding of the requirements for the new system.
-Using these techniques where the designer interacts with other people also provides the designer with a lot of stories that can form the basis for the analysis work.
-%Ana: Af interesse og måske også fordi jeg er lidt forvvirret over fomuleringen men hvilke 'stories'
-% Henrik: "Stories" er beretninger/fortællinger (hvilket ord der nu passer her) om hvordan et nuværende system bruges - tænker jeg - men det staar i DEB bogen
-%Anna: Kan den dobbelte 'designer' skrives ud af sætningen, synes det er meget at nævne det samme ord så tæt på hinanden i samme sætning
+Using these techniques where the designer interacts with other people also provides them with a lot of stories that can form the basis for the analysis work.
 Even though a designer have all these techniques at their disposal, the interview technique
-is one of the most effective techniques to find out what the client wants and needs, see \cref{sec:interview} for a more in-depth explanation. 
-%Anna: Er det ikke forkert i denne sammenhæng at henvise til den section da den jo ikke går i detaljen med teorien men er konkret hvordan der er gjort i dette projekt?
-% Henrik: Jeg mener ogsaa at der staar noget generelt om interviews i det afsnit - ellers er det bare at slette den henvisning
-%flyttede lige henvisningen - virkede en anelse clunky midt i sætningen - astrid
+is one of the most effective techniques to find out what the client wants and needs.
 
-% det kan være en iterativ process, og det sker ofte at der kommer nye "requirements" fra tid til anden
 The process of defining a project's requirements is an iterative process, see \cref{sec:iterativModel}.
 This is because new requirements will pop-up throughout the design process.
-%Anna: Evt tilføje "This may happen when the user interacts with the system during tests and it becomes clear misunderstandings of the basic concept has happend. Furthermore, it may also happen when the user realises other needs than what was thought necessary of the system to begin with"
-% Henrik: Ingen stærke følelser her :-)
+This may happen when the user interacts with the system during tests and it becomes clear misunderstandings of the basic concept has happend.
+Furthermore, it may also happen when the user realises other needs than what was thought necessary of the system to begin with.
 
-% Henrik: Noget om hvordan vi er kommet frem til vores "requirements"
 For this project the interview technique was used to define this project's requirements, see \cref{sec:firstinterview}. This helped defining the prioritization of the following requirements:
 
-%generelt ville det være smukt hvis alle formuleringerne startede med must have [krav]. altsaa must have a tool to manage versions i stedet for must have: the system must manage ... Ved dog ikke om det er noget vi gider at bruge tid paa saa sent i processen
 \begin{itemize}
     \item
     Must have:
@@ -103,34 +67,26 @@ For this project the interview technique was used to define this project's requi
             Once a version has been added to the handbook, it cannot be changed
         \end{itemize}
     \item
-%ændrede must til should ovenover
     Should have:
         \begin{itemize}
-			% Henrik: Mht. de her punkter, saa er de bare copy/paste fra vores system defination, og jeg tænker ogsaa at de skal ligne saa meget som muligt - men igen, ingen stærke følelser her :-)
 			\item
 			Automatic updates of TOC
             \item
-            A human-written changelog can be included with each version
-            %Anna: Evt skrive som, "A human-written changelog may be included depending on the company settings"?
+            A human-written changelog may be depending on the company settings
             \item
-            Registration when a version has been read by an employee
-            %Anna: Evt skrive i stedet for "registration of who among specific employees have read a version"
+            Registration of who among specific employees have read a version
             \item
-            The handbook should be printable
-            %Anna: den her skal diskuteres på et tidspunkt hvad vores definition af printable blev til, altså det med at den i stedet for printable laver til en pdf som brugeren selv derfra kan printe?
+            The handbook should be printable.
             \item
-            Different levels of permissions/access rights to the documents within the handbook
-            %Anna: Hvilket ord bruger vi enten persmissions eller access rights (Hælder selv mod access rights)
+            Different levels of access rights to the documents within the handbook
             \item
             Readers and writers only have access to the newest version of a document
             \item
-            Administrators have access to everything
-            %Anna: Evt skrive "Administrators have acces to all features supported by the system"?
+            Administrators have acces to all features supported by the system, except marking versions as read
             \item
             It should be possible to group users into departments, and associate them to documents.
             \item
-            It should be easy to switch from an existing system, and back to the existing system
-            %Anna: Evt skriv " It should be simple to switch from an exsisting system, and back again"
+            It should be simple to switch from an exsisting system, and back again
                 \todo[inline]{RASMUS: Tjek om den her formulering passer med FACTOR, omformuler til kvantitativt krav}
         \end{itemize}
     \item
@@ -138,15 +94,15 @@ For this project the interview technique was used to define this project's requi
         \begin{itemize}
             \item
             When a document is updated, a notification could be sent out to the associated departments.
-			\todo[inline]{(Tanke):skal evt diskuteres et sed at ideen er at alle associated får notificatione i systemet og dem med enten mail eller mobil vil yderligere får notifikation den vej rundt}
             \item
             The system could be able to handle documents of different file-types
             \item
             Option to sort documents according to different attributes
             \item
             System for approval of new versions of documents
+			\item
+			Be able to fill a PDF header with information such as approvers and valid date
         \end{itemize}
-%ændret should til could ovenover - astrid
     \item
     Want to have but Won't have this time around:
         \begin{itemize}
@@ -156,12 +112,6 @@ For this project the interview technique was used to define this project's requi
             Approval of suppliers and their documents.
         \end{itemize}
 \end{itemize}
-\todo[inline]{Vi skal have tilføjet herinde i det rigtige niveau, at systemet skal kunne opdaterer sidehoveder på uploadede filer med hvem der godkender dato og versionsnummer (Ogås når den ikke længere er gældende)}
-
-In this report the \textit{must have} priority covers the MVP of the system, which is the absolute minimum of what the system should include when the project is done.
-%Anna: Evt slette fra "which is ..." da det er en gentagelse af noget der er skrevet lige over listen
-% Henrik: Saa skal det omformuleres længere oppe, da oppe i toppen ikke nævner at "must have" er vores MVP
-%er must have ikke bare helt generelt MVP? jeg troede det var selve definitionen? - astrid
 
 The requirements belonging to this category are necessary since the system would not be functional without them.
 The first item under \textit{must have} which is ''The system should manage versions of handbook documents'' is intentionally broad as it is expanded upon in the following four items.

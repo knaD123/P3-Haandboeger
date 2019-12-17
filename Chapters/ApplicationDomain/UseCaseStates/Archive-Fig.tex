@@ -1,7 +1,6 @@
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
-	%noder i billedet
 		\node(start)[n]{};
 		\node(main)[predefined, right=2.7cm of start]{Main page};
 		\node(archive)[predefined, right=1.8cm of main]{Archive page};
@@ -9,7 +8,6 @@
 		\node(ver)[predefined, left=2.8cm of download]{Version\\page};
 		\node(end)[n, below=0.8cm of ver, xshift=2cm]{};
 		\node(End)[c, fit=(end)] at (end){};
-	%streger i billedet
 		\draw[arrow](start.east)--node[above]{Login to\\OBHandbooks}(main.west);
 		\draw[arrow](main.east)--node[above]{Go to\\'Archive'}(archive.west);
 		\draw[arrow](archive.south)--node[right]{Press\\'Download}(download.north);
@@ -17,7 +15,6 @@
 		\draw[arrow](5.23,-3.1)--(End.north);
 		\draw[black](ver.south)|-(5.25,-3.1);
 		\draw[black](download.south)|-(5.25,-3.1);
-	%loop i billedet
 		\path[arrow] (archive) edge [loop right, in=355, looseness=3]node[auto]{Unfold\\document} (archive);
 		\path[arrow] (archive) edge [loop above, in=65, looseness=6]node[auto]{Unfold\\chapter} (archive);
 		\path[arrow] (ver) edge [loop left, looseness=4]node[auto]{Download\\version} (ver);

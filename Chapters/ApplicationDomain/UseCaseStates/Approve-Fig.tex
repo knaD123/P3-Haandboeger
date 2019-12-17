@@ -1,7 +1,6 @@
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
-	%noder i billedet
 		\node(start)[n]{};
 		\node(main)[predefined, right=2.7cm of start]{Main page};
 		\node(pending)[predefined, right=3.0cm of main]{Pending\\approval page};
@@ -10,7 +9,6 @@
 		\node(active)[predefined, below=1.5cm of approve]{Version active\\in handbook};
 		\node(end)[n, left=1.5cm of active]{};
 		\node(End)[c, fit=(end)] at (end){};
-	%streger i billedet
 		\draw[arrow](start.east)--node[above]{Login to\\OBHandbooks}(main.west);
 		\draw[arrow](main.east)--node[above]{Admin:Go to\\Pending approval}(pending.west);
 		\draw[arrow](pending.south)--node[right]{Press\\'Approve'}(approve.north);
