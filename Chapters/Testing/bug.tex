@@ -1,8 +1,7 @@
 \section{Bugs}\label{sec:Bug}
 % Hvad er en bug
-There exists a lot of terms to describe that a program is not behaving as intended or crashes, like; \textit{Fault, failure} and \textit{incident}.
+There exists a lot of terms to describe that a program is not behaving as intended or crashese; \textit{Fault, failure} and \textit{incident}.
 A reason for all these different terms is that e.g. incident might not sound negative enough to be used for very severe or dangerous errors. \cite{SoftwareTesting}
-
 The term \textit{bug} will be used throughout this chapter to avoid any confusions or even misunderstandings.
 A bug occurs when one of these five rules is true: \cite{SoftwareTesting} % Denne sætning skal muligvis omformuleres
 
@@ -16,7 +15,7 @@ A bug occurs when one of these five rules is true: \cite{SoftwareTesting} % Denn
 
 % Hvorfor opstaar bugs (side 16)
 Studies keeps showing over and over that the number one cause of bugs is the product specification.
-There can be multiple reasons for this: \cite{SoftwareTesting}
+There can be multiple reasons in connection with the product specification for these bugs appearing: \cite{SoftwareTesting}
 
 \begin{itemize}
 	\item It has not been written
@@ -27,6 +26,8 @@ There can be multiple reasons for this: \cite{SoftwareTesting}
 
 Other causes to why bugs happens in software are the design and code errors.
 The reasons to why bugs are introduced to the software by the design and code errors are similar to the reasons mentioned above.
+%Anna: vil meget gerne fjeren sætningen lige ovenfor, og så skrive den nedenunder som:
+%"Bugs caused by code errors may happen because of the complexity of the code or poor documentation in the code."
 Though, bugs caused by code errors can also happen because of the complexity of the code or poor documentation in the code.
 Many of the bugs caused by code errors can often be traced back to errors in the specification and design. \cite{SoftwareTesting}
 
@@ -50,7 +51,7 @@ This process can be done by using the e.g. the waterfall or iterative model, see
 % Rasmus: Not exponentially? Logarithmic growth is very slow, and gets slower with time
 % Henrik: tjaaa... Det var hvad der stod i bogen
 The cost of fixing bugs increases logarithmically over time.
-This means, a bug that is found while making the specification might cost nothing to fix, a bug found during the programming phase might cost thousands of dollars to fix and bugs found by the users could potentially cost millions of dollars to fix. \cite{SoftwareTesting}
+This means, a bug which is found while making the specification might cost nothing to fix, a bug found during the programming phase might cost thousands of dollars to fix and bugs found by the users could potentially cost millions of dollars to fix. \cite{SoftwareTesting}
 
 % Henrik: Kan der indsættes en graf der viser dette?
 
@@ -68,7 +69,7 @@ There are several reasons why a bug is not being fixed before the software is re
 
 % "It's not a bug, it's a feature"
 One might think, when looking at the last point in the list above, why a bug is not a bug.
-The reason for this can be because of mis-understandings or that the specification changes after the software already have some features implemented. \cite{SoftwareTesting}
+The reason for this can be because of misunderstandings or that the specification changes after the software already have some features implemented. \cite{SoftwareTesting}
 
 It has now been explained why it is important to test software, see \cref{sec:whytesting}, and what bugs are.
-It now time to see what techniques can be used to test software and find potential bugs.
+The following section will explore what techniques can be used to test software and find potential bugs.
