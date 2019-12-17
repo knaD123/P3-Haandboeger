@@ -1,3 +1,5 @@
+\documentclass[../../master.tex]{subfiles}
+\begin{document}
 \section{Component Design} \label{sec:componentdesign}
 
 In this section the component design theory will be introduced and elaborated.
@@ -73,10 +75,8 @@ These components their relations with each other, and their underlying sub compo
 \end{figure}
 \todo[inline]{Anja: Fix din pil fra Javascript til model. Den skal pege p controlleren, da alle requests er gennem cotnrolleren}
 
-\todo[inline]{Rasmus: Lav det so det er rigtigt}
 Ideally the design would have \textit{closed-relaxed} architecture as the components would only be able to access layers adjacent to them.
 In this design the design would be \textit{relaxed} as the controller would have access to both the view and the model components.
-As it is though the design has an \textit{open-relaxed} architecture as the view component occasionally has access to the model component.
 
 In the final design there will be several classes included within each of the components.
 Each of the main classes in the model component will have a corresponding controller and view in relation to it.
@@ -84,3 +84,4 @@ For example the document class in the model component will have a corresponding 
 Here the documents object is within the model component and the documents data will be stored in the database.
 A corresponding controller, which mainly handles the document class, ensures that the class and database are accessible for the actor.
 The corresponding view ensures that the actor is able to see and interact with the document classes and database.
+\end{document}
