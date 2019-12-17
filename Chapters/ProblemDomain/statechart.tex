@@ -13,19 +13,17 @@ Any issues with the document are, as mentioned in \cref{sec:richpictures}, meant
 \begin{figure}[H]
 	\centering
 \begin{tikzpicture}[align=center, scale=1.0, transform shape]
-
 	\node[n] (start) {};
 	\node[predefined] (await) [below of=start, node distance=1.7cm] {Awaiting approval};
+	\node(end)[n, right of=await, node distance=8cm] {};
+	\node(End)[c,fit=(end)] at (end) {};
 	\draw[arrow] (start.south) -- node[right]{Version\\uploaded} (await.north);
 	\path[arrow] (await) edge [loop below, out=355, in=340, looseness=4] node [below]{Approve} (await);
 	\path[arrow] (await) edge [loop below, out=185, in=205, looseness=3] node [below] {Replace the file} (await);
-	\node[predefined] (approved) [right of=await, node distance=8cm] {New version released};
-	\draw[arrow] (await.east) -- node[above]{All reviewers\\have approved} (approved.west);
-
+	\draw[arrow] (await.8) -- node[above]{All reviewers\\have approved} (End.north west);
+	\draw[arrow] (await.east) -- node[below]{Delete} (End.west);
 \end{tikzpicture}
 \end{figure}
-\todo[inline]{Anna: gør en ende paa det her. Delete til end fra awaiting}
-\todo[inline]{Anna: Lav slutstadier rigtigt. Alle slutstadier skal have en ende-prik.}
 
 \subsection{Department}
 A department is an organizational unit, used to administrate which users are attached to which documents.
@@ -37,12 +35,10 @@ This was also the reason the Department class was first decided upon, see \cref{
 \begin{figure}[H]
 	\centering
 \begin{tikzpicture}[align=center, scale=1.0, transform shape]
-
 	\node[n] (start) {};
 	\node[predefined] (await) [below of=start, node distance=1.5cm] {Existing};
 	\node(end)[n, right of=await, node distance=4cm] {};
 	\node(End)[c,fit=(end)] at (end) {};
-	
 	\draw[arrow] (start.south) --node[right] {Create} (await.north);
 	\path[arrow] (await) edge [loop below, out=270, in=230, looseness=4] node[below, xshift=-0.2cm] {Add/remove\\user} (await);
 	\path[arrow] (await) edge [loop below, out=350, in=325, looseness=3] node[auto] {Add/remove\\ Document} (await);
@@ -61,16 +57,13 @@ Due to the immutable structure of the versions, the actual versions never change
 \begin{figure}[H]
 	\centering
 \begin{tikzpicture}[align=center, scale=1.0, transform shape]
-
 	\node[n] (start) {};
 	\node[predefined] (await) [below of=start, node distance=1.5cm] {Awaiting approval};
 	\node[predefined] (approved) [right of=await, node distance=5cm] {In handbook};
-	\node[predefined] (archived) [right of=approved, node distance=5.5cm] {Archived};	
-
+	\node(end)[n, right of=approved, node distance=4cm] {};
+	\node(End)[c,fit=(end)] at (end) {};	
 	\draw[arrow] (start.south) --node[right] {Created} (await.north);
 	\draw[arrow] (await.east) --node[above] {Change\\approved} (approved.west);
-	\draw[arrow] (approved.east) --node[below] {Another version\\ is released} (archived.west);
-
+	\draw[arrow] (approved.east) --node[below] {Version\\archived} (End.west);
 \end{tikzpicture}
 \end{figure}
-\todo[inline]{Anna: Stadiet "Archived" skal være en ende-cirkel tekst archive}
