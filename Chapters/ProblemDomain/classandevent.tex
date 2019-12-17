@@ -48,9 +48,9 @@ In the following, the classes from \cref{tab:ClassCandidates} are deemed qualifi
 \end{table}
 
 \subsubsection*{Qualified classes}
-\todo[inline]{Anna: Omformuler company so there is not too many of them}
 
-The \texttt{Company} keeps track of companies that use the system, which is an important concept to keep track of.
+The \texttt{Company} keeps track of the handbook and the different suppliers that would be present in the system.
+It is therefore a qualified class acting as glue between the handbook and supplier sub problems, discussed in \cref{sec:classdiagram}.
 
 The \texttt{Handbook} keeps track of the documents and is an important part of the problem domain and system definition.
 
@@ -72,8 +72,7 @@ The \texttt{Supplier} is qualified seeing that the administrator needs to keep a
 
 The \texttt{Changelog} simply consists of a text string from version to version.
 Because of this, making it an actual object would be overcomplicating the model, and it has therefore been preserved as an attribute of the \texttt{Version} class.
-An argument could be made that the \texttt{Changelog} class should be qualified if the changelog in its entirety were accessed more often than it is, see \cref{access-archive}.
-\todo[inline]{Anna: Tilføj referecne til access archive section}
+An argument could be made that the \texttt{Changelog} class should be qualified if the changelog in its entirety were accessed more often than it is, see \cref{sec:access-archive}.
 
 The \texttt{Responsibility} is not qualified because the different levels of access and permissions that are present in the \texttt{User} class.
 
@@ -228,7 +227,6 @@ Hereby, the Qualified events are:
 	\item Department notified user
 	\end{itemize}
 \end{multicols}
-\todo[inline]{under smukkeseringen s tjek lige at "overskrift" er p samme side som events}
 
 \section{Event table}\label{sec:EventTable}
 The result of the selected qualified events and classes from \cref{sec:Classes,sec:Events} is an event table representing their relations, see \cref{fig:eventtable}.
