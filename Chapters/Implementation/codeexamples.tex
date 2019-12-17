@@ -3,16 +3,17 @@ In this section examples of the code will be presented.
 As written in \cref{sec:systemdesign} the system is based on the ASP.NET Core MVC architecture including EF Core.
 How the system utilizes the MVC architecture and the EF Core framework will be shown in the following code examples.
 
-Firstly the MVC implementation is explored with the \texttt{Document} class.
+Firstly, the MVC implementation is explored with the \texttt{Document} class.
 How the \texttt{Document} object is being treated throughout the system will be presented throught the model, view, and controller components.
-Furthermore it will be shown how the document data will be stored in the database with the repository pattern and EF Core.
+Furthermore, it will be shown how the document data will be stored in the database with the repository pattern and EF Core.
 Here it will be shown in part how a new document is added into the system throughout the components.
 
 \subsection{Model}
 
-In the model component it \texttt{Document} object is defined.
+In the model component the \texttt{Document} object is defined.
 It is primarily the document object that will be highlighted in the code examples.
 How the document object is presented is shown in the code snippet below:
+%Taniya: synes at vi enten skal kalde det code snippet eller listing
 % Henrik: Synes den sidste sætning er lidt kryptisk?
 % Anja: Har omformuleret
 % Henrik: Maaske importer code-snippets ligesom Rasmus har gjort? (ikke vigtigt)
@@ -49,13 +50,18 @@ public Document()
 }
 \end{lstlisting}
 
-The document object includes an ID, chapter, chapter number, section number, section number, versions, and whether or not it has been archived as seen in the code snippet above.
+%Taniya: måske fjern TODO kommentar i listning?
+%Taniya: Logikken i linje 10? 
+
+
+The document object includes an ID, chapter, chapter number, section number, versions, and whether or not it has been archived as seen in the code snippet above, \cref{lst:doc}.
 The \texttt{key} attribute on line 1 specifies that the \texttt{int ID} is a primary key that the database can use to identify the specific document.
 Likewise, the \texttt{Range} attribute specifies that the section number is included in a an \texttt{Enumerable} class consisting of integers from 1 to the max value of a 32 bit \texttt{Integer}.
 And the \texttt{Display} attribute on line 15 specifies that the section number should be displayed with the name \textit{section}.
 This \texttt{display} attribute is used with ASP.NET Core and is used to modify the text when the model is used in a view.
+%Taniya: måske også forklar noget med hvorfor vi bruger virtual Chapter Chapter og  IEnumerable<DocumentDepartment> DocumentDepartments? 
 
-In the code snippet below it is shown the logic of how a new version of a document is added.
+In the code snippet below, \cref{lst:addversion}, it is shown the logic of how a new version of a document is added.
 \\
 
 \begin{lstlisting}[caption={Document Model: AddVersion}, label={lst:addversion}]
@@ -82,8 +88,10 @@ As is seen on line 3 and 4 when a new version of a document is added the version
 % Henrik: Maaske i stedet for "it receives a new date ...", saa skriv "the version's ValidFromDate property is set to the current date"?
 On line 5 the new version is added to the list of versions.
 The control sequence from line 9 - 12 ensures that the previous version's ValidUntilDate is set to the current date.
+% Taniya: kan vi skrive The Selection Control Structure (fagterm) istedet for The control sequence?
 % Henrik: Same thing her - Masske "the previous version's ValidUntilDate property is set to ..."
 When a new version has been added all of the affected department in the system will get notified as seen in the loop from line 13 - 16.
+%Taniya: Iteration Control Structure - foreach loop 
 
 \subsection{Controller}
 
