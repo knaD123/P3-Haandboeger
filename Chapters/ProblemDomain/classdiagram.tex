@@ -12,7 +12,7 @@ Both of these deal with archiving and managing the documents a company needs to 
 	\node(start)[process]{Company};
 	\node(supp)[process, below=1cm of start, xshift=-1cm]{Supplier};
 	\node(hand)[process, below=1cm of start, xshift=1cm]{Handbook};
-	\node(app)[process, left=0.8cm of supp]{Approval};
+	\node(app)[process, left=0.8cm of supp]{\dotuline{\textit{Approval}}};
 	\node(suppapp)[process, below=1cm of supp, xshift=-0.5cm]{Supplier Approval};
 	\node(handapp)[process, below=1cm of app, xshift=-1.8cm]{Handbook Approval};
 	\node(doc)[process, below=1cm of hand, xshift=0.5cm]{Document};
@@ -104,8 +104,7 @@ There needs to be at least one administrator in the Company.
 
 The pattern functions like a hierarchy where the reader is at the bottom level, the writer at the middle level and the administrator at the top level. This means each role have the same core attributes, but their privileges are greater for each level, increasing from bottom to top.
 This relation is pictured in \cref{fig:RoleIllustration}.
-However as seen in \cref{mark-read} it is not entirely correct as there is one use case which the administrator does not have access to.
-\todo[inline]{Anna: Tilføj den rigtige reference}
+However as seen in \cref{sec:mark-read} it is not entirely correct as there is one use case which the administrator does not have access to.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{billeder/RP-Roller2.jpg}
@@ -179,7 +178,7 @@ Therefore, the final class diagram is as seen in \cref{fig:ClassDiagramNoSupplie
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
 	\node(hand)[process]{Handbook};
 	\node(doc)[process, below=1cm of hand]{Document};
-	\node(app)[process, left=2cm of hand]{Approval};
+	\node(app)[process, left=2cm of hand]{\dotuline{\textit{Approval}}};
 	\node(handapp)[process, below=1cm of app]{Handbook Approval};
 	\node(ver)[process, below=1cm of handapp]{Version};
 	\node(read)[process, below=1cm of doc]{Read Status};
@@ -212,7 +211,6 @@ Therefore, the final class diagram is as seen in \cref{fig:ClassDiagramNoSupplie
 	\caption{Final class diagram of the problem domain excluding the supplier
 	}\label{fig:ClassDiagramNoSupplier}
 \end{figure}
-\todo[inline]{Anna: Lav abstrakte klasser dotted underlined og textit}
 In this diagram the Supplier and the SupplierApproval are not included.
 As the Company class mainly existed to support the administrators access to the supplier system that class and its relation to the administrator role have also been excluded.
 The abstract Approval class still exists to make it possible to implement the supplier system at a later time.

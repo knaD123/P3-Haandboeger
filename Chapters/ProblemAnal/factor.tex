@@ -79,9 +79,7 @@ These are defined as follows, \citep[p.~40]{Rod-Aalborg}:
 
 \subsection{FACTOR analysis}\label{factor}
 
-\noindent\textbf{F - Functionality}
-\todo[inline]{Anna: Fix titler}
-
+\subsubsection*{F - Functionality}
 Manage and facilitate an overview of current and earlier versions of assorted files of different types in a handbook, as well as manage files in connection to approval of suppliers.
 Files in the handbook may have a changelog.
 New files undergoes an approval process before being submitted to the handbook.
@@ -89,35 +87,30 @@ Different levels of permissions for users as well as registration of who has rea
 Notify specific users when a new version is released.
 It should also be possible to import already existing handbooks to the system.
 
-\noindent\textbf{A - Application domain}
-
+\subsubsection*{A - Application domain}
 Mainly secretaries and the quality manager will administrate the system.
 All employees of the organization will have access to the system to read documents and print the handbook.
 The department heads will, usually, have partial access to the system, such that they can add new versions.
 They will, occasionally, also take part in the approval process of new versions that they themselves have not made.
 
-\noindent\textbf{C - Conditions} \label{sec:conditions}
-
+\subsubsection*{C - Conditions} \label{sec:conditions}
 The target group of the system is a small company that needs a cheap document managing solution.
 The users mostly have little IT-experience.
 Therefore, most of the target groups are also not able to maintain such a system.
 Lastly, there should be a backup of the archive making it easy to revert back to the previous system.
 
-\noindent\textbf{T - Technology}
-
+\subsubsection*{T - Technology}
 The system will be developed in C\# using the web framework ASP.NET Core.
 Other technologies such as HTML, CSS and JavaScript/jQuery will also be used to develop the system.
 The technologies used to develop the system will be explained in greater detail in \cref{sec:aspnetcore,sec:webfrontends}.
 The system will be accessible in the users web browser \footnote{Google Chrome, Mozilla Firefox, Microsoft Edge, Internet Explore etc.} on their PC.
 The notifications are sent over e-mail or sms.
 
-\noindent\textbf{O - Objects}
-
+\subsubsection*{O - Objects}
 The main objects of the problem domain are \textit{Handbook, Table of contents (TOC), documents, changelog} and \textit{user}.
 These object will be examined in \cref{sec:Classes}.
 
-\noindent\textbf{R  - Responsibility}
-
+\subsubsection*{R  - Responsibility}
 Managing file versions.
 Including a changelog for each change, depending on the settings.
 Provide an overview of all the documents through a TOC.
