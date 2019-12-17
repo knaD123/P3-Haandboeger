@@ -1,2 +1,56 @@
+\documentclass[../../master.tex]{subfiles}
+\begin{document}
 \subsection{Database}
-\input{Chapters/Design/databaseintroduction}
+Jan Paredaens et al. \cite{RelationalDatabaseModel} defines a database system as a collection of programs that run on a computer and that help the user to get information, to update information, to protect information, in general to manage information.
+
+Overall, there exist three different types of database \cite{RelationalDatabaseModel}:
+
+\begin{itemize}
+    \item
+    \textit{Network model} where the structure of information is represented by a directed graph.
+    \item
+    \textit{Hierarchical model} where the information is represented as a set of trees.
+    \item
+    \textit{Relational model} where the information is represented in tables.
+\end{itemize}
+
+Relational databases are one of the most popular where, as mentioned above, the data is organized in tables with rows and columns.\cite{OracleWhatIsDatabase}
+The application discussed in this report is using such a type of database due to it being the best supported in ASP.NET Core.
+
+To get a better understanding of how the data is structured in a relational database imagine a system with a lot of users.
+This system might be interested in keeping track of the users \textit{username, password, firstname, lastname} and \textit{email}.
+In a relational database this information can be represented as follows:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lllll}
+        USERNAME & PASSWORD & FIRSTNAME & LASTNAME & EMAIL \\
+        \hline
+        username1 & pw123 & Billy & Johnson & bj@mail.com \\
+        username2 & pw456 & Lucy & Johnson & lj@mail.com \\
+    \end{tabular}
+    \caption{Table of users}
+\end{table}
+
+Structuring the users like this makes it easy to add new users to the table since the number of columns does not change, nor their names.
+
+The most common way to interact with a database is to use \textit{Structured Query Language} (SQL).
+SQL (pronounced either \textit{''sequel''} or \textit{''S-Q-L''}) is a database sublanguage that differs from other computer languages because it describes what the computer \textit{should do} rather than \textit{how it should do it}.\cite{SQLIntroduction}
+
+SQL makes it easy to perform Create, Read, Update, Delete (CRUD) operations on the database.\cite{OracleWhatIsDatabase}
+An example of how to use SQL could be someone who wants to retrieve complete infromation about all the users from the user table
+
+\begin{lstlisting}[caption={An SQL query that fetches complete information for every user}, label=lstSQL-user1]
+SELECT * FROM USER;
+\end{lstlisting}
+
+Or maybe this person is just interested in retrieving a specific user
+
+\begin{lstlisting}[caption={An SQL query that only fetches complete information for username1}, label=lstSQL-user2]
+SELECT * FROM USERS WHERE username = "username1";
+\end{lstlisting}
+
+It has now been explained what a database is, how it works and how to interact with the database.
+The next section will move from backend technologies, to explaining front-end technologies.
+
+\end{document}

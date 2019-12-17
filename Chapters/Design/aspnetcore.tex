@@ -1,21 +1,21 @@
+\documentclass[../../master.tex]{subfiles}
+\begin{document}
 \subsection{ASP.NET Core} \label{sec:aspnetcore}
-\todo[inline]{Rasmus: Flyt databaser op}
-\todo[inline]{Rasmus: Skriv auth ud}
 
 ASP.NET core is a web framework developed by Microsoft for developing web applications in the .NET Core Framework \cite{aspnetcore2}.
-ASP stands for \textit{Active Server Pages} and offers a variety of application models, one of which being the MVC pattern.
+ASP stands for \textit{Active Server Pages} and offers a variety of application models, one of which being the Model-View-Controller (MVC) pattern.
 The framework has built-in support for many common features, such as database integration, identity and authorization with multi-factor, external authentication and CSS frameworks.
 
 The reason for this web API to be used is because of it is part of the scope of the development project to develop an application using the programming language C\#.
 ASP.NET Core supports, among others, C\# and is able to integrate the language with a web application.
-It uses a Model-View-Controller design pattern, \cref{sec:mvc}, as a basis for the architecture of the applications developed in it.
+It uses a MVC design pattern, \cref{sec:mvc}, as a basis for the architecture of the applications developed in it.
 
 ASP.NET Core is a web framework developed by Microsoft, for developing web applications in the .NET Core framework.
-The framework is quite widely used, which means that there are plenty of modules available for doing many jobs. Besides that, the framework has built-in support for many common features, such as database integration, identity and authorization with multi-factor and external auth, CSS frameworks, and much more.
-It uses the quite popular Model-View-Controller design pattern as a basis for the architecture of the applications developed in it.
+The framework is quite widely used, which means that there are plenty of modules available for doing many jobs. Besides that, the framework has built-in support for many common features, such as database integration, identity and authorization with multi-factor and external authentication, CSS frameworks, and much more.
+It uses the quite popular MVC design pattern as a basis for the architecture of the applications developed in it.
 
 \subsubsection{Model-View-Controller design pattern}\label{sec:mvc}
-The Model-View-Controller pattern is an architectural pattern that splits an application into three basic components; the model, the view, and the controller.
+The MVC pattern is an architectural pattern that splits an application into three basic components; the model, the view, and the controller.
 Originally meant for Graphical User Interface (GUI) development, the pattern has been adapted into web development, and is used by many of the frameworks in the space. \cite{gangoffour}
 
 The advantages of using the MVC architecture are that it helps reducing the complexity of the application by dividing its components into three individual components each with its own function and responsibilites.
@@ -74,50 +74,4 @@ which mediates the connection, giving the configuration arguments a connection t
 This context defines the sets of objects to be stored in the database, and also the database to be used.
 The Entity Framework supports multiple kinds of databases, from MariaDB to PostgreSQL.
 The support for multiple database systems is provided by the respective database providers.
-
-\subsection{Web Frontends} \label{sec:webfrontends}
-The languages of User Interface (UI) on the web are HTML, CSS, and Javascript, and each of these three languages have their own respective roles.\cite{nixonweb}
-
-\subsubsection*{HTML}
-
-HTML (HyperText Markup Language) is the most important of the three.
-It's a markup language that is used to describe the structure and much of the contents of a webpage.
-\begin{lstlisting}[language=HTML,caption={An example HTML page},label=lst:HTML]
-<!DOCTYPE html>
-<html>
-<head>
-<title>HTML Example</title>
-</head>
-<body>
-<h1>HTML</h1>
-<p>This is a <b>webpage<b></p>
-</body>
-</html>
-\end{lstlisting}
-The different tags can contain child tags, which in turn can have their own tags.
-This gives the webpage a tree structure.
-
-Two important types of tags are the \texttt{<script>} and \texttt{<style>} tags.
-These allow for embedding CSS and Javascript into the page.
-
-\subsubsection*{CSS}
-CSS (Cascading Style Sheets) allows for defining the style of the document.
-\begin{lstlisting}[caption={\color{red}indsæt caption tekst},label=lst:CSS]
-body {
-	background-color: green;
-}
-
-p {
-	text-color: blue;
-}
-\end{lstlisting}
-As an example the stylesheet in \cref{lst:CSS} colours the background green, and the text in paragraph (\texttt{<p>}) tags blue.
-The possibilities with CSS are of course far greater than just colours, as the language also allows for positioning elements, changing their visibility, and far more features than can be covered in this report.\cite{nixonweb}
-In working with CSS, the primary focus will be working from an existing CSS Framework called Bootstrap.
-Having Bootstrap, which predefines a lot of web components, greatly eases the development of web applications.
-While this naturally comes with a trade-off for customization, it was a requirement of the system that it was to be simple, and it was therefore concluded that this project did not need any cutting edge UI to achieve its goals.
-
-\subsubsection*{JavaScript}
-JavaScript is a scripting language built for the web.
-JavaScript allows for running code on the page, which can interact with the contents of the page, play sounds, send requests in the background, and much more.\cite{nixonweb}
-\todo[inline]{Rasmus: Indsæt JS der laver pile}
+\end{document}

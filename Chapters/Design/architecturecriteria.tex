@@ -1,3 +1,5 @@
+\documentclass[../../master.tex]{subfiles}
+\begin{document}
 \subsection{Criteria}\label{sec:architecturecriteria}
 A good software system is one that meets its requirements and has no major weaknesses \citep[p.~179]{Rod-Aalborg}.
 This system's requirements are listed and prioritized in \cref{sec:requirements} and the efforts put into avoiding weaknesses are laid out in this section.
@@ -10,7 +12,6 @@ Less effort will be put into the 'Less important', 'Irrelevant' or 'Easily fulfi
 However, as established, they are less important and therefore the flaws will, most likely, not be critical.
 These priorities can be found in \cref{fig:criteria} and the reasoning behind them follows below.
 
-\todo[inline]{Rasmus: Tjek at security er irellevatn}
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{|l|c|c|c|c|c|}
@@ -46,18 +47,13 @@ These priorities can be found in \cref{fig:criteria} and the reasoning behind th
 	\caption{Prioritized list}\label{fig:criteria}
 \end{table}
 
-\todo[inline]{Rasmus: Usable skal omskrives. Admin er ikke den eneste bruger}
 It is very important that the system is \textbf{usable}.
-It is assumed that the system will mainly have one user: The administrator. % Henrik: Er ikke helt enig i dette her :-)
-This fact could make this criterion less critical, however it is also assumed that this one user will have limited IT experience.
-Moreover, this system is developed specifically for that one specific user and it is therefore imperative that they are able to use the system. % Henrik: For at undgaa forvirring, saa synes jeg at Ipsen skal omtales som Ipsen, og ikke som "the user" eller "specific user" :-)
-%Anna: er det ikke en yderst forkert påstand, system understøtter jo af en grund 3 forskellige typer af brugere, og selv inden for administratoren er der både kvalitetschefen og som regel sekretæren (hvor sekretæren vil tage sig af at oprette brugerne i systemet, og kvalitetschefen varetager håndbogen) men de enkelt edepartmentheads kan man jo også opleve skal arbejde med det.
-%Anna (fortsat): Er princippet ikke at det skal være usable fordi det skal være lige til at konvertere til (skal ikke bruges til på at sætte sig ind i det nye system, mere end højest nødvendigt) og fordi flere af brugerne netop kan opleves at have limited experience?
+As has been described in the previos chapters, \cref{sec:PACT-people}, the users may have limited IT experience, and the users in the reader role will get limited exposure to the system, only using it to read new editions of the handbook and marking it as read.
+
+While the administrator or writer role will use the system more often, they too have limited IT experience, so the complexity should still be kept to a minimum in their case.
 
 Ipsen has expressed that whether or not the system is \textbf{secure} is no major concern as the information is not confidential.
-%Anna: Confidential er helt sikkert et forkert ord at bruge, da det jo netop er grunden til vi ikke bare kan tage billeder af hvad som helst fra den sidste brugertest og hvorfor vi ikke fik hele håndbogen.
-% Henrik (svar til Anna): Pia sagde selv paa et tidspunkt, at deres information/data ikke var super duper top-secret :-)
-It has therefore been determined that security is outside this systems area of responsibility and it is hereby prioritized as being irrelevant.
+In the use case envisioned with the user, the program is only accessible inside a secured network, and it has therefore been determined that security is outside this systems area of responsibility and then irrelevant.
 
 \todo[inline]{Astrid: Sammenlign med det system der er i brug lige nu i stedet for existing solutions afsnittet}
 Comparing the existing solutions, examined in \cref{chap:existing}, to the case described in this report of making an \textbf{efficient} system is easily fulfilled as the existing solution is incredibly inefficient, due to all the work they had to do manually.
@@ -73,7 +69,7 @@ Whether the system is \textbf{maintainable} is less important as it is assumed t
 The system needs to be \textbf{testable} in order to verify that it is reliable.
 Therefore this is important.
 
-According to the \textit{OOA\&D} method \citep[p.~182]{Rod-Aalborg}, it is very important that a system is \textbf{flexible}.
+According to the OOA\&D method \citep[p.~182]{Rod-Aalborg}, it is very important that a system is \textbf{flexible}.
 On the ohter hand, as the project will only be developed for half a year, this does not take priority and has been classifield as irrelevant.
 The system is, however already developed with some future elements in mind: The changelog, which Ipsen has requested, is not a requirement under the current conditions, however it is a change which she assumes will happen within the next ten years or so, as stated in \cref{sec:CaseDescription}.
 
@@ -91,3 +87,4 @@ It is also irrelevant whether or not the system is \textbf{interoperable} as the
 To summarize the top prioritized criteria are the systems usability and reliability.
 Less important but still notable are correctness, testability and comprenhensibility.
 These criteria will therefore be in focus when designing the components the system is made up of.
+\end{document}

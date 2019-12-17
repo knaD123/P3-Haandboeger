@@ -150,11 +150,10 @@ Furthermore, the handbook  has no effect on whether a supplier is approved or no
 	\caption{Early class diagrams for the supplier and handbook subproblems}\label{fig:SupProblemClassDiagram}
 \end{figure}
 
-Early versions of the class diagram modeled the problems like seen in \cref{fig:SupProblemClassDiagram}. 
-Here the classes Approval and Document are present in both diagrams, suggesting that their functionalities are too similar to have separate classes.
-However, in the handbook, Document is merely a container for Versions, which include the actual files and those files are needed in supplier approval.
-Therefore, the two Document classes cannot be merged, but the Document class in supplier approval can be entirely replaced by the Version class in handbook.
-\todo[inline]{Henrik: Omformuler saa den her paragraf er nemmere at følge med i}
+Earlier versions of the class diagram modeled the problems like seen in \cref{fig:SupProblemClassDiagram}. 
+Here the classes \texttt{Approval} and \texttt{Document} are present in both diagrams, suggesting that their functionalities are too similar to have separate classes.
+However, in the handbook, \texttt{Document} is merely a container for multiple versions, which include the actual files, but in Supplier-Approval \texttt{Document} is needed to approve a supplier.
+Therefore, the two \texttt{Document} classes cannot be merged, but the \texttt{Document} class in Supplier-Approval can be entirely replaced by the \texttt{Version} class in handbook.
 
 The two Approval classes are more complicated as the approval process varies:
 \begin{itemize}
