@@ -1,14 +1,15 @@
 \subsection{Actors}\label{sec:Actors}
 The actors exist in the application domain, and as such, are not within the system but interact with it.
-They are defined as:
+In \citep[p.~121]{Rod-Aalborg} they are defined as,
 
 \begin{defn}
-An abstraction of users or other systems that interact with the target system. \citep[p.~121]{Rod-Aalborg}
+An abstraction of users or other systems that interact with the target system. 
 \end{defn}
 
-The roles in the system were described and explained in \cref{sec:user}, and it was visualized with \cref{fig:RoleIllustration}, how the roles encapsulate each other.
-However, based on \cref{tab:ActorTable}, it is clear that this is mostly but not entirely true, as the administrator cannot mark a document as read but reader and writer both can.
+The roles in the system were described and explained in \cref{sec:user}, and it was visualized with \cref{fig:RoleIllustration} how the roles encapsulate each other.
+However, based on \cref{tab:ActorTable} it is clear that this is mostly but not entirely true as the administrator cannot mark a document as read but reader and writer both can.
 
+%Anna: vil gerne have slået de to afsnit sammen
 This is because the administrators have no need for this functionality as none of them work in the production, which can be seen in the examples in \cref{tab:Actor-admin}.
 The quality manager has written or approved the documents and therefore obviously knows what they contain.
 The secretary does not need the actual documents, only the administrative access to the system and the possibility to help other users.
@@ -29,6 +30,7 @@ The CEO needs to be in the system to approve documents but has no other use of i
 
 		\textbf{Example 1}
 		& The quality manager is comfortable using the system.
+		%Anna: ved godt det er det vi desginer for men er det ikke lidt af en antagelse at skrive allerede her?
 		They are responsible for maintaining and updating the handbook.
 		They write the majority of the documents, approves the rest and has a complete overview of the entire system at all times. \\
 		&  \\
@@ -41,15 +43,15 @@ The CEO needs to be in the system to approve documents but has no other use of i
 
 		\textbf{Example 3}
 		& The CEO of the company has this role only out of formalities and usually acts like a reader\\
-
+		%Anna: kan vi snige ordet "may " ind i sætningen for at tydeliggøre det ikke r noget de nødvendigvis har
 		\hline
 	\end{tabular}
 \caption{Actor specifiactions for \textit{Administrator}}\label{tab:Actor-admin}
 \end{table}
 
-The department head knows more about their own department than anybody else, and are both among the first to know when an update is needed as well as one of the people best equipped to write, said update.
+The department head knows more about their own department than anybody else, and are among the first to know when an update is needed as well as one of the people best equipped to write, said update.
 However, they also do not wish to grant the level of access to the system that an administrator role yields every time someone needs a bit more functionality than the limited reader role offers.
-This introduces the need for the \textit{writer} actor, as seen in \cref{tab:Actor-write}.
+This introduces the need for the \textit{writer} actor seen in \cref{tab:Actor-write}.
 
 \begin{table}[H]
 	\centering
@@ -57,8 +59,7 @@ This introduces the need for the \textit{writer} actor, as seen in \cref{tab:Act
 		\hline
 		\multicolumn{2}{c}{\textbf{\textit{Writer}}}\\
 		\hline
-
-		\textbf{Goal} & Update specific documents in the handbook. \\
+		\textbf{Goal} & Updates specific documents in the handbook. \\
 	 	 &  \\
 
 		\textbf{Characteristic} &  One or more employees who need to update one or more documents in the handbook, but is not allowed all-access to the system. \\
@@ -71,12 +72,13 @@ This introduces the need for the \textit{writer} actor, as seen in \cref{tab:Act
 	\end{tabular}
 	\caption{Actor specifiactions for \textit{Writer}}\label{tab:Actor-write}
 \end{table}
+%Anna: Hvis CEo er i admin skal han vel også være repræsenteret i de to andre tabeller
 
 The everyday worker only needs to read and mark documents as read and therefore it is the only functionality they have.
 They are a very broad group, both in terms of willingness to use the system and ability to use the system to its full capacity.
 
-They may be an experienced IT user excited to try out a new system.
-They may be someone who does not use IT very much in their daily life and, as a result, is wary of technology in general.
+The reader may be an experienced IT user excited to try out a new system.
+They may be someone who does not use IT very much in their daily life and as a result, is wary of technology in general.
 Or an old worker who has done this job for 30 years and sees no reason to change their workflow.
 They can come from anywhere in the firm and may be one of the higher-ups or someone who is used to office work.
 However, they may also be a production worker and not even have a work related e-mail or phone number.
@@ -112,11 +114,11 @@ However, they may also be a production worker and not even have a work related e
 
 		\textbf{Example 4}
 		& The CEO when they are not an administrator out of formalities only needs the level of access that a regular \textit{reader} has.\\
-
+		%Anna: vil mene det er admin og writer han er grundet formalities
 		\hline
 	\end{tabular}
 	\caption{Actor specifiactions for \textit{Reader}}\label{tab:Actor-reader}
 \end{table}
 
-One of the reasons why every role has the right to approve a document is that the CEO's main job, within the handbook, is to do exactly that and besides that only needs the minimum level of access.
+One of the reasons why every role has the right to approve a document is that the CEO's main job, within the handbook, is to do exactly that and besides, only needs the minimum level of access.
 Additionally, there is no need to restrict this functionality to a specific role as the users need to be assigned in order to approve anything.

@@ -2,25 +2,27 @@
 In this section, who uses and how they use the system will be explored systematically through analyzing who the actors are, and the use cases of the system.
 The actors consist of the different user groups who will be utilizing the system and the use cases will describe the different uses the system will potentially have.
 
-The actors that have been identified within the case are \textit{administrator, writer}, and \textit{reader}, see \cref{sec:richpictures} and \cref{sec:pactcontext}.
+The actors that have been identified within the case are \textit{administrator, writer}, and \textit{reader}, see \cref{sec:richpictures,sec:pactcontext}.
 The use cases of the system have been identified to be \textit{Access current handbook, add new file to the system, approve new version or document, access archive, add user, edit user information, user management, mark document as read, view who has read a document}, and \textit{manage departments}.
+%Anna kan vi ændre den lange sætning ovenfor til:
+%"The use cases identified in the system can be found in \cref{tab:ActorTable}."
 
 An overview of the relationships between the actors and the use cases are shown in \cref{tab:ActorTable}.
 Here it is outlined which actors have which responsibilities in relation to the system.
 
 \begin{table}[H]
 	\begin{center}
-	\begin{tabular}{| m{10em} | c | c | c | c | c |}
+	\begin{tabular}{| l | c | c | c | c | c |}
 		\hline
 		& \multicolumn{3}{c|}{\textbf{Actors}} \\
 		\hline
-		\textbf{Use cases} & Administrator  & Writer & Reader \\
+		\textbf{Use cases} & \rotatebox{90}{Administrator }  & \rotatebox{90}{Writer} & \rotatebox{90}{Reader} \\
 		\hline
-		Access current\newline handbook & x & x & x \\
+		Access current handbook & x & x & x \\
 		\hline
-		Add new file to the\newline system & x & x & \\
+		Add new file to the system & x & x & \\
 		\hline
-		Approve new version\newline or document & x & x & x \\
+		Approve new version or document & x & x & x \\
 		\hline
 		Access archive & x & & \\
 		\hline
@@ -30,7 +32,7 @@ Here it is outlined which actors have which responsibilities in relation to the 
 		\hline
 		User management & x & & \\
 		\hline
-		Mark document as\newline read & & x & x \\
+		Mark document as read & & x & x \\
 		\hline
 		View who has read a document & x & x & \\
 		\hline
@@ -40,5 +42,6 @@ Here it is outlined which actors have which responsibilities in relation to the 
 	\end{center}
 	\caption{Actor table for the system}\label{tab:ActorTable}
 \end{table}
+%Anna: Prøvede at fikse tabellen efter hvad taniya sagde
 
 In the rest of this section both the actors and use cases will be elaborated, starting with the actors.

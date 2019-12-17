@@ -11,12 +11,15 @@ How they do so is described in \cref{tab:access-handbook} and shown in \cref{fig
 \input{Chapters/ApplicationDomain/UseCaseStates/Access-Fig}
 
 There is a fork depending on whether it is the first time a user logs in, because a new user has a username, a name and a standard password.
-For security reasons, this standard password needs to be changed as otherwise anyone could log into the system with only a username.
+%Anna: "there is a fork", den sætning forvirrer mig
+For security reasons the standard password needs to be changed as otherwise anyone could log into the system with only a username.
 The first login is also an account activation through which the password is changed and an e-mail address and phone number may be added.
 
 As described in \cref{sec:CaseDescription}, the current system is excessively complicated and it was therefore included in the system definition, see \cref{factor}, that the new system should ''facilitate an overview of current [...] versions''.
+%Anna: hendes system var ikke complicated men high maintance
 This is taken care of at the front page.
-The documents relevant to the user are shown first, a feature specifically requested by Ipsen, see \cref{sec:requirementsdefinition}, and below, all the chapters are visible providing an overview of the content in the handbook.
+The documents relevant to the user are shown first, \cref{sec:requirementsdefinition}, a feature specifically requested by Ipsen.
+Below the relevant documents all the chapters are visible providing an overview of the content in the handbook.
 If a more detailed view is necessary it is possible to unfold a single chapter or all of them.
 
 
