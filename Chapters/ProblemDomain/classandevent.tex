@@ -233,6 +233,14 @@ The symbols used in the table is to be understood such that; $+$ is an event tha
 A class is associated to an event if the event affects the class.
 A class is not associated with an event if the class is the cause of or otherwise triggers the event.
 
+Looking at the event table, \cref{fig:eventtable} it can be seen that \textit{Document added} and \textit{Document deleted} both can occur zero or multiple times for \textit{Handbook} and zero or one time for \textit{Document}.
+This is because, during the lifetime of a \textit{Handbook} it is possible to add and delete documents to it as many times as desired, but a single \textit{Document} can only be added or deleted once.
+Keep in mind, that it is not possible to trigger the \textit{document deleted} event if the \textit{Handbook} does not contain any documents.
+A less trivial event from the event table could be the \textit{approval requested} event.
+Here it can be seen that this event occurs zero or one time for a \textit{Version} and an \textit{Approval}, but it can occur zero or multiple times for \textit{User} because multiple users can be assigned to approve a new version.
+
+This event table is useful when designing the system, as it displays all the events that the system needs to keep track of, and what objects should be included in each event.
+
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
@@ -285,10 +293,4 @@ A class is not associated with an event if the class is the cause of or otherwis
 	\caption{Event table}\label{fig:eventtable}
 \end{table}
 
-Looking at the event table above it can be seen that \textit{Document added} and \textit{Document deleted} both can occur zero or multiple times for \textit{Handbook} and zero or one time for \textit{Document}.
-This is because, during the lifetime of a \textit{Handbook} it is possible to add and delete documents to it as many times as desired, but a single \textit{Document} can only be added or deleted once.
-Keep in mind, that it is not possible to trigger the \textit{document deleted} event if the \textit{Handbook} does not contain any documents.
-A less trivial event from the event table could be the \textit{approval requested} event.
-Here it can be seen that this event occurs zero or one time for a \textit{Version} and an \textit{Approval}, but it can occur zero or multiple times for \textit{User} because multiple users can be assigned to approve a new version.
 
-This event table is useful when designing the system, as it displays all the events that the system needs to keep track of, and what objects should be included in each event.
