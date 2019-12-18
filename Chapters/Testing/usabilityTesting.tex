@@ -1,11 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Godt afsnit/kapitel, Taniya! :-D
-%
-% GENERELT: Lidt med grammatik :-)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\documentclass[../../master.tex]{subfiles}
+\begin{document}
 \section{Usability Testing} \label{sec:usabilitytesting}
-% Har svært ved hvornår jeg skal bruge usability testing eller usability test. Så det retter I bare til
 %Anja: Mangler generelt en kilde til afsnittet
 
 To gain a better understanding and detecting what issues could possibly arise when Ipsen interacts with the application, usability tests were conducted during the project.
@@ -15,17 +10,17 @@ Usability testing results in possible usability issues which are guidelines to f
 Before usability testing is conducted it is important to find out the purpose and objectives of the test.
 A task list will be defined based on the objectives of the usability test that the test subject need to complete using the application.
 The observations of the test consists of a test monitor, a screen video recording including audio and a video recording of the view of the PC screen and the test subject's interaction with the keyboard and the mouse.
-During the usability testing, the test subject was asked to think aloud while performing a task to easily identify and categorize possible issues in \textit{critical}, \textit{serious} and \textit{cosmetic} which are described below \citep[p.~154]{brugervenligtwebdesign}.
+During the usability testing, the test subject was asked to think aloud while performing a task to easily identify and categorize possible issues in \textit{critical}, \textit{serious} and \textit{cosmetic} which are described below \cite{brugervenligtwebdesign}.
 
 \begin{itemize}
-  	\item 
+  	\item
   	Critical: An issue is classified as critical if the test subject are unable to continue and stopped completing tasks.
 	Critical issues can also involve high irritation while interacting with the application or if the test subject misunderstood one or more significant points of the application.
-  	\item 
+  	\item
   	Serious: If the test subject is significantly slowed down to completing tasks.
 	This means the test subject has to use several minutes on a task.
-	\item 
-	Cosmetic: When the test subject spends few minutes on completing a task and the issue is still not solved. % Anja: Jeg synes, at sætningen er forkert? Hvad skal der staa? Henrik: ændrede "need to" til "not"
+	\item
+	Cosmetic: When the test subject spends few minutes on completing a task, but the issue still needs to be solved.
 \end{itemize}
 
 After a usability test has been conducted, a debriefing session immediately begins.
@@ -39,66 +34,39 @@ To better identify and categorize issues, a screen recording with audio is revie
 \subsection{First usability test}\label{firsttest}
 Based on the first interview with Ipsen, a prototype for administrator role was created to generate a basic interface design from the requested requirements.
 This high-fidelity prototype consisted mostly of HTML and CSS code, see \cref{sec:webfrontends}, with focus on the design without implementation of the functionalities, see \Cref{sec:1prototype}.
-% Henrik: Har tilføjet en cref til HTML og CSS
 
 \subsubsection*{Purpose and objectives of the first test}
 This usability test was an \textit{exploratory} test type.
 The purpose was to represent a rough idea of how the workflow of the different use cases could be operated in the application.
 Ipsen would be represented for the interfaces, where she would be able to navigate through the application.
 This would provide Ipsen an overview of how the potential layout design might work with the functionalities that later would be implemented.
-The uncertain functionalities that might be useful for Ipsen will also be clarified during the walk through of the prototype.
-Ipsen would be tested for the use cases listed below.
-%Anna: kunne det argumenteres at Hun ikke bev testet i se cases på givne tidspunkt da funktionalitet ikke var der, men det mere var en diskussion om design og requirements den blev brugt til at bekræfte?
-%Anna(fortsat) hvis ja til kommentaren ovenfor skal listen nedenfor ændres eller fjernes
-
-\begin{itemize}
-	\item Add new file to the system
-%represent the idea of how the add new document page interface could look like.
-	\item Approve new version or document
-%represent the idea of how approval process will work in the application.
-	\item Access archive
-%represent the idea of how the previous versions are stored in the Archive page and how to find them.
-	\item Add user
-	\item Manage users
-%represent the idea of possible user administration interfaces.
-	\item Manage departments
-%represent the idea of how the departments could be implemented.
-\end{itemize}
 
 \subsubsection*{Result of the first test}
 Ipsen's reaction was mostly positive.
 She validated the idea of how the department management would be implemented.
 Ipsen also liked the overview of the user that both show those who are and those who are not associated to a specific department.
-%Anna: kan det give menign at refererer det specifikke billede?
 This would be useful if Ipsen forget to add some users to a department.
 The same applied to edit associated documents to the department management page.
 
-Upload new version page and its main idea was that Ipsen would be able to mark new versions as a minor change or major change to notify readers. 
-% Henrik: Jeg er lidt usikker paa starten af denne sætning
-%Anna: Jeg er enig med Henrik, er ikke selv sikker på hvad der menes
+The "Upload New Version" page and its main idea was that Ipsen would be able to mark new versions as a minor change or major change to notify readers.
 If the change was minor, then readers could wait to read the new version.
-And if it was a major change, they need to read it right away.
-Ipsen invalidated this functionality, since the reader should not relate it and there was no need for that. % Henrik: "relate it"? :-)
-The readers typically had a slightly reading skill.
- % Anja: Hvad skal der staa her?
-Therefore, Ipsen preferred that it should be simple.
+And if it was a major change, they would need to read it right away.
+Ipsen invalidated this functionality, since there was no need for that.
 
 Ipsen was satisfied with how accessing the archive and managing users worked, as it was simple and straightforward.
 
 Ipsen thought that it would be helpful to be able to search for a word in the documents.
-For instance if a job title had change then she could search which document mentioned the job title that need to be modified. 
-%Anja: Denne sætning er en smule uforstaaelig
+For instance, if a job title had change, then she could search for documents that mentioned the job title, so she could easily modify them.
 Ipsen wished that this search functionality only applied on active documents.
 
-Whether the application is in English or Danish is unimportant.
-The application would therefore be in English as it could potentially have a broader use outside of Denmark.
-%Anna: evt bare sige for at åbne bedre op for muligheden for videre udvikling i stedet for?
+Whether the application is in English or Danish is according to Ipsen unimportant.
+The application would therefore be in English as the report is in English as well.
 
 Ipsen was overall satisfied with the prototype except the upload new version page that needed to be redesigned.
 Afterwards the prototype worked as a starting point for the implementation of the application.
 
 \subsection{Second usability test}\label{secondtest}
-This section will describe the second usability test of type \textit{assessment} test which was conducted on Ipsen and its results.
+This section will describe the second usability test of type \textit{assessment} test which was conducted on Ipsen and its results. Selected screenshots from this can be found in \cref{sec:2prototype}.
 
 \subsubsection*{Purpose and objectives of the second test}
 The majority requested functionalities for the administrator role was implemented in the application at this point.
@@ -159,7 +127,6 @@ The identified issues discovered during the usability test is categorized and pr
 	\end{center}
 	\caption{Identified issues for the second usability test}\label{tab:utest2}
 \end{table}
-%Anna: kunne det give mening ved de enkelte gennemgange at henvise til de relevante views i appendix?
 The identified issue '1' occurred when Ipsen tried to create a new document and add a version to the document.
 Ipsen thought that it is possible to both add a document and upload at the same time.
 The application at the current state would work, such that, a user had to add a document first by entering the document name, chapter ID and section ID.
@@ -174,14 +141,12 @@ It was unclear where to upload a new version.
 Therefore, Ipsen tried to add a new document and then uploaded a new version.
 The upload button was not noticeable and it took time before Ipsen found it.
 
-The identified issue '4' turned up as Ipsen tried to send a version to approval and then approve the version herself.
+The identified issue '4' turned up as Ipsen tried to send a version to approval and then had to approve the version herself.
 Ipsen did not detect it when she had sent the version to approval or whether she had just approved the version.
-An indication, or a message displayed to the user, after a version is sent to approval or that the version is now approved and now are available in the handbook, should solve this issue. 
-%Anja: Lidt kringlet formulering
-% Henrik: Anja, hjalp det med et par kommaer? :-)
+The issue could be solved by the system providing feedback on the action.
 
-As identified issue '5' point out the confusion that occurred while Ipsen attempted to approve a version could be that the sidebar did not indicate which page she was currently on.
-% Henrik: Jeg er ikke helt med paa starten af denne sætning :-)
+The fifth identified issue is the confusion that occurred while Ipsen attempted to approve a version while in the wrong view.
+This could be because the sidebar did not indicate which page she was currently on.
 
 The identified issues '6' and '7' appeared, when Ipsen made a mistake, as the application allowed her to enter a negative chapter and section ID.
 Ipsen felt the need to correct the mistake, which the application did not support at that moment.
@@ -192,32 +157,20 @@ Ipsen preferred to have a name displayed instead of an email address.
 
 In the debriefing session Ipsen mentioned that she was surprised that the application required user to attached a pdf file as she has seen other document version control system has their own file editor.
 However, Ipsen could see the reason behind it and commented that it is a good approach.
-%Anna: Evt. kommenter at hun i virkeligheden selv havde sagt dette ikke skulle være en del af systemet til at starte med (evt henvis til iteration 1)
+When informed, she also recalled specifically asking for this approach.
 
 Ipsen also remarked that the features' names were clear and understandable.
 
 During the test session it had been clarified that the administrator must be able to use his right to get an awaiting approval approved without the other approvers accepting it.
-%Anna: prøvede at omformulere
 The situations where other approvers either do not get it done, are too slow or are on a vacation could occur.
 The administrator right will therefore prevent possible bottleneck in the work flow.
-%%% Andre kommentarer %%%
-%Afdelingsleder holder styr på hvem der har læst hvad
-%Kom frem til at admin skal kunne bruge sin admin ret til at få det godkendt hvis andre som blev sat til approvals ikke få det gjort (Kunne måske være relevant at kommenterer da det var noget vi tog til efterretning til næste test )
-%Det virker ulogisk for pia i starten at den gældende version også i arkiver og ikke kun under handbook. Men synes til sidst at det smart når man skal audit og så det er nemt at finde frem (Anna: Tror jeg i stedet tager denne ned i iterationsafsnittet i stedet for hvis det er ok )
-
-%en version er kun uploadet -- kan man slet den
-%en version som er blevet godkendt -- arkveret
-
-%Admin har en overrolloing hvis folk ikke går ind og godkender. Hvis folk tager for lang tid om det eller hvis folk er på ferie. (Anna: Samme kommentar som du har i starten af de her kommentarer )
 
 \subsection{Third usability test}\label{thirdtest}
 The third usability test was conducted on Ipsen right after the second test had finished.
 
 \subsubsection*{Purpose and objectives of the third test}
-%Anna: der skal tjekkes op på, de bilelder som allerede er i appendiks skal i stedet refereres fremfor at sættes ind her. mens resten godt må bliv
 The second usability test only had focus on the administrator role.
 The purpose of this third test was to validate the idea of how the interfaces for a writer and reader role could possibly look like.
-%The mockups that was represented can be found in  %\Cref{} husk at tilføj det til bilag også. eller skal jeg bare tilføje dem her under ?
 
 \subsubsection*{Results of the third test}
 The major difference of the interface between administrator role from writer and reader role was the sidebar on the left, see \Cref{fig:mockupSidebar}.
@@ -230,22 +183,17 @@ Ipsen agreed on the idea to keep the interface as simple as possible for both wr
 	\begin{subfigure}[b]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{billeder/ForsideAdmin.jpg}
 		\caption{Mockup main interface for administrator}
-		%\label{fig:3-main}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[b]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{billeder/ForsideWriterReader.jpg}
 		\caption{Mockup main interface for writer and reader}
-		%\label{fig:3-addDoc}
 	\end{subfigure}
 	\caption{Mockup main interfaces comparision}\label{fig:mockupSidebar}
 \end{figure}
 
 In the mockup the handbook page consisted of division of relevant document that would be showed first on the top and the full handbook underneath.
 For the reader and writer role the relevant document would consist of those associated documents of the department they belonged to.
-%And for the writer role the documents he had been assigned to approve would appear under the relevant document.
-%Those documents should be easy to find as well provide an overview and Ipsen validated the concept.
-%Anna: udkommenterede den da jeg er ueing
 
 The idea of implementing a preview, when user clicked on the document name, was also showed to Ipsen.
 The user would have an opportunity to see a preview of a document before chosen to display it full screen, see \Cref{fig:mockupPreview}
@@ -256,13 +204,11 @@ This enable the user to better navigate through and still have an overview of th
 	\begin{subfigure}[b]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{billeder/PreviewVersion.jpg}
 		\caption{Mockup interface of document preview}
-		%\label{fig:3-main}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[b]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{billeder/FullView.jpg}
 		\caption{Mockup interface of document full view}
-		%\label{fig:3-addDoc}
 	\end{subfigure}
 	\caption{Mockup interfaces of document preview and full view}\label{fig:mockupPreview}
 \end{figure}
@@ -276,7 +222,6 @@ This new sidebar design was validated as well by Ipsen.
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=0.7\textwidth]{billeder/ForsideFoldedSidebar.jpg}
-		%\label{fig:3-main}
 	\caption{Mockup interface of folded sidebar with icons}\label{fig:mockupSidebarIcon}
 \end{figure}
 
@@ -318,7 +263,7 @@ The functions that will be tested can be seen below.
 	\item Add department
 	\item Add user to department
 	\item Add document to department
-	%\item Download archive
+	\item Download archive
 \end{itemize}
 
 \subsubsection*{Results of the fourth test}
@@ -357,8 +302,6 @@ The detected usability issues are present and categorize in table
 		\hline
 		13 & No indication that the awaiting approval had been approved by you & A, W & & x & \\
 		\hline
-		14 & Both name and username was edited & A & & x & \\
-		\hline
 	\end{tabular}
 	\end{center}
 	 {\raggedright Remark: A denotes administrator role, W denotes writer role and R denotes reader role.\par}
@@ -369,30 +312,21 @@ The preparation for the fourth usability test was not done thoroughly because of
 The documents in the handbook, that the test subjects had to find, according to the described task list, were not the same in the application.
 The application had not been tested thoroughly to check whether the test subject would be able to complete the tasks.
 Therefore, lots of errors appeared during the tests.
-%Det med at beder bruger om at rette i en fil uden for system er forvirrende så det skal man undgå og bare beder dem at upload en dummy fil
 
-The identified issue '1' occurred when Ipsen was asked to find the notification button. 
+The identified issue '1' occurred when Ipsen was asked to find the notification button.
 However, there was no notification alert as the notification functionalities was not completed at this point.
 Ipsen commented that the notification button was quite invisible, as the notification icon had the almost the same color as the navigation bar.
 
 The identified issue '2' appeared when Ipsen attempted to upload a new version to the handbook.
-New functionalities had been added, which was the option to both upload pdf file and a working file (excel, word etc.), see \Cref{fig:WorkingFile}.
-%Anna: ligger de billeder ikke i appendiks i så fald skal de nok ikke være heroppe?
+New functionalities had been added, which was the option to both upload pdf file and a working file (excel, word etc.).
 Administrator and writer would be able to download working file and easily edit the file.
 Ipsen did not understand what was meant by uploading a working file and its purpose.
-% Ipsen's husband on the hand understood how the working file worked.
-% Since the application are developed to Ipsen this issue will be categorized as critical.
-%Anna: hvorfor er de to udkommenteret?
-% Henrik: Usikker paa om Astrid guidede ham her, saa maaske ikke et godt eksempel? :-)
 A conclusion had been reached to only upload pdf file, for the sake of simplicity.
 Since administrator would usually store all the working files on the pc regardless.
-Typically, the document would be printed out to write directly on it, therefore there is no need to upload a working file.
-%Anna: tilgængæld kan vi ikke slette linjen ovenfor?
 
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=0.7\textwidth]{billeder/WorkingFile.png}
-		%\label{fig:3-main}
 	\caption{Upload new version page with working file option}\label{fig:WorkingFile}
 \end{figure}
 
@@ -411,7 +345,6 @@ An "Add" icon or button would be more suitable, where afterwards a user would be
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=0.7\textwidth]{billeder/MainInterfaceAdmin.png}
-		%\label{fig:3-main}
 	\caption{Main interface for admin role}\label{fig:MainInterfaceAdmin}
 \end{figure}
 
@@ -433,14 +366,6 @@ The identified issue '13' was discovered once administrator had approved an awai
 No indication was showed that it already had been reviewed and approved.
 The user must therefore remember which document they had approved.
 
-The identified issue '14' occurred when administrator was asked to modify a user's name.
-Administrator was able to both edit a user's name and username.
-It turned out that both name and username were edited.
-% Ved ikke hvad der skal skrives her ift. at admin ikke burde have lov til at ændre i username?
-%Anna: Kan evt argumenterer for at vi ikke nødvendigvis behøves skrive det her, men det er en ting vi ved og kan forsvarer hvis de sprøg (bare en tanke)
-
-% Confusion regarding upload a new version whether to find the file in the application or the system  -
-% Når filen ikke er en pdf fil burde man kunne download filen fordi det vises ikke i preview. men det problem fjerner vi hvis det kun er pdf filer der må uploades?
 
 During the debriefing session Ipsen was asked if there was other functionalities she desired, that the application could provide.
 She mentioned that she wished to be able to access a list of departments a user was associated to, and a list of all the documents a user did not yet read.
@@ -449,38 +374,10 @@ Ipsen also suggested, that if a user did not read an associated document for ove
 If a user still had not read by over a period of two weeks, that the administrator would be alerted.
 
 It had also come to the conclusion, that the department head should be the one who keeps track and ensures that the employees had read the associated documents.
-Therefore, the department heads belonged to a writer role with access to read status.
-%Anna: vil gerne fjerne nederste linje
 
 Furthermore, Ipsen had hoped that the application would be able to change the date and the version number in the actual document header.
-However, even though the application does keep track of the date and the version, readers also need to know whether they stand with the valid version in printed form.
-%Ipsen ønsker at systemet også kan ændre side hoved i selve fil/dokumentet , hvor der står udgave og dato på - når man printe det ud, så kan man se at det er den opdateret version de har der. Forslag: ku man når man upload dokumentet at du i virkelighed send et blank header med pdf format og så bliver det udfyld og også i håndbogen? i dont get that
-%Anna: evt henvise tilbage til iteration 4 med den her (specifict under things to take notice of)
+However, even though the application does keep track of the date and the version, readers also need to know whether they stand with the valid version in printed form, for more information see \cref{sec:4notice}.
 
 The writer rights, regarding if a writer are allowed to archive a document in the handbook, had also been clarified.
 Ipsen pointed out that only the administrator is able to archive documents.
-
-In the end of the debriefing session activating account for the first time login and its process was represented to Ipsen instead of testing it as a part of the usability test.
-% Ved ikke om det burde nævnes? - Anna: tænker godt vi kan tillade os at lade være med alle de andre ting vi pointerer
-
-
-% Perspektiveret: bliver enige om at når man laver en %department at man markerer en bruger en som department %heads og det er dem som får notifikationer.
-% approval id er ikke dok ide?
-
-%%% Positive kommentarer  %%%
-%Ændre brugernavn var ligetil
-%Ipsen kunne finde changelog nemt.
-%Department var meget nemt at forstå
-
-%Der mangler en unfold all dok under full handbook- vi har ikke unfold all chapters?
-
-%Tove
-%Lægger mærke til at layout og farven ikke er det samme som de andre pc?
-%Problemer med at opret en ny dok
-%Archive ser mærkelig ud?
-
-%Udført på den forkerte version af programmet
-
-%\subsection{Usability issue that are not a bug}
-
-% brugervenlighed issues som ikke er bug, kan ikke hvad der blev snakket om
+\end{document}

@@ -52,64 +52,18 @@ Furthermore, it may also happen when the user realises other needs than what was
 For this project the interview technique was used to define this project's requirements, see \cref{sec:firstinterview}. This helped defining the prioritization of the following requirements:
 
 \begin{itemize}
-    \item
-    Must have:
-        \begin{itemize}
-            \item
-            The system must manage versions of handbook documents
-            \item
-            A TOC with title, ID number, date and version number
-            \item
-            The system must be able to handle PDF files
-            \item
-            Title and ID number are linked
-            \item
-            Once a version has been added to the handbook, it cannot be changed
-        \end{itemize}
-    \item
-    Should have:
-        \begin{itemize}
-			\item
-			Automatic updates of TOC
-            \item
-            A human-written changelog may be depending on the company settings
-            \item
-            Registration of who among specific employees have read a version
-            \item
-            The handbook should be printable.
-            \item
-            Different levels of access rights to the documents within the handbook
-            \item
-            Readers and writers only have access to the newest version of a document
-            \item
-            Administrators have acces to all features supported by the system, except marking versions as read
-            \item
-            It should be possible to group users into departments, and associate them to documents.
-            \item
-            There should be a backup of the archive making it easy to revert back to the previous system
-        \end{itemize}
-    \item
-    Could have:
-        \begin{itemize}
-            \item
-            When a document is updated, a notification could be sent out to the associated departments.
-            \item
-            The system could be able to handle documents of different file-types
-            \item
-            Option to sort documents according to different attributes
-            \item
-            System for approval of new versions of documents
-			\item
-			Be able to fill a PDF header with information such as approvers and valid date
-        \end{itemize}
-    \item
-    Want to have but Won't have this time around:
-        \begin{itemize}
-            \item
-            Highlight differences between current and previous versions.
-            \item
-            Approval of suppliers and their documents.
-        \end{itemize}
+	\item
+		Must have:
+		\input{Chapters/Design/musthave}
+	\item
+		Should have:
+		\input{Chapters/Design/shouldhave}
+	\item
+		Could have:
+		\input{Chapters/Design/couldhave}
+	\item
+		Want to have but Won't have this time around:
+		\input{Chapters/Design/nicehave}
 \end{itemize}
 
 The requirements belonging to this category are necessary since the system would not be functional without them.
