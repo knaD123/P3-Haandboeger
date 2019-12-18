@@ -134,31 +134,29 @@ All of the non-archived documents are returned to the view through \texttt{var d
 
 In \cref{lst:doccontrolleradd} it is shown what happens when the user adds a new document or version to the system through the \texttt{Add} method.
 \\
-\lstinputlisting[caption={Document Controller: Add}, label={lst:doccontrolleradd}, firstline=152, lastline=233, autogobble=true, tabsize=2]{OBHandbooks/OBHandbooks/Controllers/DocumentController.cs}
+\lstinputlisting[caption={Document Controller: Add}, label={lst:doccontrolleradd}, firstline=152, lastline=237, autogobble=true, tabsize=2]{OBHandbooks/OBHandbooks/Controllers/DocumentController.cs}
 
-%Anna: Evt sætte denne specifikke listing i appendiks? (er emget lang for meget lidt der fås ud af den)
+The \texttt{HttpPost} method defines this method as the handler for POST requests to this URL.
 
-The \texttt{HttpPost} method ensures that it can only be accessed by a \texttt{POST} requests.
-
-%Taniya: måske forklar hvaf IFormfile er for noget?
 The information from the view is transfered into the controller method through the parameters shown from line 2-7.
-When the document is posted to the controller the \texttt{Add} method ensures that the new document version needs to be approved, see line 9.
-% Henrik: Paa linje 9 bliver der bare lavet en variable - true hvis strengen er "on", ellers false
-Afterwards the actual document receives its chapter number on line 16 and is saved into the document repository on line 29 through the \texttt{AddAsync} method.
-% Henrik: Den faar faktisk sit chapter number paa linje 25 - linje 9 henter bare et chapter fra databasen
+When the document is posted to the controller the \texttt{Add} allows the user to decide whether or not the initial version needs to go through the approval process. This is decided through the \texttt{requireApproval} variable.
+Afterwards the actual document receives its chapter number on line 24 and is saved into the document repository on line 29 through the \texttt{AddAsync} method.
+This method returns a proxy object as described further down in \cref{sec:repositories}.
 A more detailed explanation of the \texttt{AddAsync} method can be seen in \cref{lst:docrepadd}.
 
+The \texttt{IFormFile} parameter represents a file uploaded through a form. It includes data such as extension, content type, and name.
+If the variable \texttt{versionFile} is not null, an initial version is added.
 The new version of the document is stored into the repository on line 36-62.
 Here the new version is saved into the version repository on line 40 with the \texttt{AddAsync} method.
 Notice that the \texttt{_documentRepository.AddAsync} and \texttt{_versionRepository.AddAsync} are similarly named, but respectively saves a document and a version.
 
-The new document version is not yet valid to the readers as it needs to be approved.
+If the approval checkbox is enabled, the new document version is not yet valid to the readers.
 From line 45-55 the program creates an approval object or objects where it is determined which users need to approve the new version.
 If the new version does not need an approval, it is simply saved into the repositories on line 60-61.
 
 \subsection{View}
 
-In \cref{lst:docview} it is shown how the \texttt{view} component utilizes data given from the \texttt{controller} component.
+In \cref{lst:docview} it is shown how the view component utilizes data given from the controller component.
 
 \begin{lstlisting}[caption={Document View: Index}, label={lst:docview}]
 @foreach (KeyValuePair<Models.Chapter, List<Models.Document>> kvp in Model.UnassignedDocuments) {
@@ -197,14 +195,11 @@ In \cref{lst:docview} it is shown how the \texttt{view} component utilizes data 
 \cref{lst:docview} is the view that represents a list of assigned documents.
 This will render to a button, which when clicked expands a list of documents in a given chapter.
 It is written in the razor templating language, which is HTML with the added feature of allowing the documents to be dynamic when prefacing a statement with the \texttt{@} character.
-% Henrik: @ betyder faktisk "her starter noget C# kode", saa tænker at maaske flet ind at razor gør det muligt at skrive C# kode inde i ens HTML?
-%Anna: vi skal i hvert fald være præcise så kunne være en ide
+The code preceded by the \texttt{@} character is in C\#.
 An interesting thing to note is line 25, where the statement \texttt{@await Html.PartialAsync("_DocumentListBody", @kvp.Value)} is executed.
-This statement asks the razor templating engine to render the body of a list of documents, with the argument that is the list of documents in the current chapter.
-% Henrik: Første argument er navnet paa det view den skal render (filnavn)
-%Anna: kan godt være det bare er mig, men synes den sidste sætning er kringlet og er ikke iskker på jeg forstå den ordentligt
+This statement asks the razor templating engine to render the body of a list of documents, with the model in variable \texttt{kvp.Value}.
 
-\subsection{Repositories}
+\subsection{Repositories}\label{sec:repositories}
 
 In the \texttt{repositories} component the data is processed.
 In \cref{lst:docrepadd} it is shown how a document is added to the database.
@@ -230,22 +225,13 @@ public async Task<Document> AddAsync(Document document)
 \end{lstlisting}
 
 
-This is a method in the \texttt{DocumentRepository}, which allows for adding documents to the database.
-%Anna: what is mentioned. man kan ikke starte en sætning med This uden at det vser tilabge til noget, så hvad er det der menes?
-It first performs two checks, to see if the database already contains a document.
+\Cref{lst:docrepadd} displays a method in the \texttt{DocumentRepository}, which allows for adding documents to the database.
+The method first performs two checks, to see if the database already contains a document.
 If that is the case, it throws the custom \texttt{DocumentAddException}.
 Otherwise, it adds the document to the database, and returns the tracked database entry.
 The reason why this is important, and that one cannot just use the \texttt{Document} object supplied as an argument, is due to the use of lazy-loading proxies in the application.
-Lazy-loading proxies funcions in such a way that when objects have relationships with other objects, these are implemented as virtual properties.
-% Taniya: menes der function (funcion)?  Og hvilke linje er det vi taler om ?
-% Henrik: Taniya, igen - bare fix stavefejl :-P
-
-\todo[inline]{Skal vi forklare hvad lazy loading betyder, eller er det basic nok til vi kan slippe?}
-%Anna: tænker i hvert fald det er fint at have lidt om det
-% Taniya: må gerne forklar det kort, hvis muligt
-\todo[inline]{Tanke: Har vi noget om hvad async er for noget, og er det noget vi eventuelt skal have med? Eller gider vi lave ny tekst saa tæt paa aflevering?}
-
+Lazy loading refers to a technique where the resources are only loaded when actually used, contrasted to eager loading, when they are initialized as soon as possible.
+Lazy-loading proxies function in such a way that when objects have relationships with other objects, these are implemented as virtual properties.
 In the case of the \texttt{AddAsync} method, this means that you can construct a raw \texttt{Document} object, pass it to the method, and then get a proxy object in return.
 This allows for assigning to the virtual members, which is a functionality that is heavily used in the controllers.
-%Anna: vil mene afsnittet ovenfor hører sammen med den ovenover.
 \input{Chapters/Implementation/efcore}
