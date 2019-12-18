@@ -1,8 +1,8 @@
-\subsection{Use cases} \label{sec:usecases}
+\subsection{Use Cases} \label{sec:usecases}
 All of the actors have different needs of the system and different accessibility to the system.
 The various different workflows each of them has is described in ten use cases, which are covered in this section.
 
-\subsubsection{Access current handbook}
+\subsubsection{Access Current Handbook}
 The main functionality that every actor needs is access to the current handbook.
 How they do so is described in \cref{tab:access-handbook} and shown in \cref{fig:access-handbook}.
 
@@ -20,7 +20,7 @@ Below the relevant documents all the chapters are visible providing an overview 
 If a more detailed view is necessary it is possible to unfold a single chapter or all of them.
 
 
-\subsubsection{Add new file to the system}
+\subsubsection{Add New File To The System}
 As described in \cref{sec:classdiagramhandbook}, the system consists of both documents and versions, where documents are the structural entities enabling the organizational features of the system and versions contain the files and thereby the actual contents of the handbook.
 Adding versions as additions to an existing documents as well as creating a new document along with a version is described in \cref{tab:add-file} and visualized in \cref{fig:add-file}.
 
@@ -41,7 +41,7 @@ During the first usability test, see \cref{firsttest}, this workflow was a sourc
 The reason that the empty document remains an option is that it provides the possibility to structure the handbook without necessarily having all of the contents.
 Additionally it also serves to save an ID and title combination as these cannot be reused.
 
-\subsubsection{Approve new version or document} \label{sec:approve}
+\subsubsection{Approve New Version Or Document} \label{sec:approve}
 A file is not a part of the handbook before it has been approved.
 Until then, only the people assigned as approvers have access to the file and only through the notification horn in the upper right corner or the relevant documents section.
 An administrator can also view all pending approvals.
@@ -57,7 +57,7 @@ This is also the reason why, even if the administrator can approve unilaterally,
 They need to rethink whether this is correct.
 Once the document has been approved it is added to the handbook and everyone can access it from the front page.
 
-\subsubsection{Access archive}\label{sec:access-archive}
+\subsubsection{Access Archive}\label{sec:access-archive}
 As per the requirements in \cref{sec:CaseDescription} the documents cannot just be deleted when they are no longer needed in the handbook.
 Therefore, when a version or a document becomes obsolete they are archived.
 This may be because a more recent version is available or because the information they contain is no longer needed.
@@ -84,7 +84,7 @@ The option of easily going back is important in order to convince the users to g
 Viewing the archive is also the only time at which an entire changelog for a document is shown.
 The rarity of this situation is also the reason why it was argued that the changelog does not need its own class, described in \cref{sec:Classes}.
 
-\subsubsection{Add user}
+\subsubsection{Add User}
 As the system monitors whether a user has read a document, and because this data is a requirement in the standards, every worker in a company needs access to the system in order for it to work properly.
 The administrator adds users through the workflow described in \cref{tab:add-user} and visualized in \cref{fig:add-user}.
 
@@ -104,7 +104,7 @@ The purpose of the username is for the user to log in.
 The purpose of the name is to identify the user.
 Depending on the procedure in the company, this may be both their legal name or an identification number.
 
-\subsubsection{Edit user information}
+\subsubsection{Edit User Information}
 Both the administrator and the user themself can edit their information, however it differs which information they have access to.
 The users themself can edit their username, password and contact informations.
 This is described in \cref{tab:edit-user} and visualized in \cref{fig:edit-user}.
@@ -119,7 +119,7 @@ During the interviews with Ipsen, it was determined that it should not be possib
 However, as not all users have e-mails or phone numbers these are optional to add and the users themselves have access to edit these.
 This means that while the users cannot turn notifications off, they can remove their contact information which bears the same result.
 
-\subsubsection{Manage users}
+\subsubsection{Manage Users}
 While every user can edit their own information, the administrator also has access to edit other users information through the 'User Administration' link in the sidebar.
 This is described in \cref{tab:user-management} and visualized in \cref{fig:user-management}.
 
@@ -133,7 +133,7 @@ However, as there needs to be a way to access the account if the user forgets th
 When a user is deleted their name/identification remains within the system for the sake of the read status data.
 Everything else is removed.
 
-\subsubsection{Mark document as read}\label{sec:mark-read}
+\subsubsection{Mark Document As Read}\label{sec:mark-read}
 In order to log when users have read documents, they need to inform the system when this has happened.
 This is described in \cref{tab:mark-read} and visualized in \cref{fig:mark-read}.
 
@@ -148,7 +148,7 @@ In the case where readers do not have any contact information listed, they do no
 
 The wording of the message ''has read and understood'' was agreed upon with Ipsen, following a discussion about how it is not enough to have read the document it must be understood too.
 
-\subsubsection{View who has read a document}
+\subsubsection{View Who Has Read A Document}
 Usually the quality managers and the department heads need to verify that everyone have read the necassary documents.
 They access this information as described in \cref{tab:read-status} and visualized in \cref{fig:read-status}.
 
@@ -159,7 +159,7 @@ In the read status popup, people are divided into people who have read and who s
 This decision was made to not clutter the view with unnecessary information.
 Should a document that is not connected to any department appear, the read status will simply show a message stating that it is not connected.
 
-\subsubsection{Manage departments}\label{managedepartments}
+\subsubsection{Manage Departments}\label{managedepartments}
 The sole purpose of the departments is to connect users and documents.
 This enables the read status division of people who need to read the document and people who do not, as well as selecting the users who need to get notifications when a document is uploaded.
 This is described in \cref{tab:man-dep} and visualized in \cref{fig:man-dep}.

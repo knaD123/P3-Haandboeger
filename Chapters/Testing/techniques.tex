@@ -1,6 +1,6 @@
 \documentclass[../../master.tex]{subfiles}
 \begin{document}
-\section{Testing techniques} \label{sec:testingtechniques}
+\section{Testing Techniques} \label{sec:testingtechniques}
 A lot of different techniques can be used to test software.
 This section will focus on two common approaches; \textit{black-box testing} and \textit{white-box testing} \cite{SoftwareTesting}.
 It will be explained what their differences are, when to use them and how they are used in this project.
@@ -15,12 +15,12 @@ Static Testing is testing software without running it.
 Dynamic Testing is testing software by running it.
 \end{defn}
 
-\subsection{Black-box testing} \label{sec:blackboxtesting}
+\subsection{Black-box Testing} \label{sec:blackboxtesting}
 Black-box testing is performed without any knowledge of why the software behaves as it does \cite{SoftwareTesting}.
 This means that the person (the tester) that tests the software cannot look at the code itself.
 The tester is therefore only able to give input to the software and receive output based on the input.
 
-\subsubsection{Static black-box testing}
+\subsubsection{Static Black-box Testing}
 As mentioned in \cref{sec:testingtechniques} black-box testing can be done statically.
 Static black-box testing is when the tester tests the software without running the software and without access to the code.
 
@@ -74,7 +74,7 @@ Some of these keywords are:
 The tester should be looking out for words like those mentioned above since some words might signal that something is certain, or some words might be vague and others again might not be testable.
 In the case where the words are too vague or not testable a re-definition is required. \cite{SoftwareTesting}
 
-\subsubsection{Dynamic black-box testing}
+\subsubsection{Dynamic Black-box Testing}
 It was, in \cref{sec:testingtechniques}, also mentioned that black-box tests can be done dynamically.
 Dynamic black-box testing, see \cref{defn:dynamictesting} is where the tester is running the software but do not have access to the code.
 Here the tester simply enters some input and receives some output based on the input entered. \cite{SoftwareTesting}
@@ -82,12 +82,12 @@ Here the tester simply enters some input and receives some output based on the i
 A great example of dynamic black-box testing is usability tests, see \cref{sec:usabilitytesting}.
 In that section it will be further explained how the usability test were executed in this development project.
 
-\subsection{White-box testing} \label{sec:whiteboxtesting}
+\subsection{White-box Testing} \label{sec:whiteboxtesting}
 White-box testing can be thought of as the opposite of black-box testing.
 As mentioned in \cref{sec:blackboxtesting} the black-box testing is performed without access to the code, but when performing white-box testing the opposite is true.
 It was mentioned in \cref{sec:testingtechniques} that white-box tests, just like black-box tests, can be performed statically and dynamically.
 
-\subsubsection{Static white-box testing} \label{staticwhitebox}
+\subsubsection{Static White-box Testing} \label{staticwhitebox}
 Static white-box tests are performed without running the software with access to the code.
 When performing static white-box tests, see \cref{defn:statictesting} the tester is reviewing the architecture and the design of the software.
 The tester can also be reviewing the actual code for bugs. \cite{SoftwareTesting}
@@ -114,7 +114,7 @@ When the review is finished, the review group should make a \textit{report} of r
 Throughout this project GitHub \footnote{GitHub is a hosting platform for version control using Git} was used to perform peer reviews before merging new code into the software.
 Every time someone had created new features, refactored some code, updated the layout etc., the new code had to be approved before it got merged into the project.
 This was done to prevent introducing potential bugs to the project.
-\subsubsection{Dynamic white-box testing}
+\subsubsection{Dynamic White-box Testing}
 Dynamic white-box testing is where the tester has access to the code and actually runs the software.
 When performing dynamic white-box testing, see \cref{defn:dynamictesting,sec:whiteboxtesting}, the tester decides what to test and what not to test by inspecting the code.
 The tester can test individual functionalities of the software or the software as a complete program. \cite{SoftwareTesting}

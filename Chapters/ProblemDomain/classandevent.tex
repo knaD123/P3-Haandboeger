@@ -1,7 +1,7 @@
 This chapter covers the problem domain analysis based on data gathered in the initial interviews with Ipsen.
 It includes the selection of classes and events, a rundown of the structure between classes, and the description of the behavioral patterns through statechart diagrams.
 
-\section{Classes and events}\label{sec:ClassEvent}
+\section{Classes and Events}\label{sec:ClassEvent}
 The following subsections explore the potential class and event candidates as well as the thought process behind them.
 The generated class and event candidates will be systematically selected based upon their relevance and whether they satisfy the system definition.
 The process of systematically selecting classes and events is from the Object Oriented Analysis and Design (OOA\&D) method \cite{Rod-Aalborg}.
@@ -46,7 +46,7 @@ In the following, the classes from \cref{tab:ClassCandidates} are deemed qualifi
 \caption{Class candidates}\label{tab:ClassCandidates}
 \end{table}
 
-\subsubsection{Qualified classes}
+\subsubsection{Qualified Classes}
 
 The \texttt{Company} keeps track of the handbook and the different suppliers that would be present in the system.
 It is therefore a qualified class acting as glue between the handbook and supplier sub problems, discussed in \cref{sec:classdiagram}.
@@ -67,7 +67,7 @@ This is useful when the company has to report a total number of employees that h
 
 The \texttt{Supplier} is qualified seeing that the administrator needs to keep a record of all documents related to approval of suppliers.
 
-\subsubsection*{Not qualified classes}
+\subsubsection*{Not Qualified Classes}
 
 The \texttt{Changelog} simply consists of a text string from version to version.
 Because of this, making it an actual object would be overcomplicating the model, and it has therefore been preserved as an attribute of the \texttt{Version} class.
@@ -110,9 +110,9 @@ Once again, the questions below help to evaluate an event if those are affirmati
 	\item ''Can the event be identified when it happens?''
 \end{itemize}
 
-The event being instantaneous refers to there not being any time frame which can be described as "while the event is happening". 
+The event being instantaneous refers to there not being any time frame which can be described as "while the event is happening".
 There is only a before and after.
-The event being atomic means that the event is indivisible. 
+The event being atomic means that the event is indivisible.
 It cannot be divided into smaller events.
 The event being identifiable refers to it being obvious when it happens. The system will be able to know of the event happening, either due to the event happening within the system, or because it is informed of the event happening by an user.
 

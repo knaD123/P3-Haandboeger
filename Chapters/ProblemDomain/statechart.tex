@@ -1,4 +1,4 @@
-\section{Statechart diagrams} \label{sec:statechart}
+\section{Statechart Diagrams} \label{sec:statechart}
 Statechart diagrams are a useful way to get an overview over the lifetime of objects in the problem domain.
 This section describes the state chart diagram of objects whose behaivour is both interesting and unique to the development project.
 
@@ -46,7 +46,7 @@ This was also the reason the Department class was first decided upon, see \cref{
 	\draw[arrow] (await.east) --node[above] {Delete} (End.west);
 en Notify er ikke helt god -astrid
 \end{tikzpicture}
-\end{figure} 
+\end{figure}
 
 \subsection{Version}
 A version is another central concept in the application.
@@ -61,7 +61,7 @@ Due to the immutable structure of the versions, the actual versions never change
 	\node[predefined] (await) [below of=start, node distance=1.5cm] {Awaiting approval};
 	\node[predefined] (approved) [right of=await, node distance=5cm] {In handbook};
 	\node(end)[n, right of=approved, node distance=4cm] {};
-	\node(End)[c,fit=(end)] at (end) {};	
+	\node(End)[c,fit=(end)] at (end) {};
 	\draw[arrow] (start.south) --node[right] {Created} (await.north);
 	\draw[arrow] (await.east) --node[above] {Change\\approved} (approved.west);
 	\draw[arrow] (approved.east) --node[below] {Version\\archived} (End.west);
