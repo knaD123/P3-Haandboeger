@@ -134,77 +134,8 @@ All of the non-archived documents are returned to the view through \texttt{var d
 
 In \cref{lst:doccontrolleradd} it is shown what happens when the user adds a new document or version to the system through the \texttt{Add} method.
 \\
-\lstinputlisting[caption={Document Controller: Add}, label={lst:doccontrolleradd}]{OBHandbooks/Controllers/DocumentController.cs}
-\begin{lstlisting}[caption={Document Controller: Add}, label={lst:doccontrolleradd}]
-[HttpPost("document/add/")]
-public async Task<IActionResult> Add(Document document,
-	int chapterNumber,
-	IFormFile versionFile,
-	IFormFile workingFile,
-	string requireApprovalCheck,
-	string approvers)
-{
-	bool requireApproval = (requireApprovalCheck == "on");
-	@ViewData["Title"] = "New document";
-	@ViewBag.Chapters = await _chapterRepository.GetChapters();
+\lstinputlisting[caption={Document Controller: Add}, label={lst:doccontrolleradd}, firstline=152, lastline=233, autogobble=true, tabsize=2]{OBHandbooks/OBHandbooks/Controllers/DocumentController.cs}
 
-	if (ModelState.IsValid)
-	{
-		document = this._documentRepository.ToProxy(document);
-		var chapter = await this._chapterRepository.GetChapter(chapterNumber);
-
-		if (chapter == null)
-		{
-			ModelState.AddModelError(string.Empty, "Problem happend getting the chapter.");
-
-			return View(document);
-		}
-
-		document.Chapter = chapter;
-
-		try
-		{
-			document = await this._documentRepository.AddAsync(document);
-		}
-		catch (DocumentAddException e)
-		{
-			ModelState.AddModelError(string.Empty, e.ModelError);
-			return View(document);
-		}
-		if (versionFile != null)
-		{
-			OBHandbooks.Models.Version version = new OBHandbooks.Models.Version();
-			version.SetDocument(document);
-			version = await this._versionRepository.AddAsync(version);
-
-			version.VersionFile = new HandbookFile(versionFile);
-			if (workingFile != null) version.WorkingFile = new HandbookFile(workingFile);
-
-			if (requireApproval)
-			{
-				HandbookApproval approval = await CreateApproval(
-				approvers,
-				await this._userManager.GetUserAsync(HttpContext.User));
-				approval.DocumentVersion = version;
-				version.DateSubmittedToApproval = DateTime.Now;
-				document.Versions.Add(version);
-				approval.CheckForApproval();
-				await this._approvalRepository.UpdateAsync(approval);
-			}
-			else
-			{
-				document.AddVersion(version);
-			}
-			await this._documentRepository.UpdateAsync(document);
-			await this._versionRepository.UpdateAsync(version);
-		}
-		return RedirectToAction(nameof(Index));
-
-	}
-
-	return View(document);
-}
-\end{lstlisting}
 %Anna: Evt sætte denne specifikke listing i appendiks? (er emget lang for meget lidt der fås ud af den)
 
 The \texttt{HttpPost} method ensures that it can only be accessed by a \texttt{POST} requests.
