@@ -1,25 +1,17 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% GENERELT: Synes dette kapitel skal gennemgaaes GRUNDIGT sammen, da det virker til at der er en DEL forvirring
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Code examples}\label{sec:codeexamples}
 In this section examples of the code will be presented.
 As written in \cref{sec:systemdesign} the system is based on the ASP.NET Core MVC architecture including EF Core.
 How the system utilizes the MVC architecture and the EF Core framework will be shown in the following code examples.
 
 First, the MVC implementation is explored with the \texttt{Document} class.
-How the \texttt{Document} object is being treated throughout the system will be explored through the model, view, and controller components.
-% Henrik: Tvivlsspørgsmaal - er model, view, controller med lille eller stort?
-Furthermore it will be shown how the document data will be stored in the database with the repository pattern and EF Core.
-Here it will be shown in part how a new document is added into the system through the different components.
+How the \texttt{Document} object behaves in the system will be explored through the model, view, and controller components.
+Furthermore it will be shown how the document data will be created, and then stored in the database with the repository pattern and EF Core.
 
 \subsection{Model}
 
 In the model component the \texttt{Document} object is defined.
 It is primarily the document object that will be highlighted in the code examples.
-How the document object is presented is shown in the code snippet below:
-%Taniya: synes at vi enten skal kalde det code snippet eller listing
-% Henrik: Maaske importer code-snippets ligesom Rasmus har gjort? (ikke vigtigt)
-% Andreas: Jeg synes der skal stå listing, ligesom der gøre under kode eksemplet fx Listing 7.1
+How the document object is presented is shown in the code listing below:
 \\
 \begin{lstlisting}[caption={Document Model: Document object}, label={lst:doc}]
 [Key]
@@ -40,7 +32,7 @@ public int ChapterNumber
 public int SectionNumber { get; set; } //second part of Document ID
 
 [Required]
-public string Title { get; set; } // TODO: Unique title of document
+public string Title { get; set; }
 
 public virtual ICollection<Version> Versions { get; set; } //List of all past versions of the document (the "archive")
 public virtual IEnumerable<DocumentDepartment> DocumentDepartments { get; set; }
@@ -53,18 +45,13 @@ public Document()
 }
 \end{lstlisting}
 
-%Taniya: måske fjern TODO kommentar i listning?
-%Taniya: Logikken i linje 10? 
-
-The document object includes an ID, chapter, chapter number, section number, versions, and whether or not it has been archived as seen in the code snippet above, \cref{lst:doc}.
-% Henrik: Tvivlsspørgsmaal, igen - bør vi maaske skrive navne paa properties som de staar i koden? :-)
+The document object includes an ID, chapter, section number, versions, and whether or not it has been archived as seen in the code listing above, \cref{lst:doc}.
 The \texttt{Key} attribute on line 1 specifies that the \texttt{int ID} is a primary key that the database can use to identify the specific document.
-Likewise, the \texttt{Range} attribute specifies that the section number is included in a an \texttt{Enumerable} class consisting of integers from 1 to the max value of a 32 bit \texttt{Integer}.
+Likewise, the \texttt{Range} attribute specifies that the section number is restricted to a range from 1 to the max value of a 32 bit integer.
 And the \texttt{Display} attribute on line 15 specifies that the section number should be displayed with the name \textit{section}.
-This \texttt{Display} attribute is used with ASP.NET Core and is used to modify the text when the model displayed in a view.
-%Taniya: måske også forklar noget med hvorfor vi bruger virtual Chapter Chapter og  IEnumerable<DocumentDepartment> DocumentDepartments? 
+This \texttt{Display} attribute is used to modify the text when the model displayed in a view.
 
-In the code snippet below, \cref{lst:addversion}, it is shown the logic of how a new version of a document is added.
+In the code listing below, \cref{lst:addversion}, it is shown the logic of how a new version of a document is added to a document after it has been approved.
 \\
 
 \begin{lstlisting}[caption={Document Model: AddVersion}, label={lst:addversion}]
@@ -88,13 +75,9 @@ public void AddVersion(Version version)
 \end{lstlisting}
 
 When a new version of a document is added the version's \texttt{ValidFromDate} is set to the current date and the \texttt{Approved} bool is set to \texttt{true} as seen on line 3 and 4.
-% Henrik: Maaske i stedet for "it receives a new date ...", saa skriv "the version's ValidFromDate property is set to the current date"?
 On line 5 the new version is added to the list of versions.
-The control sequence from line 9 - 12 ensures that the previous version's ValidUntilDate is set to the current date.
-% Taniya: kan vi skrive The Selection Control Structure (fagterm) istedet for The control sequence?
-% Henrik: Same thing her - Masske "the previous version's ValidUntilDate property is set to ..."
-When a new version has been added all of the affected department in the system will get notified as seen in the loop from line 13 - 16.
-%Taniya: Iteration Control Structure - foreach loop 
+The selection control structure from line 9 - 12 ensures that the previous version's ValidUntilDate is set to the current date.
+When a new version has been added all of the affected departments in the system will get notified as seen in the iteration control structure from line 13 - 16.
 
 \subsection{Controller}
 
@@ -135,34 +118,23 @@ public async Task<IActionResult> Index()
 }
 \end{lstlisting}
 
-The \texttt{HttpGet} method means that the method only can accessed by a \texttt{GET} requests.
+The \texttt{HttpGet} method means that the method only can be accessed by a \texttt{GET} requests.
 Something to take note of in \cref{lst:doccontroller} is the \texttt{async Task<IActionResult>} on line 3.
-The \texttt{Task} class represents a single operation \cite{microsoft}.
-This operation does not return a value and usually executes asynchronously.
-% Henrik: Mener faktisk at Task ALTID er async - men kan tage fejl :-)
-The \texttt{IActionResult} method means that it returns a result.
-% Taniya: return hva for noget result?
-%The \texttt{IActionResult} result method ensures that the controller returns a model to the view.
-% Henrik: Jeg er ikke enig mht det der staar om HttpGet og IActionResult
-% HttpGet sørger bare for at denne action method kun kan blive tilgaaet af en GET request
-% IActionResult garanterer ikke at controlleren returns en model til viewet
-% IActionResult er en return-type ting, der fortæller at denne action method returnerer et result.
+The \texttt{Task} class represents a single operation \cite{microsoft} performed asynchronously.
+The \texttt{IActionResult} type parameter means that upon completion, it returns an \texttt{IActionResult} object.
 
 From line 5-13 it is determined which documents that the current user is assigned to.
-This is done by first retrieving the current user, which is defined through \texttt{HttpContext.User}, by finding a match in the list of users found in \texttt{_userManager}.
-Afterwards, the program iterates through the departments a user is a part of to find which documents he is assigned to.
-This is done through the loop on line 9 - 12.
+This is done by retreiving the current user from the \texttt{_userManager}, by finding a user in the list that matches the one found in the \texttt{HttpContext}.
+Afterwards, the program iterates through the departments which the user is a part of to find which documents they are assigned to.
+This is done through the iterative control structure on line 9 - 12.
 
-After the user is assigned documents has been sorted a list of all the non-archived documents will occur in the view.
-%Anna: er forirreet over hvad der står og fåortstå det ikke rigtigt
+After the list of documents the user has not been assigned to have been organized into chapters, it will be added to the viewmodel.
 This is done through the two foreach loops from line 14 - 25.
 All of the non-archived documents are returned to the view through \texttt{var documentIndex} on line 29.
-% Henrik: Synes starten er lidt kryptisk + jeg forstaar ikke hvor det her "sorting" kommer fra?
 
 In \cref{lst:doccontrolleradd} it is shown what happens when the user adds a new document or version to the system through the \texttt{Add} method.
-% Henrik: Der bliver ikke tilføjet noget gennem HttpPost method, det sker gennem Add action method
-% HttpPost fortæller bare, at denne action method kun kan tilgaaes med en POST request
 \\
+\lstinputlisting[caption={Document Controller: Add}, label={lst:doccontrolleradd}]{OBHandbooks/Controllers/DocumentController.cs}
 \begin{lstlisting}[caption={Document Controller: Add}, label={lst:doccontrolleradd}]
 [HttpPost("document/add/")]
 public async Task<IActionResult> Add(Document document,
@@ -334,7 +306,7 @@ If that is the case, it throws the custom \texttt{DocumentAddException}.
 Otherwise, it adds the document to the database, and returns the tracked database entry.
 The reason why this is important, and that one cannot just use the \texttt{Document} object supplied as an argument, is due to the use of lazy-loading proxies in the application.
 Lazy-loading proxies funcions in such a way that when objects have relationships with other objects, these are implemented as virtual properties.
-% Taniya: menes der function (funcion)?  Og hvilke linje er det vi taler om ? 
+% Taniya: menes der function (funcion)?  Og hvilke linje er det vi taler om ?
 % Henrik: Taniya, igen - bare fix stavefejl :-P
 
 \todo[inline]{Skal vi forklare hvad lazy loading betyder, eller er det basic nok til vi kan slippe?}
