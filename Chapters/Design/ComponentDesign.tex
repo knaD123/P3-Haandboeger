@@ -1,14 +1,15 @@
 \documentclass[../../master.tex]{subfiles}
 \begin{document}
-\section{Component Design} \label{sec:componentdesign}
+\section{Component Design} \label{sc:componentdesign}
 
 In this section the component design theory will be introduced and elaborated.
+Afterwards the theory will be used in pracsis as the component design for the project will be designed.
 
 \input{Chapters/Design/architecturecomponents}
 
 \subsection{System design} \label{sec:systemdesign}
 
-In relation to the ASP.NET MVC pattern there are immediate similarities to the component design theory in {\color{red}\cref{archicomponents}}.
+In relation to the ASP.NET MVC pattern there are immediate similarities to the component design theory in {\cref{sec:archicomponents}}.
 There can among other be drawn parallels between the \textit{model} component and the \textit{model} classes in the MVC pattern.
 The possible parallels are listed in the table below.
 
@@ -25,11 +26,11 @@ The possible parallels are listed in the table below.
 	Interface & View \\
 	\hline
 \end{tabular}
-\caption{{\color{red}indsæt caption tekst}}\label{tab:PatternParallels}
+\caption{Parallels between compontent design theory and the MVC model}\label{tab:PatternParallels}
 \end{table}
 
 As written in the component design theory in \cref{sec:archicomponents} the model components should seek to solve the problem of the problem domain.
-The model component in the MVC pattern is likewise going to contain the classes and objects that seeks to solve the problem domain through meeting the requirements written in {\color{red}section xx}.
+The model component in the MVC pattern is likewise going to contain the classes and objects that seeks to solve the problem domain through meeting the system definition written in \cref{sec:systemdefinition}.
 The model component in the implementation is among other classes going to contain \textit{documents, users, departments, versions, approvals} and \textit{read statuses}.
 The arguments for including these classes can be seen in \cref{sec:classdiagram}.
 The database in form of EF Core is also included in the model component as this in part also seeks to solve the problem domain.
@@ -44,7 +45,7 @@ This is done through the view model in the MVC pattern as the interface is handl
 These are what determines what the actors sees and what they can interact with.
 
 \subsection{Component layers}
-In relation to the theory written in {\color{red}\cref{archicomponents}} the components can be designed in layers to describe their responsibilities and relation to each other.
+In relation to the theory written in \cref{sec:archicomponents} the components can be designed in layers to describe their responsibilities and relation to each other.
 The components in the MVC pattern with EF Core included can also be designed with the layered architecture in mind.
 To give an overview and understanding of the architecture and design, a simple component layer design can be seen in the figure below:
 

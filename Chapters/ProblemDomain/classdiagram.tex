@@ -1,5 +1,6 @@
+\documentclass[../../master.tex]{subfiles}
+\begin{document}
 \section{Class diagram} \label{sec:classdiagram}
-\todo[inline]{Store bogstaver for klasser}
 The qualified classes from \cref{sec:Classes} are ordered in relation to each other in a class diagram, the purpose of which is ''to describe structural relations between classes and objects'' \citep[p.~71]{Rod-Aalborg}.
 
 The class diagram in \cref{fig:ClassDiagram} shows the structure between the classes in the problem domain.
@@ -58,73 +59,73 @@ Both of these deal with archiving and managing the documents a company needs to 
 \end{figure}
 
 \subsection{Supplier}
-There can be any number of suppliers, and these suppliers in turn aggregate approvals.
-These approvals are meant to signify a specific period of time that the supplier is approved.
+There can be any number of suppliers, and these suppliers in turn aggregate Approvals.
+These Approvals are meant to signify a specific period of time that the supplier is approved.
 A Supplier Approval then aggregates at least one Version, which each encapsulates one of the files needed to document the validity of approving the supplier.
-This is a hierarchy pattern where both Company and Version is also included in the hierarchy structure for the handbook.
+This is a hierarchy pattern where both Company and Version is also included in the hierarchy structure for the Handbook.
 These two classes connect the two subproblems.
 
 \subsection{Handbook}\label{sec:classdiagramhandbook}
-Where a company can have multiple or no suppliers there can only be one Handbook.
-The Handbook is a part of the Company which acts as a handle to access both suppliers and the handbook. This is a composition relation.
+Where a Company can have multiple or no suppliers there can only be one Handbook.
+The Handbook is a part of the Company which acts as a handle to access both Suppliers and the Handbook. This is a composition relation.
 
-A handbook is an aggregation of Document, as there are multiple documents in each handbook.
-Document is then again an aggregation of versions, which keeps track of the multiple versions each document has and the period in which a version is valid within the handbook.
+A Handbook is an aggregation of Document, as there are multiple documents in each Handbook.
+Document is then again an aggregation of Versions, which keeps track of the multiple Versions each Document has and the period in which a Version is valid within the Handbook.
 
 The relation between Document and Version is an item-descriptor pattern.
-The Document class is the descriptor and contains all the important information about the document, including a pointer to the current valid version of said document.
-Version is an item as it encapsulates the actual file with the current version of Document.
-This is modeled so because of the need to keep track of earlier versions as well.
+The Document class is the descriptor and contains all the important information about the Document, including a pointer to the current valid Version of said Document.
+Version is an item as it encapsulates the actual file with the current Version of the Document.
+This is modeled so because of the need to keep track of earlier Versions as well.
 
 Version has two relational patterns, one to the Handbook Approval class and one to the Read Status class.
 Both classes exist because of the need to keep the information about when an event happened and which users were involved.
-Who approved this version and when did that happen?
-Who, of those who need to, has read this version of the document?
+Who approved this Version and when did that happen?
+Who, of those who need to, has read this Version of the Document?
 As well as the reverse: Who has not?
-Keeping track of the when is important because a new version should not replace the former one before it has been approved.
-Furthermore, for certification purposes it is relevant to know who has read the current version at any given time as seen in \cref{sec:ISOstandards}.
+Keeping track of the when is important because a new Version should not replace the former one before it has been approved.
+Furthermore, for certification purposes it is relevant to know who has read the current Version at any given time as seen in \cref{sec:ISOstandards}.
 
 Document has a relation to Department.
-This is because the handbook can become quite extensive, but most users only regularly need to access a couple of documents.
-Therefore users should be shown specific documents relevant to them first and Department connects a group of documents to a group of users.
-These departments are managed by the administrators of the system.
+This is because the handbook can become quite extensive, but most users only regularly need to access a couple of Documents.
+Therefore users should be shown specific documents relevant to them first and Department connects a group of Documents to a group of users.
+These Departments are managed by the Administrators of the system.
 
 \subsection{User}\label{sec:user}
 There are three different types of users in the system, which has been modeled by using a role pattern. This gives the system a more dynamic way to handle different contexts.
 
-The reader can read everything and verify that they have read a version of a document but nothing else.
+The Reader can read everything and verify that they have read a Version of a document but nothing else.
 Every single user in the system has this level of access and it is therefore unnecessary to include as a seperate class.
-However, it is an important group and therefore, for the sake of clarity, it was included as a role in the model nevertheless.
+However, it is an important group and therefore, for the sake of clarity, it was included as a Role in the model nevertheless.
 
-The writer has the additional permission of submitting new versions of documents for approval. They can also assign other users to approve these documents, where anyone no matter the role can be assigned.
+The Writer has the additional permission of submitting new Versions of Documents for Approval. They can also assign other users to approve these Versions, where anyone no matter the Role can be assigned.
 
-The administrator has all access to the system.
-This includes making completely new documents, managing who gets notifications for which documents through the Department class, adding and removing users and accessing the archive.
-There needs to be at least one administrator in the Company.
+The Administrator has all access to the system.
+This includes making completely new Documents, managing who gets notifications for which Documents through the Department class, adding and removing users and accessing the archive.
+There needs to be at least one Administrator in the Company.
 
-The pattern functions like a hierarchy where the reader is at the bottom level, the writer at the middle level and the administrator at the top level. This means each role have the same core attributes, but their privileges are greater for each level, increasing from bottom to top.
+The pattern functions like a hierarchy where the Reader is at the bottom level, the Writer at the middle level and the Administrator at the top level. This means each Role have the same core attributes, but their privileges are greater for each level, increasing from bottom to top.
 This relation is pictured in \cref{fig:RoleIllustration}.
-However as seen in \cref{sec:mark-read} it is not entirely correct as there is one use case which the administrator does not have access to.
+However as seen in \cref{sec:mark-read} it is not entirely correct as there is one use case which the Administrator does not have access to.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{billeder/RP-Roller2.jpg}
-	\caption{\textit{Illustration of the different roles
+	\caption{\textit{Illustration of the different Roles
 	}\label{fig:RoleIllustration}}
 \end{figure}
 
-It is expected that there will be between two and three administrators in the system, and any number of writers and users.
-The company's quality manager should be an administrator and will be the person most accustomed to the system.
+It is expected that there will be between two and three Administrators in the system, and any number of Writers and users.
+The company's quality manager should be an Administrator and will be the person most accustomed to the system.
 Additionally, the secretaries will need the same level of access to do their job, but they likely won't spend as much time working with the system.
-The CEO of the company could also be an administrator but depending on their involvement they could also be a writer or even reader.
-The writer role would typically be assigned to department heads as they are the experts on how their own departments work.
+The CEO of the company could also be an Administrator but depending on their involvement they could also be a Writer or even Reader.
+The Writer Role would typically be assigned to department heads as they are the experts on how their own departments work.
 Every single employee should be a user in the system.
 
 \subsection{Approval} \label{Approval}
 The biggest similarities between the handbook and supplier subproblems are the need for archiving files and the need for approving certain things with different intervals.
 
-The difference between them is first and foremost that while the company needs both, they do not need each other.
-The approval of the suppliers is not included in the handbook and has no relevance for the majority of the users of the handbook.
-Furthermore, the handbook  has no effect on whether a supplier is approved or not.
+The difference between them is first and foremost that while the Company needs both, they do not need each other.
+The Approval of the suppliers is not included in the handbook and has no relevance for the majority of the users of the handbook.
+Furthermore, the Handbook  has no effect on whether a supplier is approved or not.
 
 \begin{figure}[H]
 	\centering
@@ -150,21 +151,21 @@ Furthermore, the handbook  has no effect on whether a supplier is approved or no
 	\caption{Early class diagrams for the supplier and handbook subproblems}\label{fig:SupProblemClassDiagram}
 \end{figure}
 
-Earlier versions of the class diagram modeled the problems like seen in \cref{fig:SupProblemClassDiagram}. 
+Earlier versions of the class diagram modeled the problems like seen in \cref{fig:SupProblemClassDiagram}.
 Here the classes \texttt{Approval} and \texttt{Document} are present in both diagrams, suggesting that their functionalities are too similar to have separate classes.
-However, in the handbook, \texttt{Document} is merely a container for multiple versions, which include the actual files, but in Supplier-Approval \texttt{Document} is needed to approve a supplier.
-Therefore, the two \texttt{Document} classes cannot be merged, but the \texttt{Document} class in Supplier-Approval can be entirely replaced by the \texttt{Version} class in handbook.
+However, in the \texttt{Handbook}, \texttt{Document} is merely a container for multiple Versions, which include the actual files, but in Supplier-Approval \texttt{Document} is needed to approve a supplier.
+Therefore, the two \texttt{Document} classes cannot be merged, but the \texttt{Document} class in Supplier-Approval can be entirely replaced by the \texttt{Version} class in Handbook.
 
 The two Approval classes are more complicated as the approval process varies:
 \begin{itemize}
-  \item In the handbook system a version of a document needs to be approved and the author can specify which people should do so.
-  \item In the supplier approval system a supplier needs to be approved which only demands an approval from the administrator who created the approval request.
+  \item In the handbook system a Version of a Document needs to be approved and the author can specify which people should do so.
+  \item In the Supplier Approval system a Supplier needs to be approved which only demands an Approval from the Administrator who created the approval request.
 \end{itemize}
 
-However the administrator needs to submit some kind of documentation, that justifies the approval of the supplier.
+However the Administrator needs to submit some kind of documentation, that justifies the approval of the supplier.
 
-Both systems need the approval for the changes to take effect.
-The current version of the class diagram in \cref{fig:ClassDiagram} does this by including a generalization. The approvals' shared functionality is included in the abstract class Approval and the more specific functionalities are included in the subclasses HandbookApproval and SupplierApproval.
+Both systems need the Approval for the changes to take effect.
+The current Version of the class diagram in \cref{fig:ClassDiagram} does this by including a generalization. The Approvals' shared functionality is included in the abstract class Approval and the more specific functionalities are included in the subclasses HandbookApproval and SupplierApproval.
 In the case where a Version object belongs to a SupplierApproval object the relation to HandbookApproval is set to a null reference.
 
 
@@ -207,9 +208,10 @@ Therefore, the final class diagram is as seen in \cref{fig:ClassDiagramNoSupplie
 	\draw[{open diamond}-](hand.south) node[above=-0.2cm, left]{1}--(doc.north)node[below=-0.2cm, right]{0..*};
 	\draw[{open diamond}-](dep.south)node[above=-0.2cm, left]{1}--(user.north)node[below=-0.2cm, right]{1..*};
 	\end{tikzpicture}
-	\caption{Final class diagram of the problem domain excluding the supplier
+	\caption{Final class diagram of the problem domain excluding the Supplier
 	}\label{fig:ClassDiagramNoSupplier}
 \end{figure}
 In this diagram the Supplier and the SupplierApproval are not included.
-As the Company class mainly existed to support the administrators access to the supplier system that class and its relation to the administrator role have also been excluded.
+As the Company class mainly existed to support the Administrators access to the supplier system that class and its relation to the Administrator role have also been excluded.
 The abstract Approval class still exists to make it possible to implement the supplier system at a later time.
+\end{document}
