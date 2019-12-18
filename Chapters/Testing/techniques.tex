@@ -137,11 +137,12 @@ In the assert phase it is asserted that the database only contains a single \tex
 Another example of how to perform unit tests is in the listing \cref{lst:repositorytest}.
 This time it is tested if software fails when it should fail.
 
-\lstinputlisting[firstline=83, lastline=97, language={[Sharp]{C}}, label={lst:repositorytest}, caption={A unit test for the DocumentRepository}]{OBHandbooks/OBHandbooks.Tests/DocumentRepositoryTests.cs}
-
-This test is testing if the software throws a \texttt{DbUpdateException} if a \texttt{Document} with a non-unique title is being added to the database.
+The test is testing if the software throws a \texttt{DbUpdateException} if a \texttt{Document} with a non-unique title is being added to the database.
 A \texttt{Document} is created and added to the database in the arrange phase on line 86 to 92.
 In this test the act and assert phases are combined, line 95 to 96, because it is asserted that a \texttt{DbUpdateException} is thrown if a \texttt{Document} with a non-unique title is added to the database.
+\newpage
+
+\lstinputlisting[firstline=83, lastline=97, language={[Sharp]{C}}, label={lst:repositorytest}, caption={A unit test for the DocumentRepository}]{OBHandbooks/OBHandbooks.Tests/DocumentRepositoryTests.cs}
 
 Now it should be clear what black-box and white-box testing are and how it was used in this project.
 In the next section usability testing will be explained; what it is, how it was executed and which features were tested.

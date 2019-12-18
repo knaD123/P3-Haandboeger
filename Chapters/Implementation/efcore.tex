@@ -11,8 +11,3 @@ It subclasses IdentityDbContext, which in turn subclasses a normal DbContext.
 \lstinputlisting[caption={First part of the OnModelCreating mehtod}, language={[Sharp]C}, firstline=27, lastline=39, label={lst:contextcreate}, tabsize=4, autogobble=true]{OBHandbooks/OBHandbooks/Infrastructure/HandbookContext.cs}
 It consists of a large amount of properties of the type \texttt{DbSet<MODEL>}, which each represents a collection of entities to be stored in the database.
 The overwritten \texttt{OnModelCreating} function also supplies extra information about the relationships in the database, such as unique properties, foreign keys, or delete behaviours. For example, on line 31, it can be seen that when a \texttt{HandbookApproval} is to be deleted it should also result in any associated \texttt{Version} objects being deleted.
-
-\input{Chapters/Implementation/RepositoryPattern}
-\subsubsection{Database Design}
-\todo[inline]{Andreas: Gør den der ting jeg bad dig om}
-The database design should hopefully look a lot like the class diagram.
