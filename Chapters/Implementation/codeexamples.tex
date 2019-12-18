@@ -12,7 +12,8 @@ Furthermore it will be shown how the document data will be created, and then sto
 In the model component the \texttt{Document} object is defined.
 It is primarily the document object that will be highlighted in the code examples.
 How the document object is presented is shown in the code listing below:
-\\
+
+\newpage
 \begin{lstlisting}[caption={Document Model: Document object}, label={lst:doc}]
 [Key]
 public int ID { get; set; } //for the database
@@ -51,7 +52,12 @@ Likewise, the \texttt{Range} attribute specifies that the section number is rest
 And the \texttt{Display} attribute on line 15 specifies that the section number should be displayed with the name \textit{section}.
 This \texttt{Display} attribute is used to modify the text when the model displayed in a view.
 
-In the code listing below, \cref{lst:addversion}, it is shown the logic of how a new version of a document is added to a document after it has been approved.
+In \cref{lst:addversion} it is shown the logic of how a new version of a document is added to a document after it has been approved.
+
+When a new version of a document is added the version's \texttt{ValidFromDate} is set to the current date and the \texttt{Approved} bool is set to \texttt{true} as seen on line 3 and 4.
+On line 5 the new version is added to the list of versions.
+The selection control structure from line 9 - 12 ensures that the previous version's ValidUntilDate is set to the current date.
+When a new version has been added all of the affected departments in the system will get notified as seen in the iteration control structure from line 13 - 16.
 \\
 
 \begin{lstlisting}[caption={Document Model: AddVersion}, label={lst:addversion}]
@@ -73,11 +79,6 @@ public void AddVersion(Version version)
 	}
 }
 \end{lstlisting}
-
-When a new version of a document is added the version's \texttt{ValidFromDate} is set to the current date and the \texttt{Approved} bool is set to \texttt{true} as seen on line 3 and 4.
-On line 5 the new version is added to the list of versions.
-The selection control structure from line 9 - 12 ensures that the previous version's ValidUntilDate is set to the current date.
-When a new version has been added all of the affected departments in the system will get notified as seen in the iteration control structure from line 13 - 16.
 
 \subsection{Controller}
 
@@ -132,10 +133,6 @@ After the list of documents the user has not been assigned to have been organize
 This is done through the two foreach loops from line 14 - 25.
 All of the non-archived documents are returned to the view through \texttt{var documentIndex} on line 29.
 
-In \cref{lst:doccontrolleradd} it is shown what happens when the user adds a new document or version to the system through the \texttt{Add} method.
-\\
-\lstinputlisting[caption={Document Controller: Add}, label={lst:doccontrolleradd}, firstline=152, lastline=237]{OBHandbooks/OBHandbooks/Controllers/DocumentController.cs}
-
 The \texttt{HttpPost} method defines this method as the handler for POST requests to this URL.
 
 The information from the view is transfered into the controller method through the parameters shown from line 2-7.
@@ -143,6 +140,11 @@ When the document is posted to the controller the \texttt{Add} allows the user t
 Afterwards the actual document receives its chapter number on line 24 and is saved into the document repository on line 29 through the \texttt{AddAsync} method.
 This method returns a proxy object as described further down in \cref{sec:repositories}.
 A more detailed explanation of the \texttt{AddAsync} method can be seen in \cref{lst:docrepadd}.
+
+In \cref{lst:doccontrolleradd} it is shown what happens when the user adds a new document or version to the system through the \texttt{Add} method.
+\\
+\lstinputlisting[caption={Document Controller: Add}, label={lst:doccontrolleradd}, firstline=152, lastline=237]{OBHandbooks/OBHandbooks/Controllers/DocumentController.cs}
+
 
 The \texttt{IFormFile} parameter represents a file uploaded through a form. It includes data such as extension, content type, and name.
 If the variable \texttt{versionFile} is not null, an initial version is added.
@@ -157,6 +159,13 @@ If the new version does not need an approval, it is simply saved into the reposi
 \subsection{View}
 
 In \cref{lst:docview} it is shown how the view component utilizes data given from the controller component.
+
+\cref{lst:docview} is the view that represents a list of assigned documents.
+This will render to a button, which when clicked expands a list of documents in a given chapter.
+It is written in the razor templating language, which is HTML with the added feature of allowing the documents to be dynamic when prefacing a statement with the \texttt{@} character.
+The code preceded by the \texttt{@} character is in C\#.
+An interesting thing to note is line 25, where the statement \texttt{@await Html.PartialAsync("_DocumentListBody", @kvp.Value)} is executed.
+This statement asks the razor templating engine to render the body of a list of documents, with the model in variable \texttt{kvp.Value}.
 
 \begin{lstlisting}[caption={Document View: Index}, label={lst:docview}]
 @foreach (KeyValuePair<Models.Chapter, List<Models.Document>> kvp in Model.UnassignedDocuments) {
@@ -192,12 +201,7 @@ In \cref{lst:docview} it is shown how the view component utilizes data given fro
 
 \end{lstlisting}
 
-\cref{lst:docview} is the view that represents a list of assigned documents.
-This will render to a button, which when clicked expands a list of documents in a given chapter.
-It is written in the razor templating language, which is HTML with the added feature of allowing the documents to be dynamic when prefacing a statement with the \texttt{@} character.
-The code preceded by the \texttt{@} character is in C\#.
-An interesting thing to note is line 25, where the statement \texttt{@await Html.PartialAsync("_DocumentListBody", @kvp.Value)} is executed.
-This statement asks the razor templating engine to render the body of a list of documents, with the model in variable \texttt{kvp.Value}.
+
 
 \subsection{Repositories}\label{sec:repositories}
 
