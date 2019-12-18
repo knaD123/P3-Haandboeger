@@ -1,17 +1,13 @@
 \section{First iteration}\label{sec:Iteration1}
 \subsection{Simple timeline}\label{sec:1-simpleTime}
 The first iteration started with a short presentation to the software development project through a mediator on Ipsen's behalf.
-%hver. fucking. gang. at jeg læser det her sidder jeg og bruger et par sekunder paa at undre mig over hvem fanden den mediatior er
 Right after this an initial interview to talk about the requirements was planned.
 
 During the time up to the interview the workflow was in the understanding phase from \cref{fig:DEBModel}.
-In this phase existing solutions were looked into and ideas generated, such that there was an opportunity to discuss unbiased, and through this also get Ipsen to reflect upon her requirements.
-%ike helt sikker paa at jeg forstaar. det mest unbiased ville vel være at dukke op fuldstændigt uden preconceptions?
+In this phase existing solutions were looked into and ideas generated, such that there was an opportunity to discuss them, and through this also get Ipsen to reflect upon her requirements.
 The interview was the start of the first evaluation phase in this iteration.
 The ideas presented at this interview include among others a build-in editor such that everything about the handbooks would be managed in the system.
-However this was shut down fast as Ipsen prefers her own text editing tool - MS Word - and only required an organization tool for the documents.
-%nedenunder omformuleret og erstattet med ovenover
-%Though this was shut down fast since for that to be useful it would need to always keep up to date on how Microsoft's UI for eg. Word would look, since it otherwise would take too long to get used to every time it was necessary to change anything in the handbook.
+However this was shut down fast as Ipsen prefers her own text editing tool - Microsoft Word - and only required an organization tool for the documents.
 The notification system which is one of the requirements stated in this report, was also one of these beforehand generated ideas presented at the first interview. 
 Another idea was to make a Web Interface which would either be locally on the clients server or on the World Wide Web.
 This was first shot down, though through discussion it became clear that this was not impossible, since there was better opportunities with the notification system which was turned into a requirement.
@@ -19,43 +15,32 @@ This was first shot down, though through discussion it became clear that this wa
 After the first interview the analysis work started, leading the workflow back to the understanding activity yet again.
 The analysis done during this phase was mainly done based on two basic activities from \cref{fig:SUModels}.
 The problem domain analysis, which in this iteration focused on; Requirements, FACTOR, initial class diagram and the event table, see \cref{sec:requirements,factor,sec:classdiagram,sec:EventTable}.
-% Henrik: Er det de rigtige cref jeg har skrevet?
 As well as some elements in the application domain analysis, which were; PACT and the actor table, see \cref{sec:PACT,tab:ActorTable}.
-% Henrik: Er det de rigtige cref jeg har skrevet?
 During this period another small second interview was held with Ipsen to evaluate the understanding of the vocabulary concerning the problem domain, to make sure the terminology was correct.
 Right before the third interview a couple of prototypes were drawn up on paper and then afterwards turned into an interactive prototype, which could be presented at the second interview.
-%slettet del omkring "right before the second interview shich closed iteration" fordi det alligevel bliver nævnt i næste afsnit - astrid
-%og slettet by programming i turned into an interactive prototype by programming - astrid
 This combined both the envisionment and design activities from \cref{fig:DEBModel}.
 
 The first iteration ended with the third interview, where the requirements in form of the FACTOR analysis were discussed and evaluated.
 After this a couple of questions was asked clearing up confusion and misunderstandings surrounding the approval system, the role hierarchy and the supplier subsystem.
 Lastly, the interactive prototype of this iteration was presented.
-%Taniya: Hvad er det for noget interactive prototype der var presented - gætter på vores allerførste usability test (Lu's anden usability test)?
-%Taniya: Hvornår er den første iteration sluttet? Efter den anden interview eller den tredje interview? 
 
 \subsection{Elements to take notice of}
 \subsubsection*{Class diagram}
 During the first iteration the class diagram itself went through multiple developments.
 It's final version can be seen in \cref{fig:ClassDiagram}.
-Before this iteration the approval class was not seen as one of the main classes in the problem domain and was therefore not present in in the class diagram in \cref{fig:FirstClassDiagram}.
-%ændret nedenunder til ovenover. Problem skal tydeliggøres at det er FØR denne iteration at klassediagrammet gælder - astrid
-%In the first development, see \cref{fig:FirstClassDiagram}, the approval class was not seen as part of the main classes in the problem domain and therefore not present in the diagram.
-=======
+Before this iteration the approval class was not seen as one of the main classes in the problem domain, and was therefore not present in in the class diagram in \cref{fig:FirstClassDiagram}.
 Its final version can be seen in \cref{fig:ClassDiagram}.
-Another difference in the first development was how the different roles was only thought of as attributes instead of classes in themselves and therefore were not present either.
+Another difference in the first development was how the different roles was only thought of as attributes instead of classes in themselves, and therefore were not present either.
 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
-	%De enkelte noder i diagrammet
 		\node(hand)[process]{Handbook};
 		\node(doc)[process, below=1cm of hand]{Document};
 		\node(dep)[process, right=1.5cm of doc]{Notification};
 		\node(ver)[process, below=1cm of doc]{Version};
 		\node(read)[process, right=3cm of ver]{Read Status};
 		\node(user)[process, right=2.1cm of hand]{User};
-	%Linjer i billedet:
 		\draw[{open diamond}-](hand.south)node[right, yshift=-0.2cm]{1}--(doc.north)node[left, yshift=0.2cm]{1..*};
 		\draw[{open diamond}-](doc.south)node[right, yshift=-0.2cm]{1}--(ver.north)node[left, yshift=0.2cm]{0..*};
 		\draw[black](doc.east)node[above, xshift=0.2cm]{1}--(dep.west)node[below, xshift=-0.35cm]{0..*};
@@ -71,13 +56,11 @@ Throughout the first iteration, approval turned into a class in its own rights a
 The role pattern came forth during this iteration as well though the final form of it went through a couple of evolutions.
 The main discussion about this element was whether or not the reader class was necessary since all users by default were readers.
 For clarity's sake it was decided to keep it.
-%Anna: er ikke sikker på det her er nødvendigt og ikke bare bliver for meget.
-%Another debate revolved around the writer and why they were necessary. 
-%Though it soon became clear through the second interview with Ipsen that this was not to be changed since there would be more Writers than administrators and it was good the writers did not have total access to the system the same way the administrator has.
-%man kunne ske argumentere for at den skulle ned i anden iteration men jeg kan meget godt lide den for den diskussion kørte saadan set ret længe. - astrid 
+
+Another debate revolved around the writer and why they were necessary. 
+Though it soon became clear through the second interview with Ipsen that this was not to be changed since there would be more Writers than administrators and it was good the writers did not have total access to the system the same way the administrator has.
 
 \subsubsection*{Prototyping}
-% Taniya: er det ikke fra anden interview? den prototype uden funktioner
 The development of the prototype used in the third interview with Ipsen started out as drafted versions which can be found in \cref{sec:First-sketches,sec:Second-sketches}.
 Based on these sketches an interactive prototype was made. 
 Screenshots of some of the interfaces in this prototype can be found in \cref{sec:1prototype}.
