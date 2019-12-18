@@ -1,7 +1,7 @@
 \documentclass[../../master.tex]{subfiles}
 \begin{document}
 \subsection{Web Frontends} \label{sec:webfrontends}
-The languages of UI on the web are HTML, CSS, and Javascript, and each of these three languages have their own respective roles.\cite{nixonweb}
+The languages of UI on the web are HTML, CSS, and JavaScript, and each of these three languages have their own respective roles.\cite{nixonweb}
 \subsubsection*{HTML}
 HTML is the most important of the three.
 It's a markup language that is used to describe the structure and much of the contents of a webpage.
@@ -21,7 +21,7 @@ The different tags can contain child tags, which in turn can have their own tags
 This gives the webpage a tree structure.
 
 Two important types of tags are the \texttt{<script>} and \texttt{<style>} tags.
-These allow for embedding CSS and Javascript into the page.
+These allow for embedding CSS and JavaScript into the page.
 
 \subsubsection*{CSS}
 CSS allows for defining the style of the document.
@@ -43,7 +43,7 @@ While this naturally comes with a trade-off for customization, it was a requirem
 \subsubsection*{JavaScript}
 JavaScript is a scripting language built for the web.
 JavaScript allows for running code on the page, which can interact with the contents of the page, play sounds, send requests in the background, and much more.\cite{nixonweb}
-\lstinputlisting[firstline=48, lastline=56, caption={A javascript function in the project that shows document previews to the side}]{OBHandbooks/OBHandbooks/wwwroot/js/site.js}
-The javascript function above performs an Asyncronous Javascript and XML (AJAX) request, where it fetches the preview page for a specific document.
+\lstinputlisting[firstline=48, lastline=56, caption={A JavaScript function in the project that shows document previews to the side}]{OBHandbooks/OBHandbooks/wwwroot/js/site.js}
+The JavaScript function above performs an Asyncronous JavaScript and XML (AJAX) request, where it fetches the preview page for a specific document.
 It then, on success, sets the \texttt{div} with the id \texttt{previewColumn}'s content to be the received data.
 \end{document}

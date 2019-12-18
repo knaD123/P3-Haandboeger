@@ -117,8 +117,7 @@ Every single employee should be a user in the system.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.60\textwidth]{billeder/RP-Roller2.jpg}
-	\caption{\textit{Illustration of the different Roles
-	}\label{fig:RoleIllustration}}
+	\caption{Illustration of the different roles\label{fig:RoleIllustration}}
 \end{figure}
 
 \subsection{Approval} \label{Approval}
@@ -209,8 +208,7 @@ Therefore, the final class diagram is as seen in \cref{fig:ClassDiagramNoSupplie
 	\draw[{open diamond}-](hand.south) node[above=-0.2cm, left]{1}--(doc.north)node[below=-0.2cm, right]{0..*};
 	\draw[{open diamond}-](dep.south)node[above=-0.2cm, left]{1}--(user.north)node[below=-0.2cm, right]{1..*};
 	\end{tikzpicture}
-	\caption{Final class diagram of the problem domain excluding the Supplier
-	}\label{fig:ClassDiagramNoSupplier}
+	\caption{Final class diagram of the problem domain excluding the supplier subproblem}\label{fig:ClassDiagramNoSupplier}
 \end{figure}
 In this diagram the Supplier and the SupplierApproval are not included.
 As the Company class mainly existed to support the Administrators access to the supplier system that class and its relation to the Administrator role have also been excluded.

@@ -1,3 +1,5 @@
+\documentclass[../../master.tex]{subfiles}
+\begin{document}
 \section{Code examples}\label{sec:codeexamples}
 In this section examples of the code will be presented.
 As written in \cref{sec:systemdesign} the system is based on the ASP.NET Core MVC architecture including EF Core.
@@ -14,7 +16,7 @@ It is primarily the document object that will be highlighted in the code example
 How the document object is presented is shown in the code listing below:
 
 \newpage
-\begin{lstlisting}[caption={Document Model: Document object}, label={lst:doc}]
+\begin{lstlisting}[caption={Document model code}, label={lst:doc}]
 [Key]
 public int ID { get; set; } //for the database
 
@@ -125,42 +127,39 @@ The \texttt{Task} class represents a single operation \cite{microsoft} performed
 The \texttt{IActionResult} type parameter means that upon completion, it returns an \texttt{IActionResult} object.
 
 From line 5-13 it is determined which documents that the current user is assigned to.
-This is done by retreiving the current user from the \texttt{_userManager}, by finding a user in the list that matches the one found in the \texttt{HttpContext}.
-Afterwards, the program iterates through the departments which the user is a part of to find which documents they are assigned to.
-This is done through the iterative control structure on line 9 - 12.
+This is done by retreiving the current user from the \texttt{_userManager}, by finding a user in the list that matches the one found in the \texttt{HttpContext}, and iterating through their departments.
 
 After the list of documents the user has not been assigned to have been organized into chapters, it will be added to the viewmodel.
 This is done through the two foreach loops from line 14 - 25.
 All of the non-archived documents are returned to the view through \texttt{var documentIndex} on line 29.
 
-The \texttt{HttpPost} method defines this method as the handler for POST requests to this URL.
+The \texttt{HttpPost} method in \cref{lst:doccontrolleradd} in this method as the handler for POST requests to this URL.
 
-The information from the view is transfered into the controller method through the parameters shown from line 2-7.
-When the document is posted to the controller the \texttt{Add} allows the user to decide whether or not the initial version needs to go through the approval process. This is decided through the \texttt{requireApproval} variable.
-Afterwards the actual document receives its chapter number on line 24 and is saved into the document repository on line 29 through the \texttt{AddAsync} method.
+The information from the view is transfered into the controller method through the parameters shown from line 2-6.
+When the document is posted to the controller the \texttt{Add} allows the user to decide whether or not the initial version needs to go through the approval process.
+This is decided  through the \texttt{requireApproval} variable.
+Afterwards the actual document receives its chapter number on line 24 and is saved into the document repository on line 43 through the \texttt{AddAsync} method.
 This method returns a proxy object as described further down in \cref{sec:repositories}.
 A more detailed explanation of the \texttt{AddAsync} method can be seen in \cref{lst:docrepadd}.
-
-In \cref{lst:doccontrolleradd} it is shown what happens when the user adds a new document or version to the system through the \texttt{Add} method.
-\\
+\newpage
 \lstinputlisting[caption={Document Controller: Add}, label={lst:doccontrolleradd}, firstline=152, lastline=237]{OBHandbooks/OBHandbooks/Controllers/DocumentController.cs}
 
 
 The \texttt{IFormFile} parameter represents a file uploaded through a form. It includes data such as extension, content type, and name.
 If the variable \texttt{versionFile} is not null, an initial version is added.
-The new version of the document is stored into the repository on line 36-62.
-Here the new version is saved into the version repository on line 40 with the \texttt{AddAsync} method.
+The new version of the document is created and stored in the repository on line 54-62.
+Here the new version is saved into the version repository on line 59 with the \texttt{AddAsync} method.
 Notice that the \texttt{_documentRepository.AddAsync} and \texttt{_versionRepository.AddAsync} are similarly named, but respectively saves a document and a version.
 
 If the approval checkbox is enabled, the new document version is not yet valid to the readers.
-From line 45-55 the program creates an approval object or objects where it is determined which users need to approve the new version.
-If the new version does not need an approval, it is simply saved into the repositories on line 60-61.
+From line 64-72 the program creates an approval object or objects where it is determined which users need to approve the new version.
+If the new version does not need an approval, it is simply saved into the repositories on line 76.
 
 \subsection{View}
 
 In \cref{lst:docview} it is shown how the view component utilizes data given from the controller component.
 
-\cref{lst:docview} is the view that represents a list of assigned documents.
+\Cref{lst:docview} is the view that represents a list of assigned documents.
 This will render to a button, which when clicked expands a list of documents in a given chapter.
 It is written in the razor templating language, which is HTML with the added feature of allowing the documents to be dynamic when prefacing a statement with the \texttt{@} character.
 The code preceded by the \texttt{@} character is in C\#.
@@ -237,3 +236,4 @@ Lazy-loading proxies function in such a way that when objects have relationships
 In the case of the \texttt{AddAsync} method, this means that you can construct a raw \texttt{Document} object, pass it to the method, and then get a proxy object in return.
 This allows for assigning to the virtual members, which is a functionality that is heavily used in the controllers.
 \input{Chapters/Implementation/efcore}
+\end{document}

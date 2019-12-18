@@ -26,7 +26,7 @@ The possible parallels are listed in the table below.
 	Interface & View \\
 	\hline
 \end{tabular}
-\caption{Parallels between compontent design theory and the MVC model}\label{tab:PatternParallels}
+\caption{Parallels between component design theory and the MVC pattern}\label{tab:PatternParallels}
 \end{table}
 
 As written in the component design theory in \cref{sec:archicomponents} the model components should seek to solve the problem of the problem domain.
@@ -35,7 +35,7 @@ The model component in the implementation is among other classes going to contai
 The arguments for including these classes can be seen in \cref{sec:classdiagram}.
 The database in form of EF Core is also included in the model component as this in part also seeks to solve the problem domain.
 
-As written in the component design theory, \cref{sec:componentdesign}, the responsibilty of the functionality is to provide the actor a means to access the model component.
+As written in the component design theory, \cref{sc:componentdesign}, the responsibilty of the functionality is to provide the actor a means to access the model component.
 The controller component in the MVC pattern does this by communicating between the model component and the view component.
 The controllers retrieves data from the database and both methods and objects from the models.
 Hereafter,it links these to the view.

@@ -41,7 +41,7 @@ Consequently, this type of review of the product specification might seem more l
 There are several techniques that a tester can use to perform a high-level review of the product specification, e.g. pretend to be someone that is going to use the software or examine already existing solutions.
 By examining already existing solutions the tester gets a better understanding of the specific type of software. \cite{SoftwareTesting}
 
-Existing solutions were examined in this project, before the coding phase started, see \cref{chap:existing}.
+Existing solutions were examined in this project, before the coding phase started, see \cref{sec:existingsolutionsintro}.
 
 When performing a low-level review of the product specification the tester would compare if the elements in the product specification each accomplishes these eight attributes: \cite{SoftwareTesting}
 
@@ -116,7 +116,7 @@ Every time someone had created new features, refactored some code, updated the l
 This was done to prevent introducing potential bugs to the project.
 \subsubsection{Dynamic white-box testing}
 Dynamic white-box testing is where the tester has access to the code and actually runs the software.
-When performing dynamic white-box testing, see \cref{defn:dynamictesting, sec:whiteboxtesting}, the tester decides what to test and what not to test by inspecting the code.
+When performing dynamic white-box testing, see \cref{defn:dynamictesting,sec:whiteboxtesting}, the tester decides what to test and what not to test by inspecting the code.
 The tester can test individual functionalities of the software or the software as a complete program. \cite{SoftwareTesting}
 
 Testing individual functionalities, or units, are called \textit{unit testing}.
@@ -130,16 +130,16 @@ To test the cotnrollers, unit tests such as the one seen in \cref{lst:testadddoc
 \lstinputlisting[firstline=64, lastline=81, language={[Sharp]{C}}, caption={A unit test for the Add Document action method}, label={lst:testadddoc}]{OBHandbooks/OBHandbooks.Tests/DocumentRepositoryTests.cs}
 
 The unit tests follow the three A's, \textit{Arrange, Act, Assert}.
-In the example above, a \texttt{Document} is being created in the arrange phase, line 67 to 73.
-It is then added to the database in the act phase on line 76 to 77.
-In the assert phase it is asserted that the database only contains a single \texttt{Document}, line 79 to 80.
+In the example above, a \texttt{Document} is being created in the arrange phase, on line 7 to 11.
+It is then added to the database in the act phase on line 14.
+In the assert phase it is asserted that the database only contains a single \texttt{Document}, line 17.
 
 Another example of how to perform unit tests is in the listing \cref{lst:repositorytest}.
 This time it is tested if software fails when it should fail.
 
 The test is testing if the software throws a \texttt{DbUpdateException} if a \texttt{Document} with a non-unique title is being added to the database.
-A \texttt{Document} is created and added to the database in the arrange phase on line 86 to 92.
-In this test the act and assert phases are combined, line 95 to 96, because it is asserted that a \texttt{DbUpdateException} is thrown if a \texttt{Document} with a non-unique title is added to the database.
+A \texttt{Document} is created and added to the database in the arrange phase on line 5 to 8.
+In this test the act and assert phases are combined, line 16, because it is asserted that a \texttt{DbUpdateException} is thrown if a \texttt{Document} with a non-unique title is added to the database.
 \newpage
 
 \lstinputlisting[firstline=83, lastline=97, language={[Sharp]{C}}, label={lst:repositorytest}, caption={A unit test for the DocumentRepository}]{OBHandbooks/OBHandbooks.Tests/DocumentRepositoryTests.cs}

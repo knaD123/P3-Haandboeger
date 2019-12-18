@@ -29,7 +29,7 @@ Furthermore the MVC archictecture supports test driven development and also does
 	\draw[arrow] (view.south) -- node[left] {Perceives} (user.north west);
 	\draw[arrow] (user.north east) -- node[right=0.2cm] {Interacts with} (controller.south);
 	\end{tikzpicture}
-	\caption{The Model-View-Controller design pattern.}\label{fig:MVC-components}
+	\caption{The MVC design pattern.}\label{fig:MVC-components}
 \end{figure}
 
 The model component's responsibility is to implement the logic of the data domains \cite{mvcarticle}.
@@ -61,7 +61,7 @@ The job of the framework is translating the objects in memory into Structured Qu
 		\draw[arrow] (sql) -- (efcore);
 		\draw[arrow] (efcore) -- (sql);
 	\end{tikzpicture}
-	\caption{The relationship between ASP.NET Core and the Relational Database, with framework acting as a glue between the two layers}\label{fig:ASP-Entity}
+	\caption{The relationship between ASP.NET Core and the relational database, with EF Core acting as glue between the two layers}\label{fig:ASP-Entity}
 \end{figure}
 
 To use the framework, everything needed to do in the code is to provide a context object.
