@@ -106,12 +106,6 @@ There needs to be at least one Administrator in the Company.
 The pattern functions like a hierarchy where the Reader is at the bottom level, the Writer at the middle level and the Administrator at the top level. This means each Role have the same core attributes, but their privileges are greater for each level, increasing from bottom to top.
 This relation is pictured in \cref{fig:RoleIllustration}.
 However as seen in \cref{sec:mark-read} it is not entirely correct as there is one use case which the Administrator does not have access to.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.75\textwidth]{billeder/RP-Roller2.jpg}
-	\caption{\textit{Illustration of the different Roles
-	}\label{fig:RoleIllustration}}
-\end{figure}
 
 It is expected that there will be between two and three Administrators in the system, and any number of Writers and users.
 The company's quality manager should be an Administrator and will be the person most accustomed to the system.
@@ -119,6 +113,13 @@ Additionally, the secretaries will need the same level of access to do their job
 The CEO of the company could also be an Administrator but depending on their involvement they could also be a Writer or even Reader.
 The Writer Role would typically be assigned to department heads as they are the experts on how their own departments work.
 Every single employee should be a user in the system.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.60\textwidth]{billeder/RP-Roller2.jpg}
+	\caption{\textit{Illustration of the different Roles
+	}\label{fig:RoleIllustration}}
+\end{figure}
 
 \subsection{Approval} \label{Approval}
 The biggest similarities between the handbook and supplier subproblems are the need for archiving files and the need for approving certain things with different intervals.
@@ -129,7 +130,7 @@ Furthermore, the Handbook  has no effect on whether a supplier is approved or no
 
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	\begin{tikzpicture}[align=center, scale=0.8, transform shape]
 	\node(supp)[process]{Supplier};
 	\node(title)[simple, above=0.5cm of supp]{Supplier-Approval\\Subproblem};
 	\node(app)[process, below=0.5cm of supp]{Approval};
@@ -175,7 +176,7 @@ Therefore, the final class diagram is as seen in \cref{fig:ClassDiagramNoSupplie
 
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}[align=center, scale=1.0, transform shape]
+	\begin{tikzpicture}[align=center, scale=0.85, transform shape]
 	\node(hand)[process]{Handbook};
 	\node(doc)[process, below=1cm of hand]{Document};
 	\node(app)[process, left=2cm of hand]{\dotuline{\textit{Approval}}};
