@@ -48,8 +48,8 @@ The seperation of concerns allows for a quite flexible architecture, where you c
 
 \subsection{Entity Framework}\label{sec:efcore}
 
-Entity Framework (EF) is a framework for mapping object-oriented data structures into a relational database, also referred to as an object-relational mapping framework, for .NET.{\color{red}\cite{efcore}}
-The job of the EF is translating the objects in memory into Structured Query Language (SQL) statements so that these objects can be stored in a database.
+Entity Framework (EF) is a framework for mapping object-oriented data structures into a relational database, also referred to as an object-relational mapping framework, for .NET \cite{efcore}.
+The job of the framework is translating the objects in memory into Structured Query Language (SQL) statements so that these objects can be stored in a database.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance=1cm, minimum height=0.6cm]
@@ -61,10 +61,10 @@ The job of the EF is translating the objects in memory into Structured Query Lan
 		\draw[arrow] (sql) -- (efcore);
 		\draw[arrow] (efcore) -- (sql);
 	\end{tikzpicture}
-	\caption{The relationship between ASP.NET Core and the Relational Database, with the EF acting as a glue between the two layers}\label{fig:ASP-Entity}
+	\caption{The relationship between ASP.NET Core and the Relational Database, with framework acting as a glue between the two layers}\label{fig:ASP-Entity}
 \end{figure}
 
-To use the EF, everything needed to do in the code is to provide a context object.
+To use the framework, everything needed to do in the code is to provide a context object.
 which mediates the connection, giving the configuration arguments a connection to a database requires.
 This context defines the sets of objects to be stored in the database, and also the database to be used.
 The EF supports multiple kinds of databases, from MariaDB to PostgreSQL.

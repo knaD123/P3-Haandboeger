@@ -37,7 +37,7 @@ They still have to approve it, but they can do so unilaterally
 
 It is worth noting, that it is also possible to add a new document without attaching any file.
 The former design did not offer the option of attaching the file immediately but required that the user first made a new document and then made a version to attach to that document.
-During the first usability test, see {\color{red}\cref{labellist}}, this workflow was a source for confusion and therefore it was changed.
+During the first usability test, see \cref{firsttest}, this workflow was a source for confusion and therefore it was changed.
 The reason that the empty document remains an option is that it provides the possibility to structure the handbook without necessarily having all of the contents.
 Additionally it also serves to save an ID and title combination as these cannot be reused.
 
@@ -118,7 +118,6 @@ This data is used for audits and data integrity is therefore a bigger concern th
 During the interviews with Ipsen, it was determined that it should not be possible for the user to turn off notifications.
 However, as not all users have e-mails or phone numbers these are optional to add and the users themselves have access to edit these.
 This means that while the users cannot turn notifications off, they can remove their contact information which bears the same result.
-Other ways to handle this is discussed further in {\color{red}\cref{RememberToEditThisInUseCasesToo}}.
 
 \subsubsection{Manage users}
 While every user can edit their own information, the administrator also has access to edit other users information through the 'User Administration' link in the sidebar.
@@ -156,7 +155,7 @@ They access this information as described in \cref{tab:read-status} and visualiz
 \input{Chapters/ApplicationDomain/UseCaseTables/Read-Status-Tab}
 \input{Chapters/ApplicationDomain/UseCaseStates/ReadStatus-Fig}
 
-In the read status pop-up, people are divided into people who have read and who should have read, because only the people who are connected to that document through a department are shown.
+In the read status popup, people are divided into people who have read and who should have read, because only the people who are connected to that document through a department are shown.
 This decision was made to not clutter the view with unnecessary information.
 Should a document that is not connected to any department appear, the read status will simply show a message stating that it is not connected.
 
@@ -176,5 +175,4 @@ In that case, it would perhaps be better to mimic the design also used at the fr
 The same is true for the users, however, this system is meant for a small firm which required something simple and cheap as the existing systems were too expensive, as explained in \cref{factor}.
 Therefore, it is assumed that the amount of users will not exceed what can be comfortably displayed on a page.
 
-The design in {\color{red}\cref{design}} explains how the functionality is designed to best support these use cases.
-Moreover, they also serve as the basis for the tasks made for the usability test, \cref{secondtest}, in order to verify that the system is capable of this.
+The use cases serve as the basis for the tasks made for the usability tests, \cref{thirdtest, fourthtest}, in order to verify that the system is capable of this.

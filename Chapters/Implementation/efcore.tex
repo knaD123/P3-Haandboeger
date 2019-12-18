@@ -1,10 +1,8 @@
 \subsection{Entity Framework Core}
 EF Core is used to communicate with the postgresql database, which on its own is not object-oriented.
 For more information on EF Core see \cref{sec:efcore}.
-
 Postgresql was chosen as the database for this development project.
 The decision was purely based on prior experiences with setting up such a database.
-Postgresql is often better suited for more advanced applications, {\color{red}[CITATION NEEDED]} but as this application mostly uses CRUD operations with few to no complicated queries, this was hardly relevant.
 
 \subsubsection{HandbookContext}
 The \texttt{HandbookContext} is the class that handled communication between the database and the application.
