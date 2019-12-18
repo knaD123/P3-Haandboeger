@@ -2,25 +2,21 @@
 The project was developed using Docker.
 Docker is a containerization technology.
 Much like virtualization, it allows for having isolated processes, but virtualization goes much further than containerization.
-While a virtual machine simulates an entire machine, a container shares the same kernel as the host system, which is far lighter on resources \cite{docker}.
-%Anna: af interesse, hvad er det så egentligt den gør når vi arbejder på tværs af linux og windows og mac
+While a virtual machine simulates an entire machine, a container shares the same kernel as the host system,\footnote{On other operating systems, this is implemetned by actually running a virtual linux machine to run Docker inside of} which is far lighter on resources \cite{docker}.
 
 Using Docker allowed for easier management of dependencies, control over resetting databases, and guarantees of identical runtime environments.
 The Dockerfile looks as follows.
-%Taniya: noget galt med listing caption her
-\lstinputlisting{OBHandbooks/Dockerfile}[caption={Dockerfile}, label={lst:DockerFile}]
-This Dockerfile, seen in\cref{lst:DockerFile}, defines how the isolated user space in which the ASP.NET Core project would run would be set up.
-%Taniya: would run ON? would be set up
+\lstinputlisting[caption={Dockerfile}, label={lst:DockerFile}]{OBHandbooks/Dockerfile}
+This Dockerfile, seen in\cref{lst:Dockerfile}, defines how the isolated userspace, in which the ASP.NET Core project would run on, would be set up.
 As can be seen, most of it consists of running commands in the container, until line 13-18 which set some environment variables, copies the code into the container, and builds it.
 
 The Docker image generated from the Dockerfile was then used in a \texttt{Docker-compose.yml} file, which is used to create deployment structures consisting of multiple containers, see \cref{lst:DockerYml}.
-\lstinputlisting{OBHandbooks/docker-compose.yml}[caption={DockerYml}, label={lst:DockerYml}]
+\lstinputlisting[caption={Docker Compose file}, label={lst:DockerYml}]{OBHandbooks/docker-compose.yml}
 The docker file is developed in YAML Ain't Markup Language (YAML).
 Here, two Docker containers are actually used.
 The first container, defined on line three, uses the image described previously.
-It opens up ports 5000 and 5001 to the host machine, and mounts the current directory in the \texttt{/Handbooks} folder on the container.
-Finally, it defines the command to run inside the container as it is started, and links it to the second container, the database container.
-%Taniya: gætter på at der er tale om linje 9 og 10? Kunne være rart at henvise til hvilke linjer der er tale om
+On line 6-7 it opens up ports 5000 and 5001 to the host machine, and mounts the current directory in the \texttt{/Handbooks} folder on the container.
+Finally, on line 10, it defines the command to run inside the container as it is started, and links it to the second container, the database container.
 
 The second container used is way more simple.
 It uses the standard \texttt{postgres} image, and sets the password to be \texttt{mysecretpassword} via an environment variable.
