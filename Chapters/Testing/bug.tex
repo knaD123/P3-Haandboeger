@@ -1,15 +1,14 @@
+\documentclass[../../master.tex]{subfiles}
+\begin{document}
 \section{Bugs}\label{sec:Bug}
-% Hvad er en bug
 There exists a lot of terms to describe that a program is not behaving as intended or crashes; \textit{Fault, failure} and \textit{incident}.
-%Taniya: menes der crashes?
-% Henrik: Taniya, bare fix stavefejl :-P
 A reason for all these different terms is that e.g. incident might not sound negative enough to be used for very severe or dangerous errors. \cite{SoftwareTesting}
 The term \textit{bug} will be used throughout this chapter to avoid any confusions or even misunderstandings.
-A bug occurs when one of these five rules is true: \cite{SoftwareTesting} % Denne sætning skal muligvis omformuleres
+A bug occurs when one of these five criteria are fulfilled: \cite{SoftwareTesting}
 
 \begin{enumerate}
 	\item \textit{''The software doesn't do something that the product specification says it should do.''}
-	\item \textit{''The software does something that the product specification says it shouldn't do.'''}
+	\item \textit{''The software does something that the product specification says it shouldn't do.''}
 	\item \textit{''The software does something that the specification doesn't mention.''}
 	\item \textit{''The software doesn't do something that the product specification doesn't mention but should.''}
 	\item \textit{''The software is difficult to understand, hard to use, slow, or - in the software tester's eyes - will be viewed by the end user as just plain not right.''}
@@ -27,16 +26,13 @@ There can be multiple reasons in connection with the product specification for t
 \end{itemize}
 
 Other causes to why bugs happens in software are the design and code errors.
-The reasons to why bugs are introduced to the software by the design and code errors are similar to the reasons mentioned above.
-%Anna: vil meget gerne fjeren sætningen lige ovenfor, og så skrive den nedenunder som:
-%"Bugs caused by code errors may happen because of the complexity of the code or poor documentation in the code."
+The reasons why bugs are introduced to the software by the design and code errors are similar to the reasons mentioned above.
 Though, bugs caused by code errors can also happen because of the complexity of the code or poor documentation in the code.
 Many of the bugs caused by code errors can often be traced back to errors in the specification and design. \cite{SoftwareTesting}
 
 A product specification is a document, if written, that describes the product.
 The specification can be created using data from a lot of different sources e.g. usability tests, see \cref{sec:usabilitytesting}. \cite{SoftwareTesting}
 
-% Pris for at fixe det (side 18)
 Finding bugs early in the development process can reduce the cost of fixing it greatly.
 A development process can be split up into multiple phases:
 
@@ -50,14 +46,9 @@ A development process can be split up into multiple phases:
 
 This process can be done by using the e.g. the waterfall or iterative model, see \cref{sec:WaterfallModel,sec:iterativModel}.
 
-% Rasmus: Not exponentially? Logarithmic growth is very slow, and gets slower with time
-% Henrik: tjaaa... Det var hvad der stod i bogen
-The cost of fixing bugs increases logarithmically over time.
+The cost of fixing bugs increases exponentially over time.
 This means, a bug which is found while making the specification might cost nothing to fix, a bug found during the programming phase might cost thousands of dollars to fix and bugs found by the users could potentially cost millions of dollars to fix. \cite{SoftwareTesting}
 
-% Henrik: Kan der indsættes en graf der viser dette?
-
-% Ikke alle bugs vil blive fixet (side 42)
 Finding a bug does not automatically mean that it will be fixed before the software is released.
 This however, does not mean that the released software will be of poor quality.
 There are several reasons why a bug is not being fixed before the software is released: \cite{SoftwareTesting}
@@ -69,9 +60,9 @@ There are several reasons why a bug is not being fixed before the software is re
 	\item It is not a bug
 \end{itemize}
 
-% "It's not a bug, it's a feature"
 One might think, when looking at the last point in the list above, why a bug is not a bug.
 The reason for this can be because of misunderstandings or that the specification changes after the software already have some features implemented. \cite{SoftwareTesting}
 
 It has now been explained why it is important to test software, see \cref{sec:whytesting}, and what bugs are.
 The following section will explore what techniques can be used to test software and find potential bugs.
+\end{document}

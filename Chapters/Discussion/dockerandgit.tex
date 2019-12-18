@@ -1,13 +1,11 @@
 \section{Docker and Git}
 At the beginning of the project, it was chosen to use Docker to develop the system.
-This meant that the program would be identical on each computer, resembling a virtual machine.
+This meant that the programs runtime environment would be identical on each computer, resembling a virtual machine.
 Docker thus helped by having identical runs of the program, which resulted in easier isolation of problems and thus propelled the project forward at a faster pace.
-However, this also created problems, because Docker was implemented with mediocre knowledge of the technology, causing minor problems all around.
-In addition, the startup for Docker was also slow, making the time from writing code to seeing the result stretched.
+However, this also created problems, because Docker was used with minimal knowledge of the technology, causing minor problems all around.
+In addition, the startup time for Docker was also slow, making the time from writing code to seeing the result stretched.
 It can be said that Docker was smart in the intention of a more stable development, but better knowledge of the technology should be gathered beforehand, as it can be tough to learn and implement services such as PostgreSQL, Git and Docker at the same time.
 
 As mentioned in \cref{staticwhitebox}, pull requests were also used.
 Pull requests work by notifying the team members of the changes they have made, which these group members can then assess and allow to move into the program.
 This helped create an always working environment for the system, that each member always could go back to.
-That being said, it would not be necessary to use both GitHub and Docker for starters, as it leads to bloated complexity in development. 
-Looking back, it can be argued that there was probably enough robustness in the project via Git.

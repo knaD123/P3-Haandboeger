@@ -1,17 +1,43 @@
+\documentclass[../master.tex]{subfiles}
+\begin{document}
 \chapter{Conclusion}
-%mirror introduction
-The case of document management of handbooks has been analyzed and modeled in order to build a system fulfilling the requirements of the user, Pia Ipsen.
-From the beginning it was a priority that the system should be easy to use and cheap.
-Making the system usable has been central to the design process which came to show during the usability test.
-There were multiple issues but by the last usability test the majority of them were cosmetic.
-A company can set up the system on their own servers which should keep the cost reasonable.
+In \cref{problemstatement} the problem statement is presented and this section will answer if the definition was complied with.
+The project had the following statement:
 
-%conclude on toc
-The problem domain has been thoroughly analyzed in order to correctly represent it and the application domain as well in order to understand the user which enabled the design to reflect those findings.
-The work flow supported this goal, as it allowed corrections based on later findings.
-Testing has been more focused on making the system usable and less focused on making sure that it is reliable.
-The system is not implemented to the full potential of the analysis but does provide a Minimum Viable Product.
-It can however still be developed further both by fixing bugs, fulfilling the less important requirements that were not fulfilled this time around and further expanding the system.
+\input{Chapters/ProblemAnal/ProblemStatement}
 
-%reflect on problemstatement
-The analysis required to fulfill the problem statement is complete and while many things can be developed further the bare necessities are present.
+Furthermore the problem statement highlighted three aspects of the problem statement that were worth noting:
+
+\begin{itemize}
+	\item
+		\textit{Document version management:}
+		The software must be able to manage documents and their versions.
+	\item
+		\textit{Design and development:}
+		There are two main processes that the project group must undergo through the project which are the design processes and the development of the system based on the design.
+	\item
+		\textit{Administrators, readers, and writers:}
+		These are the different roles associated with the system that need to be considered both during the design and development process.
+
+\end{itemize}
+
+First, there has been developed and implemented an application that is able to manage documents.
+This has been concluded as the implementation lives up to most of the system definition, see \cref{sec:dissystemdef}, and both the \textit{Must have} and \textit{Should have} priorities from the MoSCoW prioritations, see \cref{sec:disdesignrequirements}.
+Living up to these ensures that it is possible to manage handbook documents and their versions with the implemented system.
+
+As mentioned in relation to the design and development, the project included both processes as described in the iterations in \cref{sec:workflow}.
+The design and iterations were also discussed in \cref{sec:dissystemdes}.
+Here the system design and implementation underwent several iterations based upon interviews with Ipsen in each iteration.
+These interviews, in conjunction with an examination of already existing handbook management systems, see \cref{sec:existingsolutionsintro}, and usability tests, gave a fundamental understanding of what was needed in such system.
+
+To answer a part of the problem statement in relation to the design and development, then it can be done through several iterations.
+These iterations and learning-while-doing enriched the learning process in relation to gaining knowledge about Ipsen's specific needs and what the system must include.
+
+Relating to the administrators, readers, and writers all three were included in each iteration and in the final implementation.
+As discussed in \cref{fourthtest} the interface for the administrator is not wholly intuitive, but still usable, and the tradeoff between effectiveness and easiness to learn was deemed acceptable.
+Furthermore the system is accessable for readers and writers.
+
+To conclude, a document management system can be designed and developed through several iterations where new knowledge is gained through each.
+It is through the iterations that eventual misunderstandings were solved and new requirements and ideas were discovered.
+The different access rights can be designed and implemented throughout these iterations.
+\end{document}
